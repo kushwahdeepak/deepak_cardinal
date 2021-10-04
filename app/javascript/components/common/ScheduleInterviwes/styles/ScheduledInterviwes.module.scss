@@ -1,0 +1,204 @@
+@import '../../../../styles/var.scss';
+
+.interviwesBtn {
+    border: none;
+    border-radius: 2px;
+     font-family: $default-font-family  ;
+    font-style: normal;
+    text-align: center;
+    font-weight: 800;
+    font-size: 16px;
+    line-height: 22px;
+}
+.tableFooter{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+.elementButtonGroup {
+    background: #E4E8FD;
+    border-radius: 10px;
+    padding: 3px;
+}
+.UpcomingText{
+    position: absolute;
+    width: 120px;
+    height: 27px;
+    left: 110px;
+    top: 280px;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 23px;
+    line-height: 27px;
+    text-align: center;
+    color: #000000;
+}
+.LeftArrowBackground{
+    position: absolute;
+    width: 26px;
+    height: 25px;
+    left: 353px;
+    top: 8px;
+    background: #FFFFFF;
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.15);
+    border-radius: 25px;
+}
+.RightArrowBackground{
+    position: absolute;
+    width: 26px;
+    height: 25px;
+    // left: 584px;
+    top: 9px;
+    background: #FFFFFF;
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.15);
+    border-radius: 25px;
+}
+.LeftArrow{
+    position: absolute;
+    height: 10px;
+    left: 8px;
+    top: 8px;
+}
+.RightArrow{
+    position: absolute;
+    height: 10px;
+    left: 7px;
+    top: 8px;
+}
+.monthName{
+    position: absolute;
+    width: 106px;
+    height: 36px;
+    left: 144px;
+    top: 3px;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 26px;
+    line-height: 36px;
+    color: #16246B;
+    text-align: center;
+}
+
+
+@media only screen and (min-device-width : 320px) and (max-device-width : 767px){
+    .calenders{
+        width:100%;
+        margin-bottom:55px;
+    }
+    .LeftArrowBackground{
+        right:0px !important;
+        left: auto;
+        top: 65px;
+        z-index: 1000;
+    }
+    .monthName{
+        position: absolute;
+        width: auto;
+        height: 36px;
+        left: 0px;
+        font-family: Avenir;
+        font-style: normal;
+        font-weight: 500;
+        font-size: 26px;
+        line-height: 36px;
+        color: #16246B;
+        text-align: center;
+        right: 0px;
+        top: 65px;
+        z-index: 1000;
+    }
+    .RightArrowBackground{
+        left:0px;
+        right:auto;
+        z-index: 1000;
+        top: 65px;
+    }
+    .interviwesBtn{
+            font-size: 14px;
+    }
+    .interviewsRow{
+        display: block  !important;
+        text-align: center;
+    }
+}
+@media only screen and (min-device-width : 768px) and (max-device-width : 1072px){
+    .interviewsRow{
+        text-align: center;
+        display: block  !important;
+    }
+    .LeftArrowBackground{
+        right:0px !important;
+        left: auto;
+        top: 65px;
+        z-index: 1000;
+    }
+    .monthName{
+        position: absolute;
+        width: auto;
+        height: 36px;
+        left: 0px;
+        font-family: Avenir;
+        font-style: normal;
+        font-weight: 500;
+        font-size: 26px;
+        line-height: 36px;
+        color: #16246B;
+        text-align: center;
+        right: 0px;
+        top: 65px;
+        z-index: 1000;
+    }
+    .RightArrowBackground{
+        left:0px;
+        right:auto;
+        z-index: 1000;
+        top: 65px;
+    }
+}
+@media only screen and (min-device-width : 1073px) and (max-device-width : 1340px){
+    .interviewsRow{
+        text-align: center;
+        display: block  !important;
+    }
+    .LeftArrowBackground{
+        right:0px !important;
+        left: auto;
+        top: 65px;
+        z-index: 1000;
+    }
+    .monthName{
+        position: absolute;
+        width: auto;
+        height: 36px;
+        left: 0px;
+        font-family: Avenir;
+        font-style: normal;
+        font-weight: 500;
+        font-size: 26px;
+        line-height: 36px;
+        color: #16246B;
+        text-align: center;
+        right: 0px;
+        top: 65px;
+        z-index: 1000;
+    }
+    .RightArrowBackground{
+        left:0px;
+        right:auto;
+        z-index: 1000;
+        top: 65px;
+    }
+}
+@media only screen and (min-device-width : 768px) and (max-device-width : 1600px){
+    .newrowline{
+        display:block;
+        text-align:center;
+    }
+    
+    .calenders{
+        width:100%;
+        margin-bottom:55px;
+    }
+    
+
+}

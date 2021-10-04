@@ -1,0 +1,11 @@
+<!-- erbstart app/views/user_profiles/show.html.erb -->
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>User:</strong>
+  <%= @user_profile.user %>
+</p>
+
+<%= link_to 'Edit', edit_user_profile_path(@user_profile) %> |
+<%= link_to 'Back', user_profiles_path %>
+<!-- erbend app/views/user_profiles/show.html.erb -->

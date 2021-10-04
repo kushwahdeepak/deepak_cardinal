@@ -1,0 +1,11 @@
+<!-- erbstart app/views/pages/index/_contacts.html.erb -->
+<div id="contacts">
+  <h4>Contacts</h4>
+  <ul>
+    <% @contacts.each do |contact| %>
+      <%= render 'pages/index/contacts/contact', contact: contact %>
+    <% end %>
+  </ul>
+  <%= render no_contacts_partial_path %>
+</div>
+<!-- erbend app/views/pages/index/_contacts.html.erb -->

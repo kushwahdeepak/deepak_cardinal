@@ -1,0 +1,81 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Paginator component should match with a snapshot 1`] = `
+<ul
+  className="pagination"
+  data-test="pagination"
+>
+  <li
+    className="page-item"
+  >
+    <a
+      className="page-link"
+      href="#"
+      onClick={[Function]}
+      onKeyDown={[Function]}
+      role="button"
+    >
+      <span
+        aria-hidden="true"
+      >
+        ‹
+      </span>
+      <span
+        className="sr-only"
+      >
+        Previous
+      </span>
+    </a>
+  </li>
+  <li
+    className="page-item"
+  >
+    <a
+      className="page-link"
+      data-test="first-page-btn"
+      href="#"
+      onClick={[Function]}
+      onKeyDown={[Function]}
+      role="button"
+    >
+      1
+    </a>
+  </li>
+  <li
+    className="page-item"
+  >
+    <a
+      className="page-link"
+      data-test="last-page-btn"
+      href="#"
+      onClick={[Function]}
+      onKeyDown={[Function]}
+      role="button"
+    >
+      NaN
+    </a>
+  </li>
+  <li
+    className="page-item"
+  >
+    <a
+      className="page-link"
+      href="#"
+      onClick={[Function]}
+      onKeyDown={[Function]}
+      role="button"
+    >
+      <span
+        aria-hidden="true"
+      >
+        ›
+      </span>
+      <span
+        className="sr-only"
+      >
+        Next
+      </span>
+    </a>
+  </li>
+</ul>
+`;

@@ -1,0 +1,34 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Footer component should match with a snapshot 1`] = `
+<footer>
+  <div
+    className="justify-content-between py-3 px-5 row"
+  >
+    <img
+      className="rounded"
+      src="test-file-stub"
+    />
+    <ul>
+      <li>
+        Contact Us
+      </li>
+      <li>
+        CT@CardinalTalent.ai
+      </li>
+      <li>
+        (xxx)xxx-xxx
+      </li>
+      <li>
+        <a
+          data-test="report-bug-link"
+          href="mailto:tech-support@cardinalhire.com"
+          target="_blank"
+        >
+          Report a bug
+        </a>
+      </li>
+    </ul>
+  </div>
+</footer>
+`;

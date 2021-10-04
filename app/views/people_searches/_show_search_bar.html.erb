@@ -1,0 +1,21 @@
+<!-- erbstart app/views/searches/_show_search_bar.html.erb -->
+<div class="search-bar-container">
+  <div class="top-search-bar-target">
+    <div style="margin: 0 auto; height: 1px; margin-bottom: 20px;"></div>
+    <div style="width: 100%; margin-bottom: 20px;">
+      <%= image_tag("logo-pure-white.png", size: "50x50", alt: "Logo White", style: "margin: 0 auto; display: block;") %>
+    </div>
+    <h1 style="text-align: center;color: white;">World-Class Talent On Demand</h1>
+    <h2 style="text-align: center;color: white; font-weight: 350;">30,000+ Top Talent Who Are Open to New
+      Opportunities Now</h2>
+  </div>
+  <div class="search-bar">
+    <%= image_tag("icons/search.svg", alt: "search", class: "search-icon") %>
+    <%= f.text_field :keyword, class: 'form-control new_search_1', placeholder: "Start a new search" %>
+    <%= f.submit "Find Candidate", class: 'submit_new_search' %>
+    <!-- <div class="advance-options">
+      <a href="" >Advanced</a> | <a href="" >History</a>
+    </div> -->
+  </div>
+</div>
+<!-- erbend app/views/searches/_show_search_bar.html.erb -->

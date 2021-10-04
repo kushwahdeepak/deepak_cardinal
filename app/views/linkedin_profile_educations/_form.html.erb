@@ -1,0 +1,89 @@
+<!-- erbstart app/views/linkedin_profile_educations/_form.html.erb -->
+<%= form_for(linkedin_profile_education) do |f| %>
+  <% if linkedin_profile_education.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(linkedin_profile_education.errors.count, "error") %> prohibited this linkedin_profile_education from being saved:</h2>
+
+      <ul>
+      <% linkedin_profile_education.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :linkedin_profile_id %>
+    <%= f.number_field :linkedin_profile_id %>
+  </div>
+
+  <div class="field">
+    <%= f.label :school_name %>
+    <%= f.text_field :school_name %>
+  </div>
+
+  <div class="field">
+    <%= f.label :field_of_study %>
+    <%= f.text_field :field_of_study %>
+  </div>
+
+  <div class="field">
+    <%= f.label :degree %>
+    <%= f.text_field :degree %>
+  </div>
+
+  <div class="field">
+    <%= f.label :start_date %>
+    <%= f.date_select :start_date %>
+  </div>
+
+  <div class="field">
+    <%= f.label :start_date_year %>
+    <%= f.number_field :start_date_year %>
+  </div>
+
+  <div class="field">
+    <%= f.label :start_date_month %>
+    <%= f.number_field :start_date_month %>
+  </div>
+
+  <div class="field">
+    <%= f.label :end_date %>
+    <%= f.date_select :end_date %>
+  </div>
+
+  <div class="field">
+    <%= f.label :end_date_year %>
+    <%= f.number_field :end_date_year %>
+  </div>
+
+  <div class="field">
+    <%= f.label :end_date_month %>
+    <%= f.number_field :end_date_month %>
+  </div>
+
+  <div class="field">
+    <%= f.label :activities %>
+    <%= f.text_field :activities %>
+  </div>
+
+  <div class="field">
+    <%= f.label :notes %>
+    <%= f.text_field :notes %>
+  </div>
+
+  <div class="field">
+    <%= f.label :linkedin_field_of_study_id %>
+    <%= f.number_field :linkedin_field_of_study_id %>
+  </div>
+
+  <div class="field">
+    <%= f.label :linkedin_school_id %>
+    <%= f.number_field :linkedin_school_id %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
+<!-- erbend app/views/linkedin_profile_educations/_form.html.erb -->

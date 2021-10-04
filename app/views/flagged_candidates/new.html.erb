@@ -1,0 +1,17 @@
+<!-- erbstart app/views/flagged_candidates/new.html.erb -->
+<div class="space-90"></div>
+<div style="min-height: fit-content;">
+
+  <div id="side-bar">
+    
+  </div>
+
+  <div id="main-content">
+    <h1>Flag for review</h1>
+
+    <%= render 'form', flagged_candidate: @flagged_candidate, user: current_user %>
+
+    <%= link_to 'Back', flagged_candidates_path %>
+  </div>
+</div>
+<!-- erbend app/views/flagged_candidates/new.html.erb -->

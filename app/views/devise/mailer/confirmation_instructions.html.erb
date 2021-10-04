@@ -1,0 +1,11 @@
+<!-- erbstart app/views/devise/mailer/confirmation_instructions.html.erb -->
+<p>Welcome <%= @email %>! You've created an account with CardinalTalent.</p>
+
+<p>We're so glad you've joined our existing community of active job seekers, employers, and professionals from across the tech industry.</p>
+
+<p>Please confirm your account email through the link below:</p>
+
+<p><%= link_to 'Confirm my account', user_confirmation_url(@user, confirmation_token: @token) %></p>
+
+<p>After you confirm your account, you may log in, update, or delete your profile at any time. A CardinalTalent team member will be reaching out to you shortly to discuss the next steps!</p>
+<!-- erbend app/views/devise/mailer/confirmation_instructions.html.erb -->

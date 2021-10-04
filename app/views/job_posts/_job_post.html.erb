@@ -1,0 +1,17 @@
+<!-- erbstart app/views/job_posts/_job_post.html.erb -->
+<div class="col-sm-3 single-job_post-card" id=<%= job_post_path(job_post.id) %>
+  <div class="card">
+    <div class="card-block">
+      <h4 class="job_post-text">
+        <%= truncate(job_post.job_title, :length => 60) %>
+      </h4>
+      <div class="job_job_post-content">
+        <div class="job_posted-by">Posted by <%= job_post.user.name %></div>
+        <h3><%= job_post.job_title %></h3>
+        <p><%= job_post.description %></p>
+        <%= link_to "I'm interested", job_post_path(job_post.id), class: 'interested' %>
+      </div>
+    </div>
+  </div><!-- card -->
+</div><!-- col-sm-3 -->
+<!-- erbend app/views/job_posts/_job_post.html.erb -->

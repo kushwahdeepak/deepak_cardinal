@@ -1,0 +1,85 @@
+<!-- erbstart app/views/organizations/show.html.erb -->
+
+
+<div class="relative" style="display:flex; flex-direction: column; align-items: center;">
+<div class="app-aggregator">
+  <div class="big-round-square">
+    <div class="title clearfix">
+      <p style="float:left; font-size: 15px;">Organization</p>
+    </div>
+    <div class="filter">
+      <div title="" style="margin-top: 30px;font-size: 16px;">
+        <%= link_to('Add a new organization', new_organization_path) %>
+      </div>
+    </div>
+    <div class="companies">
+      <li>
+        <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">Name</th>
+            <th scope="col">Owner</th>
+            <th scope="col">Status</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><%= @organization.name %></td>
+            <td><%= @organization.owner&.name  %></td>
+            <td><%= @organization.status&.capitalize  %></td>
+            <td>
+              <div style = "margin-top:4px;">
+               <% if current_user == @organization.owner %>
+                  <%= link_to edit_organization_path(@organization) do %>
+                    <%= image_tag('icons/edit.svg', alt: 'clear search', style: 'display: inline; padding: 13px;') %>
+                  <% end %>
+                <% end %>
+              </div>
+            </td>
+            <td>
+            <% if current_user.role == 'admin' %>
+              <%= link_to organization_path(@organization), method: :delete, data: { confirm: 'Are you sure?' } do %>
+                <%= image_tag('icons/trash-2.svg', alt: 'clear search', style: 'display: inline; padding: 13px;') %>
+              <% end %>
+            <% end %>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      </li>
+      <div class="title clearfix">
+        <p style="float:left; font-size: 15px;"><b>Members of the organization</b> </br></br></p>
+      </div>
+      <% if current_user == @organization.owner %>
+        <div class="filter">
+          <div title="" style="margin-top: 30px;font-size: 16px;">
+            <%= link_to('Invite users', new_organization_invitation_path(@organization)) %>
+          </div>
+        </div>
+      <% end %>
+        <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">Email</th>
+            <th scope="col">Name</th>
+            <th scope="col">Status</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @organization.invitation(current_user).each do |invitation| %>
+            <tr>
+              <td><%= invitation.invited_user.email %></td>
+              <td><%= invitation.invited_user.name %></td>
+              <td><%= invitation.status.capitalize %></td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+<!-- erbend app/views/jobs/show.html.erb -->
+
+</div>
+<!-- erbend app/views/organizations/show.html.erb -->

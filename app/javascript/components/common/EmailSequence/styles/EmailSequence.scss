@@ -1,0 +1,170 @@
+@import '../../../../styles/var';
+
+.modal-footer {
+    display: block;
+    padding: 2rem;
+}
+.modal-header {
+    padding: 2rem 2rem !important;
+}
+.save-button {
+    width: 100px;
+    background: linear-gradient(
+        94.67deg,
+        #4c68ff -1.19%,
+        #6077f4 53.94%,
+        #8185ff 102.59%
+    );
+    border-radius: 50px;
+    margin-inline-end: 40px;
+}
+.EmailRow {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: stretch;
+    flex-wrap: wrap;
+
+    > * {
+        margin-right: 0.7rem;
+
+        &:last-child {
+            margin-right: 0;
+        }
+    }
+}
+
+.email-sequence-tabs {
+    justify-content: flex-start;
+    display: flex;
+    margin-bottom: 16px;
+    width: 100%;
+    background: rgb(235, 237, 250);
+    padding: 5px;
+    border-radius: 10px;
+    .nav-item {
+        flex: 0 0 33%;
+        background: #4c68ff;
+        border-color: transparent;
+        transition: 0.2s all linear;
+        font-weight: 800;
+        font-size: 16px;
+        text-align: center;
+        white-space: nowrap;
+        background: #eaebff;
+        color: #4c68ff;
+        padding: 6px 25px;
+        font-family: $default-font-family;
+        font-style: normal;
+        line-height: 22px;
+        border: none;
+        &.active {
+            color: #ebedfa;
+            transition: 0.2s all linear;
+            border: 1px solid $primary-blue;
+            background: #4c68ff;
+            border-radius: 10px;
+        }
+        &:first-of-type {
+            border-right-width: 0.5px;
+        }
+        &:last-of-type {
+            border-left-width: 0.5px;
+        }
+    }
+}
+
+.sentOnText {
+    margin-left: 10px;
+}
+
+.input-block {
+    margin-bottom: 0.2rem;
+    display: flex;
+    align-items: center;
+    &:last-of-type {
+        margin-bottom: 0px;
+    }
+}
+.input-title {
+    font-family: $default-font-family;
+    font-style: normal;
+    font-weight: 800;
+    font-size: 0.8rem;
+    line-height: 19px;
+    display: block;
+    margin-right: 11px;
+    min-width: 45px;
+}
+.regular-input {
+    background: rgb(235, 237, 250);
+    color: $serious-blue;
+    border: 1px solid rgb(76, 104, 255);
+    display: block;
+    text-overflow: ellipsis;
+    padding: 6px 40px 5px 14px;
+    font-family: $default-font-family;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 0.8rem;
+    min-height: 25px;
+    width: 100%;
+    border: none;
+    outline: none;
+}
+.bulk-upload-modal {
+    padding: 20px;
+}
+.bulk-button {
+    background: none;
+    border: none;
+    color: #007bff;
+}
+button:disabled{
+    pointer-events: none;
+}
+.close-bulk{
+    display: flex;
+    justify-content: flex-end;
+}
+.calenderIconContainer {
+    transform: inherit;
+    margin-bottom: 2px;
+}
+.exampleCustomInput {
+    height: 33px;
+    font-size: revert;
+}
+.alert-close{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: row-reverse;
+    padding: 0.5rem 1rem;
+    .close {
+        background: none;
+        color: black;
+    }
+}
+
+.glass {
+    position: relative;
+    filter: blur(5px);
+    pointer-events:none;
+    background-size: cover;
+    opacity: 0.5;
+
+  }
+
+ .notifyText{
+    font-family: Avenir, "Lato", sans-serif;
+    font-style: normal;
+    font-weight: 800;
+    font-size: 28px;
+    line-height: 38px;
+    color: #314ce0;
+    margin: 0;
+    position: relative;
+    top: 200px;
+    left: 335px;
+ } 

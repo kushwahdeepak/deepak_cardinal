@@ -1,0 +1,33 @@
+<%= render "partials/card_form", 
+  title: form_title do %>
+
+ <% method = @job.new_record? ? 'POST' : 'PUT' %>
+  <% url = @job.new_record? ? '/jobs' : "/jobs/#{@job.id}" %>
+  <%= simple_form_for @job, 
+    url: url,
+    wrapper: :vertical_form,
+    method:method do |f|
+  %>
+
+    <%= f.error_notification message: f.object.errors[:base].to_sentence %>
+    <%= f.full_error :token %>
+    <%= f.input :name, required: true%>
+    <%= f.input :description, as: :text %>
+    <%= f.input :compensation %>
+    <%= f.input :portalcompanyname, label: "Company name", required: true, disabled: true %>
+    <%= f.input :organization_id, :as => :select, :collection => [@job.organization], :required => true, :disabled => true %>
+    <%= f.input :gen_reqs, label: "General requirements", hint: "use commas between requirements" %>
+    <%= f.input :skills, hint: "use commas between skills" %>
+    <%= f.input :pref_skills, label: "Preferred skills", hint: "use commas between preferred skills" %>
+    <%= f.input :benefits, hint: "use commas between benefits"  %>
+    <%= f.input :company_names, hint: "use commas between company names", label: 'Companies of preferred candidates' %>
+    <%= f.input :school_names, hint: "use commas between school names", label: 'Schooles of preferred candidates' %>
+    <%= f.input :experience_years, label: 'Years of experience of candidates' %>
+
+    <hr/>
+
+    <div class="form-actions mt-2">
+      <%= f.button :submit, 'Submit', class: "btn-primary" %>
+    </div>
+  <% end %>
+<% end %>

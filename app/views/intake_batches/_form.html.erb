@@ -1,0 +1,23 @@
+<%= render "partials/card_form", 
+  title: "Upload Candidate Batch",
+  alternateFormText: "create a single candidate by hand",
+  alternateFormURL: "/people/new" do %>
+
+  <%= simple_form_for @intake_batch do |f| %>
+
+    <%= f.error_notification %>
+
+    <h4 class="pl-0 mb-4" style="color: #777">Please make sure your file complies with <%= link_to '.csv file format', asset_path('/batch_candidate_format.csv') %></h4>
+      <div class="form-inputs">
+        <%= f.input :original_file, label:false, required: true %>
+      </div>
+
+      <hr/>
+
+      <div class="form-actions mt-2">
+          <%= f.button :submit, 'Submit', class: "btn-primary", id: "submit-butt"%>
+      </div>
+
+  <% end %>
+
+<% end %>

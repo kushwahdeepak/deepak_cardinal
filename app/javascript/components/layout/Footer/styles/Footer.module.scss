@@ -1,0 +1,133 @@
+@import '../../../../styles/var';
+
+.footerContainer {
+    background-color: #ebedf9;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.footerLinkContainer {
+    align-self: center;
+    display: flex;
+}
+
+.footerLogo {
+    width: 93px;
+    height: 50px;
+    align-self: flex-start;
+}
+
+.linkContainer {
+    margin-left: 66px;
+    display: inline-block;
+}
+
+.footerText {
+    font-style: normal;
+    font-family: $default-font-family;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 19px;
+    color: #414972;
+    padding: 0.5rem 1rem;
+    padding-bottom: 0;
+    padding-top: 2px;
+    &:hover {
+        color: #4c68ff;
+    }
+}
+
+.footerLink {
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 19px;
+    color: #414972;
+    padding-bottom: 0;
+    padding-top: 2px;
+    &:hover {
+        color: #4c68ff;
+    }
+}
+
+.footerpip {
+    font-size: 12px;
+    color: #4c68ff;
+}
+
+@media (max-width: 500px) {
+    .footerLinkContainer {
+        padding-right: 1rem;
+    }
+    .footerLink {
+        font-style: normal;
+        font-family: $default-font-family;
+        font-weight: 500;
+        font-size: 10px;
+        line-height: 12px;
+        color: #4c68ff;
+        padding-bottom: 0;
+    }
+
+    .footerText {
+        font-style: normal;
+        font-family: $default-font-family;
+        font-weight: 800;
+        font-size: 10px;
+        line-height: 12px;
+        color: #4c68ff;
+        padding: 0.5rem 1rem;
+        padding-bottom: 0;
+    }
+
+    .footerLogo {
+        width: 100px;
+        height: 100px;
+    }
+    .footerpip {
+        display: none;
+    }
+}
+.footerLinks{
+    align-items: center !important;
+    display: flex;
+    width: 100% !important;
+}
+
+@media only screen and (min-device-width : 320px) and (max-device-width : 575px){
+    .footerLink {
+        font-style: normal;
+        font-family: $default-font-family;
+        font-weight: 500;
+        font-size: 16px;
+        line-height: 22px;
+        color: #4c68ff;
+        padding-bottom: 0;
+    }
+    .privacyP {
+        display: block !important;
+    }
+    .footerContainer{
+        justify-content: center !important;
+        text-align: center;
+    }
+    .footerLinks{
+        align-items: center !important;
+        display: flex;
+        width: 100% !important;
+        justify-content: center !important;
+    }
+}
+@media only screen and (min-device-width : 320px) and (max-device-width : 991px){
+    .footerContainer{
+        justify-content: center !important;
+        text-align: center;
+    }
+    .footerLinks{
+        align-items: center !important;
+        display: flex;
+        width: 100% !important;
+        justify-content: center !important;
+    }
+}

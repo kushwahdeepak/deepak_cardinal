@@ -1,0 +1,80 @@
+<!doctype html>
+<html amp>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>CardinalTalent</title>
+    <link rel="canonical" href="<%= rails_amp_canonical_url %>" />
+    <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
+    <%= javascript_include_tag "application" %>
+    <%= csrf_meta_tags %>
+    <%= stylesheet_link_tag    "application", media: "all" %>
+    <%= javascript_include_tag(*webpack_asset_paths("application")) %>
+    <%= favicon_link_tag "Asset 1@0.5x.png", :rel => "apple-touch-icon", :type => "image/png" %>
+
+    <!-- Set page data type by JSON-LD with schema.org. -->
+    <script type="application/ld+json">
+      {
+        "@context": "http://schema.org",
+        "@type": "*****",
+        "mainEntityOfPage": "*****",
+        "datePublished": "*****"
+      }
+    </script>
+
+    <!-- Write custom css sytle for amp html here. -->
+    <style amp-custom>
+      body {
+      }
+      amp-img {
+      }
+    </style>
+
+    <%= rails_amp_google_analytics_head %>
+    <%= rails_amp_html_header %>
+  </head>
+  <body>
+    <script>
+      window.fbAsyncInit = function() {
+        FB.init({
+          appId      : '1309824625773613',
+          xfbml      : true,
+          version    : 'v2.9',
+          status     : 'true',
+          xfbml      : 'false'
+        });
+        FB.AppEvents.logPageView();
+      };
+      (function(d, s, id){
+         var js, fjs = d.getElementsByTagName(s)[0];
+         if (d.getElementById(id)) {return;}
+         js = d.createElement(s); js.id = id;
+         js.src = "//connect.facebook.net/en_US/sdk/debug.js";
+         fjs.parentNode.insertBefore(js, fjs);
+       }(document, 'script', 'facebook-jssdk'));
+    </script>
+
+    <header id="header" class="header clearfix">
+        <%= render 'header' %>
+    </header>
+
+    <!-- Flash Notices -->
+    <div class="flash notice clearfix">
+      <div class="relacion"></div>
+      <% flash.each do |key, value| %>
+      <div class="alert alert-<%= key %>">
+        <button type="button" class="close" data-dismiss="alert">&times;</button>
+        <%= value %>
+      </div>
+      <% end %>
+    </div><!-- flash notices end -->
+
+    <%= rails_amp_google_analytics_page_tracking %>
+    <%= yield %>
+
+
+    <footer class="footer clearfix" style="border-top: 5px solid #4B6D90;">
+        <%= render 'footer' %>
+    </footer>
+  </body>
+</html>

@@ -1,0 +1,61 @@
+<!-- erbstart app/views/people/_person_result_scripts.html.erb -->
+<script>
+    $(document).ready(function() {
+        document.addEventListener("DOMContentLoaded", function(event) {
+            document.querySelector('.sub-cont .img__btn').addEventListener('click', function() {
+                document.querySelector('.cont').classList.toggle('s--signup');
+            });
+        });
+        $("#option-list").slideUp();
+    });
+    var personOpen = true
+    var notesOpen = false
+    var open = false
+    // var id = "<%= person.id.to_s %>"
+    // var talentnav = id + "talentnav"
+    // var notesnav = id + "notesnav"
+    // var result = id + "result"
+    // var notes = id + "notes"
+    function personfunc(talentnav, notesnav, result, notes) {
+        // console.log(talentnav);
+        // console.log(notesnav);
+        // console.log(result);
+        // console.log(notes);
+        // if(!personOpen) {
+        $(talentnav).removeClass("off-navbar-2");
+        $(notesnav).addClass("off-navbar-2");
+        $(result).css({"display":"block"});
+        $(notes).css({"display":"none"});
+        $(talentnav).css({"border-radius": "15px 15px 0 0"});
+        $(notesnav).css({"border-radius": "unset"});
+        //   personOpen = true
+        //   notesOpen = false
+        // }
+    }
+    function notesfunc(talentnav, notesnav, result, notes) {
+        // console.log(talentnav);
+        // console.log(notesnav);
+        // console.log(result);
+        // console.log(notes);
+        // if(!notesOpen) {
+        $(notesnav).removeClass("off-navbar-2");
+        $(talentnav).addClass("off-navbar-2");
+        $(talentnav).css({"border-radius": "unset"});
+        $(notesnav).css({"border-radius": "15px 15px 0 0"});
+        $(result).css({"display":"none"});
+        $(notes).css({"display":"block"});
+        //   personOpen = false
+        //   notesOpen = true
+        // }
+    }
+    function showOptions() {
+        if (!open) {
+            $("#option-list").slideDown();
+            open = true;
+        } else {
+            $("#option-list").slideUp();
+            open = false;
+        }
+    }
+</script>
+<!-- erbend app/views/people/_person_result_scripts.html.erb -->

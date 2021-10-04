@@ -1,0 +1,35 @@
+<!-- erbstart app/views/linkedin_profile_recommendations/index.html.erb -->
+<p id="notice"><%= notice %></p>
+
+<h1>Linkedin Profile Recommendations</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Text</th>
+      <th>Type</th>
+      <th>Recommender</th>
+      <th>Linkedin profile</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @linkedin_profile_recommendations.each do |linkedin_profile_recommendation| %>
+      <tr>
+        <td><%= linkedin_profile_recommendation.text %></td>
+        <td><%= linkedin_profile_recommendation.type %></td>
+        <td><%= linkedin_profile_recommendation.recommender_id %></td>
+        <td><%= linkedin_profile_recommendation.linkedin_profile_id %></td>
+        <td><%= link_to 'Show', linkedin_profile_recommendation %></td>
+        <td><%= link_to 'Edit', edit_linkedin_profile_recommendation_path(linkedin_profile_recommendation) %></td>
+        <td><%= link_to 'Destroy', linkedin_profile_recommendation, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Linkedin Profile Recommendation', new_linkedin_profile_recommendation_path %>
+<!-- erbend app/views/linkedin_profile_recommendations/index.html.erb -->

@@ -1,0 +1,9 @@
+<%= react_component("pages/ScheduledInterviwesPage/ScheduledInterviwesPage",
+    {
+      webSocketsUrl: ENV['WEBSOCKETS_URL'],
+      personId: current_user.id,
+      user: current_user,
+      jobs: @current_user_organization_jobs
+    }
+  )
+%>

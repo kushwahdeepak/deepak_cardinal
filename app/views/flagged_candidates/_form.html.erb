@@ -1,0 +1,14 @@
+<!-- erbstart app/views/flagged_candidates/_form.html.erb -->
+<%= simple_form_for(@flagged_candidate) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.association :user %>
+    <%= f.association :person %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>
+<!-- erbend app/views/flagged_candidates/_form.html.erb -->

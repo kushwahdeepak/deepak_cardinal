@@ -1,0 +1,11 @@
+  <%= react_component("pages/JobDescriptionPage/JobDescriptionPage", {
+    jobModel: @job.to_hash,
+    currentUser: current_user,
+    isApplied: @is_applied,
+    showInviteFriends: @show_invite_friends,
+    appliedDate: @applied_date, 
+    organizationId: @organizationId,
+    jobLocation: @job_location,
+    publicUrl:  @url,
+    organization: @organization,
+  }) %>

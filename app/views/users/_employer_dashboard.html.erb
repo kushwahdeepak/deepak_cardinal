@@ -1,0 +1,29 @@
+<!-- erbstart app/views/users/_employer_dashboard.html.erb -->
+      <% if session[:alerted] == true %>
+        <%= render :partial => 'layouts/alert_box_dismissable' %>
+        <div style="padding-bottom: 10px;"></div>
+      <% end %>
+
+      <% if session[:modal] == true %>
+        <div id="my_modal_content"></div>
+      <% end %>
+
+      <div class="submittal-stage">
+        <h3>Candidates you requested
+          <small class="text-muted">
+            <% if current_user.follows.any? %>
+            <%= pluralize(current_user.follows.count, 'candidate') %>
+            <% else %>
+            <%= 'No requested candidates to show' %>
+            <% end %>
+          </small>
+        </h3>
+        <div style="min-height: 400px;">
+          <% if current_user.follows.any? %>
+          <% current_user.follows.each do |candidate| %>
+          <%= render :partial => 'people/person_result', locals: { person: Person.find(candidate.followable_id) } %>
+          <% end %>
+          <% end %>
+        </div>
+      </div>
+<!-- erbend app/views/users/_employer_dashboard.html.erb -->

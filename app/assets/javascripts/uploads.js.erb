@@ -1,0 +1,49 @@
+$(function () {
+  Dropzone.autoDiscover = true;
+
+  Dropzone.options.dropzoneForm = {
+    method: "post",
+    maxFilesize: 10,
+    paramName: 'document',
+    uploadMultiple: true,
+    acceptedFiles: ".pdf",
+    autoProcessQueue: false,
+    addRemoveLinks: true,
+    dictDefaultMessage: "<strong> Drop files here or click to upload</strong>",
+    init: function() {
+      var me = this;
+      $.get("<%= Rails.application.routes.url_helpers.list_uploads_path %>", function(data) {
+        $.each(data.documents, function(key, value) {
+          if (data.documents != undefined && data.documents.length > 0) {
+            me.emit("addedfile", value);
+            me.emit("thumbnail", value, value.src);
+            me.emit("complete", value);
+
+            $(value._removeLink).attr("id", value.id);
+          }
+        });
+      });
+      this.on("complete", function(file) {
+        $(".dz-remove").html("<div><span class='fa fa-trash text-danger' style='font-size: 1.5em'></span></div>");
+      });
+    },
+    success: function(file, response) {
+      $(file.previewElement).find('.dz-remove').attr('id', response.uploadId);
+      $(file.previewElement).addClass('dz-success');
+    },
+    removedfile: function(file) {
+      var id = $(file.previewTemplate).find('.dz-remove').attr('id');
+
+      $.ajax({
+        type: 'DELETE',
+        url: "/uploads/" + id,
+        success: function(data) {
+          console.log(data.message);
+        }
+      });
+
+      var previewElement;
+      return (previewElement = file.previewElement) != null ? (previewElement.parentNode.removeChild(file.previewElement)) : (void 0);
+    }
+  };
+})

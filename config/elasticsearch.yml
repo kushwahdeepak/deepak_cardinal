@@ -1,0 +1,16 @@
+development: &default
+  transport_options:
+    request:
+      timeout: 300
+test:
+  <<: *default
+  host: 'http://localhost:9200'
+  port: '9200'
+
+staging:
+  <<: *default
+  host: https://vpc-cardinalhire-staging-u4i3bvoak6v2nz4ynb5sjsklfi.us-east-2.es.amazonaws.com
+
+production:
+  <<: *default
+  host: https://vpc-cardinalhire-prod-yivwimbre5c6j2zralivu5e2ry.us-east-2.es.amazonaws.com

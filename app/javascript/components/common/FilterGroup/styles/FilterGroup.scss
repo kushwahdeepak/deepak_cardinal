@@ -1,0 +1,133 @@
+@import '../../../../styles/var';
+
+.filters-card {
+    color: #474953;
+    padding: 25px 35px 27px;
+    background: #FFFFFF;
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
+    border-radius: 15px;
+    width: 275px;
+    .filters-title {
+        font-family: $default-font-family;
+        font-style: normal;
+        font-weight: 500;
+        font-size: 14px;
+        line-height: 39px;
+        margin-bottom: 3px !important;
+        padding: 10px;
+        padding-top: 0px !important
+    }
+    .filterBtn{
+        margin-top: 15px;
+        font-family: Avenir, "Lato", sans-serif !important;
+        font-style: normal !important;
+        font-weight: 800 !important;
+        font-size: 16px !important;
+        line-height: 22px !important;
+        color: #ffffff;
+        background: linear-gradient(94.67deg, #4C68FF -1.19%, #6077F4 53.94%, #8185FF 102.59%);
+        border-radius: 20px !important;
+        padding: 9px 27px !important;
+    }
+}
+
+.candidate-card{
+    background: #FFFFFF;
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
+    border-radius: 15px;
+    padding: 2rem;
+    margin-top: 44px;
+    .filters-title {
+        font-family: $default-font-family;
+        font-style: normal;
+        font-weight: 500;
+        font-size: 14px;
+        line-height: 39px;
+        padding-left: 10px;
+        margin-bottom: 3px !important;
+        padding: 10px;
+        padding-top: 0px !important
+    }
+    .accordion{
+        .collapse{
+            margin-top: 0px !important;
+            margin-bottom: 0px !important;
+        }
+    }
+}
+
+.accordion{
+    padding: 10px;
+    .collapse{
+        margin-top: 10px !important;
+        margin-bottom: 10px !important;
+        .form-control{
+            background: #FFFFFF !important;
+            box-shadow: 0px 4px 5px rgba(0, 0, 0, 0.05) !important;
+            border-radius: 5px !important;
+        }
+        .btn svg{
+            margin-right: 0px !important;
+        }
+        .btn{
+            background: #E6E9FC !important;
+            border-radius: 25px;
+            color: #98A3D9;
+            padding: 5px 8px 5px 8px;
+        }
+        .tagTextInput{
+            width: 100%;
+            height: calc(1.5em + 0.75rem + 2px);
+            padding: 0.375rem 0.75rem;
+            font-size: 1rem;
+            font-weight: 400;
+            line-height: 1.5;
+            color: #495057;
+            background: #FFFFFF !important;
+            box-shadow: 0px 4px 5px rgba(0, 0, 0, 0.05) !important;
+            border-radius: 5px !important;
+        }
+    }
+}
+
+.btn-expander{
+    color: #474953 !important;
+    font-size: 12px !important;
+    background-color:none !important;
+}
+.btn:focus, .btn-primary:focus, .btn-primary:not(:disabled):not(.disabled):active:focus {
+    background-color: #4c68ff;
+}
+.pill{
+    padding: 8px !important;
+    border: 1px solid #98A3D9;
+    border-radius: 20px;
+    margin-right: 5px;
+    margin-bottom: 5px;
+    .pill-close-btn{
+        background: none;
+    }
+    .pill-text{
+        padding-left: 10px;
+    }
+}
+
+.card .card-body{
+    background: none !important;
+}
+
+
+@media only screen and (min-device-width : 320px) and (max-device-width : 890px){
+    .filters-card {
+        width: 100%;
+        text-align:center;
+        padding: 25px 25px 27px !important;
+    }
+    .filterBtn{
+        margin-left:0px !important;
+    }
+}
+
+.accordion {
+    width:100% !important;
+}

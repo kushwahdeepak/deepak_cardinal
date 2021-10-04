@@ -1,0 +1,16 @@
+<!-- erbstart app/views/submitted_candidates/build/_user_fields.html.erb -->
+<div class="nested-form">
+
+<%= simple_form_for((current_user ||= User.new), method: :put, url: wizard_path) do |f| %>
+
+<div class="form-inputs">
+  <%= f.input :email %>
+  <%= f.input :password %>
+  <%= f.input :password_confirmation %>
+  <%= f.input :accepts %>
+  <%= f.input :accepts_date, as: :hidden, value: Date.today %>
+</div>
+
+<% end %>
+</div>
+<!-- erbend app/views/submitted_candidates/build/_user_fields.html.erb -->

@@ -1,0 +1,100 @@
+@use 'sass:color';
+@import '../../../../../styles/var';
+
+
+
+.headerContainer {
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 3rem;
+    align-items: center;
+}
+
+.buttonContainer{
+    background: rgb(235, 237, 250);
+    padding:5px;
+    border-radius: 10px;
+}
+.referralCandidateValue{
+  width: 80px;
+  position: relative;
+  top: -11px;
+  float: right;
+  right: 380px
+}
+.jobButton {
+    padding: 6px 25px;
+    background: #4c68ff;
+    font-family:$default-font-family;
+    font-style: normal;
+    font-weight: 800;
+    font-size: 16px;
+    line-height: 22px;
+    border: none;
+    border-radius: 2px;
+    &:hover {
+        background-color:none !important;
+        border: none !important;
+    }
+}
+.rowButton {
+    padding: 9px 25px;
+    background: #4c68ff;
+    border-radius: 50px;
+    font-family:$default-font-family;
+    font-style: normal;
+    font-weight: 800;
+    font-size: 16px;
+    line-height: 22px;
+    margin-left: 50px;
+    color: #ffffff;
+    margin-top: 1px;
+    margin-bottom: 1.5px;
+}
+
+.addDescriptionEditor{
+    width: 100%;
+    margin-top: 0.25rem;
+    font-size: 80%;
+    color: #dc3545;
+}
+
+@media only screen and (min-device-width : 320px) and (max-device-width : 767px){
+    .headerContainer {
+        display: block;
+        flex-direction: row;
+        margin-bottom: 3rem;
+    }
+    .jobButton{
+        padding: 4px 8px;
+    }
+    .buttonContainer{
+        margin-bottom:10px;
+    }
+    .show{
+        top: 89px !important;
+        position: absolute !important;
+        width: 90% !important;
+        text-align: center !important;
+        left: 0 !important;
+        right: 0px !important;
+        margin: auto !important;
+    }
+    .rowButton{
+        margin-top: 15px !important;
+        margin-left: auto !important;
+        margin-right: auto !important;
+    }
+}
+@media only screen and (min-device-width : 768px) and (max-device-width : 1072px){
+    .headerContainer {
+        display: block;
+        flex-direction: row;
+        margin-bottom: 3rem;
+    }
+    .rowButton{
+        margin-top: 15px !important;
+        margin-left: auto !important;
+        margin-right: auto !important;
+    }
+}

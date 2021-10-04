@@ -1,0 +1,438 @@
+<!-- erbstart app/views/searches/_person_accessible.html.erb -->
+<% person = @person %>
+
+<%= panel_row column_class: 'col-sm-12', id: 'panel-row', class: :en, data: {js: 1} do %>
+
+    <%= panel do %>
+        <div class='panel-body'>
+            <h3>
+                <% if person.first_name.blank? || person.last_name.blank? %>
+                  <%= click_to_edit person, path: person_path(person), id: "editable-name-#{1}", attribute: :name,  value: (person[:first_name] || ""), submit_on_blur: true, remote: true %>
+                <% else %>
+                  <%= click_to_edit person, path: person_path(person), id: "editable-first-name-#{2}", attribute: :first_name, value: (person[:first_name] || ""), submit_on_blur: true, remote: true %>
+                <% end %>
+              <small class="text-muted">
+                <% if person.user %>
+                  <%= person.user.position_desc.present? ? person.user.position_desc : 'Active, incomplete profile.' %>
+                <% else %>
+                  <%= '' %>
+                <% end %>
+              </small>
+            </h3>
+
+            <div class="col-3 col-md-3 col-sm-3">
+              <div class="" style="display: flex; justify-content: center;">
+                <%= link_to person_path(person), target: :_blank do %>
+                  <% if person.linkedin_profiles.first && person.linkedin_profiles.first.picture_url.present? %>
+                    <%= image_tag person.linkedin_profiles.first.picture_url, class: 'rounded', width: 125, height: 125 %>
+                  <% else %>
+                    <%= image_tag "placeholder.png", class: 'rounded', width: 125, height: 125 %>
+                  <% end %>
+                <% end %>
+              </div>
+            </div>
+            <div class="col-9 col-md-9 col-sm-9">
+
+              <%= render partial: 'action-items', locals: {person: person} %>
+
+              <h4>
+                  <%= link_to person.name, person_path(person), target: :_blank %>
+              </h4>
+
+              <p class="font-weight-bold"><%= person.first_name unless person.first_name.nil? %>&nbsp;<%= person.last_name %></p>
+              <p class="font-weight-normal"></p>
+              <p class="font-weight-light"></p>
+
+              <p class="font-weight-bold"><%= person.first_name unless person.first_name.nil? %>&nbsp;<%= person.last_name %></p>
+              <p class="font-weight-normal">
+                <ul class="list-inline">
+                  <% for person_attrib in person.attributes do %>
+                  <li class="list-inline-item"><%= person_attrib %></li>
+                  <% end %>
+                  <% unless person.user.nil? %>
+                    <% for user_attrib in person.user.attributes do %>
+                      <li class="list-inline-item"><%= user_attrib %></li>
+
+                      <div class="" style="display: flex; flex-wrap: wrap; flex-direction: row; justify-content: space-evenly;">
+                        <span class="label label-default" style="padding: 0.1rem; margin: 0.1rem;">GITHUB</span>
+                        <span class="label label-default" style="padding: 0.1rem; margin: 0.1rem;">PORTFOLIO</span>
+                        <span class="label label-default" style="padding: 0.1rem; margin: 0.1rem;">STACKOVERFLOW</span>
+                        <span class="label label-default" style="padding: 0.1rem; margin: 0.1rem;">RESUME</span>
+                      </div>
+                    <% end %>
+                  <% end %>
+                </ul>
+              </p>
+              <p class="font-weight-light"><p>
+
+              <p><b>Technical Project Manager</b> at Internet Giant</p>
+              <p class="lead">Enthusiastic Engineer interested in obtaining a Software Engineering full-time opportunity</p>
+              <ul class="list-inline">
+                <li class="list-inline-item">Located in Anytown, USA</li>
+                <li class="list-inline-item">Prefers $95,000/yr</li>
+              </ul>
+              <p>Interested in <b>Software Engineering</b> roles</p>
+
+              <div class="row">
+                <div class="col-3 col-md-3 col-sm-3 col-xs-3">
+                  <ul class="list-inline">
+                    <i class="fa fa-briefcase" aria-hidden="true"></i>&nbsp;
+                  </ul>
+                </div>
+                <div class="col-9 col-md-9 col-sm-9 col-xs-9">
+                  <p class="list-inline-item">Internet Developers, Inc. <small>7 months</small></p>
+                  <p class="list-inline-item">Dowhatsit Intl. <small>3 years</small></p>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col-3 col-md-3 col-sm-3 col-xs-3">
+                  <ul class="list-inline">
+                    <i class="fa fa-graduation-cap" aria-hidden="true"></i>&nbsp;
+                  </ul>
+                </div>
+                <div class="col-9 col-md-9 col-sm-9 col-xs-9">
+                  <p>Stanberkfordley Univ. <small>Master of Science, Computer Science</small></p>
+                  <p>Apt Institute of Technology <small>Bachelor of Science, Computer   Science</small></p>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col-3 col-md-3 col-sm-3 col-xs-3">
+                  <ul class="list-inline">
+                    <i class="fa fa-wrench" aria-hidden="true"></i>&nbsp;
+                  </ul>
+                </div>
+                <div class="col-9 col-md-9 col-sm-9 col-xs-9">
+                  <ul class="list-inline">
+                    <li class="list-inline-item">Java</li>
+                    <li class="list-inline-item">Node</li>
+                    <li class="list-inline-item">HTML/CSS</li>
+                    <li class="list-inline-item">SQL</li>
+                    <li class="list-inline-item">And more...</li>
+                  </ul>
+                </div>
+              </div>
+
+              <div class="" style="display: flex; flex-wrap: wrap; flex-direction: row; justify-content: space-evenly;">
+                <% if person.linkedin_profiles.first && person.linkedin_profiles.first.public_profile_url.present? %>
+                    <%= link_to person.linkedin_profiles.first.public_profile_url, target: :_blank do %>
+                      <span class="label label-primary" style="padding: 0.1em; margin: 0.1em;">
+                        LINKEDIN
+                      </span>
+                    <% end %>
+                <% end %>
+                <% if person.linkedin_profile_url.present? %>
+                    <%= link_to person.linkedin_profile_url, target: :_blank do %>
+                      <span class="label label-primary" style="padding: 0.1em; margin: 0.1em;">
+                        LinkedIn
+                      </span>
+                    <% end %>
+                <% end %>
+                <% unless person.email_address_ids.blank? %>
+                  <span class="label label-success" style="padding: 0.2em;">EMAIL</span>
+                <% end %>
+                <% unless person.phone_number_ids.blank? %>
+                  <span class="label label-warning" style="padding: 0.2em;">PHONE</span>
+                <% end %>
+                <% if person.top_company == true %>
+                  <span class="label label-default" style="padding: 0.2em;">TOP SCHOOL</span>
+                <% end %>
+                <% if person.top_company == true %>
+                  <span class="label label-danger" style="padding: 0.2em;">TOP COMPANY</span>
+                <% end %>
+                <% if person.active == true %>
+                  <span class="label label-default" style="padding: 0.2em;">ACTIVE</span>
+                <% end %>
+                <% if person.recently_added == true %>
+                  <span class="label label-warning" style="padding: 0.2em;">RECENTLY ADDED</span>
+                <% end %>
+                <% if person.recently_added == true %>
+                  <span class="label label-warning" style="padding: 0.2em;">RECENTLY ADDED</span>
+                <% end %>
+              </div>
+              <div class="space-10"></div>
+              <div class="" style="display: flex; flex-wrap: wrap; flex-direction: row; justify-content: space-evenly;">
+                <%= modal title: ' More detail', size: :large, id: 'modal', button: {class: :en} do %>
+                  <div class="modal-body">
+
+                    <div class="post" style="display: flex; flex-direction: column;">
+                      <div class="postUser" style="width: auto; height: auto; position: static;">
+                        <div class="postUser__portrait" style="min-width: 125; min-height: 125; justify-content: left; align-items: left;">
+                          <%= link_to person_path(person), target: :_blank do %>
+                            <% if person.linkedin_profiles.first && person.linkedin_profiles.first.picture_url.present? %>
+                              <%= image_tag person.linkedin_profiles.first.picture_url, class: 'rounded', width: 125, height: 125 %>
+                            <% else %>
+                              <%= image_tag "placeholder.png", class: 'rounded', width: 125, height: 125 %>
+                            <% end %>
+                          <% end %>
+                        </div>
+                      </div>
+
+                      <div class="postUser" style="width: auto; height: auto; position: static;">
+                        <div class="postBody">
+                            <div class="postBody__content">
+                              <div class="postUser__name">
+                                <p style="text-align: left; color: black;">
+                                  <% if person[:first_name].present? && person[:last_name].present? %>
+                                        <%= link_to (person[:first_name] + ' ' + person[:last_name]), person_path(person), target: :_blank %>
+                                    <% else person[:name].blank? %>
+                                        <%= link_to (person[:name]), person_path(person), target: :_blank %>
+                                    <% end %>
+                                </p>
+                                <p style="text-align: left; color: black;">
+                                  <% unless person[:title].blank? %>
+                                  <%= person[:title] %>
+                                  <% end %>
+                                </p>
+                              </div>
+
+                              <div class="actions" style="text-align: left; color: black; align-items: left;">
+                                  <% if current_user %>
+                                    <%= render partial: 'action-items', locals: {person: person} %>
+                                  <% end %>
+                              </div>
+
+                              <% if person.email_addresses.first && person.email_addresses.first.email %>
+                              <div class="person_email">
+                                <% if (current_user.role == "member" || current_user.role == "admin") %>
+                                  <p style="text-align: left; color: black;">
+                                      <i class="fa fa-fw fa-envelope"></i>
+                                        Email: <%= person.email_addresses.first.email %>
+                                        <% if person.email_addresses.count > 1 %>
+                                         and <%= (person.email_addresses.count - 1) %> <%= link_to 'more email addresses found.', person_path(person), target: :_blank %>
+                                        <% end %>
+                                  </p>
+                                <% else %>
+                                  <p style="text-align: left; color: black;">
+                                    <i class="fa fa-fw fa-envelope"></i>
+                                    Email addresses found for this candidate.
+                                  </p>
+                                <% end %>
+                              </div>
+                              <% end %>
+
+                              <% if person.phone_numbers.first && person.phone_numbers.first.value %>
+                                <div class="person_phone">
+                                  <% if (current_user.role == "member" || current_user.role == "admin" ) %>
+                                    <p style="text-align: left; color: black;">
+                                      <i class="fa fa-fw fa-phone"></i>
+                                        Phone numbers: <%= person.phone_numbers.first.value %>
+                                        <% if person.phone_numbers.count > 1 %>
+                                         and <%= (person.phone_numbers.count - 1) %> <%= link_to 'more phone numbers found.', person_path(person), target: :_blank %>
+                                        <% end %>
+                                    </p>
+                                  <% else %>
+                                    <p style="text-align: left; color: black;">
+                                      <i class="fa fa-fw fa-phone"></i>
+                                      Phone numbers found for this candidate.
+                                    </p>
+                                  <% end %>
+                                </div>
+                              <% end %>
+
+                              <% if person.company_names.present? %>
+                                <div class="person_employer">
+                                  <p style="text-align: left; color: black;">
+                                    <i class="fa fa-fw fa-building"></i>
+                                    Companies: <%= truncate(person[:company_names].to_s, :length => 25) %>
+                                  </p>
+                                </div>
+                              <% end %>
+                              <% if person.linkedin_profiles.first && person.linkedin_profiles.first.public_profile_url %>
+                                <div class="person_links">
+                                  <p style="text-align: left; color: black;">
+                                    <i class="fa fa-fw fa-link"></i>
+                                    Links: <%= person.linkedin_profiles.first.public_profile_url %>
+                                    <% if person.linkedin_profiles.count > 1 %>
+                                     and <%= (person.linkedin_profiles.count - 1) %> <%= link_to 'more external links found.', person_path(person), target: :_blank %>
+                                    <% end %>
+                                  </p>
+                                </div>
+                              <% end %>
+                              <% if person.skills.present? %>
+                                <div class="person_skills">
+                                  <p style="text-align: left; color: black;">
+                                  <i class="fa fa-fw fa-envelope-o"></i>
+                                      Skills: <%= truncate(person[:skills].to_s, :length => 25) %>
+                                  </p>
+                                </div>
+                              <% end %>
+                            </div>
+                          </div>
+
+                          <div class="postUser">
+
+                          <div class="postBody__date">
+
+                              <% if current_user && (current_user.role == "member" || current_user.role == "admin") %>
+                                  <div class='js-notes'>
+                                      <% person.notes.take(3).each do |note| %>
+                                          <%= content_tag :div, class: 'media', id: "note-#{note.id}" do %>
+                                              <div class="media-body">
+                                                <div class="row">
+                                                  <div class="col-xs-3 col-sm-3 col-md-3">
+                                                    <%= link_to person_path(person), target: :_blank do %>
+                                                    <span class="label label-primary">NOTE</span>
+                                                    <% end %>
+                                                  </div>
+                                                  <div class="col-xs-6 col-sm-6 col-md-6">
+                                                    <%= note.body %>
+                                                  </div>
+                                                  <div class="col-xs-3 col-sm-3 col-md-3">
+                                                    <small>
+                                                    <% if current_user.id == note.user_id %>
+                                                        <%= link_to "Delete", note_path(note), method: :delete, data: { confirm: 'Are you sure?' } %>
+                                                    <% end %>
+                                                    </small>
+                                                  </div>
+                                                </div>
+                                                <div class="row">
+                                                  <div class="col-xs-12 col-sm-12 col-md-12">
+                                                    <small>
+                                                      <% noted_user = User.where(id: note.user_id) %>
+                                                      <%= noted_user.first.email %> noted on <%= person.name %> <%= time_ago_in_words(note.created_at) %> ago.
+                                                    </small>
+                                                  </div>
+                                                </div>
+                                              </div>
+                                        <% end %>
+                                    <% end %>
+                                  </div>
+                              <% end %>
+
+                              <div class="media">
+
+                                <% if (current_user.role == 'member' || current_user.role == 'admin') %>
+
+                                  <h6>Add a Note</h6>
+                                  <%= form_for [person, Note.new], html: {class: "form-group"}, authenticity_token: true do |f| %>
+                                    <%= f.label :body, class: 'sr-only' %>
+                                    <%= f.text_field :body, class: 'form-control pull-right', placeholder: "Enter a new note" %>
+                                    <%= f.submit "Add Note", class: 'btn btn-default pull-right' %>
+                                  <% end %>
+
+                                <% end %>
+                              </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                  </div>
+
+                <div class="modal-footer">
+                  <div class="buttons">
+                    <div class="btn-group btn-group-sm" style="padding: 0.2em;">
+                      <a class="btn btn-danger btn-outline" href="#">
+                        Actions
+                      </a>
+                      <a class="btn btn-danger dropdown-toggle" data-toggle="dropdown" href="#">
+                        <span class="fa fa-caret-down" title="Toggle dropdown menu"></span>
+                      </a>
+                      <ul class="dropdown-menu">
+                        <% if current_user.flagged_candidate_for(person) %>
+                        <% flagged_candidate = current_user.flagged_candidate_for(person) %>
+                          <li>
+                            <%= link_to [person, flagged_candidate], method: :delete do %>
+                              <i class="fa fa-flag fa-fw"></i>&nbsp;Cancel flag for review
+                            <% end %>
+                          </li>
+                        <% else %>
+                          <li>
+                            <%= link_to new_flagged_candidate_path, { person: person.id, user: current_user.id }, method: :post do %>
+                              <i class="fa fa-flag fa-fw"></i>&nbsp;Flag this candidate for review
+                            <% end %>
+                          </li>
+                        <% end %>
+
+                        <% if current_user && (current_user.role == "employer") %>
+                            <% if current_user.saved_candidate_for(person) %>
+                            <% saved_candidate = current_user.saved_candidate_for(person) %>
+                              <li>
+                                <%= link_to [person, saved_candidate], method: :delete do %>
+                                <i class="fa fa-star fa-fw"></i>&nbsp;Remove from my candidates</a>
+                                <% end %>
+                              </li>
+                            <% else %>
+                              <li>
+                                <%= link_to [person, SavedCandidate.new], method: :post do %>
+                                <i class="fa fa-star fa-fw"></i>&nbsp;Save to my candidates</a>
+                                <% end %>
+                              </li>
+                            <% end %>
+
+                          <% if current_user.followed_candidate_for(person) %>
+                          <% followed_candidate = current_user.followed_candidate_for(person) %>
+                              <li>
+                              <%= link_to [person, followed_candidate], method: :delete do %>
+                                  <i class="fa fa-suitcase fa-fw"></i>&nbsp;Cancel interview request
+                              <% end %>
+                              </li>
+                          <% else %>
+                              <li>
+                              <%= link_to [person, FollowedCandidate.new], method: :post do %>
+                                  <i class="fa fa-suitcase fa-fw"></i>&nbsp;Request an interview
+                              <% end %>
+                              </li>
+                          <% end %>
+
+                        <% elsif current_user && (current_user.member? || current_user.admin?) %>
+
+                          <li>
+                            <%= link_to new_user_recruiter_update_path(current_user, person), { person_id: person.id }, method: :post do %>
+                              <i class="fa fa-pencil-square-o fa-fw"></i>&nbsp;Log status change
+                            <% end %>
+                          </li>
+
+                          <% if current_user.submitted_candidate_for(person) %>
+                          <% submitted_candidate = current_user.submitted_candidate_for(person) %>
+                            <li>
+                              <%= link_to [person, submitted_candidate], method: :delete do %>
+                                <i class="fa fa-paper-plane-o fa-fw"></i>&nbsp;Cancel submittal
+                              <% end %>
+                            </li>
+                          <% else %>
+                            <li>
+                              <%= link_to new_submitted_candidate_path, { person_id: person.id }, method: :post do %>
+                                <i class="fa fa-paper-plane-o fa-fw"></i>&nbsp;Submit this candidate
+                              <% end %>
+                            </li>
+                          <% end %>
+
+                          <li>
+                            <%= link_to new_message_path(to: person.id) do %>
+                              <i class="fa fa-envelope-o fa-fw"></i> Send a message
+                            <% end %>
+                          </li>
+
+                          <% if current_user.followed_candidate_for(person) %>
+                          <% followed_candidate = current_user.followed_candidate_for(person) %>
+                              <li>
+                              <%= link_to [person, followed_candidate], method: :delete do %>
+                                  <i class="fa fa-suitcase fa-fw"></i> Cancel interview request
+                              <% end %>
+                              </li>
+                          <% else %>
+                              <li>
+                              <%= link_to [person, FollowedCandidate.new], method: :post do %>
+                                  <i class="fa fa-suitcase fa-fw"></i> Request an interview
+                              <% end %>
+                              </li>
+                          <% end %>
+
+                        <% end %>
+                      </ul>
+                    </div>
+                  </div>
+                  <div class="buttons">
+                    <%= link_to "View/Edit Employer Profile", welcome_employer_intro_path, class: "btn btn-xl btn-primary" %>
+                  </div>
+                </div>
+              <% end %>
+          </div>
+        </div>
+      </div>
+      <% end %>
+<% end %>
+<!-- erbend app/views/searches/_person_accessible.html.erb -->

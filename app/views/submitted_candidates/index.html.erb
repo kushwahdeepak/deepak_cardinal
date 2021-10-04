@@ -1,0 +1,148 @@
+<!-- erbstart app/views/submitted_candidates/index.html.erb -->
+<script>
+$(document).ready(function() {
+    $('body').on('click', '#selectAll', function() {
+      if ($(this).hasClass('allChecked')) {
+        $('.job-checkbox').prop('checked', false);
+      } else {
+        $('.job-checkbox').prop('checked', true);
+      }
+      $(this).toggleClass('allChecked');
+    })
+});
+</script>
+
+<div class="row">
+  <div class="col-md-1">
+  </div>
+  <div class="col-md-10">
+    <div class="space-80"></div>
+    <% if @candidate_to_submit %>
+      <table>
+        <thead>
+          <tr>
+            <th colspan="6"></th>
+          </tr>
+        </thead>
+
+        <tbody>
+            <tr>
+              <td>
+                <div style="margin: 0.5em;">
+
+                  <div class="relative" style="display:flex; flex-direction: column; align-items: center;">
+                    <div class="app-aggregator">
+                      <div class="big-round-square">
+                        <div class="title clearfix">
+                          <p style="float:left;">Job Search</p>
+                          <button type="button" id="selectAll" style="float:right;">Select all</button>
+                          <p style="float:right;">Displaying <span class="special-bold"><%= @jobs.page(1).count %></span> of <span><%= @jobs.count %></span> jobs</p>
+                        </div>
+                        <div class="filter">
+                          <img src="/assets/filter.png" style="height: 15px;
+                          margin-top: 10px;
+                          width: 15px;">
+                          <p>Filter</p>
+                          <%= simple_form_for(JobSearch.new) do |f| %>
+                          <%= f.text_field :skills, placeholder: "Full stack" %>
+                          <% end %>
+                        </div>
+                        <div class="companies">
+                          <ul>
+                            <%= simple_form_for(@candidate_to_submit) do |object| %>
+
+                            <% @jobs.each do |job| %>
+                            <li>
+                              <div class="img-container">
+                                <%= image_tag(job.photo.url) %>
+                              </div>
+                              <div class="description">
+                                <h1><%= link_to job.name, job %> - <%= job.portalcompanyname %></h1>
+                                <p><span class="special-bold ">via</span> Linkedin</p>
+                                <div class="salary-range" style="display: flex; font-size: 13px;">
+                                  <div class="special-bold">$ Salary Range:</div>
+                                  <div> <%= job.compensation %></div>
+                                  <% if job.skills.present? %>
+                                  <div class="special-bold">Skills:  </div>
+                                  <div style="width: 100%;">
+                                    <% job_skills = job.skills.tr("[", "").tr("]", "").split(/[,"]+/) %>
+                                    <% job_skills.drop(0).each do |skill| %>
+                                    <div class="user-skills" style="float: left; width: fit-content; background-color: #e8eff0; border-radius: 10px; font-size: 10px; font-weight: 500; padding: 0px 11px; margin: 0px 8px 3px;  text-align: center;">
+                                      <%= skill.tr('"', '') + " "%>
+                                    </div>
+                                    <% end %>
+                                  </div>
+                                  <% end %>
+                                </div>
+                              </div>
+                              <div class="location">
+                                <p style="margin-right: 10px; margin-top:5px;"><%= job.locations.pluck(:city).first %></p>
+                                <div style = "margin-top:4px;"> <%= link_to 'Edit', edit_job_path(job), class: 'fa fa-2x fa-pencil-square-o' do %>
+                                  <i></i>
+                                  <% end %>
+                                </div>
+                                <%= link_to 'Destroy', job, method: :delete, data: { confirm: 'Are you sure?' }, style: 'margin: 0.1em;', class: 'fa fa-2x fa-trash-o' do %>
+                                <i></i>
+                                <% end %>
+                                <input type="checkbox" name="[submitted_candidate][job_ids][]" value="<%= job.id %>" class="checkbox-scale checkForm job-checkbox" style="width: fit-content;
+                                margin: 7px 10px; display: inherit;">
+                              </div>
+                            </li>
+                            <% end %>
+
+                          </ul>
+                        </div>
+                      </div>
+                    </div>
+
+
+                    <%= object.submit "Submit candidate to selected jobs", class: "btn btn-primary", style: "align-self: center; justify-self: flex-end;" %>
+
+                    <% end %>
+
+                </div>
+                </div>
+              </td>
+              <% candidate_first_name = @candidate_to_submit.person.first_name %>
+              <% candidate_last_name = @candidate_to_submit.person.last_name %>
+              <td>
+                <div style="margin: 0.5em;">
+                  <%= link_to person_path(@candidate_to_submit.person) do %>
+                  <% if candidate_first_name && candidate_last_name %>
+                  <%= candidate_first_name + ' ' + candidate_last_name %>
+                  <% else %>
+                  <%= "Candidate #{@candidate_to_submit.person.id}" %>
+                  <% end %>
+                  <% end %>
+                </div>
+              </td>
+              <td>
+                <%= link_to person_path(@candidate_to_submit.person), style: 'margin: 0.5em;', class: 'fa fa-2x fa-eye' do %>
+                  <i></i>
+                <% end %>
+              </td>
+              <td>
+                <%= link_to edit_submitted_candidate_path(@candidate_to_submit), controller: "submitted_candidates", action: "edit", id: @candidate_to_submit.id, method: :get, style: 'margin: 0.5em;', class: 'fa fa-2x fa-pencil-square-o' do %>
+                  <i></i>
+                <% end %>
+              </td>
+              <td>
+                <%= link_to submitted_candidate_path(@candidate_to_submit), controller: "submitted_candidates", action: "destroy", id: @candidate_to_submit.id, method: :delete, data: { confirm: 'Are you sure?' }, style: 'margin: 0.5em;', class: 'fa fa-2x
+                  fa-trash-o' do %>
+                  <i></i>
+                <% end %>
+              </td>
+              <td>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      <% else %>
+        <p class="small">You have not submitted any candidates.</p>
+      <% end %>
+
+  </div>
+  <div class="col-md-1">
+  </div>
+</div>
+<!-- erbend app/views/submitted_candidates/index.html.erb -->

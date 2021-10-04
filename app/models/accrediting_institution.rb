@@ -1,0 +1,2 @@
+class AccreditingInstitution < ApplicationRecord
+end

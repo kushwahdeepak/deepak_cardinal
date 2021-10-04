@@ -1,0 +1,15 @@
+.Skills span{
+    background: #EBEDFA;
+    border-radius: 20px;
+    font-size: 12px;
+    padding: 4px 13px 4px 13px;
+    color: #768BFF;
+    margin: 5px 5px 5px 0px;
+    display: inline-block;
+}
+
+@media only screen and (min-device-width : 320px) and (max-device-width : 767px){
+    .Skills{
+        text-align: center;
+    }
+}

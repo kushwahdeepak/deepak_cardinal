@@ -1,0 +1,182 @@
+@import '../../../../styles/var';
+
+.navbarContainer {
+    padding:15px !important;
+    background: #f9faff;
+}
+
+// navbar
+.logo {
+    width: 112px;
+    height: 50px;
+}
+.navbarLink {
+    font-family: $default-font-family;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 19px;
+    color: #000000 !important;
+    margin-left: 30px;
+}
+
+.navbarSignInButton {
+    font-family: $default-font-family;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 19px;
+    color: #000000;
+    text-decoration: none;
+}
+
+.navbarSignUpButton {
+    font-family: $default-font-family;
+    font-style: normal;
+    font-weight: 800;
+    font-size: 14px;
+    line-height: 19px;
+    color: #ffffff !important;
+    padding: 10px 14px;
+    margin-left: 15px;
+    width: 100px;
+    background: linear-gradient(
+        104.04deg,
+        #617aff 0%,
+        #798bff 52.08%,
+        #8c95fe 100%
+    );
+    border-radius: 15px;
+}
+
+.activeLinkColor {
+    color: #ab2537 !important;
+}
+
+.navbarUploadCandidatesButton {
+    background: linear-gradient(94.67deg, #4C68FF -1.19%, #6077F4 53.94%, #8185FF 102.59%);
+    border: 1px solid #4c68ff;
+    box-sizing: border-box;
+    border-radius: 20px;
+    font-family: Avenir, "Lato", sans-serif;
+    font-style: normal;
+    font-weight: 800;
+    font-size: 14px;
+    line-height: 19px;
+    color: #ffffff !important;
+    padding: 10px 18px !important;
+    position: absolute;
+    right: -166px;
+    top: -20px;
+
+
+    .btn-primary.dropdown-toggle {
+        background: linear-gradient(94.67deg, #4C68FF -1.19%, #6077F4 53.94%, #8185FF 102.59%);
+    }
+
+    show > .btn-primary.dropdown-toggle {
+        background: linear-gradient(94.67deg, #4C68FF -1.19%, #6077F4 53.94%, #8185FF 102.59%);
+    }
+
+    &::after {
+        background: linear-gradient(94.67deg, #4C68FF -1.19%, #6077F4 53.94%, #8185FF 102.59%) !important;
+        color: #ffffff !important;
+        content: none;
+    }
+    &:hover {
+        color: #ffffff !important;
+        background: linear-gradient(94.67deg, #4C68FF -1.19%, #6077F4 53.94%, #8185FF 102.59%) !important;
+    }
+    &:focus {
+        color: #ffffff !important;
+        background: linear-gradient(94.67deg, #4C68FF -1.19%, #6077F4 53.94%, #8185FF 102.59%) !important;
+    }
+}
+
+.navbarUploadCandidatesButtonMenu {
+    background: #ffffff;
+    border: 1px solid #1133ec;
+    box-sizing: border-box;
+    border-radius: 2px;
+    padding: 0 !important;
+    margin: 21px -164px !important;
+    & a {
+        font-family: $default-font-family;
+        font-style: normal;
+        font-weight: 500;
+        font-size: 12px;
+        line-height: 16px;
+        color: #1133ec;
+
+        &:hover {
+            background-color: $faded-blue-bg;
+            color: #1133ec;
+        }
+    }
+}
+.chatLogo{
+    background: none !important;
+    outline: none !important;
+    border: none !important;
+    box-shadow: none !important;
+}
+
+@media (max-width: 500px) {
+
+    .navbarLink {
+        font-family: $default-font-family;
+        font-style: normal;
+        font-weight: 500;
+        line-height: 12px;
+        color: #000000 !important;
+    }
+
+    .navbarLoginButton {
+        font-family: $default-font-family;
+        font-style: normal;
+        font-weight: 500;
+        font-size: 9px;
+        line-height: 12px;
+        color: #ffffff !important;
+        background: $primary-blue;
+        border-radius: 2px;
+        padding: 5px 12px !important;
+        margin-left: 37px;
+    }
+}
+
+
+@media only screen and (min-device-width : 320px) and (max-device-width : 575px){
+    .navbarLink {
+        font-family: $default-font-family;
+        font-style: normal;
+        font-weight: 500;
+        line-height: 12px;
+        font-size: 14px;
+        margin-left: 0px;
+        color: #000000 !important;
+    }   
+    
+}
+
+@media only screen and (min-device-width : 320px) and (max-device-width : 1199px){
+    .navbarSignInButton{
+        position: absolute;
+        top: 25px;
+        right: 125px;
+    }
+    .navbarSignUpButton{
+        position: absolute;
+        top: 15px;
+        right: 15px;
+    }
+    .navbarLink {
+        font-family: $default-font-family;
+        font-style: normal;
+        font-weight: 500;
+        line-height: 12px;
+        font-size: 14px;
+        margin-left: 0px;
+        color: #000000 !important;
+    }  
+}

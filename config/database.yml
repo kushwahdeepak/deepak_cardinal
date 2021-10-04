@@ -1,0 +1,39 @@
+default: &default
+  adapter: postgresql
+  encoding: utf8
+  pool: <%= [Integer(ENV.fetch("MAX_THREADS", 5)), Integer(ENV.fetch("DB_POOL", 5))].max %>
+  #url:  <%= ENV.fetch('DATABASE_URL') %>
+  timeout: 5000
+  min_messages: warning
+
+development:
+  <<: *default
+  database: ch-job-marketplace-development-3
+  url:  <%= ENV.fetch('DATABASE_URL') %>
+  password: <%= ENV.fetch('DB_PASS') %>
+  username: <%= ENV.fetch('DB_USERNAME') %>
+
+test:
+  <<: *default
+  database: ch-job-marketplace-test-3
+  adapter: postgresql
+  url:  <%= ENV.fetch('DATABASE_URL') %>
+  password: <%= ENV.fetch('DB_PASS') %>
+  username: <%= ENV.fetch('DB_USERNAME') %>
+
+staging:
+  <<: *default
+  host: <%= Rails.application.credentials[Rails.env.to_sym]&.dig(:database, :host) %>
+  database: <%= ENV.fetch('DB_NAME') %>
+  username: <%= Rails.application.credentials[Rails.env.to_sym]&.dig(:database, :username) %>
+  password: <%= Rails.application.credentials[Rails.env.to_sym]&.dig(:database, :password) %>
+  port: <%= Rails.application.credentials[Rails.env.to_sym]&.dig(:database, :port) %>
+
+production:
+  <<: *default
+  host: <%= Rails.application.credentials[Rails.env.to_sym]&.dig(:database, :host) %>
+  database: <%= Rails.application.credentials[Rails.env.to_sym]&.dig(:database, :database) %>
+  username: <%= Rails.application.credentials[Rails.env.to_sym]&.dig(:database, :username) %>
+  password: <%= Rails.application.credentials[Rails.env.to_sym]&.dig(:database, :password) %>
+  port: <%= Rails.application.credentials[Rails.env.to_sym]&.dig(:database, :port) %>
+

@@ -1,0 +1,75 @@
+<!-- erbstart app/views/job_searches/index.html.erb -->
+<div class="relative" style="display:flex; flex-direction: column; align-items: center;">
+  <div class="app-aggregator">
+    <div class="big-round-square">
+      <div class="title clearfix">
+        <p style="float:left;">Job Skill Search</p>
+        <p style="float:right;">Displaying <span class="special-bold"><%= @jobs.page(1).count %></span> of <span><%= @jobs.count %></span> jobs</p>
+      </div>
+      <div class="filter">
+        <img src="/assets/filter.png" style="height: 15px;
+    margin-top: 10px;
+    width: 15px;">
+        <p>Filter</p>
+        <%= simple_form_for(@job_search) do |f| %>
+          <%= f.text_field :skills, placeholder: "Full stack" %>
+        <% end %>
+      </div>
+      <div class="companies">
+        <ul>
+
+          <% @jobs.each do |job| %>
+            <li>
+              <div class="img-container">
+                <%= image_tag(job.photo.url) %>
+              </div>
+              <div class="description">
+              <% jobtitle = '' %>
+              <% if job.portalcompanyname.blank? %>
+                <% jobtitle = job.managed_account.name %>
+              <% else %>
+                <% jobtitle = job.portalcompanyname %>
+              <% end %>
+              <h1><%= link_to job.name, job %> - <%= jobtitle %></h1>
+              <div class="salary-range" style="display: flex; font-size: 13px;">
+                <div class="special-bold">$ Salary Range:</div>
+                <div> <%= job.compensation %></div>
+                <% if job.skills.present? %>
+                  <div class="special-bold">Skills:  </div>
+                  <div style="width: 100%;">
+                    <% job_skills = job.skills.tr("[", "").tr("]", "").split(/[,"]+/) %>
+                    <% job_skills.drop(0).each do |skill| %>
+                      <div class="user-skills" style="float: left; width: fit-content; background-color: #e8eff0; border-radius: 10px; font-size: 10px; font-weight: 500; padding: 0px 11px; margin: 0px 8px 3px;  text-align: center;">
+                        <%= skill.tr('"', '') + " "%>
+                      </div>
+                    <% end %>
+                  </div>
+                <% end %>
+              </div>
+            </div>
+            <div class="location">
+              <p style="margin-right: 10px;"><%= job.locations.pluck(:city).first %></p>
+              <div style = "margin-top:4px;"> <%= link_to 'Edit', edit_job_path(job), class: 'fa fa-2x fa-pencil-square-o' do %>
+                <i></i>
+              <% end %>
+              </div>
+            <%= link_to 'Destroy', job, method: :delete, data: { confirm: 'Are you sure?' }, style: 'margin: 0.1em;', class: 'fa fa-2x fa-trash-o' do %>
+              <i></i>
+            <% end %>
+            <input type="checkbox" style="width: fit-content;
+            margin: 7px 10px; display: inherit;"\>
+            </div>
+            </li>
+          <% end %>
+
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div style="margin-top: 30px;">
+    <%= link_to 'Add a new job', new_job_path %>
+  </div>
+
+  </div>
+<!-- erbend app/views/job_searches/index.html.erb -->

@@ -1,0 +1,179 @@
+@import '../../../../styles/var';
+
+$background: $default-bg-color;
+
+a {
+    color: #1e69ac;
+    :hover {
+        color: #2d93ee;
+    }
+}
+
+.pageTop {
+    padding-top: 45px;
+    margin-bottom: 60px;
+    max-width: 85% !important;
+    flex-grow: 1;
+}
+
+.pageBottom {
+    background-color: $background;
+    flex-grow: 1;
+    max-width: 85% !important;
+}
+
+.shareIcon{
+    width: 32px !important;
+    height: 32px !important;
+}
+
+.topWrapper {
+    padding: 21px;
+    background: linear-gradient(180deg, rgba(250, 250, 255, 0) 0%, #F8F8FE 68.75%, #F8F8FE 100%);;
+    border-radius: 15px;
+    font-family: $default-font-family;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 16px;
+    color: linear-gradient(180deg, rgba(250, 250, 255, 0) 0%, #F8F8FE 68.75%, #F8F8FE 100%);;
+}
+
+.jobAttrText {
+    width: 100%;
+    overflow-x: hidden;
+}
+
+.jobDescriptionText {
+    line-clamp: 8;
+    // -webkit-line-clamp: 8;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    font-weight: 700;
+    font-size: 15px;
+    line-height: 18px;
+}
+
+.jobCompany{
+    font-family: Avenir, "Lato", sans-serif !important;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 20px;
+    line-height: 21.86px;
+}
+
+.jobPosition{
+    font-family: Avenir, "Lato", sans-serif !important;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 16px;
+    line-height: 27.32px;
+}
+
+.jobLocation{
+    font-family: Avenir;
+    font-weight: 300;
+    font-style: normal;
+    font-size: 14px;
+    line-height: 19.12px;
+}
+
+.categorySpan {
+    font-family: $default-font-family;
+    font-style: normal;
+    font-weight: 800;
+    font-size: 12px;
+    line-height: 16px;
+    color: #9497A8;
+}
+
+.jobCaption {
+    color: $darken-l4;
+}
+
+.fieldLabel {
+    color: rgba(0, 0, 0, 0.65);
+}
+
+.jobTitle {
+    font-family: $default-font-family;
+    font-style: normal;
+    font-weight: 800;
+    font-size: 28px;
+    line-height: 38px;
+    color: #314ce0;
+    margin: 0;
+}
+
+.titleRow {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-bottom: 12px;
+}
+
+.mainButtons {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-end;
+    min-width: max-content;
+
+    button {
+        margin-left: 0.6rem;
+    }
+}
+.modelContainer {
+    box-shadow: 0px 4px 25px rgba(0, 0, 0, 0.25);
+    border-radius: 50px;
+    background: #ffffff;
+    z-index: 9999 !important;
+    position: absolute;
+    top: 43px;
+    z-index: 1;
+    width: 100%;
+    padding: 20px 35px;
+}
+
+.contentContainer {
+    display: flex;
+    flex-direction: column;
+}
+.contentText {
+    font-family: $default-font-family;
+    text-transform: capitalize;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 25px;
+    align-self: flex-end;
+    text-align: center;
+    color: #4c68ff;
+    margin-top: 7px;
+}
+
+.modalBackdrop {
+    background-color: rgba(0, 0, 0, 0);
+}
+.modalBody {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    font-family: $default-font-family;
+    align-items: stretch;
+    color: $primary-blue;
+    font-size: 0.8rem;
+    padding: 27px 66px !important;
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.25);
+    border-radius: 25px;
+}
+
+.stageCount{
+    color: #f8f9fa;
+    background-color: #4e69fa;
+    border-radius: 8px;
+    position: absolute;
+    top: 0px;
+    margin-left: 1px;
+}

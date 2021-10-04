@@ -1,0 +1,56 @@
+@import '../../../../styles/var';
+
+.mainTitle {
+    font-family: $default-font-family;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 40px;  
+    color: #4A5277;
+    display: block;
+    text-align: center;
+    line-height: 30px;
+    margin-bottom: 2px;
+    padding: 39px 25px;
+    background-color: #f9faff;
+}
+
+.subTitle {
+    font-size: 18px;
+    line-height: 25px;
+}
+
+.candidateProfileCard{
+    background: #FFFFFF;
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
+    border-radius: 20px;  
+    .cardBody{
+        margin: -99px 91px 12px 144px;
+    }
+    .badge{
+        margin-left: 140px;
+    }
+}
+
+.candidateProfileImage{
+    vertical-align: middle;
+    height: 93px;
+    border-radius: 48%;
+    max-width: 99px;
+    margin-bottom: 22px;
+}
+
+@media only screen and (min-device-width : 320px) and (max-device-width : 767px){
+    .mainTitle {
+        font-size: 30px !important;
+    }
+    .subTitle {
+        font-size: 18px;
+        line-height: 18px;
+    }
+    .newcontiner{
+        padding:15px !important;
+    }
+    .SearchBar-module__candidateSearchBar___2F5bQ{
+        margin:0px !important;
+    }
+}

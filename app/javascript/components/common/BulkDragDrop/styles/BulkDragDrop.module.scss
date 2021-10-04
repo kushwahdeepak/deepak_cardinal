@@ -1,0 +1,202 @@
+@import '../../../../styles/var';
+
+.textSpan {
+    font-style: normal;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 25px;
+    color: $primary-blue;
+    padding-left: 2px;
+}
+.container {
+    background: #ffffff;
+    box-shadow: 0px 4px 25px rgba(0, 0, 0, 0.25);
+    border-radius: 50px;
+    padding: 3rem 4rem;
+    margin-top: 80px;
+    margin-bottom: 65px;
+    width: 100%;
+}
+
+.dropContainer {
+    width: 100%;
+    position: relative;
+}
+
+.dropArea {
+    border: dashed grey 4px;
+    background-color: rgba(255, 255, 255, 0.6);
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 9999;
+    pointer-events: none;
+}
+
+.dropText {
+    position: absolute;
+    top: 50%;
+    right: 0;
+    left: 0;
+    text-align: center;
+    color: grey;
+    font-size: 36px;
+    pointer-events: none;
+}
+
+.dropFiles {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 5px;
+}
+
+.uploadResumeContainer {
+    background: $faded-blue-bg;
+    border: 1px solid$primary-blue;
+    box-sizing: border-box;
+    border-radius: 5px;
+    padding: 26px 25px;
+}
+
+.title {
+    // font-family: Avenir;
+    font-style: normal;
+    font-weight: 900;
+    font-size: 30px;
+    line-height: 41px;
+    color: $primary-blue;
+}
+
+.subTitle {
+    // font-family: Avenir;
+    font-style: normal;
+    font-weight: 800;
+    font-size: 30px;
+    line-height: 41px;
+    color: $primary-blue;
+    margin-bottom: 0;
+}
+
+.orText {
+    // font-family: Avenir;
+    font-style: normal;
+    font-weight: 800;
+    font-size: 15px;
+    line-height: 20px;
+    text-align: center;
+    color: $primary-blue;
+    margin-bottom: 5px;
+}
+
+.button {
+    background: #ffffff;
+    border: 2px solid $primary-blue;
+    box-sizing: border-box;
+    border-radius: 5px;
+    padding: 8px 25px;
+    // font-family: Avenir;
+    font-style: normal;
+    font-weight: 800;
+    font-size: 14px;
+    line-height: 19px;
+    text-align: center;
+    color: $primary-blue;
+}
+.textDiv {
+    margin-left: 20px;
+    height: fit-content;
+    margin-top: 12px;
+    /* font-family: Avenir; */
+    font-style: normal;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 25px;
+    color: $primary-blue;
+}
+.buttonUpload {
+    background: $primary-blue;
+    border: 2px solid $primary-blue;
+    box-sizing: border-box;
+    border-radius: 5px;
+    padding: 8px 40px;
+}
+.resumeContainer {
+    width: fit-content;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin-left: 20px;
+}
+
+.resume {
+    background: #ffffff;
+    border: 2px solid $primary-blue;
+    box-sizing: border-box;
+    border-radius: 5px;
+    display: flex;
+    place-items: center;
+    margin-top: 5px;
+    margin-right: 6px;
+}
+.resumeNameText {
+    font-family: Avenir;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 16px;
+    color: $primary-blue;
+    margin-left: 9px;
+    margin-right: 1rem;
+    max-width: 60px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+.svgIcon {
+    height: 15px;
+    width: 15px;
+}
+
+.flexItem {
+    display: flex;
+}
+
+.dragDropItem {
+    display: flex;
+    flex: 1.2;
+    flex-basis: 10%;
+    flex-wrap: wrap;
+}
+.buttonUploadDiv {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 2rem;
+}
+
+@media (max-width: 1200px) {
+    .flexItem {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .resumeContainer {
+        width: fit-content;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        margin-top: 2rem;
+        margin-left: 20px;
+    }
+}
+
+@media (max-width: 500px) {
+    .dragDropItem {
+        flex-direction: column;
+        flex: 1.2;
+        flex-basis: 10%;
+        flex-wrap: wrap;
+    }
+}

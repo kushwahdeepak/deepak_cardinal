@@ -1,0 +1,25 @@
+<!-- erbstart app/views/people/_person_result.html.erb -->
+
+<%= render partial: 'people/person_result_scripts', locals: {person: person, person_id: person.id} %>
+
+<ul style="display:inline-flex; align-content: center; justify-content: right; margin-bottom: 0; box-shadow: 0 0 5px #eee; border-radius: 20px 20px 0 0;">
+  <li class="form-navbar-2" id="<%= person.id.to_s %>talentnav" onclick="personfunc('#<%= person.id.to_s %>talentnav','#<%= person.id.to_s %>notesnav','#<%= person.id.to_s %>result','#<%= person.id.to_s %>notes')">
+    <%= person.first_name %>&nbsp;<%= person.last_name %>
+  </li>
+
+
+  <% if Authorization.notes_view?(current_user)  %>
+    <li class="form-navbar-2 off-navbar-2"
+        id="<%= person.id.to_s %>notesnav"
+        onclick="notesfunc('#<%= person.id.to_s %>talentnav','#<%= person.id.to_s %>notesnav','#<%= person.id.to_s %>result','#<%= person.id.to_s %>notes')">Notes <%= "(" + person.notes.count.to_s + ")" %>
+    </li>
+  <% end %>
+
+</ul>
+
+<%= render partial: 'people/prerson_result_single_result', locals: {person: person, person_id: person.id} %>
+
+<%= render partial: 'people/person_result_notes_tab', locals: {person: person, person_id: person.id} if Authorization.notes_view?(current_user) %>
+
+<div class="mb-5"></div>
+<!-- erbend app/views/people/_person_result.html.erb -->

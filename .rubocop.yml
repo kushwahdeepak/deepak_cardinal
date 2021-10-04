@@ -1,0 +1,37 @@
+AllCops:
+  Exclude:
+    - Rakefile
+    - db/*
+    - bin/*
+    - config/**/*
+    - db/migrate/*
+FrozenStringLiteralComment:
+  Enabled: false
+AndOr:
+  Enabled: false
+IfUnlessModifier:
+  Enabled: false
+LeadingCommentSpace:
+  Enabled: false
+StringLiterals:
+  Enabled: false
+SignalException:
+  EnforcedStyle: semantic
+Documentation:
+  Enabled: false
+Metrics/LineLength:
+  Max: 693
+Metrics/BlockLength:
+  Max: 200
+Metrics/ClassLength:
+  Max: 210
+Metrics/MethodLength:
+  Max: 41
+Metrics/AbcSize:
+  Max: 81
+Metrics/CyclomaticComplexity:
+  Max: 21
+Metrics/PerceivedComplexity:
+  Max: 21
+Style/GuardClause:
+  Enabled: false

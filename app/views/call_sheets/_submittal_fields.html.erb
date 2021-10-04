@@ -1,0 +1,10 @@
+<!-- erbstart app/views/call_sheets/_submittal_fields.html.erb -->
+<tr>
+  <td class="td"><%= f.input :first_name, label: false %></td>
+  <td class="td"><%= f.input :last_name, label: false %></td>
+  <td class="td"><%= f.input :submitted_at, :as => :date, value: (Date.today ||= submitted_at), html5: true, label: false %></td>
+  <td class="td"><%= f.input :phone_number, :as => :tel, label: false %></td>
+  <td class="td"><%= f.input :email_address, :as => :email, label: false %></td>
+  <td class="td"><%= f.input :linkedin_profile_url, :as => :url, label: false %></td>
+</tr>
+<!-- erbend app/views/call_sheets/_submittal_fields.html.erb -->

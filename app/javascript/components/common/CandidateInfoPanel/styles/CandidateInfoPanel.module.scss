@@ -1,0 +1,426 @@
+@import '../../../../styles/var';
+
+.infoPanel {
+    background: #ffffff;
+    box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.2);
+    border-radius: 20px;
+    padding: 40px 44px;
+    position: fixed;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    min-width: 900px;
+    max-width: 900px;
+    z-index: 9000;
+    overflow-y: auto;
+    margin: 20px 0px;
+    display: flex;
+    flex-direction: column;
+}
+
+.topRowButton {
+    background: $primary-blue;
+    border-radius: 5px;
+    font-family: $default-font-family;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 12px !important;
+    line-height: 16px;
+    color: #ffffff;
+    margin-left: 5px;
+    line-height: '19px';
+    height: 30px;
+}
+
+.contentRow {
+    margin-top: 28px;
+    height: 100%;
+    white-space: nowrap;
+}
+
+.contentRowLefColumn {
+    border-right: 1px solid #bcc4f8;
+    padding-right: 24px;
+    display: flex;
+    flex-direction: column;
+}
+
+.circleButton {
+    background: #ebedf9;
+    border: 1px solid #1744e4;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 10px;
+    color: #1744e4;
+    height: 30px;
+    width: 30px;
+    border-radius: 15px;
+    cursor: pointer;
+}
+
+.nameText {
+    font-style: normal;
+    font-weight: 800;
+    font-size: 24px;
+    line-height: 33px;
+    color: #2e4ae4;
+    margin-bottom: 3px;
+    white-space: nowrap;
+    overflow-x: hidden;
+    text-overflow: ellipsis;
+}
+
+.personalInfoText {
+    font-family: $default-font-family;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 19px;
+    color: #4f67ec;
+    margin-bottom: 3px;
+    white-space: pre-wrap;
+    overflow-x: hidden;
+    text-overflow: ellipsis;
+}
+.labelText{
+    font-family: $default-font-family;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 19px;
+    color: #4f67ec;
+    margin-bottom: 3px;
+}
+.sourceWrapper{
+    flex-direction: column;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.personalInfoText b{
+    color: #0026f3 !important
+}
+
+.tabContainer {
+    margin-top: 10px;
+    margin-left: 0;
+    margin-right: 0;
+}
+
+.tabButton {
+    background: $faded-blue-bg;
+    border-radius: 2px;
+    padding: 6px 10px;
+    font-family: $default-font-family;
+    font-style: normal;
+    font-weight: 800;
+    font-size: 10px;
+    line-height: 14px;
+    color: #4d68ff;
+    & .active {
+        background: $primary-blue;
+        color: #ffffff;
+    }
+}
+
+.tabContent {
+    margin-top: 12px;
+    margin-left: 0;
+    margin-right: 0;
+    border: 1px solid $primary-blue;
+    box-sizing: border-box;
+    border-radius: 5px;
+    padding: 18px 26px;
+    margin-bottom: 12px;
+    word-break: break-word;
+}
+
+.tabContentTitle {
+    font-family: $default-font-family;
+    font-style: normal;
+    font-weight: 800;
+    font-size: 14px;
+    line-height: 19px;
+    color: #435ad5;
+    margin-bottom: 10px;
+}
+
+.indent {
+    margin-left: 20px;
+}
+
+.tabContentText {
+    font-family: $default-font-family;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 10px;
+    line-height: 14px;
+    color: #435ad4;
+    white-space: pre-wrap;
+}
+
+.noteAuthorText {
+    font-family: $default-font-family;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 16px;
+    color: #435ad5;
+}
+
+.noteCreatedText {
+    font-family: $default-font-family;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 14px;
+    color: #435ad5;
+}
+
+.contentRowRightColumn {
+    padding-left: 23px;
+    position: relative;
+}
+
+.contactText {
+    font-family: $default-font-family;
+    font-style: normal;
+    font-weight: 800;
+    font-size: 14px;
+    line-height: 19px;
+    color: #435ad5;
+    margin-top: 23px;
+}
+
+.urlText {
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow-x: hidden;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+}
+
+.skillBadge {
+    padding: 3px 10px;
+    background: #7589f4;
+    border-radius: 5px;
+    font-family: $default-font-family;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 10px;
+    line-height: 14px;
+    color: #ffffff;
+    margin-right: 5px;
+    margin-bottom: 5px;
+    display: flex;
+    align-items: center;
+}
+
+.emailPhonePicker {
+    background: #ffffff;
+    border: 1px solid #1133ec;
+    box-sizing: border-box;
+    border-radius: 2px;
+    z-index: 9000;
+    position: relative;
+    margin-bottom: 10px;
+    & p {
+        font-family: $default-font-family;
+        font-style: normal;
+        font-weight: 500;
+        font-size: 12px;
+        line-height: 16px;
+        color: #1133ec;
+        margin-bottom: 0;
+        padding: 7px 9px;
+        &:hover {
+            background: #ebedfa;
+        }
+    }
+}
+
+.alert {
+    & button {
+        padding-top: 5px !important;
+    }
+}
+
+.alertMessage {
+    position: absolute;
+}
+
+.backdrop {
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    background: black;
+    opacity: 0;
+    z-index: 8999;
+}
+
+.uploadTitle {
+    font-family: $default-font-family;
+    font-style: normal;
+    font-weight: 800;
+    font-size: 30px;
+    line-height: 41px;
+    color: $primary-blue;
+    margin-bottom: 0;
+}
+
+.editInput {
+    border: 1px solid #4c68ff;
+    border-radius: 2px !important;
+    background-color: #ffffff !important;
+    padding: 5px 10px;
+    min-height: 25px !important;
+    outline: none;
+    color: #435ad5;
+    &::placeholder {
+        font-family: $default-font-family;
+        font-style: normal;
+        font-weight: 500;
+        font-size: 12px;
+        color: #435ad5;
+        background-color: #ffffff !important;
+    }
+
+    margin-bottom: 5px;
+}
+
+.symbolText {
+    font-family: $default-font-family;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 16px;
+    color: #435ad5;
+    margin-left: 2.5px;
+    margin-right: 2.5px;
+}
+
+.editCandidateName {
+    width: 250px;
+    padding: 5px 10px;
+    &::placeholder {
+        font-family: $default-font-family;
+        font-style: normal;
+        font-weight: 800;
+        font-size: 15px;
+        color: #435ad5;
+    }
+}
+
+.uploadButton {
+    background: $primary-blue;
+    border-radius: 2px;
+    padding: 6px 12px;
+    margin-bottom: 10px;
+    margin-top: 5px;
+    font-family: $default-font-family;
+    font-style: normal;
+    font-weight: 800;
+    font-size: 10px;
+    line-height: 14px;
+    color: #ffffff;
+    width: max-content;
+}
+
+.saveButton {
+    font-family: $default-font-family;
+    font-style: normal;
+    font-weight: 800;
+    font-size: 14px;
+    color: #ffffff;
+    background: $primary-blue;
+    border-radius: 20px;
+    padding: 8px 20px;
+    line-height: 19px;
+    position: absolute;
+    right: 0;
+    bottom: 0;
+}
+
+.closeIcon {
+    background-color: $primary-blue;
+    border-radius: 5px;
+    & svg {
+        width: 5px;
+        height: 5px;
+    }
+}
+
+.skillButton {
+    background: #7589f4;
+    border-radius: 5px;
+    padding: 3px 10px;
+    font-family: $default-font-family;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 10px;
+    line-height: 14px;
+    color: #ffffff;
+}
+
+.plusButtonText {
+    font-family: $default-font-family;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 16px;
+    color: #5b6fd7;
+}
+
+.skillscontent {
+   width: auto;
+   white-space: pre-wrap;
+}
+
+.skillContainer{
+    min-height: 50px;
+    max-height: 200px;
+    overflow: auto;
+    border: 1px solid #4c68ff;
+    padding: 10px 0;
+    margin-bottom: 10px;
+    border-radius: 2px;
+}
+.stageDopDown{
+    border: 1px solid #4c68ff;
+    width: 10rem;
+    height: 2rem;
+    margin-top: 0px;
+    background: none;
+    display: flex;
+}
+
+.stageToggle{
+    background-color: #ffffff;
+    color: #435ad5;
+    width: -webkit-fill-available;
+}
+
+.stageToggle:focus{
+    background-color: #ffffff !important;
+    color: #435ad5;
+    box-shadow: none;
+    border: none !important;
+}
+
+.fileType{
+    font-family: $default-font-family;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 16px;
+    color: red;
+}
+
+.phonePlaceholder::placeholder {
+    font-weight: bold;
+}

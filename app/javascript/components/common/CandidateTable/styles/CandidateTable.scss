@@ -1,0 +1,118 @@
+.row{
+  margin-left: 0px;
+  margin-right: 0px;
+}
+.table-responsive {
+    height: 100%;
+    overflow: hidden !important;
+}
+h6 {
+    float: left;
+    margin-left: 19px;
+    color: #2a346f;
+    font-size: 14px;
+  }
+.activity-field{
+    width: max-content;
+    color: #3b4479 !important;
+    img{
+        margin-right: 16px;
+    }
+}
+#loading {
+    display: inline-block;
+    width: 100px;
+    height: 100px;
+    border: 3px solid rgba(255,255,255,.3);
+    border-radius: 50%;
+    border-top-color: #5177b0;
+    animation: spin 1s ease-in-out infinite;
+    -webkit-animation: spin 1s ease-in-out infinite;
+  }
+  
+  @keyframes spin {
+    to { -webkit-transform: rotate(360deg); }
+  }
+  @-webkit-keyframes spin {
+    to { -webkit-transform: rotate(360deg); }
+  }
+
+
+.activity-class{
+  .btn {
+    background-color: white;
+    border: none;
+    box-shadow: none;
+
+  }
+} 
+
+.contact_time{
+  font-size: 12px;
+  font-weight: 400;
+}
+
+.ats-border .modal-dialog .modal-content{
+  border: 2px solid lavenderblush !important;
+  border-radius: 17px;
+}
+
+.importButton .dropdown .dropdown-text {
+  border-radius: 5px;
+  padding: 3px 4px;
+  font-family: Avenir, "Lato", sans-serif;
+  font-style: normal;
+  float: right;
+  font-size: 20px;
+  width: 11%;
+  .dropdown-toggle:hover {
+    border-color: none;
+  }
+}
+ 
+.accordion-content
+{
+  float: left;
+  color: #1D2447;
+  font-size: 14px;
+}
+.skills-button{
+  padding: 6px 18px 6px 17px;
+  white-space: break-spaces;
+  border-radius: 20px;
+  margin-bottom: 11px;
+  margin-left: 3px;
+  background: linear-gradient(95.72deg, #E6EBFF 0%, #DBE2FF 53.83%, #D5D7FF 109.96%)
+}
+
+.skills-more-button{
+  padding: 6px 18px 6px 17px;
+  white-space: break-spaces;
+  border-radius: 20px;
+  margin-bottom: 11px;
+  margin-left: 3px;
+  background: linear-gradient(94.67deg, #4C68FF -1.19%, #6077F4 53.94%, #8185FF 102.59%);
+  cursor: pointer;
+}
+
+.skills-more-button{
+   label {
+      margin-bottom: 0rem !important;
+      cursor: pointer;
+    }
+}
+.skills-button{
+  label {
+     margin-bottom: 0rem !important;
+   }
+}
+.candidate-skills {
+  color: #6470AF;
+  text-transform: capitalize;
+}
+
+.candidate-table-close{
+  .close{
+    top: -2px  !important;
+  }
+}

@@ -1,0 +1,35 @@
+<!-- erbstart app/views/linkedin_profile_url_resources/index.html.erb -->
+<p id="notice"><%= notice %></p>
+
+<h1>Linkedin Profile Url Resources</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Linkedin profile</th>
+      <th>Name</th>
+      <th>Url</th>
+      <th>Domain</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @linkedin_profile_url_resources.each do |linkedin_profile_url_resource| %>
+      <tr>
+        <td><%= linkedin_profile_url_resource.linkedin_profile_id %></td>
+        <td><%= linkedin_profile_url_resource.name %></td>
+        <td><%= linkedin_profile_url_resource.url %></td>
+        <td><%= linkedin_profile_url_resource.domain %></td>
+        <td><%= link_to 'Show', linkedin_profile_url_resource %></td>
+        <td><%= link_to 'Edit', edit_linkedin_profile_url_resource_path(linkedin_profile_url_resource) %></td>
+        <td><%= link_to 'Destroy', linkedin_profile_url_resource, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Linkedin Profile Url Resource', new_linkedin_profile_url_resource_path %>
+<!-- erbend app/views/linkedin_profile_url_resources/index.html.erb -->

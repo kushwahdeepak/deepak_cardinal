@@ -1,0 +1,18 @@
+Happy <%= Date.today.strftime("%A") %>!
+
+Hi <%= @user.first_name %>,
+
+Just a quick reminder: CardinalTalent has not received any updates from you in the past 24 hours. Please be sure to submit a log of your work, including candidate calls and submissions, using the following link:
+
+<%= user_url(@user) %>
+
+<% if @user.managed_accounts.count > 0 %>
+
+Additionally, as you are the account manager for:
+<% for m in @user.managed_accounts do %>
+
+m.client_name
+<% end %>
+
+Please be sure to submit client updates for the client accounts that you manage in a timely manner.
+<% end %>

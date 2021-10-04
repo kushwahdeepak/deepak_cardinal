@@ -1,0 +1,27 @@
+<!-- erbstart app/views/people/edit_multiple.html.erb -->
+<%= form_tag update_multiple_people_path, method: :put do %>
+  <% @people.each do |person| %>
+    <h2><%= person.name %></h2>
+    <%= simple_fields_for "people[]", person do |f| %>
+      <% if person.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= pluralize(person.errors.count, "error") %> prohibited this person from being saved:</h2>
+          <ul>
+          <% person.errors.full_messages.each do |msg| %>
+            <li><%= msg %></li>
+          <% end %>
+          </ul>
+        </div>
+      <% end %>
+      <div class="field">
+        <%= f.label :active %><br />
+        <%= f.input :active %>
+      </div>
+      ...
+    <% end %>
+  <% end %>
+  <div class="actions">
+    <%= submit_tag "Update" %>
+  </div>
+<% end %>
+<!-- erbend app/views/people/edit_multiple.html.erb -->

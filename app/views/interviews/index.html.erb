@@ -1,0 +1,39 @@
+<!-- erbstart app/views/interviews/index.html.erb -->
+<p id="notice"><%= notice %></p>
+
+<h1>Interviews</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Title</th>
+      <th>Content</th>
+      <th>Name</th>
+      <th>Price</th>
+      <th>Category</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @interviews.each do |interview| %>
+      <tr>
+        <td><%= interview.name %></td>
+        <td><%= interview.title %></td>
+        <td><%= interview.content %></td>
+        <td><%= interview.name %></td>
+        <td><%= interview.price %></td>
+        <td><%= interview.category %></td>
+        <td><%= link_to 'Show', interview %></td>
+        <td><%= link_to 'Edit', edit_interview_path(interview) %></td>
+        <td><%= link_to 'Destroy', interview, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Interview', new_interview_path %>
+<!-- erbend app/views/interviews/index.html.erb -->

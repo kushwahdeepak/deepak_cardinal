@@ -1,0 +1,13 @@
+<!-- erbstart app/views/calls/new.html.erb -->
+<div class="space-90"></div>
+<h1>New Call</h1>
+
+<%= semantic_form_for @call do |f| %>
+    <%= f.input :user_id, :as => :select, :collection => Hash[User.select(:email, :id).map{|b| [b.email,b.id]}] %>
+    <%= f.input :person_id, :as => :select, :collection => Hash[Person.select(:formatted_name, :id).map{|b| [b.formatted_name,b.id]}] %>
+    <%= f.input :scheduled_time, :as => :date_picker %>
+    <%= f.actions %>
+<% end %>
+
+<%= link_to 'Back', calls_path %>
+<!-- erbend app/views/calls/new.html.erb -->

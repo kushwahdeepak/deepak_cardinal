@@ -1,0 +1,144 @@
+@import '../../../../styles/var';
+
+.placeholderText {
+    background: #F6F7FC;
+    border: 1px solid #4f64d1;
+    box-sizing: border-box;
+    width: 100%;
+    text-indent: 40px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+    border: none;
+    &::placeholder {
+        font-family: $default-font-family;
+        font-style: normal;
+        font-weight: 500;
+        font-size: 14px;
+        color: #354ed2;
+        opacity: 1; /* Firefox */
+    }
+}
+
+.searchButton {
+    font-family: $default-font-family;
+    font-style: normal;
+    font-weight: 800;
+    font-size: 16px;
+    line-height: inherit;
+    color: #ffffff;
+    background: linear-gradient(
+        94.67deg,
+        #4c68ff -1.19%,
+        #6077f4 53.94%,
+        #8185ff 102.59%
+    );
+    border-radius: 20px;
+    padding: 9px 27px;
+}
+
+.candidateSearch {
+    text-indent: 40px;
+    background: #FFFFFF;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 11px ;
+    border: none;
+    &::placeholder {
+        font-family: $default-font-family;
+        font-style: normal;
+        font-weight: 500;
+        font-size: 14px;
+        color: #b7bbce;
+        opacity: 1; /* Firefox */
+    }
+
+}
+
+
+.candidateSearchBar{
+    margin: -7.5rem 32rem 0px 0px;
+    
+    flex-grow: 1;
+    margin-right: 55%;
+    max-width: 25rem;
+    padding-right: 39px;
+    margin-top: -7.5rem;
+    .candidateSearch {
+        text-indent: 40px;
+        background: #FFFFFF;
+        box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+        border-radius: 11px ;
+        border: none;
+        &::placeholder {
+            font-family: $default-font-family;
+            font-style: normal;
+            font-weight: 500;
+            font-size: 14px;
+            color: #b7bbce;
+            opacity: 1; /* Firefox */
+        }
+    }
+    #candidateSearchSpace{
+        width: 600px;
+    }
+}
+.atsSearchBar{
+    flex-grow: 1;
+    max-width: 29rem;
+    margin-left: auto
+
+}     
+.candidateSearchBar{
+    max-width: 35% ;
+    flex-grow: 1 !important;
+    position: absolute !important;
+    top: -100px !important;
+    width: 100% !important;
+    left: 0px !important;
+    right: 0px !important;
+    margin: auto !important;
+}
+@media only screen and (min-device-width : 320px) and (max-device-width : 767px){
+    .atsSearchBar{
+        flex-grow: 1;
+        max-width: 100%;
+        margin-left: 0px;
+        display: flex;
+        align-items: center;
+        margin-top: 15px;
+    }
+    .alert {
+        margin-left: 0px !important;
+        margin-right: 15px;
+    }
+    .candidateSearchBar{
+        margin:0px !important;
+        max-width: 100% !important;
+        top: -65px !important;
+    }
+    .searchButton {
+        padding: 5px 10px;
+    }
+}
+@media only screen and (min-device-width : 768px) and (max-device-width : 1072px){
+    .candidateSearchBar{
+        max-width: 100%;
+        flex-grow: 1;
+        margin-top: -125px;
+        position: absolute;
+        left: 0px;
+        right: 0px;
+        margin-left: 0px;
+        margin-right: 0px;
+        margin-bottom: 0px;
+    }
+    .atsSearchBar{
+        margin:auto;
+        margin-top: 15px !important;
+    }
+}
+@media only screen and (min-device-width : 1073px) and (max-device-width : 1340px){
+    .atsSearchBar{
+        margin:auto;
+        margin-top: 15px !important;
+    }
+}

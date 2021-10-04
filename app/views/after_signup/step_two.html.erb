@@ -1,0 +1,448 @@
+<!-- erbstart app/views/after_signup/step_two.html.erb -->
+<script>
+  $(document).ready(function() {
+  function visible_hover(id) {
+    $( "#"+ id ).hover(
+      function() {
+        $( "#" + id + "_text" ).addClass( "visible" );
+      }, function() {
+        $( "#" + id + "_text" ).removeClass( "visible" );
+      }
+    );
+  }
+  function visible_focus(id) {
+    $( "#" + id ).focus(
+        function() { $( "#" + id + "_text" ).addClass( "visible" );
+      }
+    );
+    $( "#" + id ).blur(
+        function() {
+          if ($(this).val() == '') {
+              $( "#" + id + "_text" ).removeClass( "visible" );
+        }
+      }
+    );
+  }
+  var roles = ['sales', 'technology', 'finance'];
+  roles.map(visible_hover);
+  var inputs = ['first_name', 'last_name', 'email', 'country_code', 'phone_number', 'remote', 'password', 'password_confirmation'
+                , 'address_1', 'address_2' ,'city', 'state', 'zipcode', "email"];
+  inputs.map(visible_focus);
+  $('#authorized_no').on('change', function() {
+    if (!$('#user\\[work_authorization_status\\]\\[work_auth_no\\]').is(":checked"))
+    {
+        $('#user\\[work_authorization_status\\]\\[work_auth_no\\]').prop('checked', false);
+        $('#authorized_no .check').css("visibility", "hidden");
+    } else {
+        $('#user\\[work_authorization_status\\]\\[work_auth_yes\\]').prop('checked', false);
+        $('#authorized_yes .check').css("visibility", "hidden");
+        $('#authorized_no .check').css("visibility", "visible");
+    }
+  });
+  $('#authorized_yes').on('change', function() {
+    if (!$('#user\\[work_authorization_status\\]\\[work_auth_yes\\]').is(":checked")) {
+      $('#user\\[work_authorization_status\\]\\[work_auth_yes\\]').prop('checked', false);
+      $('#authorized_yes .check').css("visibility", "hidden");
+    } else {
+      $('#user\\[work_authorization_status\\]\\[work_auth_no\\]').prop('checked', false);
+      $('#authorized_yes .check').css("visibility", "visible");
+      $('#authorized_no .check').css("visibility", "hidden");
+    }
+  });
+  $('#visa_no').on('change', function() {
+    if (!$('input.checkbox').is(":checked"))
+    {
+        $('#user\\[visa_status\\]\\[visa_no\\]').prop('checked', false);
+        $('#visa_no .check').css("visibility", "hidden");
+    } else {
+        $('#user\\[visa_status\\]\\[visa_yes\\]').prop('checked', false);
+        $('#visa_yes .check').css("visibility", "hidden");
+        $('#visa_no .check').css("visibility", "visible");
+    }
+  });
+  $('#visa_yes').on('change', function() {
+    if (!$('input.checkbox').is(":checked")) {
+      $('#user\\[visa_status\\]\\[visa_yes\\]').prop('checked', false);
+      $('#visa_yes .check').css("visibility", "hidden");
+    } else {
+      $('#user\\[visa_status\\]\\[visa_no\\]').prop('checked', false);
+      $('#visa_yes .check').css("visibility", "visible");
+      $('#visa_no .check').css("visibility", "hidden");
+    }
+  });
+  function radio_like(arr) {
+      function radio_helper(id) {
+          $("#" + id).prop('checked', false);
+          $("#" + id + " + label div").css({"background-color": "white", "color":"#003366"});
+      }
+      $("#" + arr[0]).on('change', function() {
+          if ($("#" + arr[0]).is(":checked"))
+          {
+              arr[1].map(radio_helper);
+          }
+      });
+    }
+    var years = ["user\\[position_interest\\]\\[finance\\]", "user\\[position_interest\\]\\[sales\\]", "user\\[position_interest\\]\\[technology\\]"];
+    var years_permutation = [];
+    for (i = 0; i < years.length; i++) {
+        var four = years.slice(0);
+        var one = four.splice(i,1);
+        years_permutation.push([one,four]);
+    }
+    var from_where = ["user\\[from_where\\]\\[other\\]", "user\\[from_where\\]\\[instagram\\]", "user\\[from_where\\]\\[google\\]", "user\\[from_where\\]\\[facebook\\]", "user\\[from_where\\]\\[referral\\]","user\\[from_where\\]\\[linkedin\\]"]
+    var from_where_permutation = [];
+    for (i = 0; i < from_where.length; i++) {
+        var four = from_where.slice(0);
+        var one = four.splice(i,1);
+        from_where_permutation.push([one,four]);
+    }
+    years_permutation.map(radio_like);
+    from_where_permutation.map(radio_like);
+});
+</script>
+
+  <div class="row">
+
+<div class="space-80"></div>
+
+
+
+  <div class="col-9 col-md-9 remove-padding" style="float:none; margin: auto;">
+        <div class="clearfix">
+          <div class="container-fluid papel">
+            <div class="space-10"></div>
+              <div class="row align-items-center">
+              <h3 class="text-center blue-title">Let's Get Started</h3>
+               <div class="simple-progress-container progress-round-xlarge" style="margin-bottom: 20px;">
+
+                  <div class="simple-progress-bar progress-round-xlarge" style="width:50%; background-color: #cc0000; transition-property: width; transition-duration: 4s; transition-delay: 0.5s;">
+                </div>
+              </div>
+              <div class="col col-xs-12 col-sm-12 col-md-12 col-lg-12 align-self-center" style="padding-bottom: 35px;">
+
+
+
+
+              <%= simple_form_for @user, :url => wizard_path, :method => :put, html: { multipart: true } do |f| %>
+                 <!--    <h4 style="margin-top: 91px;">
+                      <span style="font-weight: 300;">
+                        <%= @step_two_question_one %>
+                      </span>
+                    </h4>
+                    <div class="row step-2-row">
+                        <div class="third left blue-text">
+                          <input class="checkbox" id="user[position_interest][sales]" type="checkbox" name="position_interest[sales]" />
+                          <label for="user[position_interest][sales]" style="padding-bottom: 0;">
+                            <div id="sales" class="btn btn-blue left step-2-btn" style="font-size: 18px; padding:22.5px 12px; text-transform: none;">
+                              Sales
+                            </div>
+                          </label>
+                        </div>
+                        <div class="third left blue-text">
+                          <input class="checkbox" id="user[position_interest][technology]" type="checkbox" name="position_interest[technology]" />
+                          <label for="user[position_interest][technology]" style="padding-bottom: 0;">
+                            <div id="technology" class="btn btn-blue step-2-btn" style="font-size: 18px; padding:22.5px 12px; text-transform: none; margin-left:auto;margin-right:auto; display: block;">
+                             Technology
+                            </div>
+                          </label>
+                        </div>
+                        <div class="third right blue-text">
+                          <input class="checkbox" id="user[position_interest][finance]" type="checkbox" name="position_interest[finance]" />
+                          <label for="user[position_interest][finance]" style="padding-bottom: 0;">
+                              <div id="finance" class="btn btn-blue right step-2-btn" style="font-size: 18px; padding:22.5px 12px; text-transform: none;">
+                              Finance
+                              </div>
+                          </label>
+                        </div>
+                    </div>
+<!-- Start Boxes -->
+                    <!-- <div class="row step-2-row" style="height: 59px;"> -->
+<!-- Sales -->
+                      <!-- <div class="third left"> -->
+                        <!-- <div id="sales_text" class="roles-text left"> -->
+                          <!-- Sales Development, Account Executive, Account Manager / Customer Success, BD Partnerships & more -->
+                          <!-- </div> -->
+                      <!-- </div> -->
+<!-- Tech -->
+                      <!-- <div class="third left">
+                        <div id="technology_text" class="roles-text" style="margin: 8px auto 0;">
+                            Software Engineers, Product Designers, Product Managers, Dev Ops, Data Scientists, Mobile Technologists & more
+                          </div>
+                      </div> -->
+<!-- Finance -->
+                      <!-- <div class="third right">
+                        <div id="finance_text" class="roles-text right">
+                          Investment Banking, Business Development, Consulting, Private Equity, Marketing, Hedge Fund, Sales & more
+                          </div>
+                      </div>
+                    </div> -->
+<!-- End Boxes -->
+                  <div class="row">
+                    <div class="quarter left">
+                      <span id='first_name_text'  class="left rm-margin form-text">First Name*</span>
+                      <input class="form-control-2 string optional left form-margin" type="text" name="first_name" id="first_name" value="<%= @user.first_name %>" placeholder="<%= @user.first_name ||= "First Name*" %>" onfocus="this.placeholder = ''" onblur="this.placeholder = 'First Name*'" >
+                    </div>
+                    <div class="quarter left">
+                      <span id='last_name_text' class="form-margin form-text" style="margin-left: auto; margin-right: auto;">Last Name*</span>
+                      <input class="form-control-2 form-margin" type="text" name="last_name" id="last_name" value="<%= @user.last_name %>" placeholder="<%= @user.last_name ||= "Last Name*" %>" style="margin-left: auto; margin-right: auto;" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Last Name*'">
+                    </div>
+                    <% if current_user.signuprole != nil %>
+                    <div class="half left">
+                      <span id='email_text' class="form-margin form-text" style="margin-left: auto; margin-right: auto;">Email*</span>
+                      <input class="form-control-2 form-margin" type="text" name="email" id="email" value="<%= @user.email %>" placeholder="<%= @user.email ||= "Email*" %>" style="margin-left: auto; margin-right: auto;" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Email*'">
+                    </div>
+                    <% end %> 
+                  </div>
+
+                  <div class="row" style="margin-top: 22px; margin-bottom: 22px;">
+                    <div class="left" style="padding: 0; width: 40%;">
+                      <span id="phone_number_text" class="left form-margin form-text">Phone Number*</span>
+                      <input class="form-control-2 string required left form-margin" type="text" name="phone_number" id="phone_number" value="<%= @user.phone_number %>" placeholder="<%= @user.phone_number ||= "Phone Number*" %>" onfocus="this.placeholder = ''"
+                    onblur="this.placeholder = 'Phone Number*'">
+
+                    </div>
+                    <div class="grid-address-1 form-margin" style="float:left; width: 40%;">
+                      <span id="address_1_text" class="form-text" style="margin: auto;">Address Line 1*</span>
+                      <input class="form-control-2 string required right" type="text" name="address_line_1" id="address_1" value="<%= @user.address_line_1 %>" placeholder="<%= @user.address_line_1 ||= "Address Line 1*" %>" onfocus="this.placeholder = ''"
+                      onblur="this.placeholder = 'Address Line 1*'">
+                    </div>
+                    <div class="grid-address-2 form-margin" style="float: right; width: 15%;">
+                      <span id="address_2_text" class=" form-text" style="margin: auto;">Apt/Suite</span>
+                      <input class="form-control-2 string required right" type="text" name="address_line_2" id="address_2" value="<%= @user.address_line_2 %>" placeholder="<%= @user.address_line_2 ||= "Apt/Suite*" %>" onfocus="this.placeholder = ''"
+                      onblur="this.placeholder = 'Apt/Suite'">
+                    </div>
+                    <!-- <div class="right half" style=" margin-top: 25px; padding: 0;">
+                    <div class="left" style="width:77%;">
+                      <span class="right" style="font-weight: 500; font-size: 1rem; color: black; text-align:right; margin-right: 10px;"> Remote Interest*</span>
+                    </div>
+                    <div class="right" style="width: 23%;" >
+                      <select class="select optional" style="margin-left: auto; margin-right: auto; width: 50px; height: 22px;" name="user[remote_interest]" id="user_remote_interest">
+                        <option value="Yes">Yes</option>
+                        <option value="No">No</option>
+                      </select>
+                    </div>
+                   </div> -->
+                </div>
+
+                  <div class="row">
+                    <div class="quarter left">
+                      <div class="grid-city-2 form-margin">
+                        <span id="city_text" class=" form-text" style="margin: auto;">City*</span>
+                        <input class="form-control-2 string required  right" type="text" name="city" id="city" value="<%= @user.city %>" placeholder="<%= @user.city ||= "City*" %>" onfocus="this.placeholder = ''"
+                        onblur="this.placeholder = 'City*'">
+                      </div>
+                    </div>
+                    <div class="quarter left">
+                      <div class="grid-state-2 form-margin">
+                        <span id="state_text" class=" form-text" style="margin: auto;">State*</span>
+                        <input class="form-control-2 string required  right" type="text" name="state" id="state" value="<%= @user.state %>" placeholder="<%= @user.state ||= "State*" %>" onfocus="this.placeholder = ''"
+                        onblur="this.placeholder = 'State*'"> <!--should be a drop down -->
+                      </div>
+                    </div>
+                    <div class="quarter left">
+                      <div class="grid-zipcode-2 form-margin">
+                        <span id="zipcode_text" class=" form-text" style="margin: auto;">Zipcode*</span>
+                        <input class="form-control-2 string required  right" type="text" name="zipcode" id="zipcode" value="<%= @user.zipcode %>" placeholder="<%= @user.zipcode ||= "Zipcode*" %>" onfocus="this.placeholder = ''"
+                        onblur="this.placeholder = 'Zipcode*'">
+                      </div>
+                    </div>
+                    <div class="quarter left">
+                      <div class="grid-country" style="margin-top: 16px;">
+  <!--                       <span id="country_code_text" class="form-margin form-text" style="margin: auto;">Country*</span> -->
+                        <%= f.input :country_code, label: false, class: "right form-margin form-text form-control-2 integer required"  do %>
+                            <%= country_select("phone", "country_code", { priority_countries: ["AU", "GB", "US"], selected: "US" }, id:"country_code", style:"padding: 4px 13px; border-radius: 26px; background-color: white; margin-left: auto; margin-right: auto; width: -webkit-fill-available;" ) %>
+                        <% end %>
+                      </div>
+                    </div>
+                  </div>
+
+                  </div>
+
+
+
+ <div class="row" style="font-size: 16px;">
+                      <div style="width:100%">
+                        <span class="left" style="padding-top:29px; padding-bottom: 17px; font-weight: 450;">
+                          How did you hear about CardinalTalent?*
+                        </span>
+                      </div>
+                    </div>
+
+                    <div class="row" style="border-bottom: 1px solid rgba(0, 0, 0, 0.4) !important; padding-bottom: 19px; font-size: 16px;">
+
+                      <div id="berkeley" class="quarter left city">
+
+                          <input class="checkbox" id="user[referred_from][linkedin_site]" type="checkbox" name="user[referred_from][linkedin_site]" style="display: none;"/>
+
+                          <label for="user[referred_from][linkedin_site]"> <span class="check">✓</span> LinkedIn </label>
+                       </div>
+
+                      <div id="chicago" class="quarter left city">
+
+                        <input class="checkbox" id="user[referred_from][facebook_site]" type="checkbox" name="user[referred_from][facebook_site]" style="display: none;"/>
+                        <label for="user[referred_from][facebook_site]"><span class="check">✓</span> Facebook</label>
+                      </div>
+
+                      <div id="oakland" class="quarter left city">
+
+                        <input class="checkbox" id="user[referred_from][googleSearch_site]" type="checkbox" name="user[referred_from][googleSearch_site]" style="display: none;"/>
+                        <label for="user[referred_from][googleSearch_site]"><span class="check">✓</span> Google Search</label>
+                      </div>
+
+                      <div id="san_diego" class="quarter left city">
+
+                        <input class="checkbox" id="user[referred_from][instagram_site]" type="checkbox" name="user[referred_from][instagram_site]" style="display: none;"/>
+                        <label for="user[referred_from][instagram_site]"><span class="check">✓</span> Instagram</label>
+                      </div>
+
+                      <div id="san_francisco" class="quarter left city">
+
+
+                        <input class="checkbox" id="user[referred_from][referral_site]" type="checkbox" name="user[referred_from][referral_site]" style="display: none;"/>
+                        <label for="user[referred_from][referral_site]"><span class="check">✓</span> Referral</label>
+                      </div>
+
+                      <div id="san_jose" class="quarter left city">
+
+
+                        <input class="checkbox" id="user[referred_from][other_site]" type="checkbox" name="user[referred_from][other_site]" style="display: none;"/>
+                        <label for="user[referred_from][other_site]"><span class="check">✓</span> Other</label>
+                      </div>
+                    </div>
+
+                    <div class="row" style="font-size: 16px;">
+                      <div style="width:100%">
+                        <span class="left" style="padding-top:29px; padding-bottom: 17px; font-weight: 450;">
+                          <%= @step_two_question_two %>
+                        </span>
+                      </div>
+                    </div>
+
+                    <div class="row" style="border-bottom: 1px solid rgba(0, 0, 0, 0.4) !important; padding-bottom: 19px; font-size: 16px;">
+
+                      <div id="berkeley" class="quarter left city">
+
+                          <input class="checkbox" id="user[location_interest_usa][berkeley]" type="checkbox" name="user[location_interest_usa][berkeley]" style="display: none;"/>
+
+                          <label for="user[location_interest_usa][berkeley]"> <span class="check">✓</span> Berkeley </label>
+                       </div>
+
+                      <div id="chicago" class="quarter left city">
+
+                        <input class="checkbox" id="user[location_interest_usa][chicago]" type="checkbox" name="user[location_interest_usa][chicago]" style="display: none;"/>
+                        <label for="user[location_interest_usa][chicago]"><span class="check">✓</span> Chicago</label>
+                      </div>
+
+                      <div id="oakland" class="quarter left city">
+
+                        <input class="checkbox" id="user[location_interest_usa][oakland]" type="checkbox" name="user[location_interest_usa][oakland]" style="display: none;"/>
+                        <label for="user[location_interest_usa][oakland]"><span class="check">✓</span> Oakland</label>
+                      </div>
+
+                      <div id="san_diego" class="quarter left city">
+
+                        <input class="checkbox" id="user[location_interest_usa][san_diego]" type="checkbox" name="user[location_interest_usa][san_diego]" style="display: none;"/>
+                        <label for="user[location_interest_usa][san_diego]"><span class="check">✓</span> San Diego</label>
+                      </div>
+
+                      <div id="san_francisco" class="quarter left city">
+
+                        <input class="checkbox" id="user[location_interest_usa][san_francisco]" type="checkbox" name="user[location_interest_usa][san_francisco]" style="display: none;"/>
+                        <label for="user[location_interest_usa][san_francisco]"><span class="check">✓</span> San Francisco</label>
+                      </div>
+
+                      <div id="san_jose" class="quarter left city">
+
+                        <input class="checkbox" id="user[location_interest_usa][san_jose]" type="checkbox" name="user[location_interest_usa][san_jose]" style="display: none;"/>
+                        <label for="user[location_interest_usa][san_jose]"><span class="check">✓</span> San Jose</label>
+                      </div>
+
+                      <div id="no_loc_pref" class="quarter left city">
+
+                        <input class="checkbox" id="user[location_interest_usa][no_loc_pref]" type="checkbox" name="user[location_interest_usa][no_loc_pref]" style="display: none;"/>
+                        <label for="user[location_interest_usa][no_loc_pref]"><span class="check">✓</span> No Preference</label>
+                      </div>
+                    </div>
+
+                    <div class="row" style="padding-top:42px; padding-bottom: 42px; line-height:  19px; font-size: 16px; border-bottom: 1px solid rgba(0, 0, 0, 0.4); ">
+                      <div class="half left full-step-2" style="padding-right: 15px; display: block;
+    margin-bottom: 23px;">
+                        <div class="left" style="width: 70%; padding-right: 10px;">
+                          <span style="padding-right:5px;">
+                            <%= @step_two_question_three %>
+                          </span>
+                        </div>
+
+
+
+                          <div id="authorized_yes" class="city left" style="width: 15%;">
+
+                              <input class="checkbox" id="user[work_authorization_status][work_auth_yes]" type="checkbox" name="user[work_authorization_status][work_auth_yes]" style="display: none;"/>
+                              <label for="user[work_authorization_status][work_auth_yes]" style="margin-top: 0;"><span class="check">✓</span> Yes</label>
+                            </div>
+
+                        <div id="authorized_no" class="city left" style="width: 15%;">
+                                             <input class="checkbox" id="user[work_authorization_status][work_auth_no]" type="checkbox" name="user[work_authorization_status][work_auth_no]" style="display: none;"/>
+                          <label for="user[work_authorization_status][work_auth_no]" style="margin-top: 0;"><span class="check">✓</span> No</label>
+                        </div>
+
+                      </div>
+
+
+
+                      <div class="half right full-step-2" style="padding-left: 15px;">
+                        <div class="left" style="width: 70%;">
+                          <span style="padding-right:5px;">
+                            <%= @step_two_question_four %>
+                          </span>
+                        </div>
+
+                        <div id="visa_yes" class="city left" style="width: 15%;">
+
+                          <input class="checkbox" id="user[visa_status][visa_yes]" type="checkbox" name="user[visa_status][visa_yes]" style="display: none;" required="true"/>
+                          <label for="user[visa_status][visa_yes]" style="margin-top: 0;"><span class="check">✓</span> Yes</label>
+                        </div>
+
+                        <div id="visa_no" class="city left" style="width: 15%;">
+
+                          <input class="checkbox" id="user[visa_status][visa_no]" type="checkbox" name="user[visa_status][visa_no]" style="display: none;" required="true"/>
+                          <label for="user[visa_status][visa_no]" style="margin-top: 0;"><span class="check">✓</span> No </label>
+                        </div>
+
+                      </div>
+
+                    </div>
+
+
+                    <div class="row" style="margin-top: 31px; margin-bottom: 30px;">
+                      <div class="quarter left">
+                            <div style="float:left; width: 100%;">
+                              <!-- <input onclick="window.history.back()" value="back" type="submit" name="commit" class="btn btn-red" data-disable-with="Back"> -->
+                            </div>
+                        </div>
+
+                        <div class="quarter right">
+                            <div style="float:right; width: 100%;">
+                                <%= f.submit 'Next', :class => 'btn btn-red' %><br />
+                            </div>
+                        </div>
+                    </div>
+
+
+
+                    <div class="space-10"></div>
+                  <% end %>
+
+              </div>
+            </div>
+        </div>
+    </div>
+  </div>
+
+  <div class="col-2 col-sm-2 col-md-2">
+      <div class="clearfix">
+        <div class="container-fluid">
+        </div>
+      </div>
+  </div>
+<!-- erbend app/views/after_signup/step_two.html.erb -->

@@ -1,0 +1,25 @@
+<!-- erbstart app/views/application/_dashboard.html.erb -->
+<% if current_user.follow_count != 0 %>
+
+  <li>
+    <%= link_to user_dashboard_path(current_user), style: 'text-shadow: 1px 1px 2px rgb(255, 255, 255, 0.1); align-self: flex-end;' do %>
+      <div class="nav-link" style="float:left;"><span>Dashboard</span></div>
+      <% unless current_user.follow_count == 0 %>
+        <span class="badge"><%= current_user.follow_count %></span>
+      <% end %>
+    <% end %>
+  </li>
+
+<% else %>
+
+  <li>
+    <%= link_to user_dashboard_path(current_user), style: 'text-shadow: 1px 1px 2px rgb(255, 255, 255, 0.1); align-self: flex-end;' do %>
+      <div class="nav-link" style="float:left;"><span>Dashboard</span></div>
+      <% unless current_user.follow_count == 0 %>
+        <span class="badge"><%= current_user.follow_count %></span>
+      <% end %>
+    <% end %>
+  </li>
+
+<% end %>
+<!-- erbend app/views/application/_dashboard.html.erb -->

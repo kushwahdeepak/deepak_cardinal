@@ -1,0 +1,67 @@
+<!-- erbstart app/views/jobs/_form.html.erb -->
+<div id="content">
+  <div class="row" style="width:90%;">
+
+    <%= simple_form_for(@job, html: {class: 'form-horizontal'}) do |f| %>
+      <%= f.error_notification %>
+
+      <div class="form-inputs">
+
+        <div class="field" style="display: none;">
+          <%= f.input :photo, as: :file, inline_label: 'Photo', label_html: {style: 'text-align: center; display: none;'} %>
+        </div>
+        <div class="field" style="text-align:center;">
+          <%= f.input :name, as: :string, label: 'Position Title:', label_html: {style: 'text-align: center;'}, placeholder: 'i.e Full Stack Software Engineer, AI Trainer, etc.' %>
+        </div>
+        <div class="field" style="text-align:center;">
+          <%= f.input :portalcompanyname, as: :string, label: 'Company Name:', label_html: {style: 'text-align: center;'}, placeholder: 'i.e Google, Salesforce, CardinalTalent, etc.' %>
+        </div>
+        <div class="field" style="text-align:center;">
+          <%= f.input :description, as: :text, label: 'Job Description', label_html: {style: 'text-align: center;'}, placeholder: "Describe the company and the perfect candidate. Let us know what you'd love to see in a future-hire, and what they can look forward to!" %>
+        </div>
+        <div class="field" style="text-align:center;">
+          <%= f.input :work_time, as: :string, label: 'Work Duration', label_html: {style: 'text-align: center;'}, placeholder: 'i.e Full time, Part time, Contract, etc.' %>
+        </div>
+        <div class="field" style="text-align:center;">
+          <%= f.input :city, as: :string, label_html: {style: 'text-align: center;'}, label: 'Location', placeholder: 'Let our recruiters know where you are to find the best matching candidates. i.e. \'San Francisco, California\'' %>
+        </div>
+        <div class="field" style="text-align:center;">
+          <%= f.input :compensation, as: :string, label: 'Salary', label_html: {style: 'text-align: center;'}, placeholder: 'Enter salary as numerical value, i.e. $80000 annually, 35$/hr, please include the dollar sign!' %>
+        </div>
+
+        <p> For the following fields, please seperate items with commas! Thank you. </p>
+
+        <div class="field" style="text-align:center;">
+          <%= f.input :gen_reqs,
+              as: :string,
+              input_html: {value: nil},
+              label_html: {style: 'text-align: center;'},
+              label: 'General Requirements', placeholder: 'Examples of any general tasks they should be able to do: Write maintainable Python code, write unit tests, etc.' %>
+        </div>
+        <p><%= @job.skills %> <<<
+        <div class="field" style="text-align:center;">
+          <%= f.input :skills,
+              as: :string,
+              input_html: {value: nil},
+              label_html: {style: 'text-align: center;'},
+              label: 'Required Skills' %>
+        </div>
+        <div class="field" style="text-align:center;">
+          <%= f.input :pref_skills, as: :string, input_html: {value: nil}, label_html: {style: 'text-align: center;'}, label: 'Preferred Skills', placeholder: 'List examples of experience that would be beneficial to have, i.e. Experience with GUI development, etc.' %>
+        </div>
+        <div class="field" style="text-align:center;">
+          <%= f.input :benefits, as: :string, input_html: {value: nil}, label_html: {style: 'text-align: center;'}, label: 'Benefits', placeholder: 'Benefits that they can look forward to! i.e. Vacation, dental, vision, etc.' %>
+        </div>
+
+        <%= f.hidden_field :recruiter_update_id, value: @current_user.id %>
+
+      </div>
+
+      <div class="form-actions" style="margin-left: 45%; width: fit-content;">
+        <%= f.button :submit %>
+      </div>
+    <% end %>
+
+  </div>
+</div>
+<!-- erbend app/views/jobs/_form.html.erb -->

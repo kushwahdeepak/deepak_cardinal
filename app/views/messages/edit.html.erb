@@ -1,0 +1,19 @@
+<!-- erbstart app/views/messages/edit.html.erb -->
+
+<nav>
+  <div id="side-bar">
+    <div class="space-40"></div>
+
+  </div>
+</nav>
+
+
+  <div id="main-content">
+    <h1>Editing Message</h1>
+
+    <%= render 'form', message: @message %>
+
+    <%= link_to 'Show', @message %> |
+    <%= link_to 'Back', messages_path %>
+  </div>
+<!-- erbend app/views/messages/edit.html.erb -->

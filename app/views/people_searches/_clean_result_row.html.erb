@@ -1,0 +1,26 @@
+<!-- erbstart app/views/searches/_clean_result_row.html.erb -->
+<!-------------------------------------------------------------------------------------------------------->
+
+
+<hr>
+<h1>Person Info</h1>
+<%=  person.to_filtered_hash %>
+
+<h1>Notes</h1>
+<ol>
+<% person.notes.each_with_index do |note| %>
+  <li><%= note.body + " | "+ note.created_at.to_s %></li>
+<% end %>
+</ol>
+
+<%= render partial: 'people/person_result_add_note' , locals: {person: person, person_id: person.id} %>
+
+<%#= form_tag(controller: "notes", action: "new", method: "post") do %>
+  <%#= hidden_field_tag(:user_id, current_user.id) %>
+  <%#= hidden_field_tag(:person_id, person.id) %>
+  <%#= label_tag(:label, "New note") %>
+  <%#= text_field_tag(:body) %>
+  <%#= submit_tag("Add") %>
+
+<%# end %>
+<!-- erbend app/views/searches/_clean_result_row.html.erb -->

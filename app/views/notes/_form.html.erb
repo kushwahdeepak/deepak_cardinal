@@ -1,0 +1,8 @@
+<!-- erbstart app/views/notes/_form.html.erb -->
+<h4>Add a Note</h4>
+<%= form_for [@person, Note.new], html: {class: "form-group"}, authenticity_token: true do |f| %>
+    <%= f.label :body, class: 'sr-only' %>
+    <%= f.text_field :body, class: 'form-control', placeholder: "Enter a new note" %>
+  <%= f.submit "Submit Note", class: 'btn btn-default pull-right' %>
+<% end %>
+<!-- erbend app/views/notes/_form.html.erb -->

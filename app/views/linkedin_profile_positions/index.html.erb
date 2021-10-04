@@ -1,0 +1,51 @@
+<!-- erbstart app/views/linkedin_profile_positions/index.html.erb -->
+<p id="notice"><%= notice %></p>
+
+<h1>Linkedin Profile Positions</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Linkedin profile</th>
+      <th>Company name</th>
+      <th>Is current</th>
+      <th>Start date</th>
+      <th>Start date year</th>
+      <th>Start date month</th>
+      <th>End date</th>
+      <th>End date year</th>
+      <th>End date month</th>
+      <th>Title</th>
+      <th>Summary</th>
+      <th>Locality</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @linkedin_profile_positions.each do |linkedin_profile_position| %>
+      <tr>
+        <td><%= linkedin_profile_position.linkedin_profile_id %></td>
+        <td><%= linkedin_profile_position.company_name %></td>
+        <td><%= linkedin_profile_position.is_current %></td>
+        <td><%= linkedin_profile_position.start_date %></td>
+        <td><%= linkedin_profile_position.start_date_year %></td>
+        <td><%= linkedin_profile_position.start_date_month %></td>
+        <td><%= linkedin_profile_position.end_date %></td>
+        <td><%= linkedin_profile_position.end_date_year %></td>
+        <td><%= linkedin_profile_position.end_date_month %></td>
+        <td><%= linkedin_profile_position.title %></td>
+        <td><%= linkedin_profile_position.summary %></td>
+        <td><%= linkedin_profile_position.locality %></td>
+        <td><%= link_to 'Show', linkedin_profile_position %></td>
+        <td><%= link_to 'Edit', edit_linkedin_profile_position_path(linkedin_profile_position) %></td>
+        <td><%= link_to 'Destroy', linkedin_profile_position, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Linkedin Profile Position', new_linkedin_profile_position_path %>
+<!-- erbend app/views/linkedin_profile_positions/index.html.erb -->

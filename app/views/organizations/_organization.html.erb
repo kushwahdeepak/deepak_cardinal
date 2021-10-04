@@ -1,0 +1,26 @@
+<!-- erbstart app/views/organizations/_organization.html.erb -->
+<% if organization.is_deleted == false %>
+  <tr>
+    <td><%= organization.name %></td>
+    <td><%= organization.owner&.name  %></td>
+    <td><%= organization.status&.capitalize %></td>
+    <td>
+      <div style = "margin-top:4px;">
+        <% if current_user == organization.owner %>
+          <%= link_to edit_organization_path(organization) do %>
+            <%= image_tag('icons/edit.svg', alt: 'clear search', style: 'display: inline; padding: 13px;') %>
+          <% end %>
+        <% end %>
+      </div>
+    </td>
+    <td>
+      <% if current_user.role == 'admin' %>
+        <%= link_to organization_path(organization), method: :delete, data: { confirm: 'Are you sure?' } do %>
+          <%= image_tag('icons/trash-2.svg', alt: 'clear search', style: 'display: inline; padding: 13px;') %>
+        <% end %>
+      <% end %>
+    </td>
+    <td><%= link_to 'Show', organization_path(organization) %></td>
+  </tr>
+<% end %>
+<!-- erbstart app/views/organizations/_organization.html.erb -->

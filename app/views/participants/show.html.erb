@@ -1,0 +1,11 @@
+<!-- erbstart app/views/participants/show.html.erb -->
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Conversation:</strong>
+  <%= @participant.conversation %>
+</p>
+
+<%= link_to 'Edit', edit_participant_path(@participant) %> |
+<%= link_to 'Back', participants_path %>
+<!-- erbend app/views/participants/show.html.erb -->

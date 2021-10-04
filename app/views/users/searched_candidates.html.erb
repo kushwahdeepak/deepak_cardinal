@@ -1,0 +1,53 @@
+<!-- erbstart app/views/users/searched_candidates.html.erb -->
+
+
+  <div class="row">
+    <div class="col-md-3">
+    </div>
+
+    <div class="col-md-6">
+              <h3>Submitted Candidates</h3>
+
+              <% if @submitted_candidates.blank? %>
+                <h5> <%='You have not submitted any candidates'%> </h5>
+              <% else %>
+                <%= form_tag send_bulk_email_messages_people_path, method: :get do %>
+                  <% @submitted_candidates.each_with_index do |favorite| %>
+                      <%= render partial: 'people/person_result', locals: { person: Person.find(favorite.person_id) } %>
+                  <% end %>
+                <% end %>
+              <% end %>
+
+
+
+                <h3>Favorite Candidates</h3>
+              <% if @favorites.blank? %>
+                <h5><%= "You have not marked any candidates as favorites." %></h5>
+              <% else %>
+                <%= form_tag send_bulk_email_messages_people_path, method: :get do %>
+                            <% @favorites.each_with_index do |favorite| %>
+                                <%= render partial: 'people/person_result', locals: { person: Person.find(favorite.person_id) } %>
+                                <% end %>
+                                <% end %>
+              <% end %>
+
+              <% if @searches.blank? %>
+              <h3>Searches</h3>
+              <h5><%= "You have not performed any searches yet." %></h5>
+              <% else %>
+              <h3>Searches</h3>
+
+              <%= render @searches %>
+              <% end %>
+
+              <%= form_tag send_bulk_email_messages_people_path, method: :get do %>
+                          <% @searched_candidates.each_with_index do |searched_candidate| %>
+                              <%= render partial: 'people/person_result', locals: { person: Person.find(searched_candidate.person_id) } %>
+                          <% end %>
+              <% end %>
+
+    </div>
+    <div class="col-md-3">
+    </div>
+  </div>
+<!-- erbend app/views/users/searched_candidates.html.erb -->

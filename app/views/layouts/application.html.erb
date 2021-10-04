@@ -1,0 +1,94 @@
+<!-- erbstart app/views/layouts/application.html.erb -->
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
+    <% if @meta != nil %>
+      <title><%= (@meta[:title]) + ' | ' + 'CardinalTalent' %></title>
+    <% else %>
+      <title>CardinalTalent</title>
+    <% end%>
+    <%# Make Ruby constants accessible in JS files %>
+    <script>
+      window.ch_const = {
+        degree_bachelors: "<%= Person::DEGREE_BACHELORS %>",
+        degree_masters: "<%= Person::DEGREE_MASTERS %>",
+        degree_doctorate: "<%= Person::DEGREE_DOCTORATE %>",
+        degree_certificate: "<%= Person::DEGREE_CERTIFICATE %>",
+        ct_org_name: "CardinalTalent"
+      }
+    </script>
+
+    <%= csrf_meta_tags %>
+
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+
+    <!-- Include js/css built with Sprockets -->
+    <%#= stylesheet_link_tag 'application', media: 'all' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+
+    <!-- Include js/css built with Webpacker -->
+    <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+    <%= favicon_link_tag 'tab_icon.png' %>
+    <%= rails_amp_amphtml_link_tag %>
+    <%= action_cable_meta_tag %>
+    <!-- Google Analytics -->
+      <script async src="https://www.googletagmanager.com/gtag/js?id=<%= ENV['GA_TRACKING_ID']%>"></script>
+      <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', '<%= ENV['GA_TRACKING_ID']%>');
+      </script>
+    <!-- End Google Analytics -->
+    <!-- Facebook Pixel Code -->
+    <script>
+        !function (f, b, e, v, n, t, s) {
+            if (f.fbq) return;
+            n = f.fbq = function () {
+                n.callMethod ?
+                    n.callMethod.apply(n, arguments) : n.queue.push(arguments)
+            };
+            if (!f._fbq) f._fbq = n;
+            n.push = n;
+            n.loaded = !0;
+            n.version = '2.0';
+            n.queue = [];
+            t = b.createElement(e);
+            t.async = !0;
+            t.src = v;
+            s = b.getElementsByTagName(e)[0];
+            s.parentNode.insertBefore(t, s)
+        }(window, document, 'script',
+            'https://connect.facebook.net/en_US/fbevents.js');
+        fbq('init', '236353817100890');
+        fbq('track', 'PageView');
+    </script>
+
+    <noscript>
+      <img height="1" width="1" src="https://www.facebook.com/tr?id=236353817100890&ev=PageView&noscript=1"/>
+    </noscript>
+    <!-- End Facebook Pixel Code -->
+  </head>
+
+  <body>
+    <header>
+      <%= render 'header_1' %>
+    </header>
+
+    <%= react_component("common/RequestAssist/RequestAssist", {}) %>
+
+    <div class="page-container">
+      <%= yield %>
+    </div>
+
+    <%= render 'footer' %>
+
+  </body>
+</html>
+<!-- erbend app/views/layouts/application.html.erb -->

@@ -1,0 +1,36 @@
+<!-- erbstart app/views/follows/index.html.erb -->
+<div class="space-90"></div>
+<div style="">
+  <p id="notice"><%= notice %></p>
+  <div id="side-bar">
+    
+  </div>
+
+  <div class="" id="main-content">
+    <div style="">
+      <h1>Dashboard</h1>
+    </div>
+
+    <table style="width: 100%">
+      <thead>
+        <tr>
+          <th colspan="4">
+          </th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <% @follows.each do |follow| %>
+        <% followable = Person.where(id: follow.followable_id).first %>
+          <tr>
+            <td><h4><%= followable.formatted_name %></h4></td>
+            <td><h4><%= link_to 'Profile', followable %></h4></td>
+            <td><h4><%= follow.created_at.to_date %></h4></td>
+            <td><h4><%= link_to 'Cancel request', follow, method: :delete, data: { confirm: 'Are you sure?' } %></h4></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>
+<!-- erbend app/views/follows/index.html.erb -->

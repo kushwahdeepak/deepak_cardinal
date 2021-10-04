@@ -1,0 +1,59 @@
+@import '../../../../styles/var';
+
+.button {
+    background: #ececec;
+    border: 1px solid #676767;
+    box-sizing: border-box;
+    border-radius: 2px;
+    font-family: $default-font-family;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 19px;
+    color: #000000;
+    padding: 10px 38px;
+    margin-left: 26px;
+    margin-right: 18px;
+}
+
+.text {
+    font-family: $default-font-family;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 22px;
+    text-align: center;
+    color: #000000;
+}
+
+.noFileText {
+    font-family: $default-font-family;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 22px;
+    color: #000000;
+}
+
+.clearIcon {
+    margin-left: 10px;
+    cursor: pointer;
+    color: #d81815;
+}
+.textStep1 {
+    font-family: $default-font-family;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 22px;
+    text-align: center;
+    color: #000000;
+}
+
+.noFileTextStep1 {
+    font-size: 14px;
+    color: #7077A2;
+    position: relative;
+    left: 165px;
+    top: 5px;
+}

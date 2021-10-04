@@ -1,0 +1,108 @@
+@import '../../../../styles/var';
+
+.container {
+    background: #ebedfa;
+    border: 1px solid #304be0;
+    box-sizing: border-box;
+    border-radius: 50px;
+    padding: 25px 75px;
+}
+
+.column {
+    border-right: 2px solid #9da6d6;
+    flex:1
+}
+
+.columnPadding {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.title {
+    font-family: $default-font-family;
+    font-style: normal;
+    font-weight: 800;
+    font-size: 20px;
+    line-height: 27px;
+    color: #213fe0;
+}
+
+.subTitle {
+    font-family: $default-font-family;
+    font-style: normal;
+    font-weight: 800;
+    font-size: 16px;
+    line-height: 22px;
+    color: #5263be;
+}
+
+.text {
+    font-family: $default-font-family;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    color: #4a5cba;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow-x: hidden;
+    max-width: 200px;
+    display: inline-block;
+}
+
+.textsmall {
+    font-family: $default-font-family;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    color: #4a5cba;
+}
+
+.button {
+    font-family: $default-font-family;
+    font-style: normal;
+    font-weight: 800;
+    font-size: 16px;
+    line-height: 22px;
+    color: #ffffff;
+    background: linear-gradient(94.67deg, #4C68FF -1.19%, #6077F4 53.94%, #8185FF 102.59%);
+    border-radius: 20px;
+    padding: 9px 27px;
+}
+
+.uploadResumeModal {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    width: 500px;
+}
+@media only screen and (min-device-width : 320px) and (max-device-width : 767px){
+   .container {
+        border-radius: 15px !important;
+        padding: 15px !important;
+    } 
+    .newRow{
+        display:block !important;
+            text-align: center;
+    }
+    .uplodBtn{
+        justify-content: center;
+    }
+    .column {
+        border-right: none;
+        border-bottom: 2px solid #9da6d6;
+        margin-bottom: 15px;
+    }
+    .imgRow{
+            justify-content: center !important;
+    }
+}
+@media only screen and (min-device-width : 320px) and (max-device-width : 767px){
+    
+}

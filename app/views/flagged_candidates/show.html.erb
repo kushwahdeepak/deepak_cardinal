@@ -1,0 +1,16 @@
+<!-- erbstart app/views/flagged_candidates/show.html.erb -->
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>User:</strong>
+  <%= @flagged_candidate.user %>
+</p>
+
+<p>
+  <strong>Person:</strong>
+  <%= @flagged_candidate.person %>
+</p>
+
+<%= link_to 'Edit', edit_flagged_candidate_path(@flagged_candidate) %> |
+<%= link_to 'Back', flagged_candidates_path %>
+<!-- erbend app/views/flagged_candidates/show.html.erb -->

@@ -1,0 +1,39 @@
+<!-- erbstart app/views/timeline_items/index.html.erb -->
+<div class="space-180"></div>
+
+<nav>
+  <div id="side-bar">
+    <div class="space-40"></div>
+    
+  </div>
+</nav>
+
+
+  <div id="main-content">
+<h1>Timeline Items</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @timeline_items.each do |timeline_item| %>
+      <tr>
+        <td><%= link_to 'Show', timeline_item %></td>
+        <td><%= link_to 'Edit', edit_timeline_item_path(timeline_item) %></td>
+        <td><%= link_to 'Destroy', timeline_item, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Timeline Item', new_timeline_item_path %>
+
+</div>
+
+<!-- erbend app/views/timeline_items/index.html.erb -->

@@ -1,0 +1,150 @@
+@import './var.scss';
+
+html {
+    height: 100%;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+    background-color: $default-bg-color !important;
+    color: #333;
+    font-weight: 400;
+    height: 100%;
+    font-family: $default-font-family;
+    overflow-x: hidden;
+    overflow-y: scroll !important;
+    padding-right: 0px !important;
+}
+
+header {
+    width: 100%;
+    background-color: $cardinal-bg;
+}
+
+button {
+    border: 0;
+}
+
+.text-sm {
+    font-size: 0.9rem;
+    font-weight: 400;
+}
+
+.text-md {
+    font-size: 0.9rem;
+    font-weight: 400;
+}
+
+.nav-cardinal {
+    color: #fff;
+}
+
+.bg-cardinal {
+    background-color: $cardinal-bg;
+}
+
+.bg-passive {
+    background-color: $passive-bg;
+}
+
+// This should do as little as possible since it wraps
+// every page and some pages may have unique requirements
+.page-container {
+    flex-grow: 1;
+}
+
+// Can be used for typical pages or ommitted in unique cases
+.standard-page {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+}
+
+.search-bar-container {
+    width: 100%;
+    background-color: $cardinal-bg;
+    border-top: 1px solid white;
+}
+.top-search-bar-btn-container {
+    width: 100%;
+    background-color: $cardinal-bg;
+    display: block;
+    padding: 5px;
+}
+
+.caption-text-light {
+    font-size: 0.8rem;
+    color: $darken-l4;
+}
+
+.success-check {
+    color: $happy-green;
+    stroke-width: 3px;
+}
+
+.center-line {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.icon-md {
+    min-width: 1.65rem;
+    min-height: 1.65rem;
+    height: 1.65rem;
+    width: 1.65rem;
+    stroke-width: 1px;
+}
+
+.icon-sm {
+    min-width: 1rem;
+    min-height: 1rem;
+    height: 1rem;
+    width: 1rem;
+    stroke-width: 1px;
+    color: #6470AF;
+}
+
+//
+// Bootstrap overrides (these will be moved to their own file soon)
+//
+.ch-navbar {
+    .nav-link {
+        color: hsla(200deg, 83%, 86%, 91%) !important;
+        font-weight: 500;
+
+        &:hover {
+            color: white !important;
+        }
+    }
+}
+
+.alert {
+    position: relative;
+    left: 0;
+    right: 0;
+    top: 0px;
+    width: 100%;
+}
+
+.alert-dismissible .close {
+    position: relative;
+    top: 0;
+    right: 0;
+    z-index: 2;
+    padding: 0px;
+    color: inherit;
+}
+.alert-dismissible {
+    padding-right: 10px;
+}
+
+
+
+@media only screen and (min-device-width : 320px) and (max-device-width : 575px){
+    
+}

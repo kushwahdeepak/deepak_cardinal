@@ -1,0 +1,117 @@
+@import '../../../../styles/var';
+
+.container{
+  padding-bottom: 50px;
+}
+
+.modal-backdrop.show{
+  opacity: 0 ;
+}
+
+.card{
+  margin: 14px 65px;
+  background: #F7F8FF;
+  border-radius: 10px;
+}
+.employer-card{
+  background: #F7F8FF;
+  border-radius: 10px;
+  margin: 0px; 
+}
+.col-md-3.textclass {
+    position: relative;
+    width: 100%;
+    top: 108px;
+}
+
+.edit-organization-modal{
+  margin: 1pc 2pc;
+  .crossbutton{
+      float: right;
+      height: 35px;
+      cursor: pointer;
+  }
+  .main-panel-modal{
+    flex-grow: 2;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: baseline;
+    padding-top: 11px;
+  }
+  .organization-form-data{
+    max-width: 800px;
+    width: 800px;
+    padding: 40px 50px;
+  }
+  .organization-title{
+    font-size: 30px;
+    line-height: 41px;
+    text-align: center;
+    color: #393f60;
+    margin-bottom: 30px;
+  }
+  .organization-sub-title{
+    color: #1D2447;
+    font-size: 20px;
+    line-height: 27px;
+  }
+} 
+.modal-content{
+    box-shadow: 0px 4px 15px rgb(0 0 0 / 15%);
+    border-radius: 30px;
+    margin-top: 75px;
+}
+.edit-organization{
+  margin-right: 10px;
+}
+.mainPanel{
+  padding-top: 0px;
+}
+.organization-activity-tabs{
+  justify-content: flex-start;
+    display: flex;
+    margin-bottom: 16px;
+    width: 40%;
+    background: rgb(235, 237, 250);
+    padding:5px;
+    border-radius: 10px;
+    .nav-item {
+        flex: 0 0 50%;
+        background: #4c68ff;
+        border-color: transparent;
+        transition: 0.2s all linear;
+        font-weight: 800;
+        font-size: 16px;
+        text-align: center;
+        white-space: nowrap;
+        background: #EAEBFF;
+        color: #4C68FF;
+        padding: 6px 25px;
+        font-family: $default-font-family;
+        font-style: normal;
+        line-height: 22px;
+        border: none;
+        &.active {
+            color: #EBEDFA;
+            transition: 0.2s all linear;
+            border: 1px solid $primary-blue;
+            background: #4C68FF;
+            border-radius: 10px;
+        }
+        &:first-of-type {
+            border-right-width: 0.5px;
+        }
+        &:last-of-type {
+            border-left-width: 0.5px;
+        }
+    }
+}
+
+
+
+@media only screen and (min-device-width : 320px) and (max-device-width : 767px){
+.organization-activity-tabs{
+  width: 100%;
+}
+}

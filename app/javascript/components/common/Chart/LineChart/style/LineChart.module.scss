@@ -1,0 +1,46 @@
+
+.lineChartContainer{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+
+
+.keysContainer {
+    display: flex;
+    padding: 18px 16px 17px 13px;
+    background: #ffffff;
+    border: 1px solid #4c68ff;
+    box-sizing: border-box;
+    border-radius: 5px;
+}
+.keyText {
+    font-style: normal;
+    font-weight: 800;
+    font-size: 12px;
+    line-height: 16px;
+    color: #4d68ff;
+    padding-right: 13px;
+}
+.key {
+    display: flex;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 10px;
+    line-height: 14px;
+    color: #4d68ff;
+    align-items: center;
+    margin-bottom: 7px;
+}
+.keyItems {
+    padding: 3px;
+}
+.colorBox {
+    height: 15px;
+    width: 15px;
+    background: #ff7272;
+    border-radius: 2px;
+    margin-right: 13px;
+}

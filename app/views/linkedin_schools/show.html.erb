@@ -1,0 +1,21 @@
+<!-- erbstart app/views/linkedin_schools/show.html.erb -->
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @linkedin_school.name %>
+</p>
+
+<p>
+  <strong>Logo url:</strong>
+  <%= @linkedin_school.logo_url %>
+</p>
+
+<p>
+  <strong>Internal logo url:</strong>
+  <%= @linkedin_school.internal_logo_url %>
+</p>
+
+<%= link_to 'Edit', edit_linkedin_school_path(@linkedin_school) %> |
+<%= link_to 'Back', linkedin_schools_path %>
+<!-- erbend app/views/linkedin_schools/show.html.erb -->

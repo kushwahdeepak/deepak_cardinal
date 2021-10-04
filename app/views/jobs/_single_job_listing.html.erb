@@ -1,0 +1,54 @@
+<li>
+  <div class="img-container" style="width: 1em;">
+  </div>
+  <div class="description">
+    <% jobtitle = '' %>
+    <% if job.managed_account.present? %>
+      <% if !(job.managed_account.name.blank?) %>
+        <% jobtitle = job.managed_account.name %>
+      <% end %>
+    <% else %>
+      <% jobtitle = job.portalcompanyname %>
+    <% end %>
+    <h1><%= link_to "#{job.name}(id: #{job.id})", job %> - <%= jobtitle %></h1>
+    <div class="salary-range" style="display: flex; font-size: 13px;">
+      <div class="special-bold">$ Salary Range:</div>
+      <div> <%= job.compensation %></div>
+      <% if job.skills.present? %>
+        <div class="special-bold">Skills:  </div>
+        <div style="width: 100%;">
+          <% job_skills = job.skills.tr("[", "").tr("]", "").split(/[,"]+/) %>
+          <% job_skills.drop(0).each do |skill| %>
+            <div class="user-skills" style="float: left; width: fit-content; background-color: #e8eff0; border-radius: 10px; font-size: 10px; font-weight: 500; padding: 0px 11px; margin: 0px 8px 3px;  text-align: center;">
+              <%= skill.tr('"', '') + " "%>
+            </div>
+          <% end %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+
+  <% if Authorization.job_update?(current_user, job) %>
+    <div class="location">
+      <p style="margin-right: 10px; margin-top:5px;"><%= job.locations.pluck(:city).first %></p>
+      <div style = "margin-top:4px;"> <%= link_to edit_job_path(job) do %>
+        <%= image_tag('icons/edit.svg', alt: 'clear search', style: 'display: inline; padding: 13px;') %>
+        <% end %>
+      </div>
+      <%= link_to job_path(job),
+          controller: "jobs",
+          action: "destroy",
+          id: job.id,
+          method: :delete,
+          data: { confirm: 'Are you sure?' },
+          style: 'margin: 0.1em;' do 
+      %>
+
+        <%= image_tag('icons/trash-2.svg', alt: 'clear search', style: 'display: inline; padding: 13px;') %>
+
+      <% end %>
+    </div>
+  <% end %>
+
+
+</li>

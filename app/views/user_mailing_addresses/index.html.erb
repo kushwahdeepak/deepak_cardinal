@@ -1,0 +1,27 @@
+<!-- erbstart app/views/user_mailing_addresses/index.html.erb -->
+<p id="notice"><%= notice %></p>
+
+<h1>User Mailing Addresses</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @user_mailing_addresses.each do |user_mailing_address| %>
+      <tr>
+        <td><%= link_to 'Show', user_mailing_address %></td>
+        <td><%= link_to 'Edit', edit_user_mailing_address_path(user_mailing_address) %></td>
+        <td><%= link_to 'Destroy', user_mailing_address, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New User Mailing Address', new_user_mailing_address_path %>
+<!-- erbend app/views/user_mailing_addresses/index.html.erb -->

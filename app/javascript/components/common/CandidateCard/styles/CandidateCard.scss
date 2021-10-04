@@ -1,0 +1,139 @@
+@import '../../../../styles/var';
+
+.candidate-card {
+    background: #ffffff;
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+    width: 100%;
+    max-width: 100%;
+    margin-bottom: 16px;
+    font-family: $default-font-family;
+    cursor: pointer;
+
+    &:hover {
+        background-color: rgba(0, 0, 0, 0.05);
+    }
+
+    &__container {
+        padding: 25px 30px 22px 34px;
+    }
+    &__row {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+    &__checkbox-col {
+        flex: 0 0 16px;
+        max-width: 16px;
+        margin-right: 20px;
+    }
+    &__info-col {
+        padding: 0 0 0 25px;
+        flex-grow: 2;
+        flex-shrink: 2;
+    }
+    &__applied-col,
+    &__contacted-col {
+        padding: 0 15px;
+        flex-shrink: 0;
+        flex-grow: 2;
+    }
+    &__progress-col {
+        max-width: 120px;
+        flex: 0 0 120px;
+        padding: 0 15px;
+    }
+    &__actions-col {
+        flex: 0 1 auto;
+        min-width: 100px;
+        width: auto;
+        max-width: none;
+    }
+    .candidate-info-text {
+        display: block;
+        margin-bottom: 2px;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 14px;
+        line-height: 19px;
+        color: #000000;
+        &:last-of-type {
+            margin-bottom: 0px;
+        }
+        strong {
+            font-weight: bold;
+        }
+        &.candidate-name {
+            font-size: 18px;
+            line-height: 25px;
+        }
+    }
+    .candidate-span {
+        display: block;
+        margin-bottom: 1px;
+        text-align: center;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 16px;
+        line-height: 22px;
+        color: #000000;
+    }
+    .candidate-date-text {
+        display: block;
+        text-align: center;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 16px;
+        line-height: 22px;
+        color: #000000;
+    }
+    .candidate-action-btn {
+        display: block;
+        margin-bottom: 5px;
+        border: 1px solid #333030;
+        border-radius: 5px;
+        transition: 0.2s all linear;
+        max-width: 100px;
+        width: 100%;
+        text-align: center;
+        background: #fff;
+        &:hover {
+            background: #333030;
+            transition: 0.2s all linear;
+            span {
+                color: #fff;
+                transition: 0.2s all linear;
+            }
+        }
+        span {
+            transition: 0.2s all linear;
+            font-style: normal;
+            font-weight: normal;
+            font-size: 12px;
+            line-height: 16px;
+            font-family: $default-font-family;
+            color: #000000;
+        }
+        &.candidate-reject-btn {
+            margin-bottom: 0px;
+        }
+    }
+
+    .CircularProgressbar .CircularProgressbar-path {
+        stroke: #73ac8a;
+    }
+    .progress-value {
+        font-style: normal;
+        font-weight: 500;
+        font-size: 25px;
+        line-height: 27px;
+        color: #333030;
+    }
+    .match-span {
+        font-style: normal;
+        font-weight: 500;
+        font-size: 15px;
+        line-height: 20px;
+        color: #333030;
+    }
+}

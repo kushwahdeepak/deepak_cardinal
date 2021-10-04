@@ -1,0 +1,1224 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`FilterStack component should match with a snapshot 1`] = `
+<div
+  className="undefined shadow-sm card"
+>
+  <div
+    className="p-2 d-flex justify-content-between card-header"
+    data-test="filters-card-header"
+    style={
+      Object {
+        "color": "rgba(0, 0, 0, 0.35)",
+      }
+    }
+  >
+    <button
+      className="btn btn-link"
+      disabled={false}
+      onClick={[Function]}
+      type="button"
+    >
+      <i
+        className="text-danger"
+        data-feather="trash-2"
+      />
+    </button>
+  </div>
+  <div
+    className="p-2 card-body"
+  >
+    <div
+      className="accordion"
+      data-test="accordion-item"
+    >
+      <button
+        className="btn btn-expander"
+        data-test="expander-button"
+        disabled={false}
+        onClick={[Function]}
+        style={
+          Object {
+            "border": "none",
+            "fontWeight": 500,
+            "width": "100%",
+          }
+        }
+        type="Button"
+      >
+        <div
+          style={
+            Object {
+              "display": "flex",
+              "flexDirection": "row",
+              "justifyContent": "space-between",
+            }
+          }
+        >
+          Highlights
+          <div
+            style={
+              Object {
+                "display": "block",
+              }
+            }
+          >
+            <i
+              data-feather="chevron-down"
+            />
+          </div>
+          <div
+            style={
+              Object {
+                "display": "none",
+              }
+            }
+          >
+            <i
+              data-feather="chevron-right"
+            />
+          </div>
+        </div>
+      </button>
+      <div
+        aria-expanded={null}
+        className="collapse"
+      >
+        <div
+          className="container"
+          style={
+            Object {
+              "paddingBottom": "0",
+            }
+          }
+        >
+          <div
+            className="med-light-label"
+          />
+          <div
+            className="p-2"
+          >
+            <div
+              className="d-flex align-items-center"
+            >
+              <input
+                checked={false}
+                data-test="checkbox-item"
+                id="topSchool"
+                onChange={[Function]}
+                style={
+                  Object {
+                    "marginRight": "0.5rem",
+                  }
+                }
+                type="checkbox"
+              />
+              <label
+                data-test="label-item"
+                htmlFor="topSchool"
+                style={
+                  Object {
+                    "marginBottom": "0",
+                  }
+                }
+              >
+                Top school
+              </label>
+            </div>
+            <div
+              className="d-flex align-items-center"
+            >
+              <input
+                checked={false}
+                data-test="checkbox-item"
+                id="topCompany"
+                onChange={[Function]}
+                style={
+                  Object {
+                    "marginRight": "0.5rem",
+                  }
+                }
+                type="checkbox"
+              />
+              <label
+                data-test="label-item"
+                htmlFor="topCompany"
+                style={
+                  Object {
+                    "marginBottom": "0",
+                  }
+                }
+              >
+                Top company
+              </label>
+            </div>
+            <div
+              className="d-flex align-items-center"
+            >
+              <input
+                checked={false}
+                data-test="checkbox-item"
+                id="active"
+                onChange={[Function]}
+                style={
+                  Object {
+                    "marginRight": "0.5rem",
+                  }
+                }
+                type="checkbox"
+              />
+              <label
+                data-test="label-item"
+                htmlFor="active"
+                style={
+                  Object {
+                    "marginBottom": "0",
+                  }
+                }
+              >
+                Active
+              </label>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      className="accordion"
+      data-test="accordion-item"
+    >
+      <button
+        className="btn btn-expander"
+        data-test="expander-button"
+        disabled={false}
+        onClick={[Function]}
+        style={
+          Object {
+            "border": "none",
+            "fontWeight": 500,
+            "width": "100%",
+          }
+        }
+        type="Button"
+      >
+        <div
+          style={
+            Object {
+              "display": "flex",
+              "flexDirection": "row",
+              "justifyContent": "space-between",
+            }
+          }
+        >
+          Company
+          <div
+            style={
+              Object {
+                "display": "block",
+              }
+            }
+          >
+            <i
+              data-feather="chevron-down"
+            />
+          </div>
+          <div
+            style={
+              Object {
+                "display": "none",
+              }
+            }
+          >
+            <i
+              data-feather="chevron-right"
+            />
+          </div>
+        </div>
+      </button>
+      <div
+        aria-expanded={null}
+        className="collapse"
+      >
+        <div
+          className="container"
+          style={
+            Object {
+              "paddingBottom": "0",
+            }
+          }
+        >
+          <div
+            className="med-light-label"
+          />
+          <div
+            className="p-2"
+          >
+            <div
+              className="row"
+            >
+              <button
+                className="btn btn-white"
+                disabled={false}
+                onClick={[Function]}
+                type="button"
+              >
+                <svg
+                  className="css-i6dzq1"
+                  fill="none"
+                  height="24"
+                  stroke="currentColor"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="2"
+                  viewBox="0 0 24 24"
+                  width="24"
+                >
+                  <path
+                    d="M12 5L12 19"
+                  />
+                  <path
+                    d="M5 12L19 12"
+                  />
+                </svg>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      className="accordion"
+      data-test="accordion-item"
+    >
+      <button
+        className="btn btn-expander"
+        data-test="expander-button"
+        disabled={false}
+        onClick={[Function]}
+        style={
+          Object {
+            "border": "none",
+            "fontWeight": 500,
+            "width": "100%",
+          }
+        }
+        type="Button"
+      >
+        <div
+          style={
+            Object {
+              "display": "flex",
+              "flexDirection": "row",
+              "justifyContent": "space-between",
+            }
+          }
+        >
+          Education
+          <div
+            style={
+              Object {
+                "display": "block",
+              }
+            }
+          >
+            <i
+              data-feather="chevron-down"
+            />
+          </div>
+          <div
+            style={
+              Object {
+                "display": "none",
+              }
+            }
+          >
+            <i
+              data-feather="chevron-right"
+            />
+          </div>
+        </div>
+      </button>
+      <div
+        aria-expanded={null}
+        className="collapse"
+      >
+        <div
+          className="container"
+          style={
+            Object {
+              "paddingBottom": "0",
+            }
+          }
+        >
+          <div
+            className="med-light-label"
+          >
+            School
+          </div>
+          <div
+            className="p-2"
+          >
+            <div
+              className="row"
+            >
+              <button
+                className="btn btn-white"
+                disabled={false}
+                onClick={[Function]}
+                type="button"
+              >
+                <svg
+                  className="css-i6dzq1"
+                  fill="none"
+                  height="24"
+                  stroke="currentColor"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="2"
+                  viewBox="0 0 24 24"
+                  width="24"
+                >
+                  <path
+                    d="M12 5L12 19"
+                  />
+                  <path
+                    d="M5 12L19 12"
+                  />
+                </svg>
+              </button>
+            </div>
+          </div>
+          <div
+            className="med-light-label"
+          >
+            Discipline (major)
+          </div>
+          <div
+            className="p-2"
+          >
+            <div
+              className="row"
+            >
+              <button
+                className="btn btn-white"
+                disabled={false}
+                onClick={[Function]}
+                type="button"
+              >
+                <svg
+                  className="css-i6dzq1"
+                  fill="none"
+                  height="24"
+                  stroke="currentColor"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="2"
+                  viewBox="0 0 24 24"
+                  width="24"
+                >
+                  <path
+                    d="M12 5L12 19"
+                  />
+                  <path
+                    d="M5 12L19 12"
+                  />
+                </svg>
+              </button>
+            </div>
+          </div>
+          <div
+            className="med-light-label"
+          >
+            Degrees
+          </div>
+          <div
+            className="p-2"
+          >
+            <div
+              className="container"
+            >
+              <div
+                className="row"
+              >
+                <div
+                  className="col"
+                >
+                  <div
+                    className="label-and-checkbox"
+                  >
+                    <input
+                      checked={false}
+                      onChange={[Function]}
+                      style={
+                        Object {
+                          "marginRight": "0.5rem",
+                        }
+                      }
+                      type="checkbox"
+                    />
+                  </div>
+                  <div
+                    className="label-and-checkbox"
+                  >
+                    <input
+                      checked={false}
+                      onChange={[Function]}
+                      style={
+                        Object {
+                          "marginRight": "0.5rem",
+                        }
+                      }
+                      type="checkbox"
+                    />
+                  </div>
+                  <div
+                    className="label-and-checkbox"
+                  >
+                    <input
+                      checked={false}
+                      onChange={[Function]}
+                      style={
+                        Object {
+                          "marginRight": "0.5rem",
+                        }
+                      }
+                      type="checkbox"
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      className="accordion"
+      data-test="accordion-item"
+    >
+      <button
+        className="btn btn-expander"
+        data-test="expander-button"
+        disabled={false}
+        onClick={[Function]}
+        style={
+          Object {
+            "border": "none",
+            "fontWeight": 500,
+            "width": "100%",
+          }
+        }
+        type="Button"
+      >
+        <div
+          style={
+            Object {
+              "display": "flex",
+              "flexDirection": "row",
+              "justifyContent": "space-between",
+            }
+          }
+        >
+          Location
+          <div
+            style={
+              Object {
+                "display": "block",
+              }
+            }
+          >
+            <i
+              data-feather="chevron-down"
+            />
+          </div>
+          <div
+            style={
+              Object {
+                "display": "none",
+              }
+            }
+          >
+            <i
+              data-feather="chevron-right"
+            />
+          </div>
+        </div>
+      </button>
+      <div
+        aria-expanded={null}
+        className="collapse"
+      >
+        <div
+          className="container"
+          style={
+            Object {
+              "paddingBottom": "0",
+            }
+          }
+        >
+          <div
+            className="med-light-label"
+          />
+          <div
+            className="p-2"
+          >
+            <div
+              className="row"
+            >
+              <button
+                className="btn btn-white"
+                disabled={false}
+                onClick={[Function]}
+                type="button"
+              >
+                <svg
+                  className="css-i6dzq1"
+                  fill="none"
+                  height="24"
+                  stroke="currentColor"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="2"
+                  viewBox="0 0 24 24"
+                  width="24"
+                >
+                  <path
+                    d="M12 5L12 19"
+                  />
+                  <path
+                    d="M5 12L19 12"
+                  />
+                </svg>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      className="accordion"
+      data-test="accordion-item"
+    >
+      <button
+        className="btn btn-expander"
+        data-test="expander-button"
+        disabled={false}
+        onClick={[Function]}
+        style={
+          Object {
+            "border": "none",
+            "fontWeight": 500,
+            "width": "100%",
+          }
+        }
+        type="Button"
+      >
+        <div
+          style={
+            Object {
+              "display": "flex",
+              "flexDirection": "row",
+              "justifyContent": "space-between",
+            }
+          }
+        >
+          Skills
+          <div
+            style={
+              Object {
+                "display": "block",
+              }
+            }
+          >
+            <i
+              data-feather="chevron-down"
+            />
+          </div>
+          <div
+            style={
+              Object {
+                "display": "none",
+              }
+            }
+          >
+            <i
+              data-feather="chevron-right"
+            />
+          </div>
+        </div>
+      </button>
+      <div
+        aria-expanded={null}
+        className="collapse"
+      >
+        <div
+          className="container"
+          style={
+            Object {
+              "paddingBottom": "0",
+            }
+          }
+        >
+          <div
+            className="med-light-label"
+          />
+          <div
+            className="p-2"
+          >
+            <div
+              className="row"
+            >
+              <button
+                className="btn btn-white"
+                disabled={false}
+                onClick={[Function]}
+                type="button"
+              >
+                <svg
+                  className="css-i6dzq1"
+                  fill="none"
+                  height="24"
+                  stroke="currentColor"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="2"
+                  viewBox="0 0 24 24"
+                  width="24"
+                >
+                  <path
+                    d="M12 5L12 19"
+                  />
+                  <path
+                    d="M5 12L19 12"
+                  />
+                </svg>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      className="accordion"
+      data-test="accordion-item"
+    >
+      <button
+        className="btn btn-expander"
+        data-test="expander-button"
+        disabled={false}
+        onClick={[Function]}
+        style={
+          Object {
+            "border": "none",
+            "fontWeight": 500,
+            "width": "100%",
+          }
+        }
+        type="Button"
+      >
+        <div
+          style={
+            Object {
+              "display": "flex",
+              "flexDirection": "row",
+              "justifyContent": "space-between",
+            }
+          }
+        >
+          Tags
+          <div
+            style={
+              Object {
+                "display": "block",
+              }
+            }
+          >
+            <i
+              data-feather="chevron-down"
+            />
+          </div>
+          <div
+            style={
+              Object {
+                "display": "none",
+              }
+            }
+          >
+            <i
+              data-feather="chevron-right"
+            />
+          </div>
+        </div>
+      </button>
+      <div
+        aria-expanded={null}
+        className="collapse"
+      >
+        <div
+          className="container"
+          style={
+            Object {
+              "paddingBottom": "0",
+            }
+          }
+        >
+          <div
+            className="med-light-label"
+          />
+          <div
+            className="p-2"
+          >
+            <div
+              className="row"
+            >
+              <button
+                className="btn btn-white"
+                disabled={false}
+                onClick={[Function]}
+                type="button"
+              >
+                <svg
+                  className="css-i6dzq1"
+                  fill="none"
+                  height="24"
+                  stroke="currentColor"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="2"
+                  viewBox="0 0 24 24"
+                  width="24"
+                >
+                  <path
+                    d="M12 5L12 19"
+                  />
+                  <path
+                    d="M5 12L19 12"
+                  />
+                </svg>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      className="accordion"
+      data-test="accordion-item"
+    >
+      <button
+        className="btn btn-expander"
+        data-test="expander-button"
+        disabled={false}
+        onClick={[Function]}
+        style={
+          Object {
+            "border": "none",
+            "fontWeight": 500,
+            "width": "100%",
+          }
+        }
+        type="Button"
+      >
+        <div
+          style={
+            Object {
+              "display": "flex",
+              "flexDirection": "row",
+              "justifyContent": "space-between",
+            }
+          }
+        >
+          Job Title
+          <div
+            style={
+              Object {
+                "display": "block",
+              }
+            }
+          >
+            <i
+              data-feather="chevron-down"
+            />
+          </div>
+          <div
+            style={
+              Object {
+                "display": "none",
+              }
+            }
+          >
+            <i
+              data-feather="chevron-right"
+            />
+          </div>
+        </div>
+      </button>
+      <div
+        aria-expanded={null}
+        className="collapse"
+      >
+        <div
+          className="container"
+          style={
+            Object {
+              "paddingBottom": "0",
+            }
+          }
+        >
+          <div
+            className="med-light-label"
+          />
+          <div
+            className="p-2"
+          >
+            <div
+              className="row"
+            >
+              <button
+                className="btn btn-white"
+                disabled={false}
+                onClick={[Function]}
+                type="button"
+              >
+                <svg
+                  className="css-i6dzq1"
+                  fill="none"
+                  height="24"
+                  stroke="currentColor"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="2"
+                  viewBox="0 0 24 24"
+                  width="24"
+                >
+                  <path
+                    d="M12 5L12 19"
+                  />
+                  <path
+                    d="M5 12L19 12"
+                  />
+                </svg>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      className="accordion"
+      data-test="accordion-item"
+    >
+      <button
+        className="btn btn-expander"
+        data-test="expander-button"
+        disabled={false}
+        onClick={[Function]}
+        style={
+          Object {
+            "border": "none",
+            "fontWeight": 500,
+            "width": "100%",
+          }
+        }
+        type="Button"
+      >
+        <div
+          style={
+            Object {
+              "display": "flex",
+              "flexDirection": "row",
+              "justifyContent": "space-between",
+            }
+          }
+        >
+          Phone number
+          <div
+            style={
+              Object {
+                "display": "block",
+              }
+            }
+          >
+            <i
+              data-feather="chevron-down"
+            />
+          </div>
+          <div
+            style={
+              Object {
+                "display": "none",
+              }
+            }
+          >
+            <i
+              data-feather="chevron-right"
+            />
+          </div>
+        </div>
+      </button>
+      <div
+        aria-expanded={null}
+        className="collapse"
+      >
+        <div
+          className="container"
+          style={
+            Object {
+              "paddingBottom": "0",
+            }
+          }
+        >
+          <div
+            className="med-light-label"
+          />
+          <div
+            className="p-2"
+          >
+            <div
+              className="d-flex align-items-center"
+            >
+              <input
+                checked={false}
+                data-test="checkbox-item"
+                id="phoneNumberAvailable"
+                onChange={[Function]}
+                style={
+                  Object {
+                    "marginRight": "0.5rem",
+                  }
+                }
+                type="checkbox"
+              />
+              <label
+                data-test="label-item"
+                htmlFor="phoneNumberAvailable"
+                style={
+                  Object {
+                    "marginBottom": "0",
+                  }
+                }
+              >
+                Phone number available
+              </label>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      className="accordion"
+      data-test="accordion-item"
+    >
+      <button
+        className="btn btn-expander"
+        data-test="expander-button"
+        disabled={false}
+        onClick={[Function]}
+        style={
+          Object {
+            "border": "none",
+            "fontWeight": 500,
+            "width": "100%",
+          }
+        }
+        type="Button"
+      >
+        <div
+          style={
+            Object {
+              "display": "flex",
+              "flexDirection": "row",
+              "justifyContent": "space-between",
+            }
+          }
+        >
+          Emails
+          <div
+            style={
+              Object {
+                "display": "block",
+              }
+            }
+          >
+            <i
+              data-feather="chevron-down"
+            />
+          </div>
+          <div
+            style={
+              Object {
+                "display": "none",
+              }
+            }
+          >
+            <i
+              data-feather="chevron-right"
+            />
+          </div>
+        </div>
+      </button>
+      <div
+        aria-expanded={null}
+        className="collapse"
+      >
+        <div
+          className="container"
+          style={
+            Object {
+              "paddingBottom": "0",
+            }
+          }
+        >
+          <div
+            className="med-light-label"
+          />
+          <div
+            className="p-2"
+          >
+            <div
+              className="row"
+            >
+              <button
+                className="btn btn-white"
+                disabled={false}
+                onClick={[Function]}
+                type="button"
+              >
+                <svg
+                  className="css-i6dzq1"
+                  fill="none"
+                  height="24"
+                  stroke="currentColor"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="2"
+                  viewBox="0 0 24 24"
+                  width="24"
+                >
+                  <path
+                    d="M12 5L12 19"
+                  />
+                  <path
+                    d="M5 12L19 12"
+                  />
+                </svg>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      className="accordion"
+      data-test="accordion-item"
+    >
+      <button
+        className="btn btn-expander"
+        data-test="expander-button"
+        disabled={false}
+        onClick={[Function]}
+        style={
+          Object {
+            "border": "none",
+            "fontWeight": 500,
+            "width": "100%",
+          }
+        }
+        type="Button"
+      >
+        <div
+          style={
+            Object {
+              "display": "flex",
+              "flexDirection": "row",
+              "justifyContent": "space-between",
+            }
+          }
+        >
+          Names
+          <div
+            style={
+              Object {
+                "display": "block",
+              }
+            }
+          >
+            <i
+              data-feather="chevron-down"
+            />
+          </div>
+          <div
+            style={
+              Object {
+                "display": "none",
+              }
+            }
+          >
+            <i
+              data-feather="chevron-right"
+            />
+          </div>
+        </div>
+      </button>
+      <div
+        aria-expanded={null}
+        className="collapse"
+      >
+        <div
+          className="container"
+          style={
+            Object {
+              "paddingBottom": "0",
+            }
+          }
+        >
+          <div
+            className="med-light-label"
+          />
+          <div
+            className="p-2"
+          >
+            <div
+              className="row"
+            >
+              <button
+                className="btn btn-white"
+                disabled={false}
+                onClick={[Function]}
+                type="button"
+              >
+                <svg
+                  className="css-i6dzq1"
+                  fill="none"
+                  height="24"
+                  stroke="currentColor"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="2"
+                  viewBox="0 0 24 24"
+                  width="24"
+                >
+                  <path
+                    d="M12 5L12 19"
+                  />
+                  <path
+                    d="M5 12L19 12"
+                  />
+                </svg>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <button
+      className="btn btn-primary"
+      disabled={false}
+      onClick={[Function]}
+      type="button"
+    >
+      Filter
+    </button>
+  </div>
+</div>
+`;

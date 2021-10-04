@@ -1,0 +1,6 @@
+#content
+  .left.column
+    %h2 Welcome to the profile!
+    .avatar{id: "item#{avatar.id}"}= avatar.
+  .right.column
+    = render partial: "people/person_2", locals: { person: @person } %>

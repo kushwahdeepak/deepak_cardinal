@@ -1,0 +1,1 @@
+heroku pg:copy ch-job-marketplace-prod::DATABASE_URL DATABASE_URL --app ch-job-marketplace-stage

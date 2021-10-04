@@ -1,0 +1,2 @@
+class MultiLookup < ApplicationRecord
+end

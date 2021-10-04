@@ -1,0 +1,129 @@
+<!-- erbstart app/views/candidate_searches/index.html.erb -->
+<p id="notice"><%= notice %></p>
+
+<h1>Candidate Searches</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Search texts</th>
+      <th>Locations</th>
+      <th>Employers</th>
+      <th>Titles</th>
+      <th>Schools</th>
+      <th>Degrees</th>
+      <th>Disciplines</th>
+      <th>Names</th>
+      <th>Min time in job</th>
+      <th>Max time in job</th>
+      <th>Min career length</th>
+      <th>Max career length</th>
+      <th>Min activity date</th>
+      <th>Max activity date</th>
+      <th>Email available</th>
+      <th>Linkedin available</th>
+      <th>Phone number available</th>
+      <th>Github available</th>
+      <th>Top school status</th>
+      <th>Top company status</th>
+      <th>Keyword</th>
+      <th>User</th>
+      <th>Emails</th>
+      <th>Phone numbers</th>
+      <th>Linkedin urls</th>
+      <th>Active</th>
+      <th>Candidates without notes</th>
+      <th>Top one percent status</th>
+      <th>Top five percent status</th>
+      <th>Top ten percent status</th>
+      <th>Recently added</th>
+      <th>Candidates with notes</th>
+      <th>Experience years</th>
+      <th>Job type full time</th>
+      <th>Job type contract</th>
+      <th>Relocation</th>
+      <th>Remote</th>
+      <th>Person</th>
+      <th>Skills</th>
+      <th>First names</th>
+      <th>Last names</th>
+      <th>Top company</th>
+      <th>Top school</th>
+      <th>Min education level</th>
+      <th>Top company or top school</th>
+      <th>All candidates</th>
+      <th>Fulltime candidates</th>
+      <th>Freelance candidates</th>
+      <th>Open to new opportunities</th>
+      <th>Willing to work remote</th>
+      <th>Message date</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @candidate_searches.each do |candidate_search| %>
+      <tr>
+        <td><%= candidate_search.search_texts %></td>
+        <td><%= candidate_search.locations %></td>
+        <td><%= candidate_search.employers %></td>
+        <td><%= candidate_search.titles %></td>
+        <td><%= candidate_search.schools %></td>
+        <td><%= candidate_search.degrees %></td>
+        <td><%= candidate_search.disciplines %></td>
+        <td><%= candidate_search.names %></td>
+        <td><%= candidate_search.min_time_in_job %></td>
+        <td><%= candidate_search.max_time_in_job %></td>
+        <td><%= candidate_search.min_career_length %></td>
+        <td><%= candidate_search.max_career_length %></td>
+        <td><%= candidate_search.min_activity_date %></td>
+        <td><%= candidate_search.max_activity_date %></td>
+
+        <td><%= candidate_search.linkedin_available %></td>
+        <td><%= candidate_search.phone_number_available %></td>
+        <td><%= candidate_search.github_available %></td>
+        <td><%= candidate_search.top_company %></td>
+        <td><%= candidate_search.top_company %></td>
+        <td><%= candidate_search.keyword %></td>
+        <td><%= candidate_search.user %></td>
+        <td><%= candidate_search.emails %></td>
+        <td><%= candidate_search.phone_numbers %></td>
+        <td><%= candidate_search.linkedin_urls %></td>
+        <td><%= candidate_search.active %></td>
+        <td><%= candidate_search.candidates_without_notes %></td>
+        <td><%= candidate_search.top_one_percent_status %></td>
+        <td><%= candidate_search.top_five_percent_status %></td>
+        <td><%= candidate_search.top_ten_percent_status %></td>
+        <td><%= candidate_search.recently_added %></td>
+        <td><%= candidate_search.candidates_with_notes %></td>
+        <td><%= candidate_search.experience_years %></td>
+        <td><%= candidate_search.job_type_full_time %></td>
+        <td><%= candidate_search.job_type_contract %></td>
+        <td><%= candidate_search.relocation %></td>
+        <td><%= candidate_search.remote %></td>
+        <td><%= candidate_search.person %></td>
+        <td><%= candidate_search.skills %></td>
+        <td><%= candidate_search.first_names %></td>
+        <td><%= candidate_search.last_names %></td>
+        <td><%= candidate_search.top_company %></td>
+        <td><%= candidate_search.top_school %></td>
+        <td><%= candidate_search.min_education_level %></td>
+        <td><%= candidate_search.top_company_or_top_school %></td>
+        <td><%= candidate_search.all_candidates %></td>
+        <td><%= candidate_search.fulltime_candidates %></td>
+        <td><%= candidate_search.freelance_candidates %></td>
+        <td><%= candidate_search.open_to_new_opportunities %></td>
+        <td><%= candidate_search.willing_to_work_remote %></td>
+        <td><%= candidate_search.message_date %></td>
+        <td><%= link_to 'Show', candidate_search %></td>
+        <td><%= link_to 'Edit', edit_candidate_search_path(candidate_search) %></td>
+        <td><%= link_to 'Destroy', candidate_search, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Candidate Search', new_candidate_search_path %>
+<!-- erbend app/views/candidate_searches/index.html.erb -->

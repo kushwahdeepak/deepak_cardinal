@@ -1,0 +1,439 @@
+<!-- erbstart app/views/people/_person_full.html.erb -->
+<script>
+ $(document).ready(function() {
+      $(".grid-status-slider input").on('change', function() {
+          if ($(".grid-status-slider input").is(":checked"))
+          {
+              $(".status-update").html("Open to New Opportunities");
+              $(".grid-status-slider .slider").css('background-color','#39b54a');
+          } else {
+             $(".status-update").html("Inactive Profile");
+             $(".grid-status-slider .slider").css('background-color','#cc0000');
+             // $(".status-update").css('color','#cc0000');
+          }
+      });
+      function visible_hover(arr) { //[container, btn]
+        $( arr[0] ).hover(
+        function() {
+          $( arr[1] ).css('visibility','visible');
+        }, function() {
+          $( arr[1] ).css('visibility','hidden');
+        }
+        );
+      }
+      var hover_list = [[".profile-pic-container",".profile-pic-btn"], [".profile-pic-container",".profile-btn-background"]];
+      hover_list.map(visible_hover);
+
+    document.getElementById("edit-profile-pic").onchange = function() {
+      var x = document.getElementById("edit-profile-pic");
+      // document.getElementById("cover-pic-form").submit();
+      $(".profile-pic").css('background', 'url(' + x.value+')');
+    };
+});
+</script>
+<link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
+<script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+
+<div class="profile-main-content">
+  <% positionTitle = '' %>
+  <% unless person['title'].blank? %>
+    <% person['title'].present? ? positionTitle = person['title'].tr("[", "").tr("]", "").split(/","/).first : positionTitle = ''%>
+  <% end %>
+
+  <% company = "" %>
+  <% unless person['company_names'].blank? %>
+    <% person['company_names'].present? ? company = person['company_names'].tr("[", "").tr("]", "").split(/","/).first : company = '' %>
+  <% end %>
+
+
+
+  <% jobTitle = "" %>
+  <% unless person.employer.blank? %>
+    <% person.employer.present? ? jobTitle = person.employer : jobTitle = '' %>
+  <% end %>
+
+  <% loc = '' %>
+  <% unless person.location.blank? %>
+    <% person.location.present? ? loc = person.location : loc = '' %>
+  <% end %>
+
+  <% schoolName = "" %>
+  <% unless person.school.blank? %>
+    <% person.school.present? ? schoolName = person.school : schoolName = '' %>
+  <% end %>
+
+  <% deg = '' %>
+  <% unless person.degree.blank? %>
+    <% person.degree.present? ? deg = person.degree : deg = '' %>
+  <% end %>
+
+  <% disc = '' %>
+  <% unless person.discipline.blank? %>
+    <% person.discipline.present? ? disc = person.discipline : disc = '' %>
+  <% end %>
+
+
+
+  <!-- <div class="grid-description"> -->
+    <div class="row-special" style="margin-top: 75px;">
+    <div class="column-1" style="width:35%;float:left;">
+
+    <!-- <div class="grid-socials" style="position:relative;overflow: hidden;">
+
+          <div class="socials-container">
+            <div class="social-media-btn facebook"></div>
+            <div class="social-media-btn twitter"></div>
+            <div class="social-media-btn linkedin"></div>
+            <div class="social-media-btn behance"></div>
+            <div class="social-media-btn dribble"></div>
+            <div class="social-media-btn github"></div>
+          </div>
+
+
+    </div> -->
+
+    <div class="grid-education" style="margin-top: 15px;">
+      <% if person.salary_expectations != nil %>
+      Salary:
+        <div style="text-align:left;font-weight: bold;"> <%= person.salary_expectations %></div>
+      <% end %>
+    </div>
+
+    <div class="location-row" style="width: 100%; margin-top: 15px;">
+      <div class="location-icon" style="float:left; padding-right: 5px;"></div>
+        <div style="width: 80%;float: left;line-height: 30px;">
+          <%= loc %>
+        </div>
+    </div>
+  </div>
+
+  <div class="column-2" style="width:30%;float:left;">
+
+    <div class="grid-profile-pic">
+      <div class="profile-pic-container">
+        <%# if person.avatar.present? %>
+<!--          <div class="profile-pic" style="background: url('<%#= person.avatar.expiring_url(10) %>'); background-repeat: no-repeat; background-size: contain"></div>-->
+        <%# else %>
+<!--          <div style="background-repeat: no-repeat; background-size: contain" ><%#= gravatar_for_person(person) %></div>-->
+        <%# end %>
+        <form id="profile-pic-form">
+          <label for="edit-profile-pic" class="profile-pic-btn" style="margin-top: 3px; cursor: pointer;"></label>
+          <input id="edit-profile-pic" type="file" name="pic" accept="image/*" style="display:none;">
+        </form>
+        <div class="profile-btn-background"></div>
+      </div>
+    </div>
+    <div class="grid-name">
+      <% if person.first_name != nil && person.last_name != nil %>
+        <div class="user-info" style="color: #003366; margin: 4px auto; position: relative; width: fit-content;font-size: 18px; font-weight: 400;">
+          <%=  person.first_name + ' ' + person.last_name + ' ' %>
+
+        </div>
+      <% end %>
+
+
+    </div>
+    <div class="grid-experience">
+      <% if person.position_interest != nil && person.position_interest != "" %>
+        <div>  Interested in <%= person.position_interest %> </div>
+      <% end %>
+      <% if person.experience_years != nil && person.experience_years != "" %>
+        <div> <%= person.experience_years %> Years of Experience</div>
+      <% end %>
+    </div>
+
+  </div>
+
+    <div class="column-3" style="width:35%;float:left;">
+      <div class="grid-salary">
+        <div style="width: 100%;">
+       <% if person.linkedin_profile_url.present? %>
+           <%= link_to person.linkedin_profile_url, target: :_blank do %>
+             <span class="label label-primary" style="padding: 0.2em; margin: 0.2em; float: left;">
+               LINKEDIN
+             </span>
+           <% end %>
+       <% end %>
+       <% if person.attached_document.exists? %>
+          <%= link_to person.attached_document.expiring_url(10) do %>
+            <span class="label label-primary" style="padding: 0.2em; margin: 0.2em; float: left;">
+              RESUME
+            </span>
+          <% end %>
+       <% end %>
+      </div>
+
+      <div class="grid-status" style="float: right;">
+          <% if current_user.admin? || current_user.employer? %>
+            <% if current_user.followed_candidate_for(person) %>
+              <% followed_candidate = current_user.followed_candidate_for(person) %>
+                <%= link_to [person, followed_candidate], method: :delete do %>
+                  Cancel interview request
+                <% end %>
+              <% else %>
+                <%= link_to [person, FollowedCandidate.new], method: :post do %>
+                  Request an interview
+                <% end %>
+            <% end %>
+          <% end %>
+      </div>
+    </div>
+</div>
+
+
+</div>
+
+
+    <div class="grid-employers">
+      <div class="special-container" style="width: fit-content; margin:20px auto 0;">
+      </div>
+    </div>
+
+    <% personEmail = '' %>
+    <% unless person.email_address.blank? %>
+      <% person.email_address.present? ? personEmail = person.email_address : personEmail = '' %>
+    <% end %>
+    <% personPhone = '' %>
+    <% unless person.phone_number.blank? %>
+      <% person.phone_number.present? ? personPhone = person.phone_number : personPhone = '' %>
+    <% end %>
+
+    <% if @user.admin? || @user.recruiter? || @user.member? || @user.employer? %>
+    <div class="grid-contact">
+      <div class="grid-email">
+        <% if personEmail %>
+        <div class="title">Email</div>
+          <div class="user-info"> <%= personEmail %> </div>
+        <% end %>
+      </div>
+      <div class="grid-phone">
+        <% if personPhone %>
+        <div class="title">Phone</div>
+          <div class="user-info" style="width: 100px;"> <%= personPhone %> </div>
+          <% end %>
+      </div>
+      <div class="grid-address" style="margin-top: 0;">
+        <div class="title"></div>
+        <% if person.user && person.user.address_line_1 != nil && person.user.address_line_2 != nil %>
+          <div class="user-info"> </div>
+        <% end %>
+      </div>
+      <div class="grid-city">
+        <div class="title"></div>
+        <% if person.user && person.user.city != nil %>
+          <div class="user-info"></div>
+        <% end %>
+      </div>
+      <div class="grid-state">
+        <div class="title"></div>
+        <% if person.user && person.user.state != nil %>
+          <div class="user-info"> </div>
+        <% end %>
+      </div>
+      <div class="grid-zipcode">
+        <div class="title"></div>
+        <% if person.user && person.user.zipcode != nil %>
+          <div class="user-info">  </div>
+        <% end %>
+      </div>
+        <%= link_to edit_person_path(person) do %>
+        <div class="edit-icon" style="justify-self: end; margin-top: 10px;">
+        </div>
+        <% end %>
+    </div>
+    <% end %>
+
+<div class="row-special" style="margin-bottom: 40px;">
+  <div class="column1-a" style="width:75%; float: left;">
+
+
+
+    <div class="grid-intro">
+      <div style="width: 100%; height: 25px; display:table;">
+          <div class="grid-title">About</div>
+      </div>
+      <div class="grid-content">
+
+        <% if (person.job_search_stage == 'active' || person.job_search_stage == 'passive' || person.job_search_stage == 'inactive') %>
+          <% @job_stage = person.job_search_stage + "ly searching for a" %>
+        <% elsif (person.job_search_stage == 'interview') %>
+          <% @job_stage = person.job_search_stage + "ing for a" %>
+        <% end %>
+
+        <% @cities = "" %>
+        <% if (person.location_interest_usa != nil) %>
+          <% if (person.location_interest_usa.length > 2) %>
+            <% @cities = "" %>
+            <% for s in person.location_interest_usa.drop(2) %>
+              <% @cities += s + ", " %>
+            <% end %>
+            <% @cities += person.location_interest_usa[0] %>
+            <% @cities += " and " + person.location_interest_usa[1] %>
+          <% end %>
+          <% if (person.location_interest_usa.length == 2) %>
+            <% @cities += ", " + person.location_interest_usa[0] %>
+            <% @cities += " and " + person.location_interest_usa[1] %>
+          <% end %>
+          <% if (person.location_interest_usa.length == 1) %>
+            <% @cities = person.location_interest_usa[0] %>
+          <% end %>
+        <% end %>
+
+        <% @reemote = '' %>
+        <% if (person.remote_interest) %>
+          <% @reemote = "am" %>
+        <% elsif (person.remote_interest == false)%>
+          <% @reemote = "am not" %>
+        <% end %>
+
+      </div>
+    </div>
+
+
+    <div class="grid-skills">
+      <div style="width:100%; height: 25px; display:table;">
+        <div class="grid-title">Skills</div>
+      </div>
+      <div style="width: 100%; height: 56px;">
+        <% if person['skills'] != nil %>
+          <% person_skills = person['skills'].tr("[", "").tr("]", "").split(/[,"]+/) %>
+              <% person_skills.each do |skill| %>
+              <div class="user-skills">
+                  <%= skill.tr('"', '') + " " %>
+                </div>
+              <% end %>
+        <% end %>
+      </div>
+    </div>
+
+      <div class="grid-experience2">
+        <div style="width:100%; height: 25px; display:table;">
+          <div class="grid-title">Experience</div>
+        </div>
+        <ul>
+          <li>
+            <div class="experience-title">
+              <%= positionTitle %>
+              <% unless company.nil? %>
+                &nbsp;-&nbsp;
+                <%= company %>
+              <% end %> </div>
+          </li>
+        </ul>
+      </div>
+
+      <div class="grid-education2">
+        <div style="width:100%; height: 25px; display:table;">
+          <div class="grid-title">Education</div>
+
+        </div>
+        <div class="education-row" style="width: 100%;">
+          <div class="education-icon" style="float: left;"></div>
+          <div style="width: 80%;float: left;">
+
+            <div style="font-size: 12px; font-weight: 500;"> <%= deg %> </div>
+            <div class="grid-content"> <%= disc %> </div>
+            <div class="grid-content"><%= schoolName %>  </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="post" style="display: flex; flex-direction: column;">
+
+    <div class="postUser" style="width: auto; height: auto; position: static;">
+
+            <% if current_user && (current_user.role == "recruiter" || current_user.role == "admin" || current_user.role == "member") %>
+                <div class='js-notes'>
+                    <% person.notes.take(3).each do |note| %>
+                        <%= content_tag :div, class: 'media', id: "note-#{note.id}" do %>
+                            <div class="media-body">
+                              <div class="row">
+                                <div class="col-3 col-xs-3 col-sm-3 col-md-3 col-lg-3">
+                                  <%= link_to person_path(person), target: :_blank do %>
+                                  <span class="label label-primary" style="padding: 0.2em;">&nbsp;NOTE&nbsp;</span>
+                                  <% end %>
+                                </div>
+                                <div class="col-9 col-xs-9 col-sm-9 col-md-9 col-lg-9">
+                                  <%= note.body %>
+                                  <small style="float: right; width: 5%;">
+                                  <% if current_user.id == note.user_id %>
+                                      <%= link_to "Delete", note_path(note), method: :delete, data: { confirm: 'Are you sure?' } %>
+                                  <% end %>
+                                  </small>
+                                </div>
+                              </div>
+                              <div class="row">
+                                <div class="col-xs-12 col-sm-12 col-md-12" style="text-align: center;">
+                                  <small>
+                                    <% noted_user = User.where(id: note.user_id) %>
+                                    <%= noted_user.first.email %> noted on <%= (person.name ||= person.first_name) %> <%= time_ago_in_words(note.created_at) %> ago.
+                                  </small>
+                                </div>
+                              </div>
+                            </div>
+                      <% end %>
+                  <% end %>
+                </div>
+            <% end %>
+
+            <div class="media">
+
+              <div class="row text-center">
+
+                <% if current_user.admin? || current_user.employer? %>
+                  <% if current_user.followed_candidate_for(person) %>
+                    <% followed_candidate = current_user.followed_candidate_for(person) %>
+                      <%= link_to [person, followed_candidate], method: :delete do %>
+                        Cancel interview request
+                      <% end %>
+                    <% else %>
+                      <%= link_to [person, FollowedCandidate.new], method: :post do %>
+                        Request an interview
+                      <% end %>
+                  <% end %>
+                <% end %>
+
+                <% if current_user %>
+                <% if current_user.flagged_candidate_for(person) %>
+                <% flagged_candidate = current_user.flagged_candidate_for(person) %>
+                    <%= link_to [person, flagged_candidate], method: :delete do %>
+                      <br />Cancel flag for review
+                    <% end %>
+                <% else %>
+                    <%= link_to [person, FlaggedCandidate.new], method: :post do %>
+                      <br />Flag this candidate for review
+                    <% end %>
+                <% end %>
+                <% end %>
+
+              </div>
+
+              <% if (current_user.role == 'member' || current_user.role == 'admin' || current_user.role == "recruiter") %>
+
+                <h6 class="text-center">Add a Note</h6>
+
+                <div class="col-12 col-xs-12 col-sm-12 col-md-12 col-lg-12 center-block align-self-center" style="align-content: center; align-self: center; justify-content: center; float: none;">
+                      <%= simple_form_for [person, Note.new], html: {class: "form-group" }, authenticity_token: true, style: "background-color: #fff;" do |f| %>
+                      <div class="row" style="background-color: #fff; border-radius: 12px;">
+                        <div class="input-group">
+                          <%= f.label :body, class: 'sr-only' %>
+                          <%= f.text_field :body, class: 'form-control pull-right', placeholder: "Enter a new note" %>
+                          <span class="input-group-btn">
+                            <%= f.button :submit, "Add note", class: 'btn btn-default pull-right', style: "color: #fff; background-color: #CC0000; border-color: #CC0000; display: block; width: 100%; height: 100%;" %>
+                          </span>
+                        </div><!-- /input-group -->
+                      </div>
+                      <% end %>
+                </div>
+
+              <% end %>
+            </div>
+        <!-- </div> -->
+      <!-- </div> -->
+    </div>
+
+</div>
+</div>
+<!-- erbend app/views/people/_person_full.html.erb -->

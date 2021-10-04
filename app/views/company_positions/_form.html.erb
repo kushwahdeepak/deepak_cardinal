@@ -1,0 +1,79 @@
+<!-- erbstart app/views/company_positions/_form.html.erb -->
+<%= form_for(company_position) do |f| %>
+  <% if company_position.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(company_position.errors.count, "error") %> prohibited this company_position from being saved:</h2>
+
+      <ul>
+      <% company_position.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :person_id %>
+    <%= f.number_field :person_id %>
+  </div>
+
+  <div class="field">
+    <%= f.label :email_address_id %>
+    <%= f.number_field :email_address_id %>
+  </div>
+
+  <div class="field">
+    <%= f.label :is_current %>
+    <%= f.check_box :is_current %>
+  </div>
+
+  <div class="field">
+    <%= f.label :start_date %>
+    <%= f.date_select :start_date %>
+  </div>
+
+  <div class="field">
+    <%= f.label :start_date_year %>
+    <%= f.number_field :start_date_year %>
+  </div>
+
+  <div class="field">
+    <%= f.label :start_date_month %>
+    <%= f.number_field :start_date_month %>
+  </div>
+
+  <div class="field">
+    <%= f.label :end_date %>
+    <%= f.date_select :end_date %>
+  </div>
+
+  <div class="field">
+    <%= f.label :end_date_year %>
+    <%= f.number_field :end_date_year %>
+  </div>
+
+  <div class="field">
+    <%= f.label :end_date_month %>
+    <%= f.number_field :end_date_month %>
+  </div>
+
+  <div class="field">
+    <%= f.label :title %>
+    <%= f.text_field :title %>
+  </div>
+
+  <div class="field">
+    <%= f.label :linkedin_profile_position_id %>
+    <%= f.number_field :linkedin_profile_position_id %>
+  </div>
+
+  <div class="field">
+    <%= f.label :score %>
+    <%= f.text_field :score %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
+<!-- erbend app/views/company_positions/_form.html.erb -->

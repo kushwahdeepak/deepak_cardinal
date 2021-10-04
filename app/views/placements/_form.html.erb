@@ -1,0 +1,19 @@
+<!-- erbstart app/views/placements/_form.html.erb -->
+<%= form_for(placement) do |f| %>
+  <% if placement.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(placement.errors.count, "error") %> prohibited this placement from being saved:</h2>
+
+      <ul>
+      <% placement.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
+<!-- erbend app/views/placements/_form.html.erb -->

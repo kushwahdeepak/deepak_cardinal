@@ -1,0 +1,12 @@
+<!-- erbstart app/views/organizations/index.html.erb -->
+
+<% if current_user && (current_user.role == 'employer' || current_user.role == 'recruiter' || current_user.role == 'admin') %>
+    <%= react_component("pages/EmployerOrganization/EmployerOrganization", {
+      currentUser: current_user,
+      organization: @organization,
+      members: @recruiter,
+      logo_url: @avatar_url,
+      invitedRecruiter: @invited_recruiters
+    }) %>
+<% end %>
+<!-- erbend app/views/organizations/index.html.erb -->

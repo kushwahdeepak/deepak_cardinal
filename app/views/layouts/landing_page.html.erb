@@ -1,0 +1,77 @@
+<!-- erbstart app/views/layouts/application.html.erb -->
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
+  <title><%= (@page_title || "CardinalTalent") %></title>
+  <%= javascript_pack_tag 'application' %>
+
+  <!-- Include js/css built with Sprockets -->
+  <%= stylesheet_link_tag 'application', media: 'all' %>
+  <%= javascript_include_tag 'application' %>
+
+  <!-- Include js/css built with Webpacker -->
+  <%= stylesheet_pack_tag 'application', media: 'all' %>
+
+  <%= csrf_meta_tags %>
+  <%= favicon_link_tag 'Asset 1@0.5x.png' %>
+  <%= rails_amp_amphtml_link_tag %>
+  <%= action_cable_meta_tag %>
+  <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=<%= ENV['GA_TRACKING_ID']%>"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', '<%= ENV['GA_TRACKING_ID']%>');
+    </script>
+  <!-- End Google Analytics -->
+  <!-- Facebook Pixel Code -->
+  <script>
+      !function (f, b, e, v, n, t, s) {
+          if (f.fbq) return;
+          n = f.fbq = function () {
+              n.callMethod ?
+                  n.callMethod.apply(n, arguments) : n.queue.push(arguments)
+          };
+          if (!f._fbq) f._fbq = n;
+          n.push = n;
+          n.loaded = !0;
+          n.version = '2.0';
+          n.queue = [];
+          t = b.createElement(e);
+          t.async = !0;
+          t.src = v;
+          s = b.getElementsByTagName(e)[0];
+          s.parentNode.insertBefore(t, s)
+      }(window, document, 'script',
+          'https://connect.facebook.net/en_US/fbevents.js');
+      fbq('init', '236353817100890');
+      fbq('track', 'PageView');
+  </script>
+  <noscript>
+    <img height="1" width="1" src="https://www.facebook.com/tr?id=236353817100890&ev=PageView&noscript=1"/>
+  </noscript>
+  <!-- End Facebook Pixel Code -->
+</head>
+<body class="landing-page-body" style="background-color: white !important">
+  <!-- Flash Notices -->
+
+  <% flash.each do |key, value| %>
+    <div class="flash notice" style="z-index: 99999; margin-top: 70px;">
+    <% alert_style = key == 'error' ? 'alert-danger' : key == 'success' ? 'alert-success' : key == 'alert' ? 'alert-warning' : 'alert-info' %>
+      <div class="alert <%= alert_style %> w-75 p-3 mx-auto" role="alert">
+        <button type="button" class="close" data-dismiss="alert">&times;</button>
+        <%= value %>
+      </div>
+    </div><!-- flash notices end -->
+  <% end %>
+  
+  <%= yield %>
+
+
+</body>
+</html>
+<!-- erbend app/views/layouts/application.html.erb -->

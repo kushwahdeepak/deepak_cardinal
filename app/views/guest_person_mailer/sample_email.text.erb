@@ -1,0 +1,20 @@
+
+   Hi <%=@creator_name%>!
+
+
+   New Applicant <%=  @person&.first_name  %> <%= @person&.last_name %>  was applied to the job <%= @job_title %>.
+
+
+
+   Here is the details of candidate 
+   
+   First Name: <%= @person&.first_name %>
+   Last Name: <%= @person&.last_name %>
+   Email Address: <%= @person&.email_address %>
+   Phone Number: <%= @person&.phone_number %>
+   LinkedIn: <%= @person&.linkedin_profile_url %>
+
+   Thanks
+   Cardinal Talent Team
+
+

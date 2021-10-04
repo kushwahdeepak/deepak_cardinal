@@ -1,0 +1,396 @@
+<!-- erbstart app/views/people/_person_employer_view.html.erb -->
+      <div class="row">
+        <div class="col-xs-3 col-sm-3 col-md-3">
+          <div class="row" style="padding-top: 1em;">
+            <div class="col-12 col-sm-12 col-md-12 col-centered" style="flex-direction: column; justify-content: center; align-items: center; align-content: center;">
+                <h4 class="text-center" style="align-self: center;"><%= @person.first_name %>&npsp;<%= @person.last_name %></h4>
+                <div class="text-center" style="align-self: center;">
+                  <div class="postUser__portrait" style="min-width: 125; min-height: 125;">
+                    <%= link_to person_path(@person), target: :_blank do %>
+                      <% if @person.linkedin_profiles.first && @person.linkedin_profiles.first.picture_url.present? %>
+                          <%= image_tag @person.linkedin_profiles.first.picture_url, class: 'rounded', width: '100rem', height: '100rem', style: 'border-radius: 50%;' %>
+                      <% else %>
+                          <%= image_tag "placeholder.png", class: 'rounded', width: 125, height: 125 %>
+                      <% end %>
+                    <% end %>
+                  </div>
+                </div>
+                <div class="separator">
+                  <span class="outer-line"></span>
+                  <i class="fa fa-fw fa-vcard" aria-hidden="true" style="margin: 10px 0"></i>
+                  <span class="outer-line"></span>
+                </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-xs-9 col-sm-9 col-md-9" style="display: flex; flex-direction: column; align-items: left;">
+          <div style="width: auto; height: auto; position: static;">
+            <h4>First name: <%= @person.first_name %></h4>
+          </div>
+          <div style="width: auto; height: auto; position: static; align-items: left;">
+            <% if @person[:last_name].blank? %>
+            <h4>Last name: <%= click_to_edit @person, path: person_path(@person), id: "editable-last-name-#{2}", attribute: :last_name, value: (@person[:last_name] || "Click to add"), submit_on_blur: false, remote: false %></h4>
+            <% else %>
+            <h4>Last name: <%= click_to_edit @person, path: person_path(@person), id: "editable-last-name-#{5}", attribute: :last_name, value: (@person[:last_name] || "Click to add"), submit_on_blur: false, remote: false %></h4>
+            <% end %>
+          </div>
+          <div style="width: auto; height: auto; position: static; align-items: left;">
+            <h4>
+              Title: <%= click_to_edit @person, path: person_path(@person), attribute: :title, value: (@person[:title] || "Click to add"), submit_on_blur: false, remote: false %>
+            </h4>
+          </div>
+          <div style="width: auto; height: auto; position: static; align-items: left;">
+            <h4>
+              Current position: <%= click_to_edit @person, path: person_path(@person), attribute: :company_names, value: (@person[:company_names] || "Click to add"), submit_on_blur: false, remote: false %>
+            </h4>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-xs-12 col-sm-12 col-md-12" style="display: flex; flex-direction: column; align-items: left;">
+          <div style="width: auto; height: auto; position: static;">
+            <% if @person.email_addresses && @person.email_addresses.first && @person.email_addresses.first.email.present? %>
+            <span class="label label-success">EMAIL</span>
+            <% end %>
+            <% if @person.phone_numbers && @person.phone_numbers.first && @person.phone_numbers.first.value.present? %>
+            <span class="label label-warning">PHONE</span>
+            <% end %>
+            <% if @person.github_available == true %>
+            <span class="label label-info">GITHUB</span>
+            <% end %>
+            <% if @person.top_school == true %>
+            <span class="label label-default">TOP SCHOOL</span>
+            <% end %>
+            <% if @person.top_company == true %>
+            <span class="label label-danger">TOP COMPANY</span>
+            <% end %>
+            <% if @person.active == true %>
+            <span class="label label-default">ACTIVE</span>
+            <% end %>
+            <% if @person.recently_added == true %>
+            <span class="label label-warning">RECENTLY ADDED</span>
+            <% end %>
+            <% if @person.linkedin_profiles && @person.linkedin_profiles.first %>
+            <%= link_to @person.linkedin_profiles.first.public_profile_url, target: :_blank do %>
+            <span class="label label-primary">LINKEDIN</span>
+            <% end %>
+            <% end %>
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-xs-12 col-sm-12 col-md-12" style="display: flex; flex-direction: column; align-items: left;">
+          <div style="width: auto; height: auto; position: static;">
+            <% unless @person.linkedin_profiles.first.nil? || @person.linkedin_profiles.first.headline.nil? %>
+              <p style="color: black;"><%= click_to_edit @person.linkedin_profiles.first, path: linkedin_profile_path(@person.linkedin_profiles.first), id: "editable-id-#{6}", attribute: :headline, submit_on_blur: false, remote: false %></p>
+            <% end %>
+
+            <% unless @person.linkedin_profiles.first.nil? || @person.linkedin_profiles.first.location_name.blank? %>
+            <p style="color: black;">
+              <% unless @person.linkedin_profiles.first.location_name.blank? %>
+                <%= click_to_edit @person.linkedin_profiles.first, path: linkedin_profile_path(@person.linkedin_profiles.first), id: "editable-id-#{7}", attribute: :location_name, submit_on_blur: false, remote: false %>
+              <% end %>
+            </p>
+            <p style="color: black;">
+              <% unless @person.linkedin_profiles.first.location_country_code.blank? %>
+                <%= click_to_edit @person.linkedin_profiles.first, path: linkedin_profile_path(@person.linkedin_profiles.first), id: "editable-id-#{8}", attribute: :location_country_code, submit_on_blur: false, remote: false %>
+              <% end %>
+            </p>
+            <% end %>
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-xs-12 col-sm-12 col-md-12" style="display: flex; flex-direction: column; align-items: left;">
+          <div style="width: auto; height: auto; position: static;">
+            <%= render partial: 'action_items', locals: {person: @person} %>
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-xs-12 col-sm-12 col-md-12" style="display: flex; flex-direction: column; align-items: left;">
+          <div style="width: auto; height: auto; position: static;">
+            <% unless current_user.role == "employer" %>
+              <% if @email_addresses.first %>
+                  <% @email_addresses.each do |p| %>
+                    <p style="color: black;">
+                      <% if p.credible == true %>
+                      <i class="fa fa-fw fa-envelope-o"></i>
+                        <%= link_to set_credible_email_address_path(p, credible: false) do %>
+                          <i class="fa fa-fw fa-flag" title="This email address is crediible. Click to flag it as inaccurate."></i>
+                        <% end %>
+                      <% else %>
+                        <i class="fa fa-fw fa-envelope-o"></i>
+                        <%= link_to p do %>
+                          <i class="fa fa-fw fa-flag text-danger" title="This email address is flagged as inaccurate."></i>
+                        <% end %>
+                      <% end %>
+                    <%= click_to_edit p, path: email_address_path(p), person: @person, id: "editable-email-#{10}", attribute: :email, submit_on_blur: false, remote: false, placeholder: (p.email ||= 'Click to add')%>
+                    </p>
+                  <% end %>
+              <% else %>
+                <p style="color: black;">
+                  <i class="fa fa-fw fa-envelope-o"></i>
+                  <h6>Add an email address</h6>
+                  <%= form_for [@person, EmailAddress.new], html: {class: "form-group"}, authenticity_token: true do |f| %>
+                    <%= f.label :email, class: 'sr-only' %>
+                    <%= f.hidden_field :person_id, value: @person.id %>
+                    <%= f.text_field :email, class: 'form-control pull-right', placeholder: "Enter a new email address" %>
+                    <%= f.submit "Add email address", class: 'btn btn-default pull-right' %>
+                  <% end %>
+                </p>
+              <% end %>
+            <% end %>
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-xs-12 col-sm-12 col-md-12" style="display: flex; flex-direction: column; align-items: left;">
+          <div style="width: auto; height: auto; position: static;">
+            <% unless current_user.role == "employer" %>
+                <% if @phone_numbers.blank? %>
+                <p style="color: black;">
+                    <i class="fa fa-fw fa-phone"></i>
+                  <h6>Add a phone number</h6>
+                  <%= form_for [@person, PhoneNumber.new], html: {class: "form-group"}, authenticity_token: true do |f| %>
+                      <%= f.label :value, class: 'sr-only' %>
+                      <%= f.hidden_field :person_id, value: @person.id %>
+                      <%= f.text_field :value, class: 'form-control pull-right', placeholder: "Enter a new phone number" %>
+                    <%= f.submit "Add phone number", class: 'btn btn-default pull-right' %>
+                  <% end %>
+                </p>
+              <% else %>
+                <% @phone_numbers.each do |p| %>
+                  <p style="color: black;">
+                    <% if p.credible == true %>
+                        <i class="fa fa-fw fa-phone"></i>
+                        <%= link_to set_credible_phone_number_path(p, credible: false) do %>
+                          <i class="fa fa-fw fa-flag" title="This phone number is crediible. Click to flag it as inaccurate."></i>
+                        <% end %>
+                    <% else %>
+                        <i class="fa fa-fw fa-phone"></i>
+                        <%= link_to @person do %>
+                          <i class="fa fa-fw fa-flag text-danger" title="This phone number is flagged as inaccurate."></i>
+                        <% end %>
+                    <% end %>
+                    <%= click_to_edit p, path: phone_number_path(p), id: "editable-phone-#{10}", attribute: :value, submit_on_blur: false, remote: false, placeholder: (p.value ||= 'Click to add')%>
+                  </p>
+                <% end %>
+              <% end %>
+            <% end %>
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-xs-12 col-sm-12 col-md-12" style="display: flex; flex-direction: column; align-items: left;">
+          <div style="width: auto; height: auto; position: static;">
+            <% if @linkedin_profiles.blank? %>
+              <p style="color: black;">
+                <i class="fa fa-fw fa-external-link"></i>
+                <h6>Add an external link</h6>
+                <%= form_for [@person, LinkedinProfile.new], html: {class: "form-group"}, authenticity_token: true do |f| %>
+                    <%= f.label :url, class: 'sr-only' %>
+                    <%= f.hidden_field :person_id, value: @person.id %>
+                    <%= f.text_field :public_profile_url, class: 'form-control pull-right', placeholder: "Enter a new external link" %>
+                  <%= f.submit "Add link", class: 'btn btn-default pull-right' %>
+                <% end %>
+              </p>
+            <% else %>
+              <% @linkedin_profiles.each do |p| %>
+                <p style="color: black;">
+                  <% if p.credible == true %>
+                      <% link_to p.public_profile_url, target: "_blank", data: { confirm: "This link will take you outside of CardinalTalent." } do %>
+                        <i class="fa fa-fw fa-external-link"></i>
+                      <% end %>
+                      <%= link_to set_credible_linkedin_profile_resource_path(p, credible: false) do %>
+                        <i class="fa fa-fw fa-flag" title="This URL is crediible. Click to flag it as inaccurate."></i>
+                      <% end %>
+                  <% else %>
+                      <% link_to p.public_profile_url, target: "_blank", data: { confirm: "This link will take you outside of CardinalTalent." } do %>
+                        <i class="fa fa-fw fa-external-link"></i>
+                      <% end %>
+                      <%= link_to @person do %>
+                        <i class="fa fa-fw fa-flag text-danger" title="This URL is flagged as inaccurate."></i>
+                      <% end %>
+                  <% end %>
+                  <%= click_to_edit p, path: linkedin_profile_url_resource_path(p), id: "editable-url-#{10}", attribute: :public_profile_url, submit_on_blur: false, remote: false, placeholder: (p.public_profile_url ||= 'Click to add')%>
+                </p>
+              <% end %>
+            <% end %>
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-xs-12 col-sm-12 col-md-12" style="display: flex; flex-direction: column; align-items: left;">
+          <div style="width: auto; height: auto; position: static;">
+            <% if @person.skills.blank? %>
+                <p style="color: black;">
+                  <i class="fa fa-linkedin"></i>
+                  <%= render partial: 'linkedin_profiles/form', linkedin_profile: LinkedinProfile.new, person: @person %>
+                </p>
+                <p style="color: black;"><b>No LinkedIn Skills found</b> <%= click_to_edit @person, path: person_path(@person), attribute: :skills, value: (@person[:skills] || "Click to add"), submit_on_blur: false, remote: false %></p>
+            <% else %>
+                <p style="color: black;">
+                  <i class="fa fa-linkedin"></i>
+                  <% if @person.linkedin_profiles.first && @person.linkedin_profiles.first.credible == true %>
+                    <%= link_to set_credible_linkedin_profile_path(@person.linkedin_profiles.first, credible: false) do %>
+                      <i class="fa fa-fw fa-flag" title="This LinkedIn URL is crediible. Click to flag it as inaccurate."></i>
+                    <% end %>
+                  <% else %>
+                    <%= link_to @person do %>
+                      <i class="fa fa-fw fa-flag text-danger" title="This LinkedIn URL is flagged as inaccurate."></i>
+                    <% end %>
+                  <% end %>
+                  <% if @person.linkedin_profiles.first && @person.linkedin_profiles.first.public_profile_url %>
+                    LinkedIn Profile: <%= click_to_edit @person.linkedin_profiles.first, path: linkedin_profile_path(@person.linkedin_profiles.first), id: "editable-person-linkedin-#{1}", attribute: :public_profile_url, submit_on_blur: false, remote: false, placeholder: (@person.linkedin_profiles.first.public_profile_url ||= 'Click to add')%>
+                  <% else %>
+                    <%= render partial: 'linkedin_profiles/form', linkedin_profile: LinkedinProfile.new, person: @person %>
+                  <% end %>
+                </p>
+                <p style="color: black;">
+                  Linkedin Skills: <%= click_to_edit @person, path: person_path(@person), attribute: :skills, value: (@person[:skills] || "Click to add"), submit_on_blur: false, remote: false %>
+                </p>
+            <% end %>
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-xs-12 col-sm-12 col-md-12" style="display: flex; flex-direction: column; align-items: left;">
+          <div style="width: auto; height: auto; position: static;">
+            <div class="card card-block">
+              <% if @linkedin_profile_publications.blank? %>
+              <p style="color: black;"><b>No publications found</b></p>
+              <% else %>
+                <% @linkedin_profile_publications.each do |p| %>
+                  <p style="color: black;"><i class="fa fa-fw fa-book"></i>
+                  <% unless p.title.blank? %>
+                  <%= p.title %>
+                  <% end %>
+                  <% unless p.date.blank? %>
+                  published on <%= p.date.to_formatted_s(:long) %>
+                  <% end %>
+                  </p>
+                <% end %>
+              <% end %>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-xs-12 col-sm-12 col-md-12" style="display: flex; flex-direction: column; align-items: left;">
+          <div style="width: auto; height: auto; position: static;">
+            <div class="card card-block">
+              <% if @linkedin_profile_recommendations.blank? %>
+                <p style="color: black;"><b>No recommendations found</b></p>
+              <% else %>
+                <% @linkedin_profile_recommendations.each do |p| %>
+                  <p style="color: black;">
+                    <i class="fa fa-fw fa-thumbs-o-up"></i>
+                    <% unless p.type.blank? %>
+                      (<%= p.type %>)
+                    <% end %>
+                    <% unless p.text.blank? %>
+                      <%= p.text %>
+                    <% end %>
+                  </p>
+                  <% end %>
+                <% end %>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-xs-12 col-sm-12 col-md-12" style="display: flex; flex-direction: column; align-items: left;">
+          <div style="width: auto; height: auto; position: static;">
+            <p style="color: black;">
+              School and education: <%= click_to_edit @person, path: person_path(@person), attribute: :school_names, value: (@person[:school_names] || "Click to add"), submit_on_blur: false, remote: false %>
+            </p>
+            <p style="color: black;">
+              Degrees: <%= click_to_edit @person, path: person_path(@person), attribute: :degrees, value: (@person[:degrees] || "Click to add"), submit_on_blur: false, remote: false %>
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-xs-12 col-sm-12 col-md-12" style="display: flex; flex-direction: column; align-items: left;">
+          <div style="width: auto; height: auto; position: static;">
+            <% if (current_user.role == "member" || current_user.role == "admin") %>
+                <p style="color: black;">Salary expectations: <%= click_to_edit @person, path: person_path(@person), attribute: :salary, submit_on_blur: false, remote: false, value: (@person.salary || "Unknown") %></p>
+                <p style="color: black;">Salary details: <%= click_to_edit @person, path: person_path(@person), attribute: :salary_details, submit_on_blur: false, remote: false, value: (@person.salary_details || "Unknown") %></p>
+                <p style="color: black;">Work authorization status: <%= click_to_edit @person, path: person_path(@person), attribute: :work_authorization_status, submit_on_blur: false, remote: false, value: (@person.work_authorization_status || "Unknown") %></p>
+                <% unless @uploads.nil? %>
+                    <% @uploads.each do |u| %>
+                        <%= link_to 'Document', upload_path(u) %>
+                    <% end %>
+                <% end %>
+            <% end %>
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-xs-12 col-sm-12 col-md-12" style="display: flex; flex-direction: column; align-items: left;">
+          <div style="width: auto; height: auto; position: static;">
+              <% if current_user %>
+              <div class="space-20"></div>
+              <div class='js-notes'>
+                <%= render partial: 'notes/form', note: Note.new, person: @person %>
+              </div>
+              <% if (current_user.role == "member" || current_user.role == "admin") %>
+              <div class="postBody__date">
+                  <% if current_user && (current_user.role == "member" || current_user.role == "admin") %>
+                      <div class='js-notes'>
+                          <% @person.notes.each do |note| %>
+                              <%= content_tag :div, class: 'media', id: "note-#{note.id}" do %>
+                                  <div class="media-body">
+                                    <div class="row">
+                                      <div class="col-xs-3 col-sm-3 col-md-3">
+                                        <%= link_to person_path(@person), target: :_blank do %>
+                                        <span class="label label-primary">NOTE</span>
+                                        <% end %>
+                                      </div>
+                                      <div class="col-xs-6 col-sm-6 col-md-6">
+                                        <%= note.body %>
+                                      </div>
+                                      <div class="col-xs-3 col-sm-3 col-md-3">
+                                        <small>
+                                        <% if current_user.id == note.user_id %>
+                                            <%= link_to "Delete", note_path(note), method: :delete, data: { confirm: 'Are you sure?' } %>
+                                        <% end %>
+                                        </small>
+                                      </div>
+                                    </div>
+                                    <div class="row">
+                                      <div class="col-xs-12 col-sm-12 col-md-12" style="display: flex; flex-direction: column; align-items: left;">
+                                        <div style="width: auto; height: auto; position: static;">
+                                          <small>
+                                            <% @note_user = User.where(id: note.user_id) %>
+                                            <%= @note_user.first.email %> noted on <%= @person.name %> <%= time_ago_in_words(note.created_at) %> ago.
+                                          </small>
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </div>
+                                  <div class="space-40"></div>
+                            <% end %>
+                        <% end %>
+                      </div>
+                  <% end %>
+              </div>
+              <% end %>
+            <% end %>
+          </div>
+        </div>
+      </div>
+<!-- erbend app/views/people/_person_employer_view.html.erb -->

@@ -1,0 +1,21 @@
+<!-- erbstart app/views/task_list_items/new.html.erb -->
+<div class="space-180"></div>
+
+<nav>
+  <div id="side-bar">
+    <div class="space-40"></div>
+    
+  </div>
+</nav>
+
+
+  <div id="main-content">
+<h1>New Task List Item</h1>
+
+<%= render 'form', task_list_item: @task_list_item %>
+
+<%= link_to 'Back', task_list_items_path %>
+
+</div>
+
+<!-- erbend app/views/task_list_items/new.html.erb -->

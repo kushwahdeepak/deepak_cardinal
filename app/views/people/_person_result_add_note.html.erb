@@ -1,0 +1,18 @@
+<!-- erbstart app/views/people/_person_result_add_note.html.erb -->
+<div class="media">
+  <h6 class="text-center">Add a Note</h6>
+  <div class="col-12 col-xs-12 col-sm-12 col-md-12 col-lg-12 center-block align-self-center" style="align-content: center; align-self: center; justify-content: center; float: none;">
+    <%= simple_form_for [person, Note.new], html: {class: "form-group"}, authenticity_token: true, style: "background-color: #fff;" do |f| %>
+      <div class="row" style="background-color: #fff; border-radius: 12px;">
+        <div class="input-group">
+          <%= f.label :body, class: 'sr-only' %>
+          <%= f.text_field :body, class: 'form-control pull-right', placeholder: "Enter a new note" %>
+          <span class="input-group-btn">
+                      <%= f.button :submit, "Add note", class: 'btn btn-default pull-right', style: "color: #fff; background-color: #CC0000; border-color: #CC0000; display: block; width: 100%; height: 100%;" %>
+                    </span>
+        </div><!-- /input-group -->
+      </div>
+    <% end %>
+  </div>
+</div>
+<!-- erbend app/views/people/_person_result_add_note.html.erb -->

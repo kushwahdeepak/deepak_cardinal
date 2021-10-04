@@ -1,0 +1,2 @@
+class NotifiedObject < ApplicationRecord
+end

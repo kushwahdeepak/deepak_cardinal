@@ -1,0 +1,28 @@
+<!-- erbstart app/views/searches/_search.html.erb -->
+<%= content_tag :div, class: 'media' do %>
+  <div class="media">
+    <div class="media-body">
+      <p class="search">
+        <small>
+          Searched
+        </small>
+          <%= search.keyword if search.keyword.present? %>
+          <%= search.locations if search.locations.present? %>
+          <%= search.company_names if search.company_names.present? %>
+          <%= search.titles if search.titles.present? %>
+          <%= search.schools if search.schools.present? %>
+          <%= search.degrees if search.degrees.present? %>
+          <%= search.disciplines if search.disciplines.present? %>
+          <%= search.names if search.names.present? %>
+        <small>
+          <%= time_ago_in_words(search.created_at) %> ago.
+          <%= link_to "Search again", search %>
+          <% if current_user == search.user %>
+            or <%= link_to "delete.", people_search_path(search), method: :delete, data: { confirm: 'Are you sure?' } %>
+          <% end %>
+        </small>
+      </p>
+    </div>
+  </div>
+<% end %>
+<!-- erbend app/views/searches/_search.html.erb -->

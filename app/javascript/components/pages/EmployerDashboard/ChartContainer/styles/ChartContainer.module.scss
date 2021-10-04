@@ -1,0 +1,81 @@
+@import '../../../../../styles/var.scss';
+
+.rowChartContainer {
+    width: 100%;
+    padding: 0px 15px;
+    background: #ffffff;
+    border: 2px solid #a2aeef;
+    box-sizing: border-box;
+    width: 100%;
+    border-radius: 5px;
+    margin: 0px !important;
+    transition: all 0.3s;
+}
+.chartContainer {
+    width: 100%;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.clanederContainer {
+    margin-left: 15px;
+}
+.chartHeader {
+    width: 100%;
+    margin-left: 0px !important;
+    margin-right: 0px !important;
+}
+
+.close {
+    background: #ebedfa;
+    border: 1px solid #4c68ff;
+    box-sizing: border-box;
+    border-radius: 2px;
+    font-family: $default-font-family;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 16px;
+    color: #4d68ff;
+    padding: 3px 3px 3px 14px;
+    display: flex;
+    align-items: center;
+    height: fit-content;
+    cursor: pointer !important;
+}
+.graphNameRow{
+    margin-left: 0px !important;
+    margin-right: 0px !important;
+    margin-top: 5px;
+    justify-content: center;
+}
+.graphName {
+    font-style: normal;
+    font-weight: 800;
+    font-size: 14px;
+    line-height: 19px;
+    text-align: center;
+    color: #4d68ff;
+}
+.graphsContainer {
+    margin-left: 0px;
+    margin-right: 0px;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.graphButton {
+    padding: 6px 25px;
+    background: #4c68ff;
+    font-family: $default-font-family;
+    font-style: normal;
+    font-weight: 800;
+    font-size: 16px;
+    line-height: 22px;
+    border: none;
+    border-radius: 2px;
+}
+.exitIcon {
+    transform: scale(0.5);
+    margin-left: 2px;
+}

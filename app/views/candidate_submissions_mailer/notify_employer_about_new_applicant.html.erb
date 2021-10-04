@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <p>
+      Hi <%= @params[:employer].name %>!
+    </p>
+    <p>
+      New Applicant <%= @params[:applicant].name %> was applied to the job <%= @params[:job].name %>.
+    </p>
+    <p>
+    <%=link_to 'candidate URL', ENV['HOST']+"/users/profile/#{@params[:applicant].user_id}"%> <br>
+    </p>
+    <p>
+    Thanks<br>
+    Cardinal Talent Team
+    </p>
+  </body>
+</html>

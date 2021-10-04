@@ -1,0 +1,63 @@
+
+keyword:
+  id: 17
+  search_texts: 
+  locations: ''
+  employers: ''
+  titles: ''
+  schools: ''
+  degrees: 
+  disciplines: 
+  names: ''
+  min_time_in_job: 
+  max_time_in_job: 
+  min_career_length: 
+  max_career_length: 
+  min_activity_date: 
+  max_activity_date: 
+  email_available: false
+  linkedin_available: 
+  phone_number_available: false
+  github_available: 
+  top_school_status: 
+  top_company:
+  created_at: !ruby/object:ActiveSupport::TimeWithZone
+    utc: 2020-03-15 10:16:02.164033000 Z
+    zone: &1 !ruby/object:ActiveSupport::TimeZone
+      name: America/Los_Angeles
+    time: 2020-03-15 03:16:02.164033000 Z
+  updated_at: !ruby/object:ActiveSupport::TimeWithZone
+    utc: 2020-03-15 10:16:02.181357000 Z
+    zone: *1
+    time: 2020-03-15 03:16:02.181357000 Z
+  keyword: findmeTest123
+  user_id: 1
+  emails: ''
+  phone_numbers: 
+  linkedin_urls: 
+  active: false
+  candidates_without_notes: 
+  top_one_percent_status: 
+  top_five_percent_status: 
+  top_ten_percent_status: 
+  recently_added: 
+  candidates_with_notes: 
+  experience_years: 
+  job_type_full_time: 
+  job_type_contract: 
+  relocation: 
+  remote: 
+  person_id: 
+  skills: ''
+  first_names: 
+  last_names: 
+  top_company: false
+  top_school: false
+  min_education_level: 
+  top_company_or_top_school: 
+  all_candidates: 
+  fulltime_candidates: 
+  freelance_candidates: 
+  open_to_new_opportunities: 
+  willing_to_work_remote: 
+  message_date: 

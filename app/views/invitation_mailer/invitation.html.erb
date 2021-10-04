@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
+
+
+    <style type="text/css">
+      .invitation-email-container {
+        padding:0;
+        margin:0 auto;
+        width:100%!important;
+        font-family:"'Helvetica Neue',Helvetica,Arial,sans-serif'"
+      }
+
+      .invite-header-info {
+        overflow:hidden;
+        color:transparent;
+        width:0;
+        font-size:0;
+        opacity:0;
+        height:0
+      }
+
+      .email-container {
+        background-color: #ffffff;
+        margin:0 auto;
+        max-width:512px;
+        width:inherit
+      }
+
+      .email-container-head {
+        background-color:#f6f8fa;
+        padding:5px 16px 13px;
+        border-bottom:1px solid #ececec;
+      }
+
+      .email-header-link {
+        margin:0;
+        color:#0073b1;
+        display:inline-block;
+        text-decoration:none
+      }
+
+      .header-table {
+        width:100%!important;
+        min-width:100%!important
+      }
+
+      .receiver-name {
+        word-wrap:break-word;
+        color:#4c4c4c;
+        word-break:break-word;
+        font-weight:400;
+        font-size:14px;
+        line-height:1.429
+      }
+
+      .receiver-name-a {
+        color:#0073b1;
+        display:inline-block;
+        text-decoration:none
+      }
+
+      .receiver-fullname {
+        word-wrap:break-word;
+        color:#262626;
+        word-break:break-word;
+        font-weight:700;
+        font-size:16px;
+        line-height:1.5
+      }
+
+      .receiver-location {
+        margin:0;
+        color:#737373;
+        font-weight:400;
+        font-size:14px;
+        line-height:1.429
+      }
+
+      .receiver-title {
+        word-wrap:break-word;
+        word-break:break-word;
+      }
+
+      #cta-accept {
+        display:inline-block;
+        margin-top:14px
+      }
+
+      .accepted-link {
+        word-wrap:normal;
+        color:#0073b1;
+        word-break:normal;
+        white-space:nowrap;
+        display:block;
+        text-decoration:none
+      }
+
+      .accepted-td {
+        padding:6px 16px;
+        color:#ffffff;
+        font-weight:500;
+        font-size:16px;
+        border-color:#0073b1;
+        background-color:#0073b1;
+        border-radius:2px;
+        border-width:1px;
+        border-style:solid
+      }
+
+      .accepted-link-button {
+        color:#ffffff;
+        display:inline-block;
+        text-decoration:none
+      }
+
+      .view-profile-td {
+        border-radius:2px;
+        padding:6px 16px;
+        color:#4c4c4c;
+        font-weight:500;
+        font-size:16px;
+        border-color:#737373;
+        border-width:1px;
+        border-style:solid
+      }
+
+      .cta-profile {
+        display:inline-block;
+        margin-top:14px;
+        margin-right:12px
+      }
+
+      .unsubscribe-table {
+        background-color:#edf0f3;
+        padding:0 24px;
+        color:#6a6c6d;
+        text-align:center
+      }
+
+      .unsubscribe-block {
+        color: #6a6c6d;
+        text-decoration:underline;
+        display:inline-block
+      }
+
+      .unsubscribe-block-button {
+        color:#6a6c6d;
+        font-weight:400;
+        text-decoration:underline;
+        font-size:12px;
+        line-height:1.333
+      }
+
+      .invitation-msg {
+        margin:0;
+        color:#6a6c6d;
+        font-weight:400;
+        font-size:12px;
+        line-height:1.333
+      }
+
+      .msg-align {
+        padding:0 0 12px 0;
+        text-align:center
+      }
+
+      .unsubscribe-center {
+        padding:16px 0 0 0;
+        text-align:center
+      }
+
+      .CToWUd {
+        border-radius:50%;
+        outline:none;
+        color:#ffffff;
+        text-decoration:none
+      }
+    </style>
+  </head>
+  <body>
+
+
+<div class="invitation-email-container">
+  <div class="invite-header-info"> <%= "Hi #{@contact.full_name.present? ? @contact.full_name : @contact.email}, I'd like to join your" %>
+    <span class="il">Cardinal Talent.ai</span> network.
+  </div>
+
+  <table role="presentation" align="center" border="0" cellspacing="0" cellpadding="0" width="100%" bgcolor="#EDF0F3" style="background-color:#edf0f3;table-layout:fixed">
+    <tbody>
+      <tr>
+        <td align="center">
+          <center style="width:100%">
+            <table role="presentation" border="0" class="email-container" cellspacing="0" cellpadding="0" width="512" bgcolor="#FFFFFF">
+              <tbody>
+                <tr>
+                  <td bgcolor="#F6F8FA" class="email-container-head">
+                    <table role="presentation" border="0" cellspacing="0" cellpadding="0" width="100%" class="header-table">
+                      <tbody>
+                        <tr>
+                            <td valign="middle" width="100%" align="right">
+                              <a href="#" class="email-header-link" target="_blank" >
+                                <table role="presentation" border="0" cellspacing="0" cellpadding="0" width="100%">
+                                  <tbody>
+                                    <tr>
+                                      <td align="left" valign="middle" style="padding:0 0 0 10px;padding-top:7px">
+                                        <p style="margin:0;font-weight:400">
+                                          <span class="receiver-name"><%= @contact.full_name.present? ? @contact.full_name : @contact.email %></span>
+                                        </p>
+                                      </td>
+                                      <td valign="middle" width="40" style="padding-top:7px;padding-left:10px">
+                                        <img border="0" height="36" width="36" src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png" class="CToWUd">
+                                        </td>
+                                      </tr>
+                                    </tbody>
+                                  </table>
+                                </a>
+                              </td>
+                              <td width="1">&nbsp;</td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <table role="presentation" border="0" cellspacing="0" cellpadding="0" width="100%">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <table role="presentation" border="0" cellspacing="0" cellpadding="0" width="100%">
+                                  <tbody>
+                                    <tr>
+                                      <td style="padding:24px 24px 36px 24px">
+                                        <table role="presentation" border="0" cellspacing="0" cellpadding="0" width="100%">
+                                          <tbody>
+                                            <tr>
+                                              <td align="left" id="hero-headline" colspan="2" style="padding-bottom:12px">
+                                                <p class="receiver-name"><%= "Hi #{@contact.full_name.present? ? @contact.full_name : @contact.email}, I'd like to join your" %>
+                                                  <span class="il">Cardinal Talent.ai</span> network.
+                                                </p>
+                                              </td>
+                                            </tr>
+                                            <tr>
+                                              <td valign="top" width="70" style="width:70px">
+                                                <table role="presentation" border="0" cellspacing="0" cellpadding="0" width="100%">
+                                                  <tbody>
+                                                    <tr>
+                                                      <td id="hero-profilepic" style="padding:10px 24px 0 0">
+                                                          <img src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png" alt="" height="70" width="70" class="CToWUd">
+
+                                                        </td>
+                                                      </tr>
+                                                    </tbody>
+                                                  </table>
+                                                </td>
+                                                <td style="padding-top:5px">
+                                                  <table role="presentation" border="0" cellspacing="0" cellpadding="0" width="100%">
+                                                    <tbody>
+                                                      <tr>
+                                                        <td valign="top" id="hero-profileinfo">
+                                                          <a href="#" class="receiver-name-a" target="_blank" >
+                                                            <span class="receiver-fullname"><%= @contact.user.try(:full_name) %></span>
+                                                          </a>
+                                                          <p class="receiver-title receiver-location"><%= @contact.user.try(:person).try(:title) %></p>
+                                                          <p class="receiver-location"><%= @contact.user.try(:location) %></p>
+                                                        </td>
+                                                      </tr>
+                                                      <tr>
+                                                        <td dir="rtl" align="left" style="direction:rtl!important;text-align:left!important">
+                                                          <span id="cta-accept">
+                                                            <table border="0" cellpadding="0" cellspacing="0" style="display:inline-block">
+                                                              <tbody>
+                                                                <tr>
+                                                                  <td align="center" valign="middle">
+                                                                    <a href="#" class="accepted-link" target="_blank" >
+                                                                      <table role="presentation" border="0" cellspacing="0" cellpadding="0" width="auto">
+                                                                        <tbody>
+                                                                          <tr>
+                                                                            <td bgcolor="#0073B1" class="accepted-td">
+                                                                              <a href="<%= @url %>" style="color:#ffffff;display:inline-block;text-decoration:none" target="_blank">Accept</a>
+                                                                            </td>
+                                                                          </tr>
+                                                                        </tbody>
+                                                                      </table>
+                                                                    </a>
+                                                                  </td>
+                                                                </tr>
+                                                              </tbody>
+                                                            </table>
+                                                          </span>
+                                                          <span class="cta-profile">
+                                                            <table border="0" cellpadding="0" cellspacing="0" style="display:inline-block">
+                                                              <tbody>
+                                                                <tr>
+                                                                  <td align="center" valign="middle">
+                                                                    <a href="#" class="accepted-link" target="_blank" >
+                                                                      <table role="presentation" border="0" cellspacing="0" cellpadding="0" width="auto">
+                                                                        <tbody>
+                                                                          <tr>
+                                                                            <td class="view-profile-td" style="">
+                                                                              <a href="<%= @url %>" class="accepted-link-button" target="_blank">View profile</a>
+                                                                            </td>
+                                                                          </tr>
+                                                                        </tbody>
+                                                                      </table>
+                                                                    </a>
+                                                                  </td>
+                                                                </tr>
+                                                              </tbody>
+                                                            </table>
+                                                          </span>
+                                                        </td>
+                                                      </tr>
+                                                    </tbody>
+                                                  </table>
+                                                </td>
+                                              </tr>
+                                            </tbody>
+                                          </table>
+                                        </td>
+                                      </tr>
+                                    </tbody>
+                                  </table>
+                                  <div>
+                                    <div></div>
+                                    <div></div>
+                                  </div>
+                                </td>
+                              </tr>
+                            </tbody>
+                          </table>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>
+                          <table role="presentation" border="0" cellspacing="0" cellpadding="0" width="100%" bgcolor="#EDF0F3" align="center" class="unsubscribe-table">
+                            <tbody>
+                              <tr>
+                                <td align="center" class="unsubscribe-center">
+                                  <table role="presentation" align="center" border="0" cellspacing="0" cellpadding="0" width="100%">
+                                    <tbody>
+                                      <tr>
+                                        <td valign="middle" align="center" class="unsubscribe-center" style="vertical-align:middle;">
+                                          <a href="<%= @unsubscribe_url %>" class="unsubscribe-block" target="_blank">
+                                            <span class="unsubscribe-block-button">Unsubscribe</span>
+                                          </a>&nbsp;&nbsp;|&nbsp;&nbsp;
+                                          <a href="#" class="unsubscribe-block" target="_blank" >
+                                            <span class="unsubscribe-block-button">Help</span>
+                                          </a>
+                                        </td>
+                                      </tr>
+                                    </tbody>
+                                  </table>
+                                </td>
+                              </tr>
+                              <tr>
+                                <td>
+                                  <table role="presentation" border="0" cellspacing="0" cellpadding="0" width="100%">
+                                    <tbody>
+                                      <tr>
+                                        <td align="center" class="msg-align">
+                                          <p class="invitation-msg">You are receiving Invitation emails.</p>
+                                        </td>
+                                      </tr>
+                                      <tr>
+                                        <td align="center" class="msg-align">
+                                        </td>
+                                      </tr>
+                                      <tr>
+
+                                        </tr>
+                                        <tr>
+                                          <td align="center" class="msg-align">
+                                            <p class="invitation-msg"><%= "© #{Date.today.year}"%>
+                                              <span class="il">Cardinal Talent</span>.ai.
+                                            </p>
+                                          </td>
+                                        </tr>
+                                      </tbody>
+                                    </table>
+                                  </td>
+                                </tr>
+                              </tbody>
+                            </table>
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </center>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+
+          </div>
+          </body>
+</html>

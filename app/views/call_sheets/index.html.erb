@@ -1,0 +1,20 @@
+<!-- erbstart app/views/call_sheets/index.html.erb -->
+<%= javascript_include_tag 'mindmup-editabletable.js' %>
+
+<div class="space-90"></div>
+<div style="min-height: fit-content;">
+
+  <nav>
+    <div id="side-bar">
+      
+    </div>
+  </nav>
+
+  
+    <div id="main-content">
+      <h1>My Status Updates</h1>
+      <%= render 'form', call_sheet: @call_sheet %>
+    </div>
+  
+</div>
+<!-- erbend app/views/call_sheets/index.html.erb -->

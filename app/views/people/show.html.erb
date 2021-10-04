@@ -1,0 +1,8 @@
+<!-- erbstart app/views/people/show.html.erb -->
+<%= react_component("common/SubmitCandidateToJob/SubmitCandidateToJob", {
+    candidate: @person,
+    jobs: Job.all.map{ |j| [ j.id, j.name] },
+    submissions: @person.submissions.map{ |s| s.to_s},
+    currentUser: current_user
+  }) %>
+<!-- erbend app/views/people/show.html.erb -->

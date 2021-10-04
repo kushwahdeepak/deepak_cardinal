@@ -1,0 +1,2 @@
+class AccountSource < ApplicationRecord
+end

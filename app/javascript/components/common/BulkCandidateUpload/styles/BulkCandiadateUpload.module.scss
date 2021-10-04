@@ -1,0 +1,62 @@
+@import '../../../../styles/var.scss';
+
+.header {
+    font-family: $default-font-family;
+    font-style: normal;
+    font-weight: 800;
+    font-size: 30px;
+    line-height: 41px;
+    color: $primary-blue;
+    display: flex;
+    place-content: center;
+    margin-bottom: 10px;
+}
+
+.textSpan {
+    font-style: normal;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 25px;
+    color: $primary-blue;
+    margin-left: 27px;
+}
+.wrapper {
+    background: #ffffff;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-items: center;
+    align-content: center;
+}
+.buttonResume {
+    border: none;
+    border-radius: 2px;
+    padding: 7px 22px;
+}
+.buttonSS {
+    border: none;
+    border-radius: 2px;
+    padding: 7px 22px;
+}
+.buttonResume:active {
+    background: $primary-blue;
+    border: none;
+    outline: none;
+}
+.colSpan {
+    display: flex;
+    place-items: center;
+}
+
+@media (max-width: 500px) {
+    .wrapper {
+        background: #ffffff;
+        border-radius: 50;
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+        align-items: center;
+        align-content: center;
+        width: 100%;
+    }
+}

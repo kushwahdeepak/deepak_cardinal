@@ -1,0 +1,27 @@
+<!-- erbstart app/views/phone_interviews/index.html.erb -->
+<p id="notice"><%= notice %></p>
+
+<h1>Phone Interviews</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @phone_interviews.each do |phone_interview| %>
+      <tr>
+        <td><%= link_to 'Show', phone_interview %></td>
+        <td><%= link_to 'Edit', edit_phone_interview_path(phone_interview) %></td>
+        <td><%= link_to 'Destroy', phone_interview, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Phone Interview', new_phone_interview_path %>
+<!-- erbend app/views/phone_interviews/index.html.erb -->

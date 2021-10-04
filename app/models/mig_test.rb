@@ -1,0 +1,2 @@
+class MigTest < ApplicationRecord
+end

@@ -1,0 +1,281 @@
+@import '../../../../styles/var';
+
+.employerPage {
+    font-family: $default-font-family;
+    font-style: normal;
+}
+
+// get started section
+
+
+
+.getStartedColumn {
+    padding-left: 0;
+    padding-right: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: #f9faff;
+}
+
+.title {
+    font-family: $default-font-family;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 50px;
+    line-height: 68px;
+    color: #1d2447;
+}
+
+.subtitle {
+    font-family: $default-font-family;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 30px;
+    line-height: 41px;
+    color: #1d2447;
+    margin-bottom: 30px;
+}
+
+.getStartedButton {
+    background: linear-gradient(
+        94.67deg,
+        $primary-blue -1.19%,
+        #6077f4 53.94%,
+        #8185ff 102.59%
+    );
+    border-radius: 50px;
+    padding: 10px 40px;
+    font-family: $default-font-family;
+    font-style: normal;
+    font-weight: 800;
+    font-size: 18px;
+    line-height: 25px;
+    color: #ffffff;
+}
+
+// experience section
+.experiencesSection {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 114px;
+}
+
+.experienceText {
+    font-family: $default-font-family;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 26px;
+    line-height: 36px;
+    text-align: center;
+    color: #3f5296;
+    margin-bottom: 23px;
+    margin-top: 40px;
+    max-width: 845px;
+}
+
+.experienceName {
+    font-family: $default-font-family;
+    font-style: normal;
+    font-weight: 800;
+    font-size: 24px;
+    line-height: 33px;
+    text-align: center;
+    color: #3f5296;
+    margin-bottom: 0;
+}
+
+.experienceRole {
+    font-family: $default-font-family;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 20px;
+    line-height: 27px;
+    text-align: center;
+    color: #3f5296;
+    margin-bottom: 0;
+}
+
+// carousel section
+.carousel {
+    max-width: 1400px;
+    margin: 0 auto;
+    background: #f4f7ff;
+    border-radius: 50px;
+}
+
+// import jobs section
+.importJobsImageRow {
+    margin-bottom: 45px;
+    margin-top: 170px;
+    margin-left:0px !important;
+    margin-right:0px !important;
+}
+
+.importJobsTitle {
+    font-family: $default-font-family;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 50px;
+    line-height: 68px;
+    color: #1d2447;
+    margin-bottom: 0;
+}
+
+.importJobsSubtitle {
+    font-family: $default-font-family;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 40px;
+    line-height: 55px;
+    color: #1d2447;
+    margin-bottom: 0;
+}
+
+.importJobsImage {
+    width: 250px;
+    height: 250px;
+}
+
+.importJobsText {
+    font-family: $default-font-family;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 25px;
+    line-height: 34px;
+    color: #1d2447;
+    margin-bottom: 20px;
+}
+
+.importJobsButton {
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 27px;
+    color: #ffffff;
+    background: linear-gradient(
+        94.67deg,
+        #4c68ff -1.19%,
+        #6077f4 53.94%,
+        #8185ff 102.59%
+    );
+    border-radius: 50px;
+    padding: 10px 36px;
+    margin-bottom: 200px;
+}
+.newRow {
+    margin:0px !important;
+}
+
+@media only screen and (min-device-width : 320px) and (max-device-width : 767px){
+    .title {
+        font-size: 30px;
+        line-height: 38px;
+        width: 100%;
+    }
+    .subtitle {
+        font-size: 24px;
+        line-height: 36px;
+    }
+    .getStartedColumn {
+        padding-left: 25px;
+        padding-right: 25px;
+        text-align:center;
+        padding-bottom:15px;
+        padding-top:15px;
+    }
+    .experiencesSection {
+        margin-top:25px;
+        padding:15px;
+    }
+    .experienceText {
+        font-size: 26px;
+        line-height: 36px;
+    }
+    .newRow {
+        margin:0px !important;
+    }
+    .aiDetails  {
+        margin-left: 0px !important;
+        max-width: 100% !important;
+        padding: 15px !important;
+        text-align: center;
+    }
+    main-slider {
+        background: #f4f7ff;
+        border-radius: 15px;
+        padding: 15px;
+        margin: 0px;
+        position: relative;
+    }
+    .importJobsButton {
+        margin-bottom: 15px !important;
+        margin: auto;
+    }
+    .importJobsImageRow {
+        margin-bottom: 15px !important;
+        margin-top: 15px !important;
+        margin-left: 0px !important;
+        margin-right: 0px !important;
+    }
+}
+@media only screen and (min-device-width : 768px) and (max-device-width : 1091px){
+    .title {
+        font-size: 30px;
+        line-height: 38px;
+        width: 100%;
+    }
+    .aiDetails  {
+        margin-left: 0px !important;
+        max-width: 100% !important;
+        padding: 15px !important;
+        text-align: center;
+    }
+    .importJobsButton {
+        margin-bottom: 15px !important;
+        margin: auto;
+    }
+}
+@media only screen and (min-device-width : 768px) and (max-device-width : 1350px){
+    .newRow {
+        margin:0px !important;
+    }
+    .aiDetails  {
+        margin-left: 0px !important;
+        max-width: 100% !important;
+        padding: 15px !important;
+    }
+    .getStartedColumn {
+        padding-left: 25px;
+        padding-right: 25px;
+        text-align:center;
+        padding-bottom:15px;
+        padding-top:15px;
+    }
+    .importJobsImageRow {
+        margin-bottom: 15px !important;
+        margin-top: 15px !important;
+        margin-left: 0px !important;
+        margin-right: 0px !important;
+    }
+
+    .title {
+        font-size: 36px !important;
+        line-height: 38px !important;
+    }
+}
+.slider-details{
+    min-height:100%;
+    align-item:center;
+    display:flex;
+}
+.active,
+.dot:hover {
+    background-color: #717171;
+}
+.row {
+    margin-left: 0px !important;
+    margin-right:0px !important;
+}

@@ -1,0 +1,13 @@
+.recruiting-input-group {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    .recruiting-input-checkbox {
+        margin-right: 20px;
+    }
+
+    .recruiting-input-label {
+        font-size: 16px;
+        color: #000;
+    }
+}

@@ -1,0 +1,2 @@
+class DateItem < ApplicationRecord
+end

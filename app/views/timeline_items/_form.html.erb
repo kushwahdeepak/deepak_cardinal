@@ -1,0 +1,12 @@
+<!-- erbstart app/views/timeline_items/_form.html.erb -->
+<%= simple_form_for(@timeline_item, html: {class: 'form-horizontal' }) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>
+<!-- erbend app/views/timeline_items/_form.html.erb -->

@@ -1,0 +1,36 @@
+<!-- erbstart app/views/after_signup/_linkedin_profile_education_fields.html.erb -->
+<div class="nested-fields">
+<div class="row" style="width: 100%;">
+  <div class="half left">
+    <%= f.input :school_name, label: false, input_html: { class: 'form-control-3 string required left form-margin-2', type: 'text', placeholder: 'Type or select school', onfocus: 'this.placeholder = ""', onblur: 'this.placeholder = "Type or select school"'} %>
+  </div>
+  <div class="half left mobile-margin">
+    <%= f.input :degree, label: false, input_html: { class: 'form-control-3 string required right form-margin-2 right-to-left' , type: 'text', placeholder: 'Degree', onfocus: 'this.placeholder = ""', onblur: "this.placeholder = 'Degree'" } %>
+  </div>
+</div>
+
+<div class="row" style="width:100%; margin: 31px 0; border-bottom: 2px solid #003366; padding-bottom: 25px;">
+  <div class="half left">
+    <div class="left" style="width: 100%;">
+      <%= f.input :field_of_study, label: false, input_html: { class: "form-control-3 string required form-margin-2", type: "text", placeholder: "Field of Study", onfocus: "this.placeholder = ''", onblur: "this.placeholder = 'Field of Study'" } %>
+    </div>
+  </div>
+
+  <div class="half left">
+    <div class="left" style="width: 50%;">
+      <%= f.input :start_date_year, label: false, input_html: { class: "form-control-3 string required form-margin-2", type: "text", placeholder: "Year", onfocus: "this.placeholder = ''", onblur: "this.placeholder = 'Year'" } %>
+    </div>
+    <div class="left" style="width: 50%;">
+      <%= f.input :gpa, label: false, input_html: { class: "form-control-3 string required right form-margin-2 right-to-left", type: "integer", placeholder: "GPA", onfocus: "this.placeholder = ''", onblur: "this.placeholder = 'GPA'" } %>
+    </div>
+  </div>
+
+  <div class="half right">
+    <div class="right">
+      <%= link_to_remove_association 'Remove this school', f %>
+    </div>
+  </div>
+</div>
+
+</div>
+<!-- erbend app/views/after_signup/_linkedin_profile_education_fields.html.erb -->

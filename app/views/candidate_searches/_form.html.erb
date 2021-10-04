@@ -1,0 +1,63 @@
+<!-- erbstart app/views/candidate_searches/_form.html.erb -->
+<%= simple_form_for(@candidate_search, html: {class: 'form-horizontal' }) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.input :search_texts %>
+    <%= f.input :locations %>
+    <%= f.input :employers %>
+    <%= f.input :titles %>
+    <%= f.input :schools %>
+    <%= f.input :degrees %>
+    <%= f.input :disciplines %>
+    <%= f.input :names %>
+    <%= f.input :min_time_in_job %>
+    <%= f.input :max_time_in_job %>
+    <%= f.input :min_career_length %>
+    <%= f.input :max_career_length %>
+    <%= f.input :min_activity_date %>
+    <%= f.input :max_activity_date %>
+
+    <%= f.input :linkedin_available %>
+    <%= f.input :phone_number_available %>
+    <%= f.input :github_available %>
+    <%= f.input :top_school %>
+    <%= f.input :top_company %>
+    <%= f.input :keyword %>
+    <%= f.association :user %>
+    <%= f.input :emails %>
+    <%= f.input :phone_numbers %>
+    <%= f.input :linkedin_urls %>
+    <%= f.input :active %>
+    <%= f.input :candidates_without_notes %>
+    <%= f.input :top_one_percent_status %>
+    <%= f.input :top_five_percent_status %>
+    <%= f.input :top_ten_percent_status %>
+    <%= f.input :recently_added %>
+    <%= f.input :candidates_with_notes %>
+    <%= f.input :experience_years %>
+    <%= f.input :job_type_full_time %>
+    <%= f.input :job_type_contract %>
+    <%= f.input :relocation %>
+    <%= f.input :remote %>
+    <%= f.association :person %>
+    <%= f.input :skills %>
+    <%= f.input :first_names %>
+    <%= f.input :last_names %>
+    <%= f.input :top_company %>
+    <%= f.input :top_school %>
+    <%= f.input :min_education_level %>
+    <%= f.input :top_company_or_top_school %>
+    <%= f.input :all_candidates %>
+    <%= f.input :fulltime_candidates %>
+    <%= f.input :freelance_candidates %>
+    <%= f.input :open_to_new_opportunities %>
+    <%= f.input :willing_to_work_remote %>
+    <%= f.input :message_date %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>
+<!-- erbend app/views/candidate_searches/_form.html.erb -->

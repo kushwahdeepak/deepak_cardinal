@@ -1,0 +1,51 @@
+<!-- erbstart app/views/company_positions/index.html.erb -->
+<p id="notice"><%= notice %></p>
+
+<h1>Company Positions</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Person</th>
+      <th>Email address</th>
+      <th>Is current</th>
+      <th>Start date</th>
+      <th>Start date year</th>
+      <th>Start date month</th>
+      <th>End date</th>
+      <th>End date year</th>
+      <th>End date month</th>
+      <th>Title</th>
+      <th>Linkedin profile position</th>
+      <th>Score</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @company_positions.each do |company_position| %>
+      <tr>
+        <td><%= company_position.person_id %></td>
+        <td><%= company_position.email_address_id %></td>
+        <td><%= company_position.is_current %></td>
+        <td><%= company_position.start_date %></td>
+        <td><%= company_position.start_date_year %></td>
+        <td><%= company_position.start_date_month %></td>
+        <td><%= company_position.end_date %></td>
+        <td><%= company_position.end_date_year %></td>
+        <td><%= company_position.end_date_month %></td>
+        <td><%= company_position.title %></td>
+        <td><%= company_position.linkedin_profile_position_id %></td>
+        <td><%= company_position.score %></td>
+        <td><%= link_to 'Show', company_position %></td>
+        <td><%= link_to 'Edit', edit_company_position_path(company_position) %></td>
+        <td><%= link_to 'Destroy', company_position, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Company Position', new_company_position_path %>
+<!-- erbend app/views/company_positions/index.html.erb -->

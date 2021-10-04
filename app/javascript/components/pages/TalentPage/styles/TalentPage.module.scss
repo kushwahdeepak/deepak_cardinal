@@ -1,0 +1,413 @@
+@import '../../../../styles/var';
+
+.uploadResumeBlock {
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    margin-bottom: 10px;
+    margin-top: 42px;
+}
+
+.buttonGroup {
+    display: flex;
+    flex-direction: column;
+    margin-left: -30px;
+    margin-bottom: 10px;
+}
+
+.applyButton {
+    font-family: $default-font-family;
+    font-style: normal;
+    font-weight: 800;
+    font-size: 14.4179px;
+    line-height: 20px;
+    color: #ffffff;
+    background: #304be0;
+    border: 1.31071px solid #304be0;
+    box-sizing: border-box;
+    border-radius: 32.7679px;
+    padding: 10px 20px;
+}
+
+// recommended jobs section
+.recommendedJobs {
+    margin-top: 110px;
+}
+
+.recommendedJobsTitle {
+    font-family: $default-font-family;
+    font-style: normal;
+    font-weight: 800;
+    font-size: 25px;
+    line-height: 35px;
+}
+
+.placeholderText {
+    background: #ffffff;
+    border: 1px solid #333030;
+    box-sizing: border-box;
+    border-radius: 3px;
+
+    &::placeholder {
+        font-family: $default-font-family;
+        font-style: normal;
+        font-weight: 500;
+        font-size: 14px;
+        color: #5c5b5b;
+        opacity: 1; /* Firefox */
+    }
+}
+
+.jobCard {
+    background: #ffffff;
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+}
+
+.jobCardTitle {
+    font-family: $default-font-family;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 27px;
+}
+
+.jobCardText {
+    font-family: $default-font-family;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 19px;
+    color: #333030;
+}
+
+.matchText {
+    font-family: $default-font-family;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 25px;
+    line-height: 34px;
+    color: #333030;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.noMatchScoreText {
+    font-family: $default-font-family;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 16px;
+    text-align: center;
+    color: #424242;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+// post job section
+
+.postJobText {
+    font-family: $default-font-family;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 15px;
+    line-height: 20px;
+    color: #333030;
+}
+
+.postJobButton {
+    font-family: $default-font-family;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 15px;
+    line-height: 20px;
+    color: #333030;
+    border: 1px solid #333030;
+    box-sizing: border-box;
+    border-radius: 10px;
+    padding: 11px 27px;
+}
+
+// common
+
+.newLine {
+    white-space: pre-line;
+}
+
+// Mobile View Styles
+
+@media (max-width: 1199px) {
+    //navbar section
+    .pageTitle {
+        font-family: $default-font-family;
+        font-style: normal;
+        font-weight: 900;
+        font-size: 4.1rem;
+        line-height: 4rem;
+        margin-bottom: 0;
+        color: #ab2537;
+    }
+
+    .titleLogo {
+        width: 190px;
+        height: 190px;
+        margin-left: -0.2rem;
+    }
+
+    .pageSubTitle {
+        font-family: $default-font-family;
+        font-style: normal;
+        font-weight: 800;
+        font-size: 30px;
+        line-height: 71px;
+        margin-bottom: 0;
+        color: #333030;
+    }
+
+    .pageText {
+        font-family: $default-font-family;
+        font-style: normal;
+        font-weight: 500;
+        font-size: 20px;
+        line-height: 31px;
+
+        color: #000000;
+    }
+
+    // apply buttons
+    .formContainerMobile {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .formContainer {
+        width: unset;
+    }
+
+    .applyButton {
+        width: unset;
+        height: unset;
+        font-size: 15px;
+    }
+
+    // forms
+    .labelText {
+        font-family: $default-font-family;
+        font-style: normal;
+        font-weight: 500;
+        font-size: 20px;
+        line-height: 38px;
+        color: #333030;
+    }
+}
+
+@media (max-width: 992px) {
+    //navbar section
+    .pageTitle {
+        font-family: $default-font-family;
+        font-style: normal;
+        font-weight: 900;
+        font-size: 55px;
+        line-height: 55px;
+        margin-bottom: 0;
+        color: #ab2537;
+    }
+
+    .pageSubTitle {
+        font-family: $default-font-family;
+        font-style: normal;
+        font-weight: 800;
+        font-size: 28px;
+        line-height: 30px;
+        margin-bottom: 30px;
+        margin-top: 0;
+        color: #333030;
+    }
+
+    .pageText {
+        font-family: $default-font-family;
+        font-style: normal;
+        font-weight: 500;
+        font-size: 14px;
+        line-height: 18px;
+
+        color: #000000;
+    }
+}
+
+@media (max-width: 767px) {
+    //navbar section
+    .pageTitle {
+        font-family: $default-font-family;
+        font-style: normal;
+        font-weight: 900;
+        font-size: 2.3rem;
+        line-height: 2.5rem;
+        margin-bottom: 0;
+        color: #ab2537;
+    }
+
+    .pageSubTitle {
+        font-family: $default-font-family;
+        font-style: normal;
+        font-weight: 800;
+        font-size: 21px;
+        line-height: 41px;
+        margin-bottom: 30px;
+        color: #333030;
+    }
+
+    .pageText {
+        font-family: $default-font-family;
+        font-style: normal;
+        font-weight: 500;
+        font-size: 11px;
+        line-height: 31px;
+        color: #000000;
+    }
+}
+
+@media (max-width: 520px) {
+    body {
+        margin: 1rem;
+    }
+
+    //page info
+    .pageTitle {
+        font-family: $default-font-family;
+        font-style: normal;
+        font-weight: 900;
+        font-size: 25px;
+        line-height: 30px;
+        margin-bottom: 0;
+        color: #ab2537;
+        margin-top: 50px;
+    }
+
+    .pageSubTitle {
+        font-family: $default-font-family;
+        font-style: normal;
+        font-weight: 800;
+        font-size: 14px;
+        line-height: 19px;
+        margin-bottom: 30px;
+        margin-top: 0;
+        color: #333030;
+    }
+
+    .uploadResumeBlock {
+        border: 2px dashed #9d9d9d;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 10px;
+    }
+
+    .applyButton {
+        font-family: $default-font-family;
+        font-style: normal;
+        font-weight: 500;
+        font-size: 12px;
+        line-height: 18px;
+        color: #ffffff;
+        background: #ab2537;
+        border-radius: 3px;
+        padding: 13px 66px;
+    }
+
+    // recommended jobs section
+    .recommendedJobs {
+        margin-top: 30px;
+    }
+
+    .placeholderText {
+        background: #ffffff;
+        border: 1px solid #333030;
+        box-sizing: border-box;
+        border-radius: 3px;
+
+        &::placeholder {
+            font-family: $default-font-family;
+            font-style: normal;
+            font-weight: 500;
+            font-size: 9px;
+            color: #5c5b5b;
+            opacity: 1; /* Firefox */
+        }
+    }
+
+    .recommendedJobsTitle {
+        font-family: $default-font-family;
+        font-style: normal;
+        font-weight: 800;
+        font-size: 12px;
+        line-height: 16px;
+    }
+
+    .jobCard {
+        background: #ffffff;
+        box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2);
+        border-radius: 10px;
+    }
+
+    .jobCardImage {
+        width: 55px;
+        height: 25px;
+    }
+
+    .jobCardTitle {
+        font-family: $default-font-family;
+        font-style: normal;
+        font-weight: 500;
+        font-size: 9px;
+        line-height: 10px;
+    }
+
+    .jobCardText {
+        font-family: $default-font-family;
+        font-style: normal;
+        font-weight: 500;
+        font-size: 7px;
+        line-height: 7px;
+        color: #333030;
+    }
+
+    // post jobs section
+    .postJobText {
+        font-family: $default-font-family;
+        font-style: normal;
+        font-weight: 500;
+        font-size: 10px;
+        line-height: 12px;
+        color: #333030;
+    }
+
+    .postJobButton {
+        font-family: $default-font-family;
+        font-style: normal;
+        font-weight: 500;
+        font-size: 10px;
+        line-height: 12px;
+        color: #333030;
+        border: 2px solid #333030;
+        box-sizing: border-box;
+        border-radius: 5px;
+    }
+}
+
+
+
+@media only screen and (min-device-width : 320px) and (max-device-width : 575px){
+    .buttonGroup {
+        margin-left: 0px !important;
+    }
+    .alert {
+        margin-left: 0px !important;
+        margin-right: 15px;
+    }
+}

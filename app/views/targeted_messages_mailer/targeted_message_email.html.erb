@@ -1,0 +1,23 @@
+<!-- erbstart app/views/targeted_messages_mailer/targeted_message_email.html.erb -->
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <h1>Hi <%= @message.recipient_name %></h1>
+    <p>
+      You have recieved a new unread message from <%= @message.sender_name %>!
+    </p>
+    <p>
+      Subject: <%= @message.subject %>
+    </p>
+    <p>
+      Message: <%= @message.body %>
+    </p>
+    <p>
+      To update your CardinalTalent account preferences at any time, visit our site: https://www.cardinalhire.com.
+    </p>
+  </body>
+</html>
+<!-- erbend app/views/targeted_messages_mailer/targeted_message_email.html.erb -->

@@ -1,0 +1,14 @@
+<!-- erbstart app/views/searches/_show_search_results.html.erb -->
+
+
+  <div class="mt-5">
+    <% @people.each_with_index do |person| %>
+      <% if not @clean_ui %>
+        <%= render partial: 'people/person_result', locals: {person: person, person_id: person.id} %>
+      <% else %>
+        <%= render partial: 'clean_result_row' , locals: {person: person, person_id: person.id} %>
+      <% end %>
+
+    <% end %>
+  </div>
+<!-- erbend app/views/searches/_show_search_results.html.erb -->

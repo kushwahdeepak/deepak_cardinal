@@ -1,0 +1,100 @@
+@import '../../../../styles/var';
+
+.job-search-bar-container {
+    .job-search-form {
+        .job-search-icon {
+            position: absolute;
+            width: 22px;
+            height: 22px;
+            left: 21px;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+        &__row {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin: 0 auto;
+        }
+        &__input-block {
+            position: relative;
+            padding-right: 30px;
+            flex: 1 1 83%;
+            max-width: 83%;
+            width: 100%;
+        }
+        &__input {
+            background: #ffffff;
+            border-radius: 3px;
+            border: 1px solid #000000;
+            display: block;
+            width: 100%;
+            font-family: $default-font-family;
+            font-style: normal;
+            font-weight: 500;
+            font-size: 14px;
+            line-height: 19px;
+            color: #474747;
+            padding: 20px 40px 15px 57px;
+            &::placeholder {
+                color: #5c5b5b;
+            }
+            &:focus {
+                border-color: #25cc00;
+                outline: none;
+            }
+        }
+        &__submit-btn {
+            flex: 0 0 17%;
+            max-width: 17%;
+            width: 100%;
+            display: block;
+            padding: 17px 21px 19px;
+            border: 1px solid transparent;
+            background: #2b3fab;
+            border-radius: 20px;
+            cursor: pointer;
+            &:hover {
+                border-color: #2b3fab;
+                transition: 0.2s all ease-in;
+                background: transparent;
+                span {
+                    color: #2b3fab;
+                    transition: 0.2s all ease-in;
+                }
+            }
+            span {
+                transition: 0.2s all ease-in;
+                font-family: $default-font-family;
+                font-style: normal;
+                font-weight: 500;
+                font-size: 18px;
+                line-height: 25px;
+                color: #ffffff;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .job-search-bar-container {
+        .job-search-form {
+            &__row {
+                flex-direction: column;
+            }
+            &__input-block {
+                position: relative;
+                padding-right: 0px;
+                flex: 1 1 100%;
+                max-width: 100%;
+                width: 100%;
+                margin-bottom: 20px;
+            }
+            &__submit-btn {
+                flex: 0 0 30%;
+                max-width: 30%;
+                width: 100%;
+            }
+        }
+    }
+}

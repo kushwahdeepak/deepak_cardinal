@@ -1,0 +1,14 @@
+Hi <%= @candidate.first_name %>,
+
+You now have an interview request! Interview requests are created by employers, recruiters, and other members of the CardinalTalent platform. Go to your <%= link_to "Dashboard", new_user_session_url %> to review your interview requests.
+
+This opportunity presented through CardinalTalent originated from an employer interested in your profile.
+
+If you accept this interview request from <%= @user.first_name %>&nbsp;<%= @user.last_name %>, a CardinalTalent Account Manager will be in contact with you about the details of your candidacy.
+
+In a hurry to get started? Contact your CardinalTalent Account Manager directly via email. <%= mail_to "alex@cardinalhire.com" %>
+
+For more information and to opt-out or manage your subscriptions, visit our <%= link_to 'website', 'https://www.cardinalhire.com' %> or contact us.
+
+Contact Team
+CardinalTalent.com

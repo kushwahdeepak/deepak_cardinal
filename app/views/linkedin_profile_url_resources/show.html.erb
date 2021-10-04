@@ -1,0 +1,26 @@
+<!-- erbstart app/views/linkedin_profile_url_resources/show.html.erb -->
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Linkedin profile:</strong>
+  <%= @linkedin_profile_url_resource.linkedin_profile_id %>
+</p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @linkedin_profile_url_resource.name %>
+</p>
+
+<p>
+  <strong>Url:</strong>
+  <%= @linkedin_profile_url_resource.url %>
+</p>
+
+<p>
+  <strong>Domain:</strong>
+  <%= @linkedin_profile_url_resource.domain %>
+</p>
+
+<%= link_to 'Edit', edit_linkedin_profile_url_resource_path(@linkedin_profile_url_resource) %> |
+<%= link_to 'Back', linkedin_profile_url_resources_path %>
+<!-- erbend app/views/linkedin_profile_url_resources/show.html.erb -->

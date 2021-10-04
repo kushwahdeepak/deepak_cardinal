@@ -1,0 +1,23 @@
+<!-- erbstart app/views/call_sheets/_phone_interview_fields.html.erb -->
+<div class="nested-fields">
+<div class="tg-wrap">
+  <table id="tg-Nw4E6" class="tg">
+  <tr>
+    <th class="tg-yw4l">First Name</th>
+    <th class="tg-yw4l">Last Name</th>
+    <th class="tg-yw4l">Scheduled Time</th>
+    <th class="tg-yw4l">Remove</th>
+  </tr>
+  <tr>
+    <td class="td"><%= f.input :first_name, label: false %></td>
+    <td class="td"><%= f.input :last_name, label: false %></td>
+    <td class="td"><%= f.input :scheduled_time, :as => :datetime, html5: true, label: false %></td>
+    <td class="td">
+    <%= link_to_remove_association f, class: "btn btn-default btn-xs" do %>
+      <i class="fa fa-trash"></i>
+    <% end %>
+    </td>
+  </tr>
+</table>
+</div>
+<!-- erbend app/views/call_sheets/_phone_interview_fields.html.erb -->

@@ -1,0 +1,29 @@
+<!-- erbstart app/views/user_educations/index.html.erb -->
+<p id="notice"><%= notice %></p>
+
+<h1>User Educations</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>User</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @user_educations.each do |user_education| %>
+      <tr>
+        <td><%= user_education.user %></td>
+        <td><%= link_to 'Show', user_education %></td>
+        <td><%= link_to 'Edit', edit_user_education_path(user_education) %></td>
+        <td><%= link_to 'Destroy', user_education, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New User Education', new_user_education_path %>
+<!-- erbend app/views/user_educations/index.html.erb -->

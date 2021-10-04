@@ -1,0 +1,10 @@
+<!-- erbstart app/views/call_sheets/_call_fields.html.erb -->
+<div class="nested-fields">
+  <%= f.input :first_name %>
+  <%= f.input :last_name %>
+  <%= f.input :scheduled_time, :as => :datetime, html5: true %>
+    <%= link_to_remove_association f, class: "btn btn-default btn-xs" do %>
+      <i class="fa fa-trash"></i>
+    <% end %>
+</div>
+<!-- erbend app/views/call_sheets/_call_fields.html.erb -->

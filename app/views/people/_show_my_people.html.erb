@@ -1,0 +1,217 @@
+<!-- erbstart app/views/people/_show_my_people.html.erb -->
+<div class="card results-area fill-height-card">
+  <div class="card-block" style="padding: 0.2em;">
+    <p>
+      <small>
+        <%= paginate(@people) %>
+      </small>
+    </p>
+  </div>
+  <% for p in @people do %>
+  <div class="card-block">
+    <div class="wrapper">
+      <div class="letter a">
+        <h3><b>
+          <% unless p[:first_name].blank? || p[:last_name].blank? %>
+            <%= link_to (p[:first_name] + ' ' + p[:last_name]), person_path(p), target: :_blank %>
+          <% else %>
+            <%= link_to ('Person ' + p.id.to_s), person_path(p), target: :_blank %>
+          <% end %>
+          </b>
+          <% unless p[:title].blank? %>
+          -
+            <%= p[:title] %>
+          <% else %>
+          <% end %>
+        </h3>
+
+        <%= render partial: 'action_items', locals: {person: p} %>
+
+        <% if p.email_addresses && p.email_addresses.first %>
+          <span class="label label-success" style="padding: 0.2em;">EMAIL</span>
+        <% end %>
+        <% if p.phone_numbers && p.phone_numbers.first %>
+          <span class="label label-warning" style="padding: 0.2em;">PHONE</span>
+        <% end %>
+        <% if p.github_available == true %>
+          <span class="label label-info" style="padding: 0.2em;">GITHUB</span>
+        <% end %>
+        <% if p.top_company == true %>
+          <span class="label label-default" style="padding: 0.2em;">TOP SCHOOL</span>
+        <% end %>
+        <% if p.top_company == true %>
+          <span class="label label-danger" style="padding: 0.2em;">TOP COMPANY</span>
+        <% end %>
+        <% if p.active == true %>
+          <span class="label label-default" style="padding: 0.2em;">ACTIVE</span>
+        <% end %>
+        <% if p.recently_added == true %>
+          <span class="label label-warning" style="padding: 0.2em;">RECENTLY ADDED</span>
+        <% end %>
+        <% if p.linkedin_profiles %>
+              <% if p.linkedin_profiles.first %>
+                <%= link_to p.linkedin_profiles.first.public_profile_url, target: :_blank do %>
+                  <span class="label label-primary" style="padding: 0.2em;">
+                    LINKEDIN
+                  </span>
+                <% end %>
+              <% else %>
+              <% end %>
+        <% end %>
+
+        <% if p.email_addresses.first %>
+
+          <% if current_user && current_user.role == "employer" %>
+
+            <p>
+              <i class="fa fa-fw fa-envelope-o"></i>
+              <em>Email hidden</em>
+            </p>
+
+          <% elsif current_user && current_user.role == ("admin" || "member") %>
+
+            <p>
+              <% if p.email_addresses.first.credible == true %>
+                <i class="fa fa-fw fa-envelope-o"></i>
+                <%= link_to set_credible_email_address_path(p.email_addresses.first, credible: false) do %>
+                  <i class="fa fa-fw fa-flag" title="This email address is crediible. Click to flag it as inaccurate."></i>
+                <% end %>
+              <% else %>
+                <i class="fa fa-fw fa-envelope-o"></i>
+                <%= link_to p do %>
+                  <i class="fa fa-fw fa-flag text-danger" title="This email address is flagged as inaccurate."></i>
+                <% end %>
+              <% end %>
+              <%= p.email_addresses.first.email %>
+              <% if p.email_addresses.count > 1 %>
+                 and <%= (p.email_addresses.count - 1) %> <%= link_to 'more email addresses found.', p, target: :_blank %>
+              <% end %>
+            </p>
+
+          <% end %>
+
+        <% end %>
+
+        <% if p.phone_numbers.first %>
+
+          <% if current_user && current_user.role == "employer" %>
+            <p>
+              <i class="fa fa-fw fa-phone-square checked"></i>
+              <em>Phone numbers hidden</em>
+            </p>
+
+          <% elsif current_user && current_user.role == ("admin" || "member") %>
+            <p>
+              <% if p.phone_numbers.first.credible == true %>
+                <i class="fa fa-fw fa-phone-square checked"></i>
+                <%= link_to set_credible_phone_number_path(p.phone_numbers.first, credible: false) do %>
+                  <i class="fa fa-fw fa-flag" title="This phone number is crediible. Click to flag it as inaccurate."></i>
+                <% end %>
+              <% else %>
+                <i class="fa fa-fw fa-phone-square checked"></i>
+                <%= link_to p do %>
+                  <i class="fa fa-fw fa-flag text-danger" title="This phone number is flagged as inaccurate."></i>
+                <% end %>
+              <% end %>
+              <%= p.phone_numbers.first.value %>, ext.: <%= p.phone_numbers.first.extension %>
+              <% if p.phone_numbers.count > 1 %>
+                 and <%= (p.phone_numbers.count - 1) %> <%= link_to 'more phone numbers found.', p, target: :_blank %>
+              <% end %>
+            </p>
+          <% end %>
+
+        <% end %>
+
+        <% if p.linkedin_profile_url_resources && p.linkedin_profile_url_resources.first %>
+        <p>
+          <i class="fa fa-fw fa-external-link"></i>
+          <%= p.linkedin_profile_url_resources.first.name %>: <%= p.linkedin_profile_url_resources.first.domain %> <%= link_to p.linkedin_profile_url_resources.first.url, p.linkedin_profile_url_resources.first.url, target: :_blank %>
+          <% if p.linkedin_profile_url_resources.count > 1 %>
+             and <%= (p.linkedin_profile_url_resources.count - 1) %> <%= link_to 'more external links found.', p, target: :_blank %>
+          <% end %>
+        </p>
+        <% end %>
+
+        <% if p.company_positions && p.company_positions.first %>
+        <p>
+          <i class="fa fa-fw fa-building-o unchecked"></i>
+          <%= p.company_positions.first.title %>
+          <% if p.company_positions.count > 1 %>
+             and <%= (p.company_positions.count - 1) %> <%= link_to 'more company positions found.', p, target: :_blank %>
+          <% end %>
+        </p>
+        <% end %>
+
+        <% if current_user && current_user.role == "employer" %>
+        <p>Contact CardinalTalent's recruiters or request an interview with this candidate</p>
+        <% end %>
+      </div>
+
+      <div class="letter b">
+        <% if p.linkedin_profiles %>
+            <%= link_to p, target: :_blank do %>
+              <%= image_tag "placeholder.png", class: 'rounded', width: 125, height: 125, margin: '2em' %>
+          <% end %>
+        <% else %>
+          <% link_to p, target: :_blank do %>
+            <%= image_tag "placeholder.png", class: 'rounded', width: 125, height: 125, margin: '2em' %>
+          <% end %>
+        <% end %>
+      </div>
+
+      <% if current_user && (current_user.role == "member" || current_user.role == "employer") %>
+      <div class="letter h">
+        <div class='js-notes'>
+          <% @notes = Note.where(person_id: p.id) %>
+          <% if @notes %>
+            <% for note in @notes do %>
+              <% if note.user_id %>
+                <%= content_tag :div, class: 'media', id: "note-#{note.id}" do %>
+                  <div class="media">
+                <div class="media-body">
+                  <small>
+                    <% @user = User.where(id: note.user_id) %>
+                    <%= @user.first.email %> noted on <%= p.name %> <%= time_ago_in_words(note.created_at) %> ago.
+                  </small>
+                  <p class="note">
+                    <%= link_to p, target: :_blank do %>
+                      <span class="label label-primary">NOTE</span>
+                    <% end %>
+                    <%= note.body %>
+                    <small>
+                      <% if current_user.id == note.user_id %>
+                        <%= link_to "Delete", note_path(note), method: :delete, data: { confirm: 'Are you sure?' } %>
+                      <% end %>
+                    </small>
+                  </p>
+                </div>
+              </div>
+                <% end %>
+              <% end %>
+            <% end %>
+          <% else %>
+            No notes found.
+          <% end %>
+          <h6>Add a Note</h6>
+          <%= form_for [p, Note.new], html: {class: "form-group"}, authenticity_token: true do |f| %>
+          <%= f.label :body, class: 'sr-only' %>
+          <%= f.text_field :body, class: 'form-control pull-right', placeholder: "Enter a new note" %>
+          <%= f.submit "Add Note", class: 'btn btn-default pull-right btn-block' %>
+          <% end %>
+          </div>
+        </div>
+      </div>
+      <% end %>
+    </div>
+  <% end %>
+
+  <div class="card-block" style="padding: 0.2em;">
+    <p>
+      <small>
+        <%= page_entries_info @people, entry_name: 'people' %>
+        <%= paginate(@people) %>
+      </small>
+    </p>
+  </div>
+</div>
+<!-- erbend app/views/people/_show_my_people.html.erb -->

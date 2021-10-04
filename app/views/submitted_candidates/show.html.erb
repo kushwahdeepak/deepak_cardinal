@@ -1,0 +1,28 @@
+<!-- erbstart app/views/submitted_candidates/show.html.erb -->
+<div class="row">
+  <div class="col-md-1">
+  </div>
+  <div class="col-md-10">
+    <div class="space-80"></div>
+
+
+    <p>
+      <strong>
+        <%= link_to (@submitted_candidate.person.first_name + ' ' + @submitted_candidate.person.last_name), person_path(@submitted_candidate.person) %>
+      </strong>
+      <br />
+      Submitted for:
+       <strong>
+        <% jobs_list = SubmittedCandidate.where(person_id: @submitted_candidate.person.id, user: current_user).all %>
+          <% jobs_list.each do |sub_can| %>
+          <%= sub_can.job.name + ', ' %>
+        <% end %>
+    </p>
+
+    <%= link_to 'Back', submitted_candidates_path %>
+
+
+  <div class="col-md-1">
+  </div>
+</div>
+<!-- erbend app/views/submitted_candidates/show.html.erb -->

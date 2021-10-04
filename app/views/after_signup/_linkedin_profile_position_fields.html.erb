@@ -1,0 +1,46 @@
+<!-- erbstart app/views/after_signup/_linkedin_profile_position_fields.html.erb -->
+<div class="nested-fields">
+  <div class="row" style="width: 100%;">
+    <div class="half left ">
+      <%= f.input :company_name, label: false, input_html: { class: 'form-control-3 string required left form-margin-2', type: 'text', placeholder: 'Type or select company', onfocus: 'this.placeholder = ""', onblur: 'this.placeholder = "Type or select company"'} %>
+    </div>
+    <div class="half left mobile-margin">
+      <%= f.input :title, label: false, input_html: { class: 'form-control-3 string required right form-margin-2 right-to-left', type: 'text', placeholder: 'Title', onfocus: 'this.placeholder = ""', onblur: "this.placeholder = 'Title'" } %>
+    </div>
+  </div>
+
+  <div class="row label-left" style="width:100%; margin: 31px 0; border-bottom: 2px solid #003366; padding-bottom: 9px;">
+    <div class="half left">
+      <div class="left" style="width: 50%;">
+        <%= f.input :start_date_month, as: :date, discard_day: true, discard_year: true, input_html: { class: "form-control-3 string required form-margin-2", type: "text", placeholder: "Start Month", onfocus: "this.placeholder = ''", onblur: "this.placeholder = 'Start Month'" } %>
+      </div>
+      <div class="right" style="width: 50%;">
+        <%= f.input :start_date_year, as: :date, discard_day: true, discard_month: true, start_year: (Date.today.year - 50), end_year: (Date.today.year + 5), input_html: { class: "form-control-3 string required form-margin-2", type: "text", placeholder: "Year", onfocus: "this.placeholder = ''", onblur: "this.placeholder = 'Year'" } %>
+      </div>
+    </div>
+
+    <div class="half left">
+      <div class="left" style="width: 50%;">
+        <%= f.input :end_date_month, as: :date, discard_day: true, discard_year: true, input_html: { class: "form-control-3 string required left form-margin-2", type: "text", placeholder: "End Month", onfocus: "this.placeholder = ''", onblur: "this.placeholder = 'End Month'" } %>
+      </div>
+      <div class="right" style="width: 50%;">
+        <%= f.input :end_date_year, as: :date, discard_day: true, discard_month: true, start_year: (Date.today.year - 50), end_year: (Date.today.year + 5), input_html: { class: "form-control-3 string required left form-margin-2 right-to-left", type: "text", placeholder: "Year", onfocus: "this.placeholder = ''", onblur: "this.placeholder = 'Year'" } %>
+      </div>
+    </div>
+
+    <div class="half left">
+      <div class="right" style="width: 100%;">
+        <label for="linkedin_profile_position[is_current]" style="width: 198px; display:contents;" >
+          <%= f.input :is_current, label: 'I currently work here', label_html: { class: 'checkboxtext', style: 'color:#bcc4ce; font-weight: 300;'}, input_html: { style: "display:block; width: 20%; float: right; margin-top: 7px;", class: "checkbox right", type: "checkbox", name: "is_current" } %>
+        </label>
+      </div>
+    </div>
+
+    <div class="half right">
+      <div class="right">
+        <%= link_to_remove_association 'Remove this company', f %>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- erbend app/views/after_signup/_linkedin_profile_position_fields.html.erb -->

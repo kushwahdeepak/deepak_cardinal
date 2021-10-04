@@ -1,0 +1,9 @@
+Name: omniauth
+Version: 1.9.1
+Advisory: CVE-2015-9284
+Criticality: High
+URL: https://github.com/omniauth/omniauth/pull/809
+Title: CSRF vulnerability in OmniAuth's request phase
+Solution: remove or disable this gem until a patch is available!
+
+Vulnerabilities found!

@@ -1,0 +1,45 @@
+<!-- erbstart app/views/users/finish_signup.html.erb -->
+<div class="container-fluid">
+    <div class="col-md-12 col-centered">
+      <div style="margin: 1em;">
+        <h1>Thanks!</h1>
+        <h3>Before you get started, we need to finish setting up your account and verify your email address.</h3>
+          <div id="add-email" class="container">
+            <%= form_for(current_user, :as => 'user', :url => finish_signup_path(current_user), :html => { role: 'form'}) do |f| %>
+            <% if @show_errors && current_user.errors.any? %>
+              <div id="error_explanation">
+                <% current_user.errors.full_messages.each do |msg| %>
+                  <%= msg %><br>
+                <% end %>
+              </div>
+                <% end %>
+              <div class="form-group">
+                  <%= f.label :email %>
+                  <div class="controls">
+                    <%= f.text_field :email, :autofocus => true, :value => '', class: 'form-control input-lg', placeholder: 'Example: email@me.com' %>
+                    <p class="help-block"><b>Please confirm your email address to complete your registration.</b></p>
+                  </div>
+              </div>
+            </div>
+      </div>
+      <div style="margin: 1em;">
+        <h3>Setting a strong password for your account also allows you to sign in via email.</h3>
+              <div class="form-group">
+                  <%= f.label :password %>
+                  <div class="controls">
+                    <%= f.password_field :password, :autofocus => false, :value => '', class: 'form-control input-lg', placeholder: '' %>
+                  </div>
+                  <%= f.label :password_confirmation %>
+                  <div class="controls">
+                    <%= f.password_field :password_confirmation, :autofocus => false, :value => '', class: 'form-control input-lg', placeholder: '' %>
+                    <p class="help-block">Please choose a strong password and enter it twice to complete your registration.</p>
+                  </div>
+                  <div class="actions">
+                    <%= f.submit 'Continue', :class => 'btn btn-primary' %>
+                  </div>
+                </div>
+              <% end %>
+          </div>
+      </div>
+    </div>
+<!-- erbend app/views/users/finish_signup.html.erb -->

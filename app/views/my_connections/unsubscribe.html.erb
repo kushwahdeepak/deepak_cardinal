@@ -1,0 +1,23 @@
+
+<div class="container">
+  <div class="card" style="margin: 10px; border: none;">
+
+    <div class="row">
+      <div class="col-11 user-header">
+        <div class="card" style="max-width: 60%; box-shadow: 0 0 30px #80808066;">
+          <div class="card-body">
+            <%= form_tag unsubscribe_my_connections_path, method: :get do %>
+              <div class="form-group">
+                <label for="exampleInputEmail1">Email address</label>
+                <input type="email" name="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email" required>
+              </div>
+
+              <button type="submit" class="btn btn-primary">Submit</button>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+

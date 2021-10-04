@@ -1,0 +1,13 @@
+<%= react_component("pages/Admin/Jobs/JobsIndex",
+  {
+    job: @job,
+    organization: @organization,
+    industry: @industry,
+    url: '/admin/jobs',
+    method: 'get',
+    messages: ''
+  },
+  {
+    :style => "height: 100%; "
+  }
+) %>

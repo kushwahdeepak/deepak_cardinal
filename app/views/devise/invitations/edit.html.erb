@@ -1,0 +1,27 @@
+<!-- erbstart app/views/devise/invitations/edit.html.erb -->
+<div style="margin: 1em;">
+<div class="space-90"></div>
+<div class="container">
+  <div class="row align-items-center">
+    <div class="col">
+      <h2><%= t 'devise.invitations.edit.header' %></h2>
+
+<%= form_for resource, :as => resource_name, :url => invitation_path(resource_name), :html => { :method => :put } do |f| %>
+  <%= devise_error_messages! %>
+  <%= f.hidden_field :invitation_token %>
+
+  <% if f.object.class.require_password_on_accepting %>
+  <p><%= f.label :password %><br />
+  <%= f.password_field :password %></p>
+
+  <p><%= f.label :password_confirmation %><br />
+  <%= f.password_field :password_confirmation %></p>
+  <% end %>
+
+  <p><%= f.submit t("devise.invitations.edit.submit_button") %></p>
+<% end %>
+</div>
+</div>
+</div>
+</div>
+<!-- erbend app/views/devise/invitations/edit.html.erb -->

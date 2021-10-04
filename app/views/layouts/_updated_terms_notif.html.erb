@@ -1,0 +1,35 @@
+<!-- erbstart app/views/layouts/_updated_terms_notif.html.erb -->
+<html>
+<head>
+<style>
+
+.alert {
+  padding: 10px;
+  color: #333;
+  background-color: #f2dede;
+  border-radius: 4px;
+}
+.closebtn {
+  margin-left: 15px;
+  margin-top: 2.5px;
+  color: white;
+  front-weight: bold;
+  float: right;
+  font-size:30px;
+  line-height: 20px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+.closebtn:hover {
+  color: black;
+}
+</style>
+</head>
+<body>
+<div class="alert">
+  <span class = "closebtn" onclick="this.parentElement.style.display='none';"> &times;</span>
+   We have updated our <%= link_to 'Privacy Policy', welcome_privacy_path %> and <%= link_to 'Terms of Service', welcome_tos_path %>.  By continuing to use our service, you accept these policies and terms.
+</div>
+</body>
+</html>
+<!-- erbend app/views/layouts/_updated_terms_notif.html.erb -->

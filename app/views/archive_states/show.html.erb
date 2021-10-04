@@ -1,0 +1,26 @@
+<!-- erbstart app/views/archive_states/show.html.erb -->
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Person:</strong>
+  <%= @archive_state.person %>
+</p>
+
+<p>
+  <strong>Lever:</strong>
+  <%= @archive_state.lever_id %>
+</p>
+
+<p>
+  <strong>Archived at:</strong>
+  <%= @archive_state.archived_at %>
+</p>
+
+<p>
+  <strong>Reason:</strong>
+  <%= @archive_state.reason %>
+</p>
+
+<%= link_to 'Edit', edit_archive_state_path(@archive_state) %> |
+<%= link_to 'Back', archive_states_path %>
+<!-- erbend app/views/archive_states/show.html.erb -->

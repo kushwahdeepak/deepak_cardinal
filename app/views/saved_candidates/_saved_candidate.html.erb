@@ -1,0 +1,13 @@
+<!-- erbstart app/views/saved_candidates/_saved_candidate.html.erb -->
+<% if saved_candidate == current_user.saved_candidate_for(@person) %>
+  <%= link_to [@person, saved_candidate], class: 'btn btn-secondary btn-block fa fa-star-o', method: :delete do %>
+    <i></i><br />
+    Unsave
+  <% end %>
+<% else %>
+  <%= link_to [@person, SavedCandidate.new], class: 'btn btn-secondary btn-block fa fa-star', method: :post do %>
+    <i></i><br />
+    Save
+  <% end %>
+<% end %>
+<!-- erbend app/views/saved_candidates/_saved_candidate.html.erb -->

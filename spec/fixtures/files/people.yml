@@ -1,0 +1,331 @@
+
+toBeFound:
+  id: 10
+  first_name: findmeTest123
+  last_name: findmeTest123
+  formatted_name: 
+  linkedin_profile_url: findmeTest123
+  phone_number: findmeTest123
+  search_text: 
+  keyword: 
+  location: findmeTest123
+  employer: 
+  title: findmeTest123
+  school: findmeTest123
+  degree: findmeTest123
+  discipline: 
+  name: 
+  min_time_in_job: 
+  max_time_in_job: 
+  min_career_length: 
+  max_career_length: 
+  min_activity_date: 
+  max_activity_date: 
+  email_available: 
+  linkedin_available: 
+  phone_number_available: 
+  github_available: 
+  top_school_status: 
+  top_company:
+  linkedin_profile_id_id: 
+  created_at: !ruby/object:ActiveSupport::TimeWithZone
+    utc: 2020-03-15 10:15:49.525035000 Z
+    zone: &1 !ruby/object:ActiveSupport::TimeZone
+      name: America/Los_Angeles
+    time: 2020-03-15 03:15:49.525035000 Z
+  updated_at: !ruby/object:ActiveSupport::TimeWithZone
+    utc: 2020-03-15 10:15:49.525035000 Z
+    zone: *1
+    time: 2020-03-15 03:15:49.525035000 Z
+  avatar_url: 
+  linkedin_profile: 
+  company_position: 
+  email_address: findmeTest123
+  linkedin_field_of_study: 
+  linkedin_industry: 
+  linkedin_profile_education: 
+  linkedin_profile_position: 
+  linkedin_profile_publication: 
+  linkedin_profile_recommendation: 
+  linkedin_profile_url_resource: 
+  linkedin_school: 
+  active: true
+  user_id: 
+  note_id: 
+  flag: 
+  crelate_id: 
+  created_by_id: 
+  modified_on: 
+  updated_by_id: 
+  created_on: !ruby/object:ActiveSupport::TimeWithZone
+    utc: 2020-03-15 10:15:49.525035000 Z
+    zone: *1
+    time: 2020-03-15 03:15:49.525035000 Z
+  salary: 
+  salutation: 
+  icon_attachment_id: 
+  primary_document_attachment_id: 
+  nickname: 
+  account_id: 
+  contact_number: 
+  twitter_name: 
+  contact_source_id: 
+  middle_name: 
+  suffix_id: 
+  ethnicity_id: 
+  gender_id: 
+  preferred_contact_method_type_id: 
+  last_activity_regarding_id: 
+  last_activity_regarding_id_type: 
+  last_activity_date: 
+  spoken_to: 
+  contact_status_id: 
+  contact_merge_id: 
+  approve_for_job_id: 
+  salary_details: 
+  record_type: 
+  description: 
+  created_on_system: 
+  contact_num: 
+  skills: '["findmeTest123"]'
+  school_names: 
+  degrees: 
+  fields: 
+  company_names: findmeTest123
+  titles: 
+  createdbyid: 
+  modifiedon: 
+  updatedbyid: 
+  work_authorization_status: 
+  document_file_name: 
+  document_content_type: 
+  document_file_size: 
+  document_updated_at: 
+  top_one_percent_status: 
+  top_five_percent_status: 
+  top_ten_percent_status: 
+  status: 
+  recruiter_update_id: 
+  recently_added: 
+  active_date_at: 
+  active_set_by_user_id: 
+  inbound_user_id: 
+  phone_number_id: 
+  person_id: 
+  remote_interest: 
+  position_interest: 
+  experience_years: 
+  supervising_num: 
+  salary_expectations: 
+  job_search_stage: 
+  position_desc: 
+  visa_status: 
+  avatar_file_name: 
+  avatar_content_type: 
+  avatar_file_size: 
+  avatar_updated_at: 
+  latest_pinned_note: 
+  sms_last_from_user_id: 
+  github_url: 
+  stack_overflow_url: 
+  personal_site: 
+  personal_site_available: 
+  stack_overflow_url_available: 
+  public_profile_url: 
+  api_standard_profile_request: 
+  industry: 
+  current_share: 
+  num_connections: 
+  num_connections_capped: 
+  summary: 
+  specialties: 
+  positions: 
+  picture_url: 
+  site_standard_profile_request: 
+  lever_candidate_id: 
+  company_position_id: 
+  linkedin_profile_id: 
+  email_address_id: 
+  linkedin_field_of_study_id: 
+  linkedin_industry_id: 
+  linkedin_profile_education_id: 
+  linkedin_profile_position_id: 
+  linkedin_profile_publication_id: 
+  linkedin_profile_recommendation_id: 
+  linkedin_profile_url_resource_id: 
+  linkedin_school_id: 
+  top_company: 
+  top_school: 
+  education_level: 
+  public: 
+  attached_document_file_name: 
+  attached_document_content_type: 
+  attached_document_file_size: 
+  attached_document_updated_at: 
+  message_date: 
+
+
+toBeNotFound:
+  id: 10
+  first_name: donNotFindMe
+  last_name: donNotFindMe
+  formatted_name:
+  linkedin_profile_url: donNotFindMe
+  phone_number: donNotFindMe
+  search_text:
+  keyword:
+  location: donNotFindMe
+  employer:
+  title: donNotFindMe
+  school: donNotFindMe
+  degree: donNotFindMe
+  discipline:
+  name:
+  min_time_in_job:
+  max_time_in_job:
+  min_career_length:
+  max_career_length:
+  min_activity_date:
+  max_activity_date:
+  email_available:
+  linkedin_available:
+  phone_number_available:
+  github_available:
+  top_school_status:
+  top_company:
+  linkedin_profile_id_id:
+  created_at: !ruby/object:ActiveSupport::TimeWithZone
+    utc: 2020-03-15 10:15:49.525035000 Z
+    zone: &1 !ruby/object:ActiveSupport::TimeZone
+      name: America/Los_Angeles
+    time: 2020-03-15 03:15:49.525035000 Z
+  updated_at: !ruby/object:ActiveSupport::TimeWithZone
+    utc: 2020-03-15 10:15:49.525035000 Z
+    zone: *1
+    time: 2020-03-15 03:15:49.525035000 Z
+  avatar_url:
+  linkedin_profile:
+  company_position:
+  email_address: donNotFindMe
+  linkedin_field_of_study:
+  linkedin_industry:
+  linkedin_profile_education:
+  linkedin_profile_position:
+  linkedin_profile_publication:
+  linkedin_profile_recommendation:
+  linkedin_profile_url_resource:
+  linkedin_school:
+  active: true
+  user_id:
+  note_id:
+  flag:
+  crelate_id:
+  created_by_id:
+  modified_on:
+  updated_by_id:
+  created_on: !ruby/object:ActiveSupport::TimeWithZone
+    utc: 2020-03-15 10:15:49.525035000 Z
+    zone: *1
+    time: 2020-03-15 03:15:49.525035000 Z
+  salary:
+  salutation:
+  icon_attachment_id:
+  primary_document_attachment_id:
+  nickname:
+  account_id:
+  contact_number:
+  twitter_name:
+  contact_source_id:
+  middle_name:
+  suffix_id:
+  ethnicity_id:
+  gender_id:
+  preferred_contact_method_type_id:
+  last_activity_regarding_id:
+  last_activity_regarding_id_type:
+  last_activity_date:
+  spoken_to:
+  contact_status_id:
+  contact_merge_id:
+  approve_for_job_id:
+  salary_details:
+  record_type:
+  description:
+  created_on_system:
+  contact_num:
+  skills: '["donNotFindMe"]'
+  school_names:
+  degrees:
+  fields:
+  company_names: donNotFindMe
+  titles:
+  createdbyid:
+  modifiedon:
+  updatedbyid:
+  work_authorization_status:
+  document_file_name:
+  document_content_type:
+  document_file_size:
+  document_updated_at:
+  top_one_percent_status:
+  top_five_percent_status:
+  top_ten_percent_status:
+  status:
+  recruiter_update_id:
+  recently_added:
+  active_date_at:
+  active_set_by_user_id:
+  inbound_user_id:
+  phone_number_id:
+  person_id:
+  remote_interest:
+  position_interest:
+  experience_years:
+  supervising_num:
+  salary_expectations:
+  job_search_stage:
+  position_desc:
+  visa_status:
+  avatar_file_name:
+  avatar_content_type:
+  avatar_file_size:
+  avatar_updated_at:
+  latest_pinned_note:
+  sms_last_from_user_id:
+  github_url:
+  stack_overflow_url:
+  personal_site:
+  personal_site_available:
+  stack_overflow_url_available:
+  public_profile_url:
+  api_standard_profile_request:
+  industry:
+  current_share:
+  num_connections:
+  num_connections_capped:
+  summary:
+  specialties:
+  positions:
+  picture_url:
+  site_standard_profile_request:
+  lever_candidate_id:
+  company_position_id:
+  linkedin_profile_id:
+  email_address_id:
+  linkedin_field_of_study_id:
+  linkedin_industry_id:
+  linkedin_profile_education_id:
+  linkedin_profile_position_id:
+  linkedin_profile_publication_id:
+  linkedin_profile_recommendation_id:
+  linkedin_profile_url_resource_id:
+  linkedin_school_id:
+  top_company:
+  top_school:
+  education_level:
+  public:
+  attached_document_file_name:
+  attached_document_content_type:
+  attached_document_file_size:
+  attached_document_updated_at:
+  message_date: 

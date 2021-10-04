@@ -1,0 +1,31 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`FilterGroup component should match with a snapshot 1`] = `
+<div
+  className="undefined shadow-sm card"
+>
+  <div
+    className="p-2 d-flex justify-content-between card-header"
+    data-test="filters-card-header"
+    style={
+      Object {
+        "color": "rgba(0, 0, 0, 0.35)",
+      }
+    }
+  >
+    <button
+      className="btn btn-link"
+      disabled={false}
+      type="button"
+    >
+      <i
+        className="text-danger"
+        data-feather="trash-2"
+      />
+    </button>
+  </div>
+  <div
+    className="p-2 card-body"
+  />
+</div>
+`;

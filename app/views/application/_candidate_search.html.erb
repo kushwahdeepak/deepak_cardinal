@@ -1,0 +1,10 @@
+<!-- erbstart app/views/application/_candidate_search.html.erb -->
+<li>
+  <%= link_to new_people_search_path, style: 'text-shadow: 1px 1px 2px rgb(255, 255, 255, 0.1); align-self: flex-end;' do %>
+    <div class="nav-link" style="float:left;">
+      <span>Candidate Search</span></div>
+    <% unless current_user.follow_count == 0 %>
+    <% end %>
+  <% end %>
+</li>
+<!-- erbend app/views/application/_candidate_search.html.erb -->

@@ -1,0 +1,52 @@
+@import '../../../../styles/var.scss';
+
+.timeZone{
+    border: none;
+    outline: none;
+    width:110px;
+    height: 23px;
+    display: flex !important;
+    align-items: center;
+}
+
+.timezone-picker-textfield{
+    border: none;
+    outline: none;
+    .form-control{
+        height: fit-content !important;
+        font-family: $default-font-family;
+        background-color: #778CFF !important;
+        border: none !important;
+        padding: 1px;
+        outline: none !important;
+        min-height: 20px !important;
+        color: #ffffff !important;
+        ::placeholder{
+            font-family: $default-font-family !important;
+            color: #ffffff !important;
+        }
+
+     }
+  
+}
+
+.timeZoneToggle {
+    background: #EBEDFA !important;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    z-index: 1000;
+    display: none;
+    float: left;
+    min-width: 7rem;
+    padding: 0.5rem 0;
+    margin: 0.125rem 0 0;
+    color: #212529;
+    text-align: left;
+    list-style: none;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid rgba(0, 0, 0, 0.15);
+    border-radius: 0.25rem;
+}
+

@@ -1,0 +1,293 @@
+<!-- erbstart app/views/follows/_follow.html.erb -->
+<div class="row">
+
+</div>
+<div class="row" style="padding: 1.5em; border: 2.5px solid #eee;   box-shadow: 8px 0px 0 #003366 inset; border-left: none;">
+
+
+  <% positionTitle = '' %>
+  <% unless person['titles'].blank? %>
+  <% person['titles'].present? ? positionTitle = person['titles'].tr("[", "").tr("]", "").split(/","/).first : positionTitle = ''%>
+  <% end %>
+
+  <% company = "" %>
+  <% unless person['company_names'].blank? %>
+  <% person['company_names'].present? ? company = person['company_names'].tr("[", "").tr("]", "").split(/","/).first : company = '' %>
+
+  <% end %>
+
+  <% previousPositionTitle = '' %>
+  <% unless person['titles'].blank? %>
+  <% person['titles'].present? ? previousPositionTitle = person['titles'].tr("[", "").tr("]", "").split(/","/).drop(1).first : previousPositionTitle = ''%>
+  <% end %>
+
+  <% previousCompany = "" %>
+  <% unless person['company_names'].blank? %>
+  <% person['company_names'].present? ? previousCompany = person['company_names'].tr("[", "").tr("]", "").split(/","/).drop(1).first : previousCompany = '' %>
+  <% end %>
+
+  <% loc = '' %>
+  <% unless person.location.blank? %>
+  <% person.location.present? ? loc = person.location : loc = '' %>
+  <% end %>
+
+  <% schoolName = "" %>
+  <% unless person.school.blank? %>
+  <% person.school.present? ? schoolName = person.school : schoolName = '' %>
+  <% end %>
+
+  <% deg = '' %>
+  <% unless person.degree.blank? %>
+  <% person.degree.present? ? deg = person.degree : deg = '' %>
+  <% end %>
+
+  <% disc = '' %>
+  <% unless person.discipline.blank? %>
+  <% person.discipline.present? ? disc = person.discipline : disc = '' %>
+  <% end %>
+
+  <% phone_number = 'None Saved' %>
+  <% unless person.phone_number.blank? %>
+  <% person.phone_number.present? ? phone_number = person.phone_number : phone_number = 'None saved.'  %>
+  <% end %>
+
+  <% email = 'None Saved' %>
+  <% unless person.email_address.blank? %>
+  <% person.email_address.present? ? email = person.email_address : email = 'None saved.'  %>
+  <% end %>
+
+
+
+
+
+
+
+  <div class="grid-candidate">
+    <div class="grid-profile-icon">
+      <%= image_tag('logo-white.png') %>
+    </div>
+
+    <div class="grid-name-intro" style="align-self:center;">
+
+
+      <h2 class="employer_candidate_title">
+
+        <%= link_to person_path(person), target: :_blank do %>
+        <% if person.first_name.blank? || person.last_name.blank? %>
+        <%= person.name %>
+        <% elsif person.first_name.blank? && person.last_name.blank? && person.name.blank? %>
+        <%= person.formatted_name %>
+        <% else %>
+        <%= person.first_name %>&nbsp;<%= person.last_name %>
+        <% end %>
+        <% end %>
+      </h2>
+
+      <p class="grid-current-text">
+        <% unless person.location.blank? %>
+        <%= person['location'] %>&nbsp;
+        <% end %>
+        <% unless person.fields.blank? %>
+        <%= person.fields %>
+        <% end %>
+
+      </p>
+
+    </div>
+
+    <h1 class="grid-current"> Current </h1>
+
+    <p class="grid-current-text">
+      <%= positionTitle %>
+      <% unless company.nil? %>
+      &nbsp;-&nbsp;
+      <%= company %>
+      <% end %>
+    </p>
+
+    <% unless previousPositionTitle.blank? and previousCompany.blank? %>
+    <h1 class="grid-past">Past</h1>
+
+    <p class="grid-past-text">
+      <%= previousPositionTitle %>
+      <% unless previousCompany.nil? %>
+      &nbsp;-&nbsp;
+      <%= previousCompany %>
+      <% end %>
+    </p>
+    <% end %>
+
+    <h1 class="grid-edu">Education</h1>
+
+    <p class="grid-edu-text"> <%= schoolName + ' (' + deg + ', ' + disc + ')'  %> </p>
+
+
+    <!-- <div class="grid-skills">
+    <div style="width:100%; height: 25px; display:table;">
+    <div class="grid-title">Skills</div>
+  </div>
+  <div style="width: 100%; height: 56px;">
+
+</div>
+</div> -->
+<div style="width:100%; height: 25px; display:table;">
+
+  <h1 class="grid-skillz">Skills</h1>
+</div>
+
+<div style="width: 100%;">
+  <% if person['skills'] != nil %>
+  <% person_skills = person['skills'].tr("[", "").tr("]", "").split(/[,"]+/) %>
+  <% person_skills.drop(1).each do |skill| %>
+  <div class="user-skills" style="float: left; width: fit-content; background-color: #e8eff0; border-radius: 10px; font-size: 10px; font-weight: 500; padding: 0px 11px; margin: 0px 8px; text-align: center;">
+    <%= skill.tr('"', '') + " "%>
+  </div>
+  <% end %>
+  <% end %>
+</div>
+
+<% if @user.admin? || @user.recruiter? %>
+
+<h1 class="contacts"> Contacts </h1>
+<div style="width: 100%">
+  <div style="width: 50%; float: left;">
+    <h1 style="text-align:left; color:#003366;">Email</h1> <p> <%= email %></p>
+  </div>
+  <div style="width:50%; float:left;">
+    <h1 style="text-align:left; color:#003366;">Phone Number</h1> <p> <%= phone_number %> </p>
+  </div>
+</div>
+
+<% end %>
+
+</div>
+
+
+
+<div class="post" style="display: flex; flex-direction: column;">
+
+  <div class="postUser" style="width: auto; height: auto; position: static;">
+
+    <div class="postUser">
+
+      <div class="postBody__date">
+
+        <% if current_user && (current_user.role == "recruiter" || current_user.role == "admin") %>
+        <div class='js-notes'>
+          <% person.notes.take(3).each do |note| %>
+          <%= content_tag :div, class: 'media', id: "note-#{note.id}" do %>
+          <div class="media-body">
+            <div class="row">
+              <div class="col-3 col-xs-3 col-sm-3 col-md-3 col-lg-3">
+                <%= link_to person_path(person), target: :_blank do %>
+                <span class="label label-primary" style="padding: 0.2em;">&nbsp;NOTE&nbsp;</span>
+                <% end %>
+              </div>
+              <div class="col-9 col-xs-9 col-sm-9 col-md-9 col-lg-9">
+                <%= note.body %>
+                <small>
+                  <% if current_user.id == note.user_id %>
+                  <%= link_to "Delete", note_path(note), method: :delete, data: { confirm: 'Are you sure?' } %>
+                  <% end %>
+                </small>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-xs-12 col-sm-12 col-md-12">
+                <small class="text-center">
+                  <% noted_user = User.where(id: note.user_id) %>
+                  <%= noted_user.first.email %> noted on <%= person.name %> <%= time_ago_in_words(note.created_at) %> ago.
+                </small>
+              </div>
+            </div>
+          </div>
+          <% end %>
+          <% end %>
+        </div>
+        <% end %>
+
+        <div class="media">
+
+          <div class="row text-center">
+
+            <% if current_user.admin? || current_user.employer? %>
+            <% if current_user.followed_candidate_for(person) %>
+            <% followed_candidate = current_user.followed_candidate_for(person) %>
+            <%= link_to [person, followed_candidate], method: :delete do %>
+            Cancel interview request
+            <% end %>
+            <% else %>
+            <%= link_to [person, FollowedCandidate.new], method: :post do %>
+            Request an interview
+            <% end %>
+            <% end %>
+            <% end %>
+
+          </div>
+
+          <% if (current_user.role == 'member' || current_user.role == 'admin') %>
+
+          <h6 class="text-center">Add a Note</h6>
+
+          <div class="col-12 col-xs-12 col-sm-12 col-md-12 col-lg-12 center-block align-self-center" style="align-content: center; align-self: center; justify-content: center; float: none;">
+            <%= simple_form_for [person, Note.new], html: {class: "form-group" }, authenticity_token: true, style: "background-color: #fff;" do |f| %>
+            <div class="row" style="background-color: #fff; border-radius: 12px;">
+              <div class="input-group">
+                <%= f.label :body, class: 'sr-only' %>
+                <%= f.text_field :body, class: 'form-control pull-right', placeholder: "Enter a new note" %>
+                <span class="input-group-btn">
+                  <%= f.button :submit, "Add note", class: 'btn btn-default pull-right', style: "color: #fff; background-color: #CC0000; border-color: #CC0000; display: block; width: 100%; height: 100%;" %>
+                </span>
+              </div><!-- /input-group -->
+            </div>
+            <% end %>
+          </div>
+
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<!-- <p> 'old contact info, used for testing' </p> -->
+<!-- <div class="col-12 col-md-12 col-sm-12">
+  <div class="col-2 col-md-2 col-sm-2">
+    <div class='' style='justify-content: left;'>
+      <p> Contacts: </p>
+    </div>
+    <% if person.phone_number.blank? && person.email_address.blank? %>
+    <div class="col-10 col-md-10 col-sm-10">
+      <p> None saved. Please add to notes if found. </p>
+    </div>
+    <% end %>
+
+  </div>
+  <div class="col-5 col-md-5 col-sm-5">
+    <div class="" style="display: flex; justify-content: center;">
+      <% if person.phone_number.blank? %>
+      <p> no phone number on record </p>
+      <% else %>
+      <%= 'phone number: ' + person.phone_number %>
+      <% end %>
+
+    </div>
+  </div>
+
+  <div class="col-5 col-md-5 col-sm-5">
+    <div class="" style="display: flex; justify-content: center;">
+      <% if person.email_address.blank? %>
+      <p> no email address on record </p>
+      <% else %>
+      <%= 'email address: ' + person.email_address %>
+      <% end %>
+
+    </div>
+  </div>
+</div> -->
+
+</div>
+
+<div class="space-10"></div>
+<!-- erbend app/views/follows/_follow.html.erb -->

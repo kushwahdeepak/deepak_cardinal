@@ -1,0 +1,25 @@
+<table>
+  <% @incoming_mails.each do |m| %>
+    <tr>
+      <td><%= m.id %> </td>
+      <td><%= m.request_id %> </td>
+      <td><%= m.date %> </td>
+      <td><%= link_to 'content', m %>
+
+      <td>
+        <% if (m&.submission&.person) %>
+          <%= link_to(m.candidate_email, '/people/'+m.submission.person.id.to_s) %>
+        <% end %>
+      </td>
+
+      <td><%= m.parsed_job_id  %> </td>
+      <td><%= m.job_title %> </td>
+      <td>
+        <% if (m.attachment.attached?) %>
+          <%= link_to(m.attachment.filename, rails_blob_path(m.attachment, disposition: "attachment")) %>
+        <% end %>
+      </td>
+    </tr>
+  <%end %>
+ </table>
+<%= will_paginate @incoming_mails %>

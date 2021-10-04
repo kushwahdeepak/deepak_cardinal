@@ -1,0 +1,64 @@
+<!-- erbstart app/views/searches/_show_inputs_panel.html.erb -->
+<!--<%="start: "+ __FILE__ %>-->
+<%= panel do %>
+  <div class="panel-body">
+    <%= link_to '#collapseOne', role: :button, data: { parent: '#accordion', toggle: :collapse }, aria: { controls: :collapseOne, expanded: true } do %>
+
+    <% end %>
+
+    <div id="search-fix">
+      <div class="row">
+        <div class="col" style="display: flex; justify-content: space-between; flex-direction: row;">
+          <div>
+            <!-- <h4 style="padding: 13px; font-weight: 300;">Display</h4> -->
+            <h4 style="padding: 13px; font-weight: 300;">Filters</h4>
+          </div>
+          <div>
+            <%= link_to new_people_search_path do %>
+               <%= image_tag('icons/trash-2.svg', alt: 'clear search', style: 'display: inline; padding: 13px;') %>
+            <% end %>
+          </div>
+        </div>
+      </div>
+      <br />
+
+      <div class="collapseOne" id="collapseOne">
+        <div class="container">
+          <div class="row new-search-pg">
+            <div class="col" style="padding: 0;">
+              <%= f.input :titles, label: 'Job Titles', placeholder: "+ Job Titles",  label_html: { class: 'emphasis-label' } %>
+              <%= f.input :locations, label: 'Locations', placeholder: "+ Candidate Geographic Locations",  label_html: { class: 'emphasis-label' } %>
+              <%= f.input :skills, label: "Skills", placeholder: "+ Skills & Expertise",  label_html: { class: 'emphasis-label' } %>
+              <%= f.input :company_names, label: 'Companies', placeholder: "+ Company Names",  label_html: { class: 'emphasis-label' } %>
+              <%= f.input :top_company, label: 'Top company', as: :boolean, label_html: { class: 'emphasis-label' } %>
+
+              <%= f.input :schools, label: 'Schools', placeholder: "+ Schools Attended",  label_html: { class: 'emphasis-label' } %>
+              <%= f.input :disciplines, label: 'Discipline', placeholder: "+ what major in school",  label_html: { class: 'emphasis-label' } %>
+              <%= f.input :degrees, label: 'Degree', :collection => [
+                  [ Person::DEGREE_BACHELORS , Person::DEGREE_BACHELORS],
+                  [ Person::DEGREE_MASTERS , Person::DEGREE_MASTERS],
+                  [ Person::DEGREE_DOCTORATE , Person::DEGREE_DOCTORATE]],
+                label_html: { class: 'emphasis-label' }, include_blank: '' %>
+              <%= f.input :top_school, label: 'Top school', as: :boolean,  label_html: { class: 'emphasis-label' } %>
+              <%= f.input :tags, label: "Tags", label_html: { class: 'emphasis-label' } %>
+              <%= f.input :active, label: 'Active', as: :boolean, label_html: { class: 'emphasis-label' } %>
+              <% if current_user.role != 'employer' %>
+                <%= f.input :phone_number_available, label: 'Phone number available', label_html: { class: 'emphasis-label' } %>
+                <%= f.input :names, label: 'Name lookup', label_html: { class: 'emphasis-label' } %>
+                <%= f.input :emails, label: 'Email address lookup', label_html: { class: 'emphasis-label' } %>
+              <% end %>
+              <%= f.submit "Find Candidate", class: "btn btn-block btn-secondary" %>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+
+
+
+    </div>
+  </div>
+<% end %>
+<!--<%="end: "+ __FILE__ %>-->
+<!-- erbend app/views/searches/_show_inputs_panel.html.erb -->

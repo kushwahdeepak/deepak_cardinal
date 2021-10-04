@@ -1,0 +1,13 @@
+<!-- erbstart app/views/searches/show.html.erb -->
+
+ <%= react_component("pages/CandidateSearchPage/CandidateSearchPage", {
+    peoples: @people.as_json(include: :submissions),
+    peopleCount: @all_people_count,
+    search: @search,
+    activePage: params[:page],
+    isEmailConfigured: @is_email_credential,
+    user_id: current_user.id,
+    currentUser: current_user,
+    jobs: @jobs,
+  }) %> 
+<!-- erbend app/views/searches/show.html.erb -->

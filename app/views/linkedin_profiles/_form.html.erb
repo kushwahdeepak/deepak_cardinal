@@ -1,0 +1,9 @@
+<!-- erbstart app/views/linkedin_profiles/_form.html.erb -->
+<h6>Add a LinkedIn Profile URL</h6>
+<%= form_for [@person, LinkedinProfile.new], html: {class: "form-group"}, authenticity_token: true do |f| %>
+    <%= f.label :public_profile_url, class: 'sr-only' %>
+    <%= f.hidden_field :person_id, value: @person.id %>
+    <%= f.text_field :public_profile_url, class: 'form-control pull-right', placeholder: "Enter the public LinkedIn profile URL" %>
+  <%= f.submit "Add profile", class: 'btn btn-default pull-right' %>
+<% end %>
+<!-- erbend app/views/linkedin_profiles/_form.html.erb -->

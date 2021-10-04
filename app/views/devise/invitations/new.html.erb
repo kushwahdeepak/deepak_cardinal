@@ -1,0 +1,19 @@
+<!-- erbstart app/views/devise/invitations/new.html.erb -->
+<div style="margin: 1em;">
+<div class="space-90"></div>
+<div class="container" style="display: flex; justify-content: center; flex-flow: column;">
+  <h2><%= t "devise.invitations.new.header" %></h2>
+
+<%= form_for resource, :as => resource_name, :url => invitation_path(resource_name), :html => {:method => :post} do |f| %>
+  <%= devise_error_messages! %>
+
+<% resource.class.invite_key_fields.each do |field| -%>
+  <p><%= f.label field %><br />
+  <%= f.text_field field %></p>
+<% end -%>
+
+  <p><%= f.submit t("devise.invitations.new.submit_button") %></p>
+<% end %>
+</div>
+</div>
+<!-- erbend app/views/devise/invitations/new.html.erb -->

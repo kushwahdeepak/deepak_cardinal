@@ -1,0 +1,6 @@
+<%= hidden_field_tag :reset_password_token, params[:reset_password_token] %>
+<%= hidden_field_tag :accepts_date, Date.today %>
+<%= hidden_field_tag :accepts, 1 %>
+
+<%= hidden_field_tag :reset_password_token, params[:reset_password_token] %>
+<%= react_component("pages/SignupPage/PasswordChangePage", {reset_password_token: params[:reset_password_token], accepts_date: Date.today, accepts: 1, csrf_token: form_authenticity_token}, {:style => "height: 100%; align-items: center; justify-content:center"}) %>

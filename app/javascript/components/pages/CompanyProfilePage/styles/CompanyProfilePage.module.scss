@@ -1,0 +1,162 @@
+@import '../../../../styles/var';
+
+.profileHeading{
+    background: linear-gradient(90.72deg, #DCE6FF -1.05%, #E1DFFE 50.61%, #B5C9FF 104.46%);
+    position: absolute;
+    width: 100%;
+}
+
+.profileImage{
+    height: 150px;
+    width: 150px;
+    filter: drop-shadow(0px 4px 10px rgba(0, 0, 0, 0.1));
+    border-radius: 10px;
+    margin-top: 50px;
+}
+.editProfileButton{
+    position: absolute;
+    right: 0;
+    bottom: 0;
+}
+.editProfileButton{
+    font-family: Avenir, "Lato", sans-serif !important;
+    font-style: normal !important;
+    font-weight: 800 !important;
+    font-size: 16px !important;
+    line-height: 22px !important;
+    color: #ffffff;
+    background: linear-gradient(94.67deg, #4C68FF -1.19%, #6077F4 53.94%, #8185FF 102.59%);
+    border-radius: 20px !important;
+    padding: 9px 27px !important;
+}
+.profileName{
+    font-style: normal;
+    font-weight: 500;
+    line-height: 44px;
+    /* identical to box height */
+    font-family: Avenir, "Lato", sans-serif !important;
+    color: #1D2447;
+}
+.profileheading span{
+    font-family: Avenir, "Lato", sans-serif !important;
+    font-style: normal;
+    font-weight: 300;
+    font-size: 20px;
+    line-height: 27px;
+    color: #1D2447;
+}
+.profileheadingseprate{
+    width: 10px;
+    height: 10px;
+    background: #E3E7FE;
+    margin: 10px 25px 10px 25px;
+    border-radius: 5px;
+}
+.profileHeadingTitle{
+    font-family: Avenir, "Lato", sans-serif !important;
+    font-style: normal !important;
+    font-weight: normal !important;
+    line-height: 30px !important;
+    color: #ACAFE4 !important;
+}
+.profileDetail{
+    font-family: Avenir, "Lato", sans-serif !important;
+    font-style: normal;
+    font-weight: 300;
+    line-height: 22px;
+    color: #1D2447;
+}
+.hasSearch .formControl {
+    padding-left: 2.375rem;
+    background: #F6F7FC !important;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1) !important;
+    border-radius: 5px !important;
+    border: 0 !important;
+    color:#C6CDF4 !important;
+    &::placeholder {
+        color: #5c5b5b;
+        font-size: 12px;
+    }
+}
+.hasSearch .formControlFeedback {
+    position: absolute;
+    z-index: 2;
+    display: block;
+    width: 2.375rem;
+    height: 2.375rem;
+    line-height: 2.375rem;
+    text-align: center;
+    pointer-events: none;
+    color: #aaa;
+}
+.careerHeader{
+    font-family: Avenir, "Lato", sans-serif !important;
+    font-style: normal;
+    font-weight: normal;
+    line-height: 30px;
+    color: #1D2447;
+    float: left;
+}
+.careerDetail{
+    font-family: Avenir, "Lato", sans-serif !important;
+    font-style: normal;
+    font-weight: normal;
+    line-height: 22px;
+    color: #1D2447;
+}
+.careerLabel{
+    margin-left: 20px;
+    padding: 5px 10px 5px 10px;
+    border-radius: 5px;
+}
+.career{
+    padding:15px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+.career:hover{
+    background: rgba(247, 248, 255, 0.5);
+}
+.career ul{
+    padding-left: 20px !important;
+    font-family: Avenir, "Lato", sans-serif !important;
+    font-style: normal;
+    font-weight: 300;
+    line-height: 19px;
+    color: #1D2447;
+}
+.jobTitle{
+    font-family: Avenir, "Lato", sans-serif !important;
+    font-style: normal !important;
+    font-weight: normal !important;
+    line-height: 30px !important;
+    color: #ACAFE4 !important;
+    float: left;
+    padding-bottom: 5px;
+}
+
+@media(max-width: 992px)
+{
+    .careerHeader{
+        float: none !important;
+    }
+    .profileheadingseprate{
+       display: none !important;
+    }
+    .profileheading{
+        display: grid !important;
+    }
+    .profileImageSection{
+        text-align: center !important;
+    }
+    .profileName{
+        text-align: center !important;
+    }
+    .profileImage{
+        border-radius: unset !important;
+    }
+    .editProfileButton{
+        border-radius: unset !important;
+        position: inherit !important;
+        padding: 9px 35px !important;
+    }
+}

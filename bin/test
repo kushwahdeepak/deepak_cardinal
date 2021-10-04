@@ -1,0 +1,9 @@
+#!/bin/sh
+
+bundle exec rake sunspot:solr:start RAILS_ENV=test
+# Forward arguments to rspec command
+bundle exec rspec "$@"
+code=$?
+# Shut down afterward
+bundle exec rake sunspot:solr:stop RAILS_ENV=test
+exit $code

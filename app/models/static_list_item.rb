@@ -1,0 +1,2 @@
+class StaticListItem < ApplicationRecord
+end

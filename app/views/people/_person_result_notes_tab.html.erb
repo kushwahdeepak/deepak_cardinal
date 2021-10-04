@@ -1,0 +1,98 @@
+<!-- erbstart app/views/people/_person_result_notes_tab&.html&.erb -->
+<div id='<%= person&.id&.to_s %>notes' class="hidden2">
+<div class="container">
+  <div class="row person-result-box">
+    <div class="grid-candidate-2" style="padding-bottom: 20px;">
+      <div class="grid-name-intro" style="align-self:center;">
+        <h2 class="employer_candidate_title">
+          <%= person&.first_name %>&nbsp;<%= person&.last_name %>
+          <% if person&.linkedin_profile_url&.present? %>
+            <%= link_to person&.linkedin_profile_url, target: :_blank do %>
+                <span class="label label-primary" style="padding: 0.2em; margin: 0.2em; float: right;">
+                  LINKEDIN
+                </span>
+            <% end %>
+          <% end %>
+        </h2>
+        <p class="grid-current-text">
+          <% unless person&.location&.blank? %>
+            <%= person['location'] %>&nbsp;
+          <% end %>
+          <% unless person&.fields&.blank? %>
+            <%= person&.fields %>
+          <% end %>
+        </p>
+
+
+      </div>
+    </div>
+
+    <div class="container">
+    <div class="row">
+      <div class="post" style="display: flex; flex-direction: column;">
+
+        <div class="postUser" style="width: auto; height: auto; position: static;">
+
+          <div class="postUser">
+
+            <div class="postBody__date">
+
+              <% if current_user && (current_user&.role == "member" || current_user&.role == "admin" || current_user&.role == "recruiter" || current_user&.role == "employer") %>
+
+                <div style="width: 100%; height: 155px; border: 1px solid #e9edf1; border-radius: 10px; margin-bottom: 20px; margin-left: 15px; overflow-x: hidden;">
+                  <div class='js-notes'>
+                    <% person&.notes&.take(3)&.each do |note| %>
+                      <%= content_tag :div, class: 'media', id: "note-#{note&.id}" do %>
+                        <div class="media-body">
+                          <div class="row">
+                            <div class="col-2 col-xs-2 col-sm-2 col-md-2 col-lg-2">
+                            </div>
+
+                            <div class="col-xs-10 col-sm-10 col-md-10" style="text-align: right">
+                              <small class="text-center">
+                                <!-- <p > note&.user&.first&.first_name</p>  -->
+                                <% noted_user = User&.where(id: note&.user_id) %>
+                                <% noted_user_name = '' %>
+                                <% if noted_user&.first&.first_name != nil && noted_user&.first&.first_name != '' && noted_user&.first&.last_name != nil && noted_user&.first&.last_name != '' %>
+                                  <% noted_user_name = noted_user&.first&.first_name + ' ' + noted_user&.first&.last_name %>
+                                <% elsif noted_user&.first&.first_name != nil && noted_user&.first&.first_name != '' %>
+                                  <% noted_user_name = noted_user&.first&.first_name %>
+                                <% else %>
+                                  <% noted_user_name = noted_user&.first&.email %>
+                                <% end %>
+                                <%= noted_user_name %> noted
+                                on <%= person&.name %> <%= time_ago_in_words(note&.created_at) %> ago&.
+                              </small>
+                            </div>
+                          </div>
+                          <div class="row" style=" float: right;">
+                            <div class="col-12 col-xs-12 col-sm-12 col-md-12 col-lg-12" style="display: inline-block;">
+                              <%= note&.body %>
+                              <small style="display: inline-block;">
+
+                              </small>
+                            </div>
+                          </div>
+                        </div>
+                      <% end %>
+                    <% end %>
+                  </div>
+                </div>
+              <% end %>
+
+              <div class="container">
+                <%= render partial: 'people/person_result_add_note', locals: {person: person, person_id: person&.id} %>
+              </div>
+
+
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+    </div>
+  </div>  
+</div>
+</div>
+<!-- erbend app/views/people/_person_result_notes_tab&.html&.erb -->

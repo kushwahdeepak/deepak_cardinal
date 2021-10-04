@@ -1,0 +1,38 @@
+@import '../../../../styles/var';
+
+.grader {
+    display: flex;
+    flex-direction: column;
+    background-color: #efefef;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+    padding: 0.3rem;
+}
+
+.graderTop {
+    padding: 0.3rem;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.graderBottom {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    margin-top: 0.3rem;
+}
+
+.graderChoice {
+    background-color: white;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    border-radius: 3px;
+    padding: 0.4rem 0.8rem;
+    margin-right: 0.3rem;
+    margin-bottom: 0.3rem;
+    font-size: 0.6rem;
+    cursor: pointer;
+
+    &:hover {
+        background-color: $faded-blue-bg-highlight;
+    }
+}

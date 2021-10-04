@@ -1,0 +1,2 @@
+class SaveMailer < ApplicationMailer
+end

@@ -1,0 +1,132 @@
+@import '../../../../styles/var';
+
+
+
+.import-jobs-modal{
+    margin: 1pc 2pc;
+    &__span {
+        font-family: $import-job-font;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 17px;
+        line-height: 19px;
+        display: block;
+        color: #7a8ac2;
+    } 
+    &__model-body{
+        margin-top: 35px;
+    }
+   
+    .crossbutton{
+        float: right;
+        height: 35px;
+        cursor: pointer;
+    }
+    .bulk-import-title{
+        font-family: Avenir;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 22px;
+        line-height: 39px;
+        color: #16246B;
+    }
+    .placeholderText {
+        background: #F5F7FF;
+        border: 1px solid #f3f1f1 !important;
+        box-sizing: border-box;
+        border-radius: 10px;
+        width: 65%;
+        text-decoration: none;
+        outline: none;
+        &__mail{
+            background: #F5F7FF;
+            border: 1px solid #f3f1f1 !important;
+            width: 99%;
+            outline: none;
+        }
+    }
+    .submit-import-jobs-modal {
+        display: block;
+        padding: 12px 34px;
+        background: #2b3fab;
+        border-radius: 20px;
+        float: right;
+        margin: 19px -10px;
+        span {
+            font-weight: 800;
+            font-family: $default-font-family;
+            font-size: 16px;
+            line-height: 22px;
+            color: #e5e5e5;
+        }
+    }
+    .bulk-sample-format-modal { 
+        display: block;
+        padding: 9px 20px;
+        background: linear-gradient(94.67deg, #4C68FF -1.19%, #6077F4 53.94%, #8185FF 102.59%);;
+        border-radius: 20px;
+        text-decoration: none;
+        span {
+            font-weight: 800;
+            font-family: $default-font-family;
+            font-size: 14px;
+            line-height: 19px;
+            color: #FFFFFF;
+            text-align: center;
+        }
+    }
+    .file-uploaded{
+        padding: 15px;
+        margin-bottom: 3px;
+        label{
+            margin-right: 11px;
+        }
+    }
+    .import-job-company-section{
+        margin-bottom: 18px;
+        margin-top: 12px;
+    }
+    .file-uploaded__name{
+        background: #FFFFFF;
+        border: 1px solid #7286F0;
+        box-sizing: border-box;
+        border-radius: 20px;
+        padding: 10px 29px;
+        span {
+            display: inline;
+            text-align: center;
+        }
+    }
+    .DragAndDrop-module__dropContainer___15a1x{
+        margin-top: 77px;
+    }
+    .file-upload{
+        border: 2px dashed #C0CAFF;
+        box-sizing: border-box;
+        border-radius: 20px;
+        margin: 16px 15px;
+        width: 1036px;
+        height: 300px;
+        span {
+            font-family: $import-job-font;
+            font-style: normal;
+            font-weight: normal;
+            font-size: 35px;
+            line-height: 19px;
+            display: block;
+            color: #16246B;
+            margin: 9pc;
+            text-align: center;
+
+        }
+    }
+}
+
+.modal-content {
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.15);
+    border-radius: 30px;
+    margin-top: 75px;
+}
+.modal-backdrop.show {
+    opacity: 0;
+}

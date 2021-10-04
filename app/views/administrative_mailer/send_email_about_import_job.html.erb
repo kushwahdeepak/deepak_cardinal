@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta ontent='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    New job was imported. <br>
+    <% if @import_job_info[:logo].present? %>
+      <%= image_tag(attachments.inline["#{@logo.original_filename}"].url, alt: 'Logo') %><br>
+    <% end %>
+    You can see more information
+    <% if @import_job_info[:job_url].present? %>
+      by link: <%= @import_job_info[:job_url] %>
+    <% elsif @import_job_info[:other].present? %>
+      below: <br>
+      <%= @import_job_info[:other] %>
+    <% elsif @import_job_info[:file].present? %>
+      in attached file.
+    <% end %>
+    <br>
+    Cheers, CardinalTalent
+  </body>
+</html>

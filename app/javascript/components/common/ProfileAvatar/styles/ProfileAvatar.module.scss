@@ -1,0 +1,32 @@
+@import '../../../../styles/var';
+
+.profileAvatarDropdownButton {
+    position: relative;
+    font-family: $default-font-family;
+    font-style: normal;
+    font-weight: 800;
+    font-size: 14px;
+    color: #ffffff !important;
+    background: none !important;
+    outline: none !important;
+    border: none !important;
+    box-shadow: none !important;
+    &:after{
+        display:none;
+    }
+    &:focus{
+        background: none !important;
+    }
+}
+.avatar {
+    vertical-align: middle;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    max-width: 40px;
+  }
+
+.userName {
+    color: #255b9eb0;
+    font-size: 15px;
+}  

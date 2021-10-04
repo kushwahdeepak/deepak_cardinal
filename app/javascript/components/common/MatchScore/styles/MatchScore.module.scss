@@ -1,0 +1,99 @@
+@import '../../../../styles/var';
+
+.noMatchText {
+    background: #ebedfa;
+    border: 2px solid #4f64d1;
+    box-sizing: border-box;
+    font-family: $default-font-family;
+    font-style: normal;
+    font-weight: 800;
+    font-size: 9px;
+    line-height: 12px;
+    text-align: center;
+    color: #354ed2;
+    height: 50px;
+    width: 50px;
+    min-width: 50px;
+    border-radius: 25px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.matchText {
+    background: #ebfbf5;
+    border: 2px solid #74d8c0;
+    box-sizing: border-box;
+    font-family: $default-font-family;
+    font-style: normal;
+    font-weight: 800;
+    font-size: 16px;
+    line-height: 16px;
+    text-align: center;
+    height: 50px;
+    width: 50px;
+    min-width: 50px;
+    border-radius: 25px;
+    color: #39c7a5;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.matchSubText {
+    font-family: $default-font-family;
+    font-style: normal;
+    font-weight: 800;
+    font-size: 10px;
+    line-height: 12px;
+    /* identical to box height */
+
+    text-align: center;
+
+    color: #39c7a5;
+}
+
+.noMatchText_big {
+    background: #ebedfa;
+    border: 2px solid #4f64d1;
+    font-family: $default-font-family;
+    font-style: normal;
+    font-weight: 800;
+    font-size: 10px;
+    line-height: 14px;
+    color: #354ed2;
+    height: 80px;
+    width: 80px;
+    border-radius: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.matchText_big {
+    background: #ebfbf5;
+    border: 2px solid #74d8c0;
+    box-sizing: border-box;
+    font-family: $default-font-family;
+    font-style: normal;
+    font-weight: 800;
+    font-size: 16px;
+    line-height: 22px;
+    text-align: center;
+    height: 80px;
+    width: 80px;
+    border-radius: 40px;
+    color: #39c7a5;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.matchSubText_big {
+    font-size: 12px;
+    line-height: 16px;
+}

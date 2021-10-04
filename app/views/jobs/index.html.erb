@@ -1,0 +1,14 @@
+<!-- erbstart app/views/jobs/index.html.erb -->
+
+<%# This is how to schow a score for a job %>
+<%#= @jobs.first[:score] %>
+
+<%= react_component("pages/JobIndexPage/JobIndexPage", {
+  jobs: @jobs.map { |job| job.to_hash },
+  currentUser: user_signed_in?,
+  isCandidate: @isCandidate,
+  jobsTotalCount: @total_entries,
+  jobSearch: ""
+}) %>
+
+<!-- erbend app/views/jobs/index.html.erb -->

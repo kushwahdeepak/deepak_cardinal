@@ -1,0 +1,29 @@
+<!-- erbstart app/views/employer_request_for_interview_mailer/new_request_to_account_manager.html.erb -->
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <h1>New Request for Interview</h1>
+    <p>We have a new request for an interview by a user on the platform.</p>
+
+    <h2>EMPLOYER</h2>
+    <p>First Name: <%= @user.first_name %></p>
+    <p>Last Name: <%= @user.last_name %></p>
+    <p>Email Address: <%= @user.email %></p>
+    <p>Location: <%= @user.location %></p>
+    <p>Permission Level: <%= @user.role %></p>
+    <p>Sign-up Role: <%= @user.signuprole %></p>
+    <p>Phone Number: <%= @user.phone_number %></p>
+
+    <h2>REQUESTS AN INTERVIEW WITH CANDIDATE</h2>
+    <p>First Name: <%= @candidate.first_name %></p>
+    <p>Last Name: <%= @candidate.last_name %></p>
+    <p>Email Address: <%= @candidate.email_address %></p>
+    <p>Location: <%= @candidate.location %></p>
+    <p>Phone Number: <%= @candidate.phone_number %></p>
+
+  </body>
+</html>
+<!-- erbend app/views/employer_request_for_interview_mailer/new_request_to_account_manager.html.erb -->

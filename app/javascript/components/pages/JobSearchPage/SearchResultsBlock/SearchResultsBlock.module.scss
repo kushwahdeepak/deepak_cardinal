@@ -1,0 +1,120 @@
+@import '../../../../styles/var';
+
+.containers {
+    // background: #ffffff;
+    // box-shadow: 0px 4px 25px rgba(0, 0, 0, 0.25);
+    // border-radius: 50px;
+    display: flex;
+    flex-direction: row;
+    margin-top: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.titleRow {
+    margin-bottom: 40px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.recommendedJobsTitle {
+    font-family: $default-font-family;
+    font-style: normal;
+    font-weight: 800;
+    font-size: 22px;
+    color: #4b5dc0;
+    white-space: nowrap;
+    display: flex;
+    flex-direction: column;
+}
+
+.placeholderText {
+    background: #ebedfa;
+    border: 1px solid #4f64d1;
+    box-sizing: border-box;
+    border-radius: 10px;
+    width: 100%;
+
+    &::placeholder {
+        font-family: $default-font-family;
+        font-style: normal;
+        font-weight: 500;
+        font-size: 14px;
+        color: #354ed2;
+        opacity: 1; /* Firefox */
+    }
+}
+
+.searchButton {
+    font-family: $default-font-family;
+    font-style: normal;
+    font-weight: 800;
+    font-size: 16px;
+    line-height: 22px;
+    color: #ffffff;
+    background: #5666bb;
+    border-radius: 20px;
+    padding: 9px 27px;
+}
+
+.displayResults {
+    font-family: $default-font-family;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 16px;
+    letter-spacing: 0em;
+    text-align: left;
+    color: #5666bb;
+}
+
+.jobSearchHeading{
+    background: #f9faff;
+    position: relative;
+    width: 100%;
+    padding: 2rem 2rem !important;
+    font-family: Avenir, "Lato", sans-serif !important;
+    color: #4A5277;
+    font-style: normal;
+    h2{
+        font-weight: 500;
+        line-height: 55px;
+    }
+    p{
+        font-weight: normal;
+        line-height: 25px;
+    }
+}
+
+.filterJob{
+    max-width: 17rem;
+    margin-right: 2rem;
+}
+
+.tableColumn {
+    flex-grow: 1;
+}
+@media only screen and (min-device-width : 320px) and (max-device-width : 890px){
+    .containers {
+        padding: 15px !important;
+        display: block !important;
+    }
+    .filters-card {
+        width: 100%;
+    }
+    .jobSearchHeading .form-control{
+        position: relative !important;
+    }
+    .newRow{
+        margin:0px !important;
+    } 
+    .filterJob{
+        max-width: 100%;
+        margin-right: 0rem;
+    }
+    .mainSearchblock{
+        padding: 15px !important;
+    }
+}
+.mainSearchblock{
+    padding: 3rem;
+}

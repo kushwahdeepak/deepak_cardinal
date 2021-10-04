@@ -1,0 +1,94 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SearchBar component should match with a snapshot 1`] = `
+<div>
+  <div
+    className="top-search-bar-target"
+  >
+    <div
+      style={
+        Object {
+          "height": "1px",
+          "margin": "0 auto",
+          "marginBottom": "20px",
+        }
+      }
+    />
+    <div
+      style={
+        Object {
+          "marginBottom": "20px",
+          "width": "100%",
+        }
+      }
+    >
+      <img
+        alt="Logo White"
+        height="50"
+        src="test-file-stub"
+        style={
+          Object {
+            "display": "block",
+            "margin": "0 auto",
+          }
+        }
+        width="50"
+      />
+    </div>
+    <h1
+      style={
+        Object {
+          "color": "white",
+          "textAlign": "center",
+        }
+      }
+    >
+      World-Class Talent On Demand
+    </h1>
+    <h2
+      style={
+        Object {
+          "color": "white",
+          "fontWeight": 350,
+          "textAlign": "center",
+        }
+      }
+    >
+      30,000+ Top Talent Who Are Open to New Opportunities Now
+    </h2>
+  </div>
+  <div>
+    <div
+      className="input-group"
+    >
+      <div
+        className="bg-white input-group-prepend"
+      >
+        <img
+          className="rounded"
+          src="test-file-stub"
+        />
+      </div>
+      <input
+        className="border-0 form-control"
+        onChange={[Function]}
+        onKeyPress={[Function]}
+        placeholder="Search here.."
+        type="text"
+      />
+      <div
+        className="input-group-append"
+      >
+        <button
+          className="btn btn-danger"
+          disabled={false}
+          onClick={[Function]}
+          type="button"
+        >
+          Find Candidate
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+`;

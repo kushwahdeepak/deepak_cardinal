@@ -1,0 +1,27 @@
+<!-- erbstart app/views/user_contact_preferences/index.html.erb -->
+<p id="notice"><%= notice %></p>
+
+<h1>User Contact Preferences</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @user_contact_preferences.each do |user_contact_preference| %>
+      <tr>
+        <td><%= link_to 'Show', user_contact_preference %></td>
+        <td><%= link_to 'Edit', edit_user_contact_preference_path(user_contact_preference) %></td>
+        <td><%= link_to 'Destroy', user_contact_preference, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New User Contact Preference', new_user_contact_preference_path %>
+<!-- erbend app/views/user_contact_preferences/index.html.erb -->

@@ -1,0 +1,21 @@
+# --------------------------------------------------
+# To set initial configurations.
+# --------------------------------------------------
+targets:
+  people: show
+  searches: show
+  users: dashboard finish_signup show
+  welcome: about careers contact contract employer employer_intro events index new_employer new_recruiter new_talent privacy talent_intro tos
+
+# ### Enable Google Analytics page tracking. Set your Google Analytics Account.
+analytics: <%= ENV.fetch('GA_TRACKING_ID') %>
+
+#
+# ### Change default amp format. The default value is amp.
+# ### If you want to use 'mobile' as amp format, set 'mobile' to default_format.
+# ### And you can access the amp page like /users/index.mobile
+default_format: mobile
+#
+# ### Set formats that used as amp. The default is html.
+# ### These formats are used in the order, when the amp specialized view like 'users/index.amp.erb' is not found.
+lookup_formats: html

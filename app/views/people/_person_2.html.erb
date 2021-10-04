@@ -1,0 +1,309 @@
+<!-- erbstart app/views/people/_person_2.html.erb -->
+<div class="container-fluid" style="padding: 0.5em 0.5em 0.5em 0; margin: 1em 1em 1em 0; align-items: start;">
+  <div class="person inaccessible">
+    <div class="row">
+      <div class="col-12 col-md-12 col-sm-12">
+        <div class="container-fluid" style="margin: 1.5em; padding: 1.5em; border: 1px solid #999999; border-radius: 16px;">
+
+          <div class="row">
+            <div class="col-3 col-xs-3 col-sm-3 col-md-3">
+              <div class="col-12 col-md-12 col-sm-12">
+                <div class="" style="display: flex; justify-content: center;">
+                      <%= gravatar_for_person(person) %>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-9 col-xs-9 col-sm-9 col-md-9">
+                <div class="row">
+                  <div class="col-7 col-xs-7 col-sm-7 col-md-7 col-lg-7">
+                    <h2 style="color: #003366; text-align: left;">
+                      <%= link_to person_path(person), target: :_blank do %>
+                        <%= person.first_name unless person.first_name.nil? %>&nbsp;<%= person.last_name unless person.last_name.nil? %>
+                      <% end %>
+                    </h2>
+                    <p style="color: #003366; font-size: 12px;">
+                      <i class="fa fa-fw fa-map-marker" style="color: #cc0000;" aria-hidden="true"></i>
+                      <% if person.user %>
+                      <li class="list-inline-item">Located in <%= person.user.location.present? ? person.user.location : 'undisclosed.' %></li>
+                      <% end %>
+                      <br />
+                      <i class="fa fa-fw fa-briefcase" style="color: #cc0000;" aria-hidden="true"></i>
+                      <% unless person.title.blank? %>
+                        <b><%= person.title.present? ? person.title : '' %></b>
+                      <% end %>
+                    </p>
+                  </div>
+                  <div class="col-5 col-xs-5 col-sm-5 col-md-5 col-lg-5">
+                    <div style="width: 100%; text-transform: uppercase; background: #cc0000; color: #fff; border: 2px solid #cc0000; border-radius: 12px; font-size: 12px; font-weight: 500; display: inline-block; padding: 6px 12px; margin-bottom: 0; line-height: 1.42857143; text-align: center; white-space: nowrap; vertical-align: middle; margin-left: auto;;">
+                      <b>Active</b>
+                    </div>
+                    <div class="text-center" style="color: #003366; font-size: 12px;">
+                      <b>Resume Score</b><br />
+                      <b>Match Score</b>
+                    </div>
+                  </div>
+                </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-12 col-xs-12 col-sm-12 col-md-12 col-lg-12">
+
+              <div style="padding: 1em;">
+                <div class="col-6 col-xs-6 col-sm-6 col-md-6 col-lg-6" style="color: #003366; font-size: 12px;">
+                    Current Employer:
+                    <b>
+                      <% unless person.employer.blank? %>
+                      <%= person.employer.present? ? person.employer : '' %>
+                    <% end %>
+                    </b><br />
+                    Salary Expectations:
+                    <b>
+                      <% if person.user %>
+                        <%= person.user.salary_expectations.present? ? ('Salary expectations' + ' ' + person.user.salary_expectations) : 'Salary expectations undisclosed.' %>
+                      <% end %>
+                    </b>
+                </div>
+
+                <div class="col-6 col-xs-6 col-sm-6 col-md-6 col-lg-6" style="color: #003366; font-size: 12px;">
+                    Availability: <b>Immediately</b><br />
+                    Position of Interest: <b>Senior Software Engineer</b>
+                </div>
+
+                <div class="col-12 col-xs-12 col-sm-12 col-md-12 col-lg-12" style="color: #003366; font-size: 12px; padding: 1em; line-height: 0.9em;">
+                    <b>
+                      Skills
+                    </b>
+                    <br />
+                      <% unless person.skills.blank? %>
+                              <% if person.skills %>
+                                <%= person.skills.tr('"', '').tr(',', ' ') %>
+                              <% end %>
+                      <% end %>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+          </div>
+        </div>
+        </div>
+  </div>
+</div>
+
+<div class="person inaccessible">
+  <%= panel_row column_class: 'col-sm-12', id: 'panel-row', class: :en, data: {js: 1} do %>
+      <%= panel do %>
+          <div class='panel-body'>
+
+                <div class="col-12 col-md-12 col-md-12">
+                  <div class="row">
+                    <% if person.user %>
+                      <p>Interested in <b><%= person.user.position_interest.present? ? person.user.position_interest : '' %></b> roles. <%= person.user.remote_interest.present? ? person.user.remote_interest : '' %></p>
+                    <% end %>
+                </div>
+
+                <div class="row">
+                  <% unless person.company_names.blank? %>
+                  <div class="col-2 col-md-2 col-sm-2 col-xs-2">
+                    <ul class="list-inline">
+                      <i class="fa fa-briefcase" aria-hidden="true"></i>&nbsp;
+                    </ul>
+                  </div>
+                  <div class="col-10 col-md-10 col-sm-10 col-xs-10">
+                    <ul class="list-inline">
+                      <li class="list-inline-item"><%= person[:company_names].to_s %>&nbsp;<small><%= person.min_time_in_job.present? ? person.min_time_in_job : '' %></small></li>
+                    </ul>
+                  </div>
+                  <% end %>
+                </div>
+
+                <div class="row">
+                  <% unless person.school_names.blank? %>
+                  <div class="col-2 col-md-2 col-sm-2 col-xs-2">
+                    <ul class="list-inline">
+                      <i class="fa fa-graduation-cap" aria-hidden="true"></i>&nbsp;
+                    </ul>
+                  </div>
+                  <div class="col-10 col-md-10 col-sm-10 col-xs-10">
+                    <ul class="list-inline">
+                      <li class="list-inline-item"><%= person[:school_names].to_s %>&nbsp;<small><%= person.degrees.present? ? person.degrees : '' %></small></li>
+                    </ul>
+                  </div>
+                  <% end %>
+                </div>
+
+                <div class="" style="display: flex; flex-wrap: wrap; flex-direction: row; justify-content: space-evenly;">
+                  <% if person.linkedin_profile_url.present? %>
+                      <%= link_to person.linkedin_profile_url, target: :_blank do %>
+                        <span class="label label-primary" style="padding: 0.2em;">
+                          LINKEDIN
+                        </span>
+                      <% end %>
+                  <% end %>
+
+                  <% unless current_user.role == 'employer' %>
+                    <% unless person.phone_number_ids.blank? %>
+                      <%= link_to person_path(person), target: :_blank do %>
+                        <span class="label label-warning" style="padding: 0.2em;">
+                          PHONE
+                        </span>
+                      <% end %>
+                    <% end %>
+                  <% end %>
+
+                  <% if person.github_url.present? %>
+                      <%= link_to person.github_url, target: :_blank do %>
+                        <span class="label label-default" style="padding: 0.2em;">
+                          GITHUB
+                        </span>
+                      <% end %>
+                  <% end %>
+
+                  <% if person.stack_overflow_url.present? %>
+                      <%= link_to person.stack_overflow_url, target: :_blank do %>
+                        <span class="label label-default" style="padding: 0.2em;">
+                          STACK OVERFLOW
+                        </span>
+                      <% end %>
+                  <% end %>
+
+                  <% if person.personal_site.present? %>
+                      <%= link_to person.personal_site, target: :_blank do %>
+                        <span class="label label-default" style="padding: 0.2em;">
+                          PORTFOLIO
+                        </span>
+                      <% end %>
+                  <% end %>
+
+                  <% if person.top_company == true %>
+                    <%= link_to person_path(person), target: :_blank do %>
+                      <span class="label label-default" style="padding: 0.2em;">TOP SCHOOL</span>
+                    <% end %>
+                  <% end %>
+
+                  <% if person.top_company == true %>
+                    <%= link_to person_path(person), target: :_blank do %>
+                      <span class="label label-danger" style="padding: 0.2em;">TOP COMPANY</span>
+                    <% end %>
+                  <% end %>
+
+                  <% unless current_user.role == 'employer' %>
+                    <% if person.active == true %>
+                      <%= link_to person_path(person), target: :_blank do %>
+                        <span class="label label-default" style="padding: 0.2em;">ACTIVE</span>
+                      <% end %>
+                    <% end %>
+                  <% end %>
+
+                  <% if person.recently_added == true %>
+                    <%= link_to person_path(person), target: :_blank do %>
+                      <span class="label label-warning" style="padding: 0.2em;">RECENTLY ADDED</span>
+                    <% end %>
+                  <% end %>
+                  <% if person.recently_added == true %>
+                    <%= link_to person_path(person), target: :_blank do %>
+                      <span class="label label-warning" style="padding: 0.2em;">RECENTLY ADDED</span>
+                    <% end %>
+                  <% end %>
+                </div>
+
+                <div class="space-10"></div>
+
+                <div class="post" style="display: flex; flex-direction: column;">
+
+                  <div class="postUser" style="width: auto; height: auto; position: static;">
+
+                      <div class="postUser">
+
+                      <div class="postBody__date">
+
+                          <% if current_user && (current_user.role == "member" || current_user.role == "admin") %>
+                              <div class='js-notes'>
+                                  <% person.notes.take(3).each do |note| %>
+                                      <%= content_tag :div, class: 'media', id: "note-#{note.id}" do %>
+                                          <div class="media-body">
+                                            <div class="row">
+                                              <div class="col-3 col-xs-3 col-sm-3 col-md-3 col-lg-3">
+                                                <%= link_to person_path(person), target: :_blank do %>
+                                                <span class="label label-primary" style="padding: 0.2em;">&nbsp;NOTE&nbsp;</span>
+                                                <% end %>
+                                              </div>
+                                              <div class="col-9 col-xs-9 col-sm-9 col-md-9 col-lg-9">
+                                                <%= note.body %>
+                                                <small>
+                                                <% if current_user.id == note.user_id %>
+                                                    <%= link_to "Delete", note_path(note), method: :delete, data: { confirm: 'Are you sure?' } %>
+                                                <% end %>
+                                                </small>
+                                              </div>
+                                            </div>
+                                            <div class="row">
+                                              <div class="col-xs-12 col-sm-12 col-md-12">
+                                                <small class="text-center">
+                                                  <% noted_user = User.where(id: note.user_id) %>
+                                                  <%= noted_user.first.email %> noted on <%= person.name %> <%= time_ago_in_words(note.created_at) %> ago.
+                                                </small>
+                                              </div>
+                                            </div>
+                                          </div>
+                                    <% end %>
+                                <% end %>
+                              </div>
+                          <% end %>
+
+                          <div class="media">
+
+                            <% if (current_user.role == 'member' || current_user.role == 'admin') %>
+
+                              <h6 class="text-center">Add a Note</h6>
+                              <%= form_for [person, Note.new], html: {class: "form-group"}, authenticity_token: true do |f| %>
+
+                              <% end %>
+
+                              <div class="col-8 col-xs-10 col-sm-10 col-md-8 col-lg-8 center-block align-self-center" style="align-content: center; align-self: center; justify-content: center; float: none;">
+                                    <%= simple_form_for [person, Note.new], html: {class: "form-group" }, authenticity_token: true, style: "background-color: #fff;" do |f| %>
+                                    <div class="row" style="background-color: #fff; border-radius: 12px;">
+                                      <div class="input-group">
+                                        <%= f.label :body, class: 'sr-only' %>
+                                        <%= f.text_field :body, class: 'form-control pull-right', placeholder: "Enter a new note" %>
+                                        <span class="input-group-btn">
+                                          <%= f.button :submit, "Add note", class: 'btn btn-default pull-right', style: "color: #fff; background-color: #CC0000; border-color: #CC0000; display: block; width: 100%; height: 100%;" %>
+                                        </span>
+                                      </div><!-- /input-group -->
+                                    </div>
+                                    <p class="text-center" style="padding-top: 1em; color: #fff;">
+                                      <i class="fa fa-fw fa-check-square-o" style="color: #fff;"></i>
+                                      Update me on the latest jobs and announcements from
+                                      <%= link_to root_path do %>
+                                        <b style="color: #fff;">CardinalTalent.</b>
+                                      <% end %>
+                                    </p>
+                                    <% end %>
+                              </div>
+
+                            <% end %>
+                          </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="space-10"></div>
+
+                  <div class="actions">
+                    <ul class="list-inline" style="text-align: center; align-items: center; justify-content: center;">
+
+                      <%= render :partial => 'people/action-items-2', locals: { person: person } %>
+
+                    </ul>
+                  </div>
+          </div>
+        </div>
+        <% end %>
+  <% end %>
+
+</div>
+<!-- erbend app/views/people/_person_2.html.erb -->

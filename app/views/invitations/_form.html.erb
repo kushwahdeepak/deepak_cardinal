@@ -1,0 +1,15 @@
+<!-- erbstart app/views/invitations/_form.html.erb -->
+  <%= render "partials/card_form", title: "Select user to invite" do %>
+
+  <%= simple_form_for(@invitation, url: organization_invitations_path(@organization)) do |f|
+  %>
+    <%= f.error_notification message: f.object.errors[:base].to_sentence %>
+    <%= f.input :invited_user_id, :as => :select, :collection => @users %>
+    <hr />
+    <div class="form-actions mt-2">
+      <%= f.button :submit, 'Submit', class: "btn-primary" %>
+    </div>
+<% end %>
+<% end %>
+
+<!-- erbend app/views/invitations/_form.html.erb -->

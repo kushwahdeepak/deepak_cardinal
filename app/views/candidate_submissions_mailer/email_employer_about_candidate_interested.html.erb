@@ -1,0 +1,16 @@
+
+
+Hi <%= @params[:submission].job.user.name %>,<br>
+Would you like to speak with the attached candidate, <%= @params[:submission].person.name %>?
+(<%=link_to 'Yes', ENV['HOST']+"/incoming_mails/employer_response?submission_id=#{@params[:submission].id}&answer=yes" %>
+or
+<%=link_to 'No', ENV['HOST']+"/incoming_mails/employer_response?submission_id#{@params[:submission].id}&answer=no" %> ).<br><br>
+
+Listed below are the candidate's responses to the questionnaire<br><br>
+<% @params[:reply].split(/(\n)/).each do |line| %>
+  <%=line%><br>
+<%end%><br><br>
+
+Cheers,<br>
+
+Olivia

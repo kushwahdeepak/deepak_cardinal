@@ -1,0 +1,15 @@
+@import '../../../../styles/var';
+
+.job-search-page {
+    .page-top-text {
+        font-family: $default-font-family;
+        font-style: normal;
+        font-weight: 800;
+        font-size: 18px;
+        line-height: 30px;
+        color: #2b3fab;
+        margin-top: 50px;
+        margin-bottom: 50px;
+        padding-left: 10px;
+    }
+}

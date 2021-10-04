@@ -1,0 +1,3 @@
+WeeklyReportMailer#report_email
+
+Hi, find me in app/views/weekly_report_mailer/report_email

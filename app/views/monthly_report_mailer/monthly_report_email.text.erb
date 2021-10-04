@@ -1,0 +1,34 @@
+Hi <%= @user.first_name %>,
+This is a report of recruiter activities on the CardinalTalent platform in the past month.
+
+<% for recruiter in @recruiters.order(:last_name) do %>
+<% updates = recruiter.recruiter_updates.where('created_at >= ?', 1.month.ago) %>
+  <%= recruiter.first_name %> <%= recruiter.last_name %> recorded <%= updates.count %> updates.
+  <% if updates.where("status ILIKE ?", "%new%").count > 0 %>
+    New: <%= updates.where("status ILIKE ?", "%new%").count %>
+    <% end %>
+    <% if updates.where("status ILIKE ?", "%sub%").count > 0 %>
+    Submitted: <%= updates.where("status ILIKE ?", "%sub%").count %>
+    <% end %>
+    <% if updates.where("status ILIKE ?", "%phone%").count > 0 %>
+    Phone Screens: <%= updates.where("status ILIKE ?", "%phone%").count %>
+    <% end %>
+    <% if updates.where("status ILIKE ?", "%onsite%").count > 0 %>
+    Onsites: <%= updates.where("status ILIKE ?", "%onsite%").count %>
+    <% end %>
+    <% if updates.where("status ILIKE ?", "%screen%").count > 0 %>
+    Screened: <%= updates.where("status ILIKE ?", "%screen%").count %>
+    <% end %>
+    <% if updates.where("status ILIKE ?", "%contact%").count > 0 %>
+    Contacted: <%= updates.where("status ILIKE ?", "%contact%").count %>
+    <% end %>
+    <% if updates.where("status ILIKE ?", "%interview%").count > 0 %>
+    Interviews: <%= updates.where("status ILIKE ?", "%interview%").count %>
+    <% end %>
+    <% if updates.where("status ILIKE ?", "%offer%").count > 0 %>
+    Offers: <%= updates.where("status ILIKE ?", "%offer%").count %>
+    <% end %>
+    <% if updates.where("status ILIKE ?", "%place%").count > 0 %>
+    Placements: <%= updates.where("status ILIKE ?", "%place%").count %>
+  <% end %>
+<% end %>

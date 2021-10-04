@@ -1,0 +1,2 @@
+class JobLocationInterestsUser < ApplicationRecord
+end

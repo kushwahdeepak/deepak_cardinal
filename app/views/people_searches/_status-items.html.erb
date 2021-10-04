@@ -1,0 +1,112 @@
+<!-- erbstart app/views/searches/_status-items.html.erb -->
+<h3><b>
+  <% if p.first_name && p.last_name %>
+    <%= link_to (p.first_name + ' ' + p.last_name), p, target: :_blank %>
+  <% elsif p.formatted_name %>
+    <%= link_to p.formatted_name, p, target: :_blank %>
+  <% else %>
+    <%= link_to ('Person ' + p.id.to_s), p, target: :_blank %>
+  <% end %>
+</b></h3>
+
+<% if p.email_addresses.first %>
+  <%= link_to p, target: :_blank do %>
+    <span class="label label-success">EMAIL</span>
+  <% end %>
+<% end %>
+<% if p.phone_numbers.first %>
+  <span class="label label-warning">PHONE</span>
+<% end %>
+<% if p.github_available == true %>
+  <span class="label label-info">GITHUB</span>
+<% end %>
+<% if p.top_company == true %>
+  <span class="label label-default">TOP SCHOOL</span>
+<% end %>
+<% if p.top_company == true %>
+  <span class="label label-danger">TOP COMPANY</span>
+<% end %>
+<% if p.linkedin_profiles.first %>
+    <span class="label label-primary">LINKEDIN</span>
+<% end %>
+
+<% if p.email_addresses.first %>
+  <% if current_user && current_user.role == "employer" %>
+    <p>
+      <% if p.email_addresses.first.credible == true %>
+        <i class="fa fa-fw fa-envelope-o"></i>
+        <%= link_to set_credible_email_address_path(p.email_addresses.first, credible: false) do %>
+          <i class="fa fa-fw fa-flag" title="This email address is crediible. Click to flag it as inaccurate."></i>
+        <% end %>
+      <% else %>
+        <i class="fa fa-fw fa-envelope-o"></i>
+        <%= link_to p do %>
+          <i class="fa fa-fw fa-flag text-danger" title="This email address is flagged as inaccurate."></i>
+        <% end %>
+      <% end %>
+      <%= p.email_addresses.first.email %>
+      <% if p.email_addresses.count > 1 %>
+         and <%= (p.email_addresses.count - 1) %> <%= link_to 'more email addresses found.', p, target: :_blank %>
+      <% end %>
+    </p>
+  <% end %>
+<% end %>
+
+<% if p.phone_numbers.first %>
+  <% if current_user && current_user.role == "employer" %>
+    <p>
+      <% if p.phone_numbers.first.credible == true %>
+        <i class="fa fa-fw fa-phone-square checked"></i>
+        <%= link_to set_credible_phone_number_path(p.phone_numbers.first, credible: false) do %>
+          <i class="fa fa-fw fa-flag" title="This phone number is crediible. Click to flag it as inaccurate."></i>
+        <% end %>
+      <% else %>
+        <i class="fa fa-fw fa-phone-square checked"></i>
+        <%= link_to p do %>
+          <i class="fa fa-fw fa-flag text-danger" title="This phone number is flagged as inaccurate."></i>
+        <% end %>
+      <% end %>
+      <%= p.phone_numbers.first.value %>, ext.: <%= p.phone_numbers.first.extension %>
+      <% if p.phone_numbers.count > 1 %>
+         and <%= (p.phone_numbers.count - 1) %> <%= link_to 'more phone numbers found.', p, target: :_blank %>
+      <% end %>
+    </p>
+  <% end %>
+<% end %>
+
+<% if p.linkedin_profile_url_resources && p.linkedin_profile_url_resources.first %>
+<p>
+  <i class="fa fa-fw fa-external-link"></i>
+  <%= p.linkedin_profile_url_resources.first.name %>: <%= p.linkedin_profile_url_resources.first.domain %> <%= link_to p.linkedin_profiles.first.linkedin_profile_url_resources.first.url, p.linkedin_profile_url_resources.first.url, target: :_blank %>
+  <% if p.linkedin_profile_url_resources.count > 1 %>
+     and <%= (p.linkedin_profile_url_resources.count - 1) %> <%= link_to 'more external links found.', p, target: :_blank %>
+  <% end %>
+</p>
+<% end %>
+
+<% if p.company_positions && p.company_positions.first %>
+<p>
+  <i class="fa fa-fw fa-building-o unchecked"></i>
+  <%= p.company_positions.first.title %>
+  <% if p.company_positions.count > 1 %>
+     and <%= (p.company_positions.count - 1) %> <%= link_to 'more company positions found.', p, target: :_blank %>
+  <% end %>
+</p>
+<% end %>
+
+<% if p.linkedin_profile_educations && p.linkedin_profile_educations.first %>
+<p>
+  <i class="fa fa-fw fa-graduation-cap"></i>
+  <% unless p.linkedin_profiles.first.linkedin_profile_educations.first.degree.blank? %>
+    <%= p.linkedin_profiles.first.linkedin_profile_educations.first.degree %>,
+  <% end %>
+  <% unless p.linkedin_profiles.first.linkedin_profile_educations.first.field_of_study.blank? %>
+    <%= p.linkedin_profiles.first.linkedin_profile_educations.first.field_of_study %>,
+  <% end %>
+  <%= p.linkedin_profiles.first.linkedin_profile_educations.first.school_name %>
+  <% if p.linkedin_profiles.first.linkedin_profile_educations.count > 1 %>
+     and <%= (p.linkedin_profiles.first.linkedin_profile_educations.count - 1) %> <%= link_to 'more degrees found.', p, target: :_blank %>
+  <% end %>
+</p>
+<% end %>
+<!-- erbend app/views/searches/_status-items.html.erb -->

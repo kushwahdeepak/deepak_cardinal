@@ -1,0 +1,172 @@
+@use 'sass:color';
+@import './var.scss';
+
+.btn,
+.btn-primary,
+.btn-primary:not(:disabled):not(.disabled):active {
+    font-family: $default-font-family;
+    background-color: $primary-blue;
+    color: white;
+    border: 1px solid;
+    transition: 0.2s cubic-bezier(0.3, 0, 0.5, 1);
+    transition-property: color, background-color, border-color;
+
+    img,
+    svg {
+        margin-right: 8px;
+    }
+
+    // &:hover {
+    //     background-color: color.adjust($primary-blue, $lightness: 5%);
+    //     border: 1px solid #e2dcf5;
+    // }
+    &:active {
+        background-color: color.adjust($primary-blue, $lightness: -5%);
+        border: 1px solid transparent;
+    }
+    &:focus {
+        outline: 0;
+        background-color: color.adjust($primary-blue, $lightness: -5%);
+        border: 1px solid #619bc3;
+        box-shadow: $focus-shadow;
+    }
+}
+
+.med-light-label {
+    white-space: nowrap;
+    color: #666;
+    flex-shrink: 0;
+    margin-bottom: 0;
+}
+
+.function-button {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    background-color: $primary-blue;
+    border-radius: 10px;
+    color: white;
+    font-family: $default-font-family;
+    font-weight: 500;
+    font-size: 14px;
+    padding: 6px 12px;
+    white-space: nowrap;
+    line-height: 1.5;
+    cursor: pointer;
+
+    img {
+        margin-right: 8px;
+    }
+
+    &:hover {
+        background-color: $primary-blue-highlight;
+    }
+
+    &:disabled {
+        background-color: #4c68fe;
+    }
+}
+
+.skill-button{
+    background: #EBEDFA;
+    border-radius: 20px;
+    font-size: 12px;
+    padding: 10px 20px 10px 20px;
+    color: #768BFF;
+    margin: 5px 5px 5px 0px;
+    display: inline-block;
+}
+
+.jobImage{
+    height: 73px;
+    width: 104px;
+}
+
+.show > .btn-primary.dropdown-toggle {
+    background-color: $faded-blue-bg;
+
+    &:focus {
+        box-shadow: $focus-shadow;
+    }
+}
+
+.dropdown-menu {
+    font-size: 0.8rem;
+    background-color: $faded-blue-bg;
+    padding: 0.25rem;
+    border: $component-border;
+    margin-top: 2px !important;
+    border-radius: 0;
+    cursor: pointer;
+}
+
+.dropdown-item {
+    padding: 0.25rem;
+    &:hover,
+    &:focus,
+    &:active {
+        background-color: #d5daf9;
+    }
+}
+
+.dropdown-toggle {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: $faded-blue-bg;
+    color: $primary-blue;
+    padding: 0.25rem 0.5rem;
+    font-family: $default-font-family;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 10px;
+    border: 1px solid transparent;
+    border-radius: 0;
+
+    &:hover {
+        background-color: $faded-blue-bg-highlight;
+        color: $primary-blue !important;
+    }
+    &:active {
+        background-color: $faded-blue-bg !important;
+        color: $primary-blue !important;
+    }
+    &:focus {
+        background-color: $faded-blue-bg !important;
+        color: $primary-blue !important;
+    }
+}
+
+.btn-expander {
+    background-color: transparent;
+    color: #39489a;
+    font-family: $default-font-family;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 11px;
+    border: 1px solid $darken-l2;
+    padding: 0.2rem 0.6rem;
+    white-space: nowrap;
+    outline: none;
+
+    &:hover {
+        background-color: $brighten-l5;
+    }
+
+    &:focus {
+        outline-color: transparent !important;
+        box-shadow: none;
+    }
+}
+
+.input {
+    border: $component-border;
+    background-color: $faded-blue-bg;
+    color: $serious-blue;
+
+    &:focus {
+        outline: 0;
+        box-shadow: $focus-shadow;
+    }
+}

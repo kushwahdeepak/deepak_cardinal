@@ -1,0 +1,89 @@
+<!-- erbstart app/views/people/_action-items-2-full.html.erb -->
+<% if current_user && (current_user.role == "employer") %>
+    <% if current_user.saved_candidate_for(person) %>
+      <% saved_candidate = current_user.saved_candidate_for(person) %>
+      <li class="list-inline-item btn btn-secondary" style="color: #fff; margin: 0.25em;">
+        <%= link_to [person, saved_candidate], method: :delete, style: "color: #fff;" do %>
+          <i class="fa fa-star fa-fw"></i>&nbsp;Remove from my candidates</a>
+        <% end %>
+      </li>
+    <% else %>
+      <li class="list-inline-item btn btn-secondary" style="color: #fff; margin: 0.25em;">
+        <%= link_to [person, SavedCandidate.new], method: :post, style: "color: #fff;" do %>
+          <i class="fa fa-star fa-fw"></i>&nbsp;Save to my candidates</a>
+        <% end %>
+      </li>
+    <% end %>
+
+  <% if current_user.followed_candidate_for(person) %>
+  <% followed_candidate = current_user.followed_candidate_for(person) %>
+      <li class="list-inline-item btn btn-primary" style="color: #fff; margin: 0.25em;">
+      <%= link_to [person, followed_candidate], method: :delete, style: "color: #fff;" do %>
+          <i class="fa fa-suitcase fa-fw"></i>&nbsp;Cancel interview request
+      <% end %>
+      </li>
+  <% else %>
+      <li class="list-inline-item btn btn-primary" style="color: #fff; margin: 0.25em;">
+      <%= link_to [person, FollowedCandidate.new], method: :post, style: "color: #fff;" do %>
+          <i class="fa fa-suitcase fa-fw"></i>&nbsp;Request an interview
+      <% end %>
+      </li>
+  <% end %>
+
+  <li class="list-inline-item btn btn-secondary" style="color: #fff; margin: 0.25em;">
+      <%= link_to person_path(person), style: "color: #fff;" do %>
+          <i class="fa fa-user fa-fw"></i>&nbsp;More detail
+      <% end %>
+  </li>
+
+<% elsif current_user && (current_user.member? || current_user.admin?) %>
+
+  <li class="list-inline-item btn btn-secondary" style="color: #fff; margin: 0.25em;">
+    <%= link_to new_user_recruiter_update_path(current_user, person), { person_id: person.id }, method: :post, style: "color: #fff;" do %>
+      <i class="fa fa-pencil-square-o fa-fw"></i>&nbsp;Log status change
+    <% end %>
+  </li>
+
+  <% if current_user.submitted_candidate_for(person) %>
+  <% submitted_candidate = current_user.submitted_candidate_for(person) %>
+    <li class="list-inline-item btn btn-secondary" style="color: #fff; margin: 0.25em;">
+      <%= link_to [person, submitted_candidate], method: :delete, style: "color: #fff;" do %>
+        <i class="fa fa-paper-plane-o fa-fw"></i>&nbsp;Cancel submittal
+      <% end %>
+    </li>
+  <% else %>
+    <li class="list-inline-item btn btn-secondary" style="color: #fff; margin: 0.25em;">
+      <%= link_to new_submitted_candidate_path, { person_id: person.id }, method: :post, style: "color: #fff;" do %>
+        <i class="fa fa-paper-plane-o fa-fw"></i>&nbsp;Submit this candidate
+      <% end %>
+    </li>
+  <% end %>
+
+  <li class="list-inline-item btn btn-secondary" style="color: #fff; margin: 0.25em;">
+    <%= link_to new_message_path(to: person.id), style: "color: #fff;" do %>
+      <i class="fa fa-envelope-o fa-fw"></i> Send a message
+    <% end %>
+  </li>
+
+  <% if current_user.followed_candidate_for(person) %>
+  <% followed_candidate = current_user.followed_candidate_for(person) %>
+      <li class="list-inline-item btn btn-primary" style="color: #fff; margin: 0.25em;">
+      <%= link_to [person, followed_candidate], method: :delete, style: "color: #fff;" do %>
+          <i class="fa fa-suitcase fa-fw"></i> Cancel interview request
+      <% end %>
+      </li>
+  <% else %>
+      <li class="list-inline-item btn btn-primary" style="color: #fff; margin: 0.25em;">
+      <%= link_to [person, FollowedCandidate.new], method: :post, style: "color: #fff;" do %>
+          <i class="fa fa-suitcase fa-fw"></i> Request an interview
+      <% end %>
+      </li>
+  <% end %>
+
+  <li class="list-inline-item btn btn-secondary" style="color: #fff; margin: 0.25em;">
+      <%= link_to person_path(person), style: "color: #fff;" do %>
+          <i class="fa fa-user fa-fw"></i>&nbsp;More detail
+      <% end %>
+  </li>
+<% end %>
+<!-- erbend app/views/people/_action-items-2-full.html.erb -->

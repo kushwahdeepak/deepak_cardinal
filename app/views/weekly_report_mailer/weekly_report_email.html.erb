@@ -1,0 +1,83 @@
+<!-- erbstart app/views/weekly_report_mailer/weekly_report_email.html.erb -->
+<div class="navbar-header" style="align: center;">
+    <a class="navbar-brand" href="http://www.cardinalhire.com">
+        <img src="<%= image_path("Asset 1@0.5x.png") %>" alt="" class="logo-scroll">
+    </a>
+</div>
+
+<p>Hi <%= @user.first_name %>,</p>
+<p>This is a report of recruiter activities on the CardinalTalent platform in the past 7 days.</p>
+
+<%= line_chart RecruiterUpdate.group_by_week(:created_at).count %>
+
+<% for recruiter in @recruiters.order(:last_name) do %>
+<% updates = recruiter.recruiter_updates.where('created_at >= ?', 1.week.ago) %>
+
+<p><b><%= recruiter.first_name %> <%= recruiter.last_name %> recorded <%= updates.count %> updates.</b></p>
+<% if updates.count > 0 %>
+  <% updates.each do |u| %>
+  <p>
+    <%= u.name %>
+  </p>
+  <% end %>
+<% end %>
+<table style="text-align: left;">
+  <colgroup span="2"></colgroup>
+    <% if updates.where("status ILIKE ?", "%new%").count > 0 %>
+    <tr>
+      <td>New</td>
+      <td><%= updates.where("status ILIKE ?", "%new%").count %></td>
+    </tr>
+    <% end %>
+    <% if updates.where("status ILIKE ?", "%sub%").count > 0 %>
+    <tr>
+      <td>Submitted</td>
+      <td><%= updates.where("status ILIKE ?", "%sub%").count %></td>
+    </tr>
+    <% end %>
+    <% if updates.where("status ILIKE ?", "%phone%").count > 0 %>
+    <tr>
+      <td>Phone Screens</td>
+      <td><%= updates.where("status ILIKE ?", "%phone%").count %></td>
+    </tr>
+    <% end %>
+    <% if updates.where("status ILIKE ?", "%onsite%").count > 0 %>
+    <tr>
+      <td>Onsites</td>
+      <td><%= updates.where("status ILIKE ?", "%onsite%").count %></td>
+    </tr>
+    <% end %>
+    <% if updates.where("status ILIKE ?", "%screen%").count > 0 %>
+    <tr>
+      <td>Screened</td>
+      <td><%= updates.where("status ILIKE ?", "%screen%").count %></td>
+    </tr>
+    <% end %>
+    <% if updates.where("status ILIKE ?", "%contact%").count > 0 %>
+    <tr>
+      <td>Contacted</td>
+      <td><%= updates.where("status ILIKE ?", "%contact%").count %></td>
+    </tr>
+    <% end %>
+    <% if updates.where("status ILIKE ?", "%interview%").count > 0 %>
+    <tr>
+      <td>Interviews</td>
+      <td><%= updates.where("status ILIKE ?", "%interview%").count %></td>
+    </tr>
+    <% end %>
+    <% if updates.where("status ILIKE ?", "%offer%").count > 0 %>
+    <tr>
+      <td>Offers</td>
+      <td><%= updates.where("status ILIKE ?", "%offer%").count %></td>
+    </tr>
+    <% end %>
+    <% if updates.where("status ILIKE ?", "%place%").count > 0 %>
+    <tr>
+      <td>Placements</td>
+      <td><%= updates.where("status ILIKE ?", "%place%").count %></td>
+    </tr>
+    <% end %>
+</table>
+<% end %>
+<%= javascript_include_tag "vendor/assets/javascripts/highcharts.js", "chartkick" %>
+<!-- erbend app/views/weekly_report_mailer/weekly_report_email.html.erb -->

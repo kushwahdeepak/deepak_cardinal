@@ -1,0 +1,138 @@
+@import '../../../../styles/var';
+
+.job-detail-tabs {
+    display: flex;
+    margin-left: 18.8rem;
+    .nav-link {
+        font-family: $default-font-family;
+        font-style: normal;
+        font-weight: 500;
+        font-size: 1rem;
+        color: $secondary-blue;
+    }
+
+    .nav-link.active {
+        font-family: $default-font-family;
+        font-style: normal;
+        font-weight: 500;
+        font-size: 1rem;
+        color: $primary-blue;
+    }
+    a :hover {
+        color: #f8f9fa !important;
+    }
+    
+}
+.modelContainer .modal-content {
+    border-radius: 25px;
+}
+
+.modelContainer {
+    position: absolute;
+    left: 0% !important;
+    top: 29%;
+}
+.modal-dialog-centered {
+    max-width: 86%;
+}
+
+.upload-button-disable {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #007bff;
+    border-radius: 10px;
+    color: white !important;
+    font-family: $default-font-family;
+    font-weight: 500;
+    font-size: 14px;
+    padding: 6px 12px;
+    white-space: nowrap;
+    cursor: pointer;
+    height: 35px !important;
+
+    img {
+      margin-right: 8px;
+    }
+
+    &:hover, &:active, &:focus {
+      background-color:  #007bff !important;
+      color: white !important;
+    }
+
+    transition: all 150ms;
+
+    &::after {
+        content: none;
+    }
+}
+
+.upload-button {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    background-color: $primary-blue !important;
+    border-radius: 10px;
+    color: white !important;
+    font-family: $default-font-family;
+    font-weight: 500;
+    font-size: 14px;
+    padding: 6px 12px;
+    white-space: nowrap;
+    cursor: pointer;
+    // width: 10rem !important;
+    height: 35px !important;
+
+    img {
+        margin-right: 8px;
+    }
+
+    &:hover,
+    &:active,
+    &:focus {
+        background-color: $primary-blue-highlight !important;
+        color: white !important;
+    }
+
+    transition: all 150ms;
+
+    &::after {
+        content: none;
+    }
+}
+
+.upload-candidate-button-menu {
+    background: #ffffff;
+    border: 1px solid #1133ec;
+    box-sizing: border-box;
+    border-radius: 2px;
+    padding: 0 !important;
+    margin-top: 5px !important;
+    & a {
+        font-family: $default-font-family;
+        font-style: normal;
+        font-weight: 500;
+        font-size: 12px;
+        line-height: 16px;
+        color: #1133ec;
+
+        &:hover {
+            background-color: $faded-blue-bg;
+            color: #1133ec;
+        }
+    }
+}
+
+.read-or-hide{
+    cursor: pointer;
+}
+
+p em, p{
+    font-weight: normal;
+}
+
+p strong em{
+    font-weight: bold;
+}

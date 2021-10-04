@@ -1,0 +1,159 @@
+<!-- erbstart app/views/users/_submittal-person.html.erb -->
+    <%= panel_row column_class: 'col-sm-12', id: 'panel-row', class: :en, data: {js: 1} do %>
+        <%= panel title: ' Johnny Engineer' do %>
+            <div class='panel-body'>
+                <div class="space-10"></div>
+                <div class="col-3 col-md-3 col-sm-3">
+                  <div class="" style="display: flex; justify-content: center;">
+                    <%= image_tag "placeholder.png", class: 'rounded', width: 100, height: 100 %>
+                  </div>
+                </div>
+                <div class="col-9 col-md-9 col-sm-9">
+                  <p><b>Technical Project Manager</b> at Internet Giant</p>
+                  <p class="lead">Enthusiastic Engineer interested in obtaining a Software Engineering full-time opportunity</p>
+                  <ul class="list-inline">
+                    <li class="list-inline-item">Located in Anytown, USA</li>
+                    <li class="list-inline-item">Prefers $95,000/yr</li>
+                  </ul>
+                  <p>Interested in <b>Software Engineering</b> roles</p>
+
+                  <div class="row">
+                    <div class="col-3 col-md-3 col-sm-3 col-xs-3">
+                      <ul class="list-inline">
+                        <i class="fa fa-briefcase" aria-hidden="true"></i>&nbsp;
+                      </ul>
+                    </div>
+                    <div class="col-9 col-md-9 col-sm-9 col-xs-9">
+                      <p class="list-inline-item">Internet Developers, Inc. <small>7 months</small></p>
+                      <p class="list-inline-item">Dowhatsit Intl. <small>3 years</small></p>
+                    </div>
+                  </div>
+
+                  <div class="row">
+                    <div class="col-3 col-md-3 col-sm-3 col-xs-3">
+                      <ul class="list-inline">
+                        <i class="fa fa-graduation-cap" aria-hidden="true"></i>&nbsp;
+                      </ul>
+                    </div>
+                    <div class="col-9 col-md-9 col-sm-9 col-xs-9">
+                      <p>Stanberkfordley Univ. <small>Master of Science, Computer Science</small></p>
+                      <p>Apt Institute of Technology <small>Bachelor of Science, Computer   Science</small></p>
+                    </div>
+                  </div>
+
+                  <div class="row">
+                    <div class="col-3 col-md-3 col-sm-3 col-xs-3">
+                      <ul class="list-inline">
+                        <i class="fa fa-wrench" aria-hidden="true"></i>&nbsp;
+                      </ul>
+                    </div>
+                    <div class="col-9 col-md-9 col-sm-9 col-xs-9">
+                      <ul class="list-inline">
+                        <li class="list-inline-item">Java</li>
+                        <li class="list-inline-item">Node</li>
+                        <li class="list-inline-item">HTML/CSS</li>
+                        <li class="list-inline-item">SQL</li>
+                        <li class="list-inline-item">And more...</li>
+                      </ul>
+                    </div>
+                  </div>
+
+                  <div class="" style="display: flex; flex-wrap: wrap; flex-direction: row; justify-content: space-evenly;">
+                    <span class="label label-default" style="padding: 0.1rem; margin: 0.1rem;">LINKEDIN</span>
+                    <span class="label label-default" style="padding: 0.1rem; margin: 0.1rem;">GITHUB</span>
+                    <span class="label label-default" style="padding: 0.1rem; margin: 0.1rem;">PORTFOLIO</span>
+                    <span class="label label-default" style="padding: 0.1rem; margin: 0.1rem;">STACKOVERFLOW</span>
+                    <span class="label label-default" style="padding: 0.1rem; margin: 0.1rem;">RESUME</span>
+                  </div>
+                  <div class="space-10"></div>
+                  <div class="" style="display: flex; flex-wrap: wrap; flex-direction: row; justify-content: space-evenly;">
+                    <%= modal title: ' More detail', size: :large, id: 'modal', button: {class: :en} do %>
+                      <div class="modal-body">
+
+                      <table class="table table-hover submittal-table">
+                        <thead>
+                          <tr>
+                            <th class="row-1"></th>
+                            <th class="row-2">Your CardinalTalent account manager will identify candidates that...</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            <td>
+                              <i class="fa fa-building-o" aria-hidden="true"></i>
+                            </td>
+                            <td>
+                              <h5 style="text-align: left;">Work at Internet Giants</h5>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td>
+                              <i class="fa fa-map-o" aria-hidden="true"></i>
+                              </td>
+                              <td>
+                                <p style="text-align: left;"></i>Located in <b><%= @user.employer_hiring_location.present? ? @user.employer_hiring_location : 'your area' %></b> and <%= (@user.employer_remoteness.present? && (@user.employer_remoteness == false)) ? 'are not' : 'are' %> interested in working remotely.</p>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <i class="fa fa-file-code-o" aria-hidden="true"></i>
+                                </td>
+                                <td>
+                                  <p style="text-align: left;"></i>Authorized to work lawfully in the United States.</p>
+                                </td>
+                              </tr>
+                              <tr>
+                                <td>
+                                  <i class="fa fa-bolt" aria-hidden="true"></i>
+                                </td>
+                                <td>
+                                    <p style="text-align: left;"></i>Consider <span class="label label-default">JAVA</span>, <span class="label label-default">PYTHON</span>, and <span class="label label-default">DJANGO</span> as their strongest skill set with at least <b>8 years of experience</b>.</p>
+                                </td>
+                              </tr>
+                              <tr>
+                                <td>
+                                  <i class="fa fa-cogs" aria-hidden="true"></i>
+                                </td>
+                                <td>
+                                  <p style="text-align: left;">Looking for <%= @user.employer_roles_type.present? ? @user.employer_roles_type : '' %> <b><%= @user.employer_roles.present? ? @user.employer_roles : '' %></b> employment roles.</p>
+                                </td>
+                              </tr>
+                          </tbody>
+                        </table>
+
+                      </div>
+                    <div class="modal-footer">
+                      <div class="buttons">
+                        <%= link_to "View/Edit Employer Profile", welcome_employer_intro_path, class: "btn btn-xl btn-primary" %>
+                      </div>
+                    </div>
+                  <% end %>
+              </div>
+            </div>
+          </div>
+          <% end %>
+          <%= panel title: 'Current Stage' do %>
+          <div class='panel-body'>
+            <table class="table table-hover submittal-table">
+              <thead>
+                <tr>
+                  <th class="row-1"></th>
+                  <th class="row-2"></th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>
+                    <i class="fa fa-paper-plane-o" aria-hidden="true">
+                    </td>
+                    <td>
+                      <h5 class=""></i>Your CardinalTalent account manager looks for candidates that match your employer profile.&nbsp;<%= link_to 'View or update your employer profile.', welcome_employer_intro_path %></h5>
+                      <h6 class="">Account created <%= time_ago_in_words(@user.created_at) %> ago.</h6>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+          </div>
+          <% end %>
+    <% end %>
+<!-- erbend app/views/users/_submittal-person.html.erb -->

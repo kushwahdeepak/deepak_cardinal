@@ -1,0 +1,19 @@
+<!-- erbstart app/views/submittals/_form.html.erb -->
+<%= form_for(submittal) do |f| %>
+  <% if submittal.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(submittal.errors.count, "error") %> prohibited this submittal from being saved:</h2>
+
+      <ul>
+      <% submittal.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
+<!-- erbend app/views/submittals/_form.html.erb -->

@@ -1,0 +1,31 @@
+<!-- erbstart app/views/user_experiences/show.html.erb -->
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Company name:</strong>
+  <%= @user_experience.company_name %>
+</p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @user_experience.title %>
+</p>
+
+<p>
+  <strong>Start date:</strong>
+  <%= @user_experience.start_date %>
+</p>
+
+<p>
+  <strong>End date:</strong>
+  <%= @user_experience.end_date %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @user_experience.description %>
+</p>
+
+<%= link_to 'Edit', edit_user_experience_path(@user_experience) %> |
+<%= link_to 'Back', user_experiences_path %>
+<!-- erbend app/views/user_experiences/show.html.erb -->

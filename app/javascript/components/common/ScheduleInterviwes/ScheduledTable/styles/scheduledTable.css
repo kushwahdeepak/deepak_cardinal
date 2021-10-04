@@ -1,0 +1,106 @@
+.modal.right .modal-dialog {
+    background: #ffffff;
+    box-shadow: 0px 4px 20px rgb(0 0 0 / 20%);
+    border-radius: 20px;
+    /* padding: 40px 44px; */
+    position: fixed;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    min-width: 800px !important ;
+    z-index: 9000;
+    overflow-y: hidden;
+    margin: 20px 0px ;
+    display: flex;
+    flex-direction: column;        
+    -webkit-transform: translate3d(0%, 0, 0);
+        -ms-transform: translate3d(0%, 0, 0);
+         -o-transform: translate3d(0%, 0, 0);
+            transform: translate3d(0%, 0, 0);
+}
+.modal.right .modal-content {
+    height: 100%;
+    overflow-y: auto;
+    margin-top: 0px;
+}
+.modal.right .modal-body {
+    padding: 15px 15px 80px;
+}  
+.modal .right .fade .show{
+    opacity: 0.0;
+} 
+/*Right*/
+.modal.right.fade .modal-dialog {
+    right: 0px;
+    -webkit-transition: opacity 0.0s linear, right 0.0s ease-out;
+       -moz-transition: opacity 0.0s linear, right 0.0s ease-out;
+         -o-transition: opacity 0.0s linear, right 0.0s ease-out;
+            transition: opacity 0.0s linear, right 0.0s ease-out;
+}
+
+.modal.right.fade.in .modal-dialog {
+    right: 0;
+}
+
+/* ----- MODAL STYLE ----- */
+.modal-content {
+    border-radius: 0;
+    border: none;
+}
+
+.modal-header {
+    padding: 2rem 1rem !important;
+}
+.demo {
+padding-top: 60px;
+padding-bottom: 110px;
+}
+
+.btn-demo {
+    background: #ebedfa;
+    border: 1px solid #5263be;
+    box-sizing: border-box;
+    border-radius: 5px;
+    color: #5263be;
+    display: flex;
+    width: -webkit-max-content;
+    width: -moz-max-content;
+    width: max-content;
+    align-items: center;
+    font-family: Avenir, "Lato", sans-serif;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 10px;
+    line-height: 14px;
+    padding: 5px;
+    margin-top: -11px;
+}
+.btn-demo:active, .btn-demo:hover, .btn-primary:not(:disabled):not(.disabled):active:focus {
+    background: rgb(82, 99, 190);
+    color: rgb(235, 237, 250);
+    outline: 0 !important;
+    transition: none !important;
+    transition-property: none !important;
+}
+.modal-backdrop.show {
+    opacity: 0.0 !important;
+}
+.cancelDelete {
+    padding: 2px;
+    background: #4c68ff !important;
+    color: #ffffff;
+    border-radius: 50% !important;
+    height: fit-content;
+    width: fit-content;
+    align-self: baseline;
+    margin-left: auto;
+}
+.modal-table{
+    padding-bottom: 25px;
+    overflow-y: hidden;
+    overflow-x: hidden;
+    margin-left: 30px;
+}
+.modalTitle{
+    padding: 28px 0px 0px 43px;
+}

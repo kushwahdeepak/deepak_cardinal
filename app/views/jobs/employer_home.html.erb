@@ -1,0 +1,6 @@
+<!-- erbstart app/views/jobs/show.html.erb -->
+<div class="standard-page">
+  <%= react_component("pages/EmployerDashboard/EmployerDashboard", {userId: @user_id, organization: current_user.organization, currentUser: current_user}) %>
+</div>
+
+<!-- erbend app/views/jobs/show.html.erb -->

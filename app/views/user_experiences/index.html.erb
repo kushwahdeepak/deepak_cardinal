@@ -1,0 +1,37 @@
+<!-- erbstart app/views/user_experiences/index.html.erb -->
+<p id="notice"><%= notice %></p>
+
+<h1>User Experiences</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Company name</th>
+      <th>Title</th>
+      <th>Start date</th>
+      <th>End date</th>
+      <th>Description</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @user_experiences.each do |user_experience| %>
+      <tr>
+        <td><%= user_experience.company_name %></td>
+        <td><%= user_experience.title %></td>
+        <td><%= user_experience.start_date %></td>
+        <td><%= user_experience.end_date %></td>
+        <td><%= user_experience.description %></td>
+        <td><%= link_to 'Show', user_experience %></td>
+        <td><%= link_to 'Edit', edit_user_experience_path(user_experience) %></td>
+        <td><%= link_to 'Destroy', user_experience, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New User Experience', new_user_experience_path %>
+<!-- erbend app/views/user_experiences/index.html.erb -->

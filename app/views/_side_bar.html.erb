@@ -1,0 +1,58 @@
+<!-- erbstart app/views/_side_bar.html.erb -->
+<div class="space-60"></div>
+<div class="flexbox-container container-fluid clearfix" style="display: flex; flex-direction: column; justify-content: center; padding: 1em; align-items: left;">
+    <%= link_to :back, class: 'btn btn-secondary btn-block fa fa-arrow-left' do %>
+      <i></i>
+      <br/>
+      Back
+    <% end %>
+
+  <% if current_user && (current_user.member? || current_user.admin? || current_user.role == 'employer') %>
+    <%= link_to user_dashboard_url(current_user), class: 'btn btn-secondary btn-block fa fa-user icon-badge' do %>
+      <i></i>
+      <% unless current_user.follow_count == 0 %>
+        <span class="badge"><%= current_user.follow_count %></span>
+      <% end %>
+      <br />
+      Dashboard
+    <% end %>
+
+    <%= link_to url_for(user_recruiter_updates_path(current_user)), class: 'btn btn-secondary btn-block fa fa-list-ol' do %>
+      <i></i>
+      <br />
+      Candidates
+    <% end %>
+  <% end %>
+
+  <% if current_user && current_user.signuprole == 'talent' %>
+    <%= link_to welcome_talent_intro_path, class: 'btn btn-secondary btn-block fa fa-star' do %>
+      <i></i>
+      <br />
+      Profile
+    <% end %>
+  <% end %>
+
+  <% if current_user && current_user.signuprole == 'employer' %>
+    <%= link_to welcome_employer_intro_path, class: 'btn btn-secondary btn-block fa fa-star' do %>
+      <i></i>
+      <br />
+      Profile
+    <% end %>
+  <% end %>
+
+    <%= link_to url_for(edit_user_registration_path), class: 'btn btn-secondary btn-block fa fa-cog' do %>
+      <i></i>
+      <br />
+      Settings
+    <% end %>
+
+    <% if current_user && (current_user.member? || current_user.admin?) %>
+      <%= link_to "/recruiter_intro", class: 'btn btn-secondary btn-block fa fa-question-circle' do %>
+        <i></i>
+        <br />
+        Help
+      <% end %>
+    <% else %>
+    <% end %>
+</div>
+<!-- erbend app/views/_side_bar.html.erb -->

@@ -1,0 +1,29 @@
+<!-- erbstart app/views/linkedin_industries/_form.html.erb -->
+<%= form_for(linkedin_industry) do |f| %>
+  <% if linkedin_industry.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(linkedin_industry.errors.count, "error") %> prohibited this linkedin_industry from being saved:</h2>
+
+      <ul>
+      <% linkedin_industry.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+  </div>
+
+  <div class="field">
+    <%= f.label :group %>
+    <%= f.text_field :group %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
+<!-- erbend app/views/linkedin_industries/_form.html.erb -->

@@ -1,0 +1,40 @@
+<!-- erbstart app/views/employer_request_for_interview_mailer/destroy_request_email.html.erb -->
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <h1>Canceled Request for Interview</h1>
+
+    <p>We have received notice that the employer no longer wishes to interview with the following candidate.</p>
+
+    <h2>CANCEL INTERVIEWS WITH CANDIDATE</h2>
+    <p>First Name: <%= @candidate.first_name %></p>
+    <p>Last Name: <%= @candidate.last_name %></p>
+    <p>Email Address: <%= @candidate.email_address %></p>
+    <p>Location: <%= @candidate.location %></p>
+    <p>Phone Number: <%= @candidate.phone_number %></p>
+
+    <h2>FROM EMPLOYER</h2>
+    <p>First Name: <%= @user.first_name %></p>
+    <p>Last Name: <%= @user.last_name %></p>
+    <p>Full Name: <%= @user.full_name %></p>
+    <p>Email Address: <%= @user.email %></p>
+    <p>Location: <%= @user.location %></p>
+    <p>Permission Level: <%= @user.role %></p>
+    <p>Sign-up Role: <%= @user.signuprole %></p>
+    <p>Phone Number: <%= @user.phone_number %></p>
+    <p>Job Title: <%= @user.job_title %></p>
+    <p>Company Name: <%= @user.company_name %></p>
+    <p>Company URL: <%= @user.company_url %></p>
+    <p>Company Size: <%= @user.company_size %></p>
+    <p>Employer Hiring Location: <%= @user.employer_hiring_location %></p>
+    <p>Employer Roles: <%= @user.employer_roles %></p>
+    <p>Employer Roles Type: <%= @user.employer_roles_type %></p>
+    <p>Employer Remote Status: <%= @user.employer_remoteness %></p>
+    <p>Employer Timeframe: <%= @user.employer_timeframe %></p>
+
+  </body>
+</html>
+<!-- erbend app/views/employer_request_for_interview_mailer/destroy_request_email.html.erb -->

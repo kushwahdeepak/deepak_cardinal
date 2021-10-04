@@ -1,0 +1,162 @@
+<!-- erbstart app/views/call_sheets/show.html.erb -->
+<div class="space-90"></div>
+<div id="side-bar">
+  
+</div>
+
+<div id="main-content">
+  <h1>Status update</h1>
+  <h2><%= @call_sheet.created_at.to_formatted_s(:long_ordinal) %></h2>
+
+  <%= link_to 'Edit', edit_call_sheet_path(@call_sheet), class: 'btn btn-primary' %>
+
+  <h4>Number of inmails sent: <%= click_to_edit @call_sheet, path: call_sheet_path(@call_sheet), id: "editable-num-inmails-#{1}", attribute: :num_inmails, submit_on_blur: false, remote: false %></h4>
+  <h4>Date of client update email: <%= click_to_edit @call_sheet, path: call_sheet_path(@call_sheet), id: "editable-client-update-email-#{1}", attribute: :client_update_email_sent_at, submit_on_blur: false, remote: false %></h4>
+  <h4>File uploaded: <%= link_to @call_sheet.call_sheet_upload %>
+  </h4>
+
+      <h2>My called candidates</h2>
+
+  <div class="well">
+  <h4>Number of candidates called</h4>
+  <p><%= click_to_edit @call_sheet, path: call_sheet_path(@call_sheet), id: "editable-num-calls-#{1}", attribute: :num_calls, submit_on_blur: false, remote: false %></p>
+
+  <h4>Candidates called</h4>
+  <table>
+    <thead>
+      <tr>
+        <th><small>First Name</small></th>
+        <th><small>Last Name</small></th>
+        <th><small>Scheduled Time</small></th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @call_sheet.calls.each do |call| %>
+        <tr>
+          <td><%= call.first_name %></td>
+          <td><%= call.last_name %>
+          <td><%= call.scheduled_time %></td>
+        </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+
+        <h2>My submitted candidates</h2>
+
+    <div class="well">
+    <h4>Number of candidates submitted</h4>
+    <p><%= click_to_edit @call_sheet, path: call_sheet_path(@call_sheet), id: "editable-num-submittals-#{1}", attribute: :num_submittals, submit_on_blur: false, remote: false %></p>
+
+    <h4>Candidates submitted</h4>
+    <table>
+      <thead>
+        <tr>
+          <th><small>First Name</small></th>
+          <th><small>Last Name</small></th>
+          <th><small>Date Submitted</small></th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <% @call_sheet.submittals.each do |submittal| %>
+          <tr>
+            <td><%= submittal.first_name %></td>
+            <td><%= submittal.last_name %>
+            <td><%= submittal.submitted_at %></td>
+          </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+
+          <h2>My confirmed phone interviews</h2>
+
+      <div class="well">
+      <h4>Number of confirmed phone interviews</h4>
+      <p><%= click_to_edit @call_sheet, path: call_sheet_path(@call_sheet), id: "editable-num-phone-interviews-#{1}", attribute: :num_phone_interviews, submit_on_blur: false, remote: false %></p>
+
+      <h4>My candidates with phone interviews</h4>
+      <table>
+        <thead>
+          <tr>
+            <th><small>First Name</small></th>
+            <th><small>Last Name</small></th>
+            <th><small>Scheduled Time</small></th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <% @call_sheet.phone_interviews.each do |phone_interview| %>
+            <tr>
+              <td><%= phone_interview.first_name %></td>
+              <td><%= phone_interview.last_name %>
+              <td><%= phone_interview.scheduled_time %></td>
+            </tr>
+            <% end %>
+          </tbody>
+        </table>
+      </div>
+
+            <h2>My confirmed on-site interviews</h2>
+
+        <div class="well">
+        <h4>Number of confirmed on-site interviews</h4>
+        <p><%= click_to_edit @call_sheet, path: call_sheet_path(@call_sheet), id: "editable-num-onsite-interviews-#{1}", attribute: :num_onsite_interviews, submit_on_blur: false, remote: false %></p>
+
+        <h4>My candidates with on-site interviews</h4>
+        <table>
+          <thead>
+            <tr>
+              <th><small>First Name</small></th>
+              <th><small>Last Name</small></th>
+              <th><small>Scheduled Time</small></th>
+            </tr>
+          </thead>
+
+          <tbody>
+            <% @call_sheet.onsite_interviews.each do |onsite_interview| %>
+              <tr>
+                <td><%= onsite_interview.first_name %></td>
+                <td><%= onsite_interview.last_name %>
+                <td><%= onsite_interview.scheduled_time %></td>
+              </tr>
+              <% end %>
+            </tbody>
+          </table>
+        </div>
+
+              <h2>My placements</h2>
+
+          <div class="well">
+          <h4>Number of placements</h4>
+          <p><%= click_to_edit @call_sheet, path: call_sheet_path(@call_sheet), id: "editable-num-placements-#{1}", attribute: :num_placements, submit_on_blur: false, remote: false %></p>
+
+          <h4>My placed candidates</h4>
+          <table>
+            <thead>
+              <tr>
+                <th><small>First Name</small></th>
+                <th><small>Last Name</small></th>
+                <th><small>Placement Date</small></th>
+              </tr>
+            </thead>
+
+            <tbody>
+              <% @call_sheet.placements.each do |placement| %>
+                <tr>
+                  <td><%= placement.first_name %></td>
+                  <td><%= placement.last_name %>
+                  <td><%= placement.placement_date %></td>
+                </tr>
+                <% end %>
+              </tbody>
+            </table>
+          </div>
+
+
+  <%= link_to 'Edit', edit_call_sheet_path(@call_sheet), class: 'btn btn-primary' %>
+  <div class="space-10"></div>
+</div>
+<!-- erbend app/views/call_sheets/show.html.erb -->

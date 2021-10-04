@@ -1,0 +1,171 @@
+@import '../../../../styles/var';
+
+.candidate-profile-page {
+    padding: 140px 10% 150px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    .page-title {
+        font-family: $default-font-family;
+        font-style: normal;
+        font-weight: 500;
+        font-size: 40px;
+        line-height: 55px;
+        color: #333030;
+        margin-bottom: 3px;
+        text-align: left;
+    }
+
+    .page-subtitle {
+        font-family: $default-font-family;
+        text-align: left;
+        font-style: normal;
+        font-weight: 500;
+        font-size: 20px;
+        line-height: 27px;
+        color: #333030;
+        display: block;
+        margin-bottom: 38px;
+    }
+
+    .candidate-profile-form {
+        background: #ffffff;
+        box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.25);
+        border-radius: 2px;
+        padding: 0 85px;
+        &__content {
+            display: flex;
+            flex-direction: column;
+            padding: 73px 0px 50px;
+        }
+    }
+    .candidate-profile-form__form-group {
+        margin-bottom: 30px;
+    }
+    .candidate-profile-form__label {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+    .candidate-profile-form__input {
+        flex: 0 0 75%;
+        max-width: 75%;
+        background: #ffffff;
+        border: 1px solid #6c6c6c;
+        box-sizing: border-box;
+        border-radius: 2px;
+        display: block;
+        min-height: 40px;
+        padding: 9px 60px 9px 15px;
+        font-size: 16px;
+        line-height: 22px;
+        color: #333030;
+        font-style: normal;
+        font-weight: normal;
+    }
+
+    .candidate-profile-form__field-title {
+        font-style: normal;
+        font-weight: normal;
+        font-size: 16px;
+        line-height: 22px;
+        color: #333030;
+        display: inline-block;
+        padding-right: 35px;
+        flex: 0 0 25%;
+        max-width: 25%;
+        &.required-title {
+            &::after {
+                content: '*';
+                color: #d81815;
+            }
+        }
+    }
+
+    .candidate-profile-form__footer {
+        padding-top: 45px;
+        padding-bottom: 50px;
+        border-top: 1px solid #bababa;
+    }
+    .submit-profile-data-form {
+        display: block;
+        padding: 14px 47px;
+        background: #213081;
+        border-radius: 30px;
+        margin-left: auto;
+        border: 1px solid transparent;
+
+        &:disabled {
+            background-color: #cccccc;
+            color: #666666;
+            border: 1px solid #999999;
+        }
+        &:hover {
+            &:not([disabled]) {
+                border-color: #213081;
+                transition: 0.2s all ease-in;
+                background: transparent;
+                span {
+                    transition: 0.2s all ease-in;
+                    color: #213081;
+                }
+            }
+        }
+        span {
+            transition: 0.2s all ease-in;
+            font-weight: 500;
+            font-size: 16px;
+            line-height: 22px;
+            color: #ffffff;
+        }
+    }
+    .no-file-chosen {
+        font-family: $default-font-family;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 16px;
+        line-height: 22px;
+        color: #000000;
+    }
+    .profile-uploader-container {
+        display: flex;
+        padding-left: 35px;
+        align-items: center;
+        flex: 0 0 75%;
+        max-width: 75%;
+    }
+}
+
+.profile-uploader {
+    position: relative;
+    cursor: pointer;
+    margin-right: 14px;
+    &__btn {
+        padding: 11px 37px 10px;
+        display: block;
+        background: #ececec;
+        border: 1px solid #676767;
+        box-sizing: border-box;
+        border-radius: 2px;
+        span {
+            font-family: $default-font-family;
+            font-style: normal;
+            font-weight: normal;
+            font-size: 14px;
+            line-height: 19px;
+            color: #000000;
+            cursor: pointer;
+        }
+    }
+    &__input {
+        position: absolute;
+        opacity: 0;
+        width: 100%;
+        z-index: 10;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        top: 0;
+        cursor: pointer;
+    }
+}

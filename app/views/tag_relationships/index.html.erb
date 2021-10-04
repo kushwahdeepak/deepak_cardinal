@@ -1,0 +1,40 @@
+<!-- erbstart app/views/tag_relationships/index.html.erb -->
+<div class="space-180"></div>
+
+<nav>
+  <div id="side-bar">
+    <div class="space-40"></div>
+    
+  </div>
+</nav>
+
+
+  <div id="main-content">
+
+<h1>Tag Relationships</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @tag_relationships.each do |tag_relationship| %>
+      <tr>
+        <td><%= link_to 'Show', tag_relationship %></td>
+        <td><%= link_to 'Edit', edit_tag_relationship_path(tag_relationship) %></td>
+        <td><%= link_to 'Destroy', tag_relationship, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Tag Relationship', new_tag_relationship_path %>
+
+</div>
+
+<!-- erbend app/views/tag_relationships/index.html.erb -->

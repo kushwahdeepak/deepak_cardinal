@@ -1,0 +1,96 @@
+@import '../../../../styles/var';
+
+.container {
+    background: #ffffff;
+    box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.25);
+    border-radius: 30px;
+    padding: 60px 40px;
+    max-width: 90%;
+    margin: 60px auto;
+    flex-grow: 1;
+}
+
+.title {
+    font-family: $default-font-family;
+    font-style: normal;
+    font-weight: 800;
+    font-size: 24px;
+    line-height: 33px;
+    color: #4b5dc0;
+    margin-right: 35px;
+}
+
+.addJobButton {
+    background: #5263be;
+    border: 2px solid #5263be;
+    box-sizing: border-box;
+    border-radius: 50px;
+    font-family: $default-font-family;
+    font-style: normal;
+    font-weight: 800;
+    font-size: 16px;
+    line-height: 22px;
+    color: #ffffff;
+    padding: 9px 27px;
+}
+
+.placeholderText {
+    background: #ebedfa;
+    border: 1px solid #4f64d1;
+    box-sizing: border-box;
+    border-radius: 10px;
+    width: 100%;
+    &::placeholder {
+        font-family: $default-font-family;
+        font-style: normal;
+        font-weight: 500;
+        font-size: 14px;
+        color: #354ed2;
+        opacity: 1; /* Firefox */
+    }
+}
+
+.searchButton {
+    background: #5666bb;
+    border-radius: 20px;
+    font-family: $default-font-family;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 19px;
+    color: #ffffff;
+    padding: 9px 27px;
+    margin-left: 14px;
+}
+
+.tableHeadingText {
+    font-family: $default-font-family;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 19px;
+    text-align: center;
+    color: #4c5480;
+    padding: 0px 20px;
+    margin-left: 0px;
+    margin-right: 0px;
+}
+
+.tableRow {
+    background: #fff;
+    font-size: 12px;
+    line-height: 16px;
+    cursor: pointer;
+    &:hover {
+        background: #ebedfa;
+    }
+    padding: 32px 18px;
+    border-bottom: 1px solid #d0d5f0;
+}
+@media only screen and (min-device-width : 320px) and (max-device-width : 575px){
+    .container {
+        border-radius: 15px;
+        padding: 15px;
+        max-width: 90%;
+    }   
+}

@@ -1,0 +1,40 @@
+<!-- erbstart app/views/people/index.html.erb -->
+<div class="row">
+  <div class="col-4 col-sm-4 col-md-4">
+    
+      <div class="clearfix">
+        <div class="container-fluid">
+          <% if @account_manager %>
+            <%= render partial: 'users/small_card', object: @account_manager %>
+          <% else %>
+            <%= render partial: 'small_conversations_template' %>
+          <% end %>
+        </div>
+      </div>
+    
+  </div>
+  <div class="col-8 col-sm-8 col-md-8">
+    
+        <div class="papel-right clearfix">
+          <div class="container-fluid">
+              <% if current_user && current_user.signuprole == 'talent' %>
+                <%= render 'users/job_seeker_dashboard' %>
+              <% elsif current_user && current_user.signuprole == 'recruiter' %>
+                <%= render 'users/recruiter_dashboard' %>
+              <% elsif current_user && current_user.signuprole == 'employer' %>
+                <%= render 'users/employer_dashboard' %>
+              <% elsif current_user && current_user.role == 'admin' %>
+                <%= render 'users/admin_dashboard' %>
+              <% elsif current_user && current_user.role == 'member' %>
+                <%= render 'users/member_dashboard' %>
+              <% elsif current_user && current_user.role == 'guest' %>
+                <%= render 'users/job_seeker_dashboard' %>
+              <% else %>
+                <%= render 'users/job_seeker_dashboard' %>
+              <% end %>
+          </div>
+        </div>
+      
+    </div>
+  </div>
+<!-- erbend app/views/people/index.html.erb -->

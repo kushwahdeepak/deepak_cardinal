@@ -1,0 +1,33 @@
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="description" content="<%= content_for?(:description) ? content_for(:description) : 'Talent  Page' %>">
+<meta name="theme-color" content="#e60d22" />
+<meta name="msapplication-navbutton-color" content="#e60d22">
+
+<!-- iOS Safari -->
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta property="twitter:creator" content="<%= content_for?(:twitter_creator) ? content_for(:twitter_creator) : "Talent  Page" %>" />
+
+<!-- Google / Search Engine Tags -->
+<meta itemprop="name" content="<%= content_for?(:title) ? content_for(:title) : "Talent Page" %>">
+<meta itemprop="description" content="<%= content_for?(:description) ? content_for(:description) : 'Talent  Page ' %>">
+<meta itemprop="image" content="<%= content_for?(:image) ? content_for(:image) : "#{image_url asset_url('logo.png')}" %>">
+
+<!-- Facebook Meta Tags -->
+<meta property="og:url" content="<%= content_for?(:url) ? content_for(:url) : ENV["DOMAIN_NAME"] %>" />
+<meta property="og:type" content="<%= content_for?(:type) ? content_for(:type) : "website" %>" />
+<meta property="og:title" content="<%= content_for?(:title) ? content_for(:title) : "Talent Page" %>" />
+<meta property="og:description" content="<%= content_for?(:description) ? content_for(:description) : 'Talent  Page' %>" />
+<meta property="og:image" content="<%= content_for?(:image) ? content_for(:image) : "#{image_url asset_url('logo.png')}" %>" />
+<meta property='og:video' content="<%= content_for?(:video) ? content_for(:video) : "#{image_url asset_url('logo.png')}" %>" />
+
+<!-- Twitter Meta Tags -->
+<meta name="twitter:card" content="<%= content_for?(:twitter_card) ? content_for(:twitter_card) : "Talent  Page" %>">
+<meta name="twitter:title" content="<%= content_for?(:title) ? content_for(:title) : "Talent Page" %>">
+<meta name="twitter:description" content="<%= content_for?(:description) ? content_for(:description) : 'Talent  Page' %>">
+<meta name="twitter:image" content="<%= content_for?(:image) ? content_for(:image) : "#{image_url asset_url('logo.png')}" %>">
+
+<!-- Meta Tags -->

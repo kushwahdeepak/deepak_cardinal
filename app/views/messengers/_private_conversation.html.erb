@@ -1,0 +1,12 @@
+<!-- erbstart app/views/messengers/_private_conversation.html.erb -->
+<% @recipient = private_conv_recipient(conversation) %>
+<% @contact = get_contact_record(@recipient) %>
+<% @is_messenger = true %>
+<%= render 'private/conversations/conversation/request_status' %>
+<%= render 'messengers/private_conversation/details' %>
+<%= render 'private/conversations/conversation/messages_list', 
+            conversation: conversation %>
+<%= render  'messengers/private_conversation/new_message_form', 
+            conversation: conversation,
+            user: user %>
+<!-- erbend app/views/messengers/_private_conversation.html.erb -->

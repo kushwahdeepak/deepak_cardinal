@@ -1,0 +1,2 @@
+class InstantAddress < ApplicationRecord
+end

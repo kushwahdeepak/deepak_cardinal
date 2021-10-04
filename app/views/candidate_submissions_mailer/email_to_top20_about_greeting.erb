@@ -1,0 +1,13 @@
+<p>Hi <%= @params[:candidate_name] %>,
+<p>Thank you for applying for the position of <%= @params[:job].name %>.  The name of the company is <%= @params[:company_name] %>.  Can you let me know your answers to the following questions:
+<p>
+1) What is your availability for a phone interview?<br>
+2) What is your base salary expectation?<br>
+3) What are your top 5 technologies that you have experience with?<br>
+4) What is your employment authorization?  (US Citizen, Green Card, H1B, etc.)<br>
+
+<p>I look forward to moving forward as soon as we receive your response!  Please also attach your current resume.
+
+<p>Sincerely,
+
+<p><%=ENV.fetch('OUTGOING_EMAIL_USERNAME') %>

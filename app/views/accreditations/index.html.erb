@@ -1,0 +1,40 @@
+<!-- erbstart app/views/accreditations/index.html.erb -->
+<div class="space-180"></div>
+
+<nav>
+  <div id="side-bar">
+    <div class="space-40"></div>
+    
+  </div>
+</nav>
+
+
+  <div id="main-content">
+
+<h1>Accreditations</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @accreditations.each do |accreditation| %>
+      <tr>
+        <td><%= link_to 'Show', accreditation %></td>
+        <td><%= link_to 'Edit', edit_accreditation_path(accreditation) %></td>
+        <td><%= link_to 'Destroy', accreditation, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Accreditation', new_accreditation_path %>
+
+</div>
+
+<!-- erbend app/views/accreditations/index.html.erb -->

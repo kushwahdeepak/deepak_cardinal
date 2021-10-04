@@ -1,0 +1,35 @@
+<!-- erbstart app/views/conversations/index.html.erb -->
+<div class="space-80"></div>
+
+  <div class="row">
+    <div class="col-md-1">
+    </div>
+    <div class="col-md-4">
+      <div class="space-10"></div>
+          <% if @account_manager %>
+            <%= render partial: 'small_conversations_template', object: current_user.mailbox %>
+          <% else %>
+            <%= render partial: 'small_conversations_template', object: current_user.mailbox %>
+          <% end %>
+    </div>
+    <div class="col-md-6">
+      <% if @box == 'trash' && !@conversations.blank? %>
+      <p>
+        <%= link_to 'Empty trash', empty_trash_conversations_path, class: 'btn btn-danger', method: :delete,
+                    data: {confirm: 'Are you sure?'} %>
+      </p>
+      <% end %>
+      <% if @conversations.blank? %>
+        No conversations to show.
+      <% else %>
+      <ul class="list-group">
+            <%= render partial: 'conversations/conversation', collection: @conversations %>
+      </ul>
+      <% end %>
+
+      <%= will_paginate %>
+    </div>
+    <div class="col-md-1">
+    </div>
+  </div>
+<!-- erbend app/views/conversations/index.html.erb -->

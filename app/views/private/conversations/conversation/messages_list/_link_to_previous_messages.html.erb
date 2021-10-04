@@ -1,0 +1,8 @@
+<!-- erbstart app/views/private/conversations/conversation/messages_list/_link_to_previous_messages.html.erb -->
+<%= link_to "Load messages", 
+            private_messages_path(:conversation_id => conversation.id, 
+                                  :messages_to_display_offset => @messages_to_display_offset,
+                                  :is_messenger => @is_messenger),
+            class: 'load-more-messages', 
+            remote: true %>
+<!-- erbend app/views/private/conversations/conversation/messages_list/_link_to_previous_messages.html.erb -->

@@ -1,0 +1,26 @@
+<!-- erbstart app/views/notes/_note.html.erb -->
+<% @note_person = Person.where(id: note.person_id).first %>
+
+<% if User.find_by_id(note.user_id) %>
+<%= content_tag :div, class: 'media', id: "note-#{note.id}" do %>
+  <div class="media">
+    <div class="media-body">
+      <small>
+        <%= User.find_by_id(note.user_id).email %> noted on <%= link_to @note_person.name, person_path(@note_person) %> <%= time_ago_in_words(note.created_at) %> ago.
+      </small>
+      <p class="note">
+        <%= link_to person_path(@note_person), target: :_blank do %>
+          <span class="label label-primary">NOTE</span>
+        <% end %>
+        <%= note.body %>
+        <small>
+          <% if current_user.id == note.user_id %>
+            <%= link_to "Delete", note_path(note), method: :delete, data: { confirm: 'Are you sure?' } %>
+          <% end %>
+        </small>
+      </p>
+    </div>
+  </div>
+<% end %>
+<% end %>
+<!-- erbend app/views/notes/_note.html.erb -->

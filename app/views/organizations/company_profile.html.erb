@@ -1,0 +1,11 @@
+<%= 
+  react_component(
+    "pages/CompanyProfilePage/CompanyProfilePage", 
+    {
+      isEmployer: @is_employer,
+      organization: @organization,
+      jobs: @jobs,
+      logo_url: @avatar_url
+    }
+  ) 
+%>

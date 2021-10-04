@@ -1,0 +1,20 @@
+.tagTextInput{
+    background: #FFFFFF;
+    box-shadow: 0px 4px 5px rgba(0, 0, 0, 0.05) !important;
+    border-radius: 5px;
+    border: none;
+    outline-color:transparent;
+    height: 32px;
+    width: -webkit-fill-available !important;
+    height: calc(1.5em + 0.75rem + 2px);
+    padding: 0.375rem 0.75rem;
+    font-size: 1rem;
+    font-weight: 400;
+    color: #495057;
+}
+
+.pointer-block{
+    cursor: not-allowed !important;
+    box-shadow: none !important;
+    color: #98A3D9 !important
+}

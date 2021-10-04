@@ -1,0 +1,97 @@
+<!-- erbstart app/views/users/_interview-request-slide.html.erb -->
+<div class="rounded submittal-slide" style="background: rgb(196, 30, 58, 0.4); margin: 1rem; padding: 1rem;">
+  <p><em>Example Interview Request</em></p>
+  <%= panel_row column_class: 'col-sm-6', id: 'panel-row', class: :en, data: {js: 1} do %>
+    <%= panel title: 'Employer Details' do %>
+      <div class='panel-body'>
+
+        <table class="table table-hover submittal-table">
+          <thead>
+            <tr>
+              <th class="row-1"></th>
+              <th class="row-2"></th>
+            </tr>
+          </thead>
+          <tbody>
+              <tr>
+                <td>
+                  <i class="fa fa-building-o" aria-hidden="true"></i>
+                </td>
+                <td>
+                  <h5 style="text-align: left;">Request from Internet Giant</h5>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <i class="fa fa-map-o" aria-hidden="true">
+                </td>
+                <td>
+                  <p style="text-align: left;"></i>Located in <b>San Francisco</b>. Interested in <b>remote</b>, <b>permanent (full-time)</b> employee.</p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <i class="fa fa-file-code-o" aria-hidden="true">
+                </td>
+                <td>
+                  <p style="text-align: left;"></i>Must be authorized to work lawfully in the United States.</p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <i class="fa fa-briefcase" aria-hidden="true">
+                </td>
+                <td>
+                  <p style="text-align: left;"></i>Currently at <b>interview stage with one or more candidates</b>.</p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <i class="fa fa-bolt" aria-hidden="true">
+                </td>
+                <td>
+                  <p style="text-align: left;"></i>Considers <span class="label label-default">JAVA</span>, <span class="label label-default">PYTHON</span>, and <span class="label label-default">DJANGO</span> as the most desirable skill set and prefers at least <b>5 years of experience</b>.</p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <i class="fa fa-cogs" aria-hidden="true"></i>
+                </td>
+                <td>
+                  <p style="text-align: left;">Looking to hire for <b>Software Engineering</b>, <b>DevOps</b>, and <b>Recruiting/People Ops</b> positions.</p>
+                </td>
+              </tr>
+          </tbody>
+        </table>
+        <div class="" style="display: flex; flex-wrap: wrap; flex-direction: row; justify-content: space-evenly;">
+          <span class="label label-default" style="padding: 0.1rem; margin: 0.1rem;">WEBSITE</span>
+        </div>
+      </div>
+    <% end %>
+    <%= panel title: 'Current Stage' do %>
+      <div class='panel-body'>
+        <table class="table table-hover submittal-table">
+          <thead>
+            <tr>
+              <th class="row-1"></th>
+              <th class="row-2"></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>
+                <i class="fa fa-paper-plane-o" aria-hidden="true">
+              </td>
+              <td>
+                <h5 class="">Target role: Lead developer</h5>
+                <h5 class="">Requested <b>initial phone screen interview</b>.</h5>
+                <h6 class="">6 days ago</h6>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    <% end %>
+  <% end %>
+</div>
+<!-- erbend app/views/users/_interview-request-slide.html.erb -->

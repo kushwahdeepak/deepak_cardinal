@@ -1,0 +1,57 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CandidateTable component should match with a snapshot 1`] = `
+<div
+  className="row"
+>
+  <div
+    className="undefined mb-5 rounded shadow-sm mw-100"
+  >
+    <div
+      className="col"
+    >
+      <div>
+        <p>
+          Found 
+          0
+           candidates
+        </p>
+        <p>
+          Displaying 
+          0
+           candidates out of 
+          0
+           
+        </p>
+      </div>
+      <div>
+        <div
+          className="table-responsive"
+        >
+          <table
+            className="undefined table table"
+          >
+            <thead>
+              <tr>
+                <th>
+                  Candidate
+                </th>
+                <th>
+                  Rank
+                </th>
+                <th>
+                  Submitted
+                </th>
+                <th>
+                   
+                </th>
+              </tr>
+            </thead>
+            <tbody />
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;

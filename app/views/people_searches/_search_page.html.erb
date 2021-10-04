@@ -1,0 +1,34 @@
+<%@people = @people || [] %>
+
+  <%= simple_form_for(@search) do |f| %>
+
+  <%= render partial: 'show_search_bar', locals: {f: f} %>
+
+  <div class="container-fluid mt-5 p-3">
+    <div class="row">
+      <div class="col-md-3 offset-md-1 order-2 order-md-1">
+
+        <div style="border: 3px solid #eee; border-top: 1px solid #eee; box-shadow: 0 0 20px #eee;">
+            <% if not @clean_ui %>
+            <%= render partial: 'show_inputs_panel', locals: {f: f} %>
+            <% else %>
+            <%= render partial: 'show_clean_inputs', locals: {f: f} %>
+            <% end %>
+        </div>
+      </div>
+      <div class="col-md-6 offset-md-1 order-1 order-md-2">
+
+        <% if @people.length > 0 %>
+            <div style="width: 100%; text-align: right;">
+              <span style="color: #777;">found <%= @people.total_count %> candidates</span>
+            </div>
+        <% end %>
+
+        <%= render 'show_search_results' %>
+
+        <%= render 'show_paginations' %>
+
+      </div>
+    </div>
+  </div>
+<% end %>

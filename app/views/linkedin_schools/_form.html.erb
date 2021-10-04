@@ -1,0 +1,34 @@
+<!-- erbstart app/views/linkedin_schools/_form.html.erb -->
+<%= form_for(linkedin_school) do |f| %>
+  <% if linkedin_school.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(linkedin_school.errors.count, "error") %> prohibited this linkedin_school from being saved:</h2>
+
+      <ul>
+      <% linkedin_school.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+  </div>
+
+  <div class="field">
+    <%= f.label :logo_url %>
+    <%= f.text_field :logo_url %>
+  </div>
+
+  <div class="field">
+    <%= f.label :internal_logo_url %>
+    <%= f.text_field :internal_logo_url %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
+<!-- erbend app/views/linkedin_schools/_form.html.erb -->

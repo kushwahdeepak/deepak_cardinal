@@ -1,0 +1,39 @@
+<!-- erbstart app/views/task_list_items/index.html.erb -->
+<div class="space-180"></div>
+
+<nav>
+  <div id="side-bar">
+    <div class="space-40"></div>
+    
+  </div>
+</nav>
+
+
+  <div id="main-content">
+<h1>Task List Items</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @task_list_items.each do |task_list_item| %>
+      <tr>
+        <td><%= link_to 'Show', task_list_item %></td>
+        <td><%= link_to 'Edit', edit_task_list_item_path(task_list_item) %></td>
+        <td><%= link_to 'Destroy', task_list_item, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Task List Item', new_task_list_item_path %>
+
+</div>
+
+<!-- erbend app/views/task_list_items/index.html.erb -->

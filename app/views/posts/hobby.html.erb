@@ -1,0 +1,8 @@
+<!-- erbstart app/views/posts/hobby.html.erb -->
+<%= render 'posts/modal' %>
+<%= render partial: 'posts/branch', locals: { 
+    branch: 'job_type',
+    page_title: 'Find a person with the same job_type',
+    search_placeholder: 'E.g. guitar playing, programming, cooking'
+  } %>
+<!-- erbend app/views/posts/hobby.html.erb -->

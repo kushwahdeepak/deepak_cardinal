@@ -1,0 +1,280 @@
+@import '../../../../styles/var';
+@use 'sass:color';
+
+.modalBackdrop {
+    background-color: rgba(0, 0, 0, 0);
+}
+
+.modalBody {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    font-family: $default-font-family;
+    align-items: stretch;
+    color: $primary-blue;
+    font-size: 0.8rem;
+    padding: 2rem;
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.25);
+    border-radius: 25px;
+}
+
+.titleSection {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-bottom: 1rem;
+    color: $primary-blue;
+    font-family: $default-font-family;
+    font-style: normal;
+    font-weight: 800;
+    font-size: 22px;
+
+    & p {
+        margin-bottom: 0;
+    }
+
+    & span {
+        font-family: inherit;
+        font-style: normal;
+        font-weight: 500;
+        font-size: 16px;
+        line-height: 22px;
+        color: #8091ff;
+    }
+}
+
+.interviewsSection {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+
+    > * {
+        margin-bottom: 0.1rem;
+
+        &:last-child {
+            margin-bottom: 0;
+        }
+    }
+}
+
+.interviewRow {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: stretch;
+    flex-wrap: wrap;
+
+    > * {
+        margin-right: 0.7rem;
+
+        &:last-child {
+            margin-right: 0;
+        }
+    }
+}
+
+.interviewerSection {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    align-items: center;
+    margin-top: 0.5rem;
+}
+
+.closeButton {
+    background-color: $primary-blue;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    padding: 0;
+    transition: all 150ms;
+
+    &:hover {
+        background-color: $primary-blue-highlight;
+    }
+}
+
+.hoverPanel {
+    padding: 0.1rem 0;
+    border: 1px solid transparent;
+
+    &:hover {
+        box-shadow: 0 0.125rem 0.55rem rgba(0, 0, 0, 0.05);
+        border: 1px solid #efefef;
+
+        > * {
+            &:last-child {
+                visibility: visible;
+            }
+        }
+    }
+
+    > * {
+        &:last-child {
+            visibility: hidden;
+        }
+    }
+}
+
+.deleteButtonContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-right: 1rem;
+    padding-left: 1rem;
+}
+
+.deleteButton {
+    background-color: #999;
+    width: 24px;
+    height: 24px;
+    line-height: 1;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    padding: 0;
+
+    &:hover {
+        background-color: #bbb;
+    }
+}
+
+.narrowOvalButton {
+    border-radius: 15px;
+    height: 1.7rem !important;
+    line-height: 0.85 !important;
+    font-size: 0.7rem !important;
+    display: flex;
+    align-items: center;
+}
+
+.interviewerRect {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.25rem 0.5rem;
+    margin-left: 0.5rem;
+    background-color: $faded-blue-bg;
+    border: $component-border;
+    border-radius: 3px;
+
+    > button {
+        opacity: 0;
+        margin-left: 0.5rem;
+    }
+
+    &:hover {
+        > button {
+            opacity: 1;
+        }
+    }
+}
+.selectorContainer {
+    margin-top: 0.8rem;
+}
+.Checkbox {
+    display: inline;
+}
+.textareaContainer {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    margin-top: 10px;
+    background: #ebedfa;
+    border: 1px solid #4c68ff;
+    box-sizing: border-box;
+    border-radius: 2px;
+    height: 100px;
+    padding: 9px 13px;
+}
+.descriptionTextarea {
+    width: 87%;
+    border: none;
+    font-family: $default-font-family;
+    font-style: normal !important;
+    font-weight: 500 !important;
+    font-size: 12px !important;
+    line-height: 16px !important;
+    color: #9baafc !important;
+    outline: none;
+    background: #ebedfa;
+    resize: none !important;
+    &::placeholder {
+        font-style: normal !important;
+        font-weight: 500 !important;
+        font-size: 12px !important;
+        line-height: 16px !important ;
+        margin-left: 2px !important;
+        color: #9baafc !important;
+    }
+}
+
+.eventText {
+    font-style: normal;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 16px;
+    padding-top: 6px;
+    color: #4d68ff;
+    margin-right: 6px;
+}
+.emailCheackbox {
+    display: flex;
+    align-items: center;
+    align-content: center;
+}
+.textCheckbox {
+    margin-left: 9px;
+}
+
+.rowFooter {
+    display: flex;
+    flex-direction: row;
+    margin-top: 28px;
+    justify-content: flex-end;
+    margin-left: 0px;
+    margin-right: 0px;
+}
+.rowFooterBtn {
+    border-radius: 10px;
+    height: 2rem !important;
+}
+.addInterviweBtn {
+    border-radius: 0px;
+    display: flex;
+    align-items: center;
+}
+
+.dateSelectorContainer {
+    margin-bottom: 5px;
+}
+.timePickerContainer {
+    margin-bottom: 5px;
+}
+.dropdownContainer {
+    margin-bottom: 5px;
+}
+
+.emailSection {
+    margin-top: 1rem;
+}
+
+.iconContainer {
+    background: $faded-blue-bg;
+    width: 50px;
+    height: 50px;
+    min-width: 50px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

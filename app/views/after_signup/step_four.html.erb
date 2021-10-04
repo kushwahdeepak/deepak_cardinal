@@ -1,0 +1,395 @@
+<!-- erbstart app/views/after_signup/step_four.html.erb -->
+<script>
+  $(document).ready(function() {
+    function radio_like(arr) {
+      function radio_helper(id) {
+          $("#" + id).prop('checked', false);
+          $("#" + id + " + label div.btn-blue").css({"background-color": "white", "color":"#4597db"});
+      }
+      $("#" + arr[0]).on('change', function() {
+          if ($("#" + arr[0]).is(":checked"))
+          {
+              arr[1].map(radio_helper);
+          }
+      });
+    }
+    var years = ["user\\[employment_sought\\]\\[permanent\\]", "user\\[employment_sought\\]\\[remote\\]", "user\\[employment_sought\\]\\[contract\\]"];
+    var years_permutation = [];
+    for (i = 0; i < years.length; i++) {
+        var four = years.slice(0);
+        var one = four.splice(i,1);
+        years_permutation.push([one,four]);
+    }
+    years_permutation.map(radio_like);
+    var years = ["user\\[job_search_stage\\]\\[actively\\]", "user\\[job_search_stage\\]\\[inactive\\]", "user\\[job_search_stage\\]\\[passive\\]", "user\\[job_search_stage\\]\\[interview\\]"];
+    var years_permutation = [];
+    for (i = 0; i < years.length; i++) {
+        var four = years.slice(0);
+        var one = four.splice(i,1);
+        years_permutation.push([one,four]);
+    }
+    years_permutation.map(radio_like);
+    });
+</script>
+
+
+<div class="space-80"></div>
+<div class="row">
+
+  <div class="col-2 col-sm-2 col-md-2">
+      <div class="clearfix">
+        <div class="container-fluid">
+        </div>
+      </div>
+  </div>
+
+
+  <div class="col-12 col-sm-12 col-md-8">
+        <div class="clearfix">
+          <div class="container-fluid papel">
+              <div style="justify-content: left; align-items: left;">
+
+
+      <div style="width: 100%; background-color:white; margin-bottom: 15px; padding-top: 40px; margin-top: -10px;">
+
+
+            <h2 class="blue-title">More About You</h2>
+              <div class="simple-progress-container progress-round-xlarge">
+                <div class="simple-progress-bar progress-round-xlarge" style="width:80%; background-color: #cc0000; transition-property: width; transition-duration: 4s; transition-delay: 0.5s;">
+                </div>
+              </div>
+      </div>
+      <div style="padding-top:21px;">
+        <%= simple_form_for(@user, url: wizard_path, method: :put, style:"padding-top:50px") do |f| %>
+
+
+                      <div accept-charset="UTF-8" action="/numbers" class="simple_form form-horizontal" id="new_number" method="post"> </div>
+
+                    <!-- <div style="margin-top: 22px;">
+                      <span class="step-4-title">
+                        <%= @step_four_question_one %>
+                      </span>
+                    </div>
+                    <h5 class="step-4-hint"> Select one or more</h5>
+                    <div class="row step-4-row" style="padding-bottom: 12px;  border-bottom: 3px solid #e9edf1;">
+                        <div id="permanent" class="third left blue-text">
+                          <input class="checkbox" style="display: none;" id="user[employment_sought][permanent]" type="checkbox" name="user[employment_sought][permanent]" />
+                          <label for="user[employment_sought][permanent]">
+                            <div id="permanent" class="btn btn-blue left" style="font-size: 18px; padding:28px 12px; text-transform: none;">
+                           <div style="width:100%;">Permanent</div> <div style="font-size: 13px;width:100%;">Full-time</div>
+                            </div>
+                          </label>
+                        </div>
+                        <div id="contract" class="third left blue-text">
+                          <input class="checkbox" style="display: none;" id="user[employment_sought][contract]" type="checkbox" name="user[employment_sought][contract]" />
+                          <label for="user[employment_sought][contract]">
+                            <div id="contract" class="btn btn-blue" style="font-size: 18px; padding:36.5px 12px; text-transform: none; margin-left:auto;margin-right:auto; display: block;">
+                                Contract
+                            </div>
+                          </label>
+                        </div>
+                        <div id="remote" class="third right blue-text">
+                          <input class="checkbox" style="display: none;" id="user[employment_sought][remote]" type="checkbox" name="user[employment_sought][remote]" />
+                          <label for="user[employment_sought][remote]">
+                              <div id="remote" class="btn btn-blue right" style="font-size: 18px; padding:36.5px 12px; text-transform: none;">
+                                 Remote
+                              </div>
+                          </label>
+                        </div>
+                    </div> -->
+
+                    <div class="row" style="font-size: 16px;">
+                      <div style="width:100%">
+                        <span class="left step-4-title" style="padding-bottom: 30px;">
+                          <%= @step_four_question_two %>
+                        </span>
+                      </div>
+                    </div>
+
+                      <div class="row" >
+
+                          <select class="form-control select optional" style="margin-left: auto; margin-right: auto; width: -webkit-fill-available;" name="user[salary_expectations]" id="user_salary_expectations">
+                            <% @rate_options.each do |s| %>
+                                <option value="<%= s %>"><%= s %></option>
+                            <% end %>
+                          </select>
+
+                    <% unless current_user.signuprole == 'recruiter' %>
+                    <div class="step-4-title" style="margin-top: 22px; border-top: 3px solid #e9edf1; ">
+                      <div>
+                        <%= @step_four_question_three %>
+                      </div>
+
+                      <div class="step-4-hint">This information will not be shared with employers</div>
+                    </div>
+
+                    <div class="row step-4-row">
+                      <div id="actively" class="col-6 col-xs-6 col-sm-3 col-md-3 col-lg-3  left blue-text" >
+                        <input class="checkbox" style="display: none;" id="user[job_search_stage][actively]" type="checkbox" name="user[job_search_stage][actively]" />
+                        <label for="user[job_search_stage][actively]">
+                          <div id="actively" class="btn btn-blue  step-4-btn">
+                            Actively Interviewing
+                          </div>
+                        </label>
+                      </div>
+
+                      <div id="contract" class="col-6 col-xs-6 col-sm-3 col-md-3 col-lg-3  left blue-text" style="padding-bottom: 17px;">
+                        <input class="checkbox" style="display: none;" id="user[job_search_stage][passive]" type="checkbox" name="user[job_search_stage][passive]" />
+                        <label for="user[job_search_stage][passive]">
+                          <div id="passive" class="btn btn-blue step-4-btn">
+                            Passively looking for the right opportunity
+                          </div>
+                        </label>
+                      </div>
+
+                      <div id="job-search-stage" class="col-6 col-xs-6 col-sm-3 col-md-3 col-lg-3 left blue-text">
+                        <input class="checkbox" style="display: none;" id="user[job_search_stage][interview]" type="checkbox" name="user[job_search_stage][interview]" />
+                        <label for="user[job_search_stage][interview]">
+                          <div id="interview" class="btn btn-blue  step-4-btn" >
+                            Haven't interviewed yet, but ready to start
+                          </div>
+                        </label>
+                      </div>
+
+                      <div id="inactive" class="col-6 col-xs-6 col-sm-3 col-md-3 col-lg-3 left blue-text">
+                        <input class="checkbox" style="display: none;" id="user[job_search_stage][inactive]" type="checkbox" name="user[job_search_stage][inactive]" />
+                        <label for="user[job_search_stage][inactive]">
+                          <div id="inactive" class="btn btn-blue  step-4-btn">
+                            Not looking for a new role
+                          </div>
+                        </label>
+                      </div>
+                    </div>
+                    <% end %>
+
+
+                    <div class="row" style="font-size: 16px;">
+                      <div style="width:100%">
+                        <span class="left step-4-title" style="padding-bottom: 30px;">
+                          <%= @step_four_question_four %>
+                        </span>
+                      </div>
+                    </div>
+
+
+                    <div class="row linkedin linkedin-positions">
+                      <% current_user.linkedin_profile_positions.each do |linkedin_profile_position| %>
+                        <%= f.simple_fields_for linkedin_profile_position do |lpp| %>
+                          <%= render 'linkedin_profile_position_fields', f: lpp %>
+                          <div class="add-linkedin-positions">
+                            <div class="row" style="width: 100%;">
+                              <div class="half left">
+                                <%= link_to_add_association 'Add another company', f, :linkedin_profile_positions %>
+                              </div>
+                            </div>
+                          </div>
+                        <% end %>
+                      <% end %>
+                    </div>
+
+
+                    <div class="row" style="font-size: 16px;">
+                      <div style="width:100%">
+                        <span class="left step-4-title" style="padding-bottom: 30px;">
+                          <%= @step_four_question_five %>
+                        </span>
+                      </div>
+                    </div>
+
+                    <div class="row linkedin linkedin-educations">
+                      <% current_user.linkedin_profile_educations.each do |linkedin_profile_education| %>
+                        <%= f.simple_fields_for linkedin_profile_education do |lpe| %>
+                          <%= render 'linkedin_profile_education_fields', f: lpe %>
+                          <div class="add-linkedin-educations">
+                            <div class="row" style="width: 100%;">
+                              <div class="half left">
+                                <%= link_to_add_association 'Add another school', f, :linkedin_profile_educations %>
+                              </div>
+                            </div>
+                          </div>
+                        <% end %>
+                      <% end %>
+                    </div>
+
+
+                    <div class="row" style="margin-top: 40px;">
+                     <div class="left" style="width:60%;border: 2px dashed #003366;">
+         <input style="display:none;"class="box__file" type="file" name="files[]" id="file" data-multiple-caption="{count} files selected" multiple/>
+    <label for="file" class="file-style"><strong>Drag and drop your resume</strong><div> or click to select the file with the file explorer</div></label>
+                        </div>
+
+
+                          <div class="left" style="padding-left: 20px;width: 40%;">
+
+                            <div class="left" style="width: 100%;border: 1px solid black;">
+                              <div class="icon-style" style="width: 20%;float:left; border-right: 1px solid black;background-image: url('/assets/icon-dropbox.png');"></div>
+                              <div style="float:left; width: 80%; padding-left: 10px; padding-top: 5px;font-weight: 500;color: #003366; ">Dropbox</div>
+                            </div>
+
+                            <div class="left" style="width: 100%;border: 1px solid black; margin: 10px 0;">
+                              <div class="icon-style" style="width: 20%;float:left; border-right: 1px solid black;background-image: url('/assets/icon-google-drive.png');"></div>
+                              <div  style="float: left;width:80%; padding-left: 10px; padding-top: 5px; font-weight: 500; color: #003366;">Google Drive</div>
+                            </div>
+
+                            <div class="left" style="width: 100%;">
+                                <span style="border-bottom: 1px solid #4597db; color: #003366;">
+                                  <input style="display:none;"class="box__file" type="file" name="files[]" id="file" data-multiple-caption="{count} files selected" multiple/>
+                                  <label for="file" class="file-style">Having trouble? Try our simple uploader
+                                  </label>
+                                </span>
+                            </div>
+                          </div>
+
+                          </div>
+                      </div>
+                    </div>
+                    <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name),style:"padding-top:50px") do |f| %>
+
+
+                    <div class="row" style="padding-bottom: 24px; padding-top: 16px; border-top: 3px solid #e9edf1; margin-top: 50px;">
+
+
+
+                          <div style="margin-top: 5px;"> <span class="step-4-title"> Where else can we find you? </span></div>
+
+
+                    </div>
+
+                    <% if @user.linkedin_profile_url != '' && @user.linkedin_profile_url != nil %>
+                      <% link = @user.linkedin_profile_url %>
+                    <div class="row" style="color: #bcc4ce; font-weight: 500; font-size:16px;"> </div>
+
+                    <% else %>
+
+
+                    <div class="row" style="color: #bcc4ce; font-weight: 500; font-size:16px;">
+
+                      <div style="float:left; width: 100%;"><div class="icon-style" style="width: 5%;float:left;background-image: url('/assets/icon-linkedin.png');"></div>
+                      <%= f.input :linkedin_profile_url, placeholder: 'Linkedin Profile URL', label: false, autocomplete: "off", autofocus: true, class: 'form-control-3 string required right   form-margin-2', input_html: { style:"width: 90%;float: left;border-bottom: 1px solid #e9edf1; text-align: left; margin-left: 10px; margin-top: 7px;"} %>
+
+                      <!-- <input style="width: 90%;float: left;border-bottom: 1px solid #e9edf1; margin-left: 10px; margin-top: 7px;" class="form-control-3 string required right   form-margin-2" type="text" name="user[linkedin_profile_url]" id="user[linkedin_profile_url]" placeholder="Linkedin" onfocus="this.placeholder = ''"
+                    onblur="this.placeholder = 'Linkedin'"> -->
+                   </div>
+
+                    <% end %>
+
+
+
+
+
+                      <div  style="float:left; width: 100%;margin:20px 0;"><div class="icon-style" style="width: 5%;float:left;background-image: url('/assets/icon-github.png');"></div>    <input style="width: 90%;float: left;border-bottom: 1px solid #e9edf1;    margin-left: 10px;
+    margin-top: 7px;" class="form-control-3 string required right   form-margin-2" type="text" name="user[social][github]" id="user[social][github]" placeholder="Github" onfocus="this.placeholder = ''"
+                    onblur="this.placeholder = 'Github'"> </div>
+
+                      <div  style="float:left; width: 100%;"><div class="icon-style" style="width: 5%;float:left;background-image: url('/assets/icon-personal.png');"></div>    <input style="width: 90%;float: left;border-bottom: 1px solid #e9edf1;    margin-left: 10px;
+    margin-top: 7px;" class="form-control-3 string required right   form-margin-2" type="text" name="user[social][personal_site]" id="user[social][personal_site]" placeholder="Personal Site" onfocus="this.placeholder = ''"
+                    onblur="this.placeholder = 'Personal Site'"> </div>
+                    </div>
+
+                    <div class="row" style="    margin-top: 70px;
+    margin-bottom: 20px;">
+                      <div class="quarter left">
+                            <div style="float:left;width: 100%;">
+                               <!-- <%= f.submit 'Back', :class => 'btn btn-red'  %><br /> -->
+                            </div>
+                        </div>
+
+                        <div class="quarter right">
+                            <div style="float:right;width: 100%;">
+
+                                <%= f.submit 'Finish', :class => 'btn btn-red' %><br />
+
+                            </div>
+                        </div>
+                    </div>
+                    <% end %>
+                    <% end %>
+                  </div>
+                <div class="space-10"></div>
+
+          </div>
+        </div>
+    </div>
+
+    <div class="col-2 col-sm-2 col-md-2">
+        <div class="clearfix">
+          <div class="container-fluid">
+          </div>
+        </div>
+    </div>
+
+  </div>
+
+</div>
+<!-- Service Agreement-->
+<!-- <div class="row">
+
+ <div class="col-2 col-sm-2 col-md-2">
+      <div class="clearfix">
+        <div class="container-fluid">
+        </div>
+      </div>
+  </div>
+  <div class="col-12 col-sm-12 col-md-8">
+  <div style="width: 100%; background-color:white; margin-bottom: 15px; padding-top: 40px; margin-top: -10px;">
+            <h2 class="blue-title">Service Agreement</h2>
+              <div class="simple-progress-container progress-round-xlarge">
+                <div class="simple-progress-bar progress-round-xlarge" style="width:99%; background-color: #cc0000; transition-property: width; transition-duration: 4s; transition-delay: 0.5s;">
+                </div>
+              </div>
+      </div>
+  <p style="padding: 20px 0 15px 0; font-weight: 400;">
+    Please review and sign the following contract agreement.
+  </p>
+    <div style="width: 100%;
+    height: 500px;
+    border: 1px solid #e9edf1;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    overflow-x: hidden;">
+      <p style="padding: 15px 20px;
+    color: grey;
+    line-height: 18px; margin-bottom: 20px;">
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi congue nisl eros, at tristique turpis ullamcorper eu. Nunc leo ipsum, fringilla ac scelerisque ut, tempus maximus ex. Nam efficitur nibh non mi aliquam mollis. Donec sit amet augue porttitor, dictum risus sed, tristique lacus. In at libero non enim pellentesque aliquet ut ac lacus. Cras eu neque quam. Nunc ultrices vitae nulla ac cursus. Maecenas eget lectus finibus nunc scelerisque viverra. Vivamus vel placerat massa. Aliquam pharetra suscipit nibh, sed euismod odio bibendum ac. Nunc tristique congue porta. Proin vitae eleifend lacus, vitae pellentesque massa. Cras mattis turpis sem, in venenatis est porta ut. Duis bibendum pretium sodales. Morbi nisl ante, varius ut elementum quis, auctor ac est. <br/>
+
+Proin fringilla odio orci, a maximus lectus dictum id. Phasellus eleifend augue velit. Maecenas fermentum enim arcu, non pharetra tellus facilisis ut. Proin quam metus, imperdiet ut convallis in, elementum eu justo. Proin porta interdum dolor vitae sollicitudin. Cras id tempor arcu, sed imperdiet nibh. Nullam posuere consectetur gravida.
+<br/>
+Ut sed enim a nisl euismod euismod sed nec elit. Vestibulum posuere placerat ligula id molestie. Aliquam porttitor erat sapien, eget rhoncus leo imperdiet sit amet. Sed quis tincidunt tortor. Morbi quis neque arcu. Nam gravida tellus ut faucibus tempor. Cras a odio malesuada, luctus massa quis, eleifend elit.
+<br/>
+Aenean quis congue augue, vitae sagittis ligula. Pellentesque id condimentum risus. Aliquam erat volutpat. Maecenas placerat risus mauris, non suscipit lacus porta vel. Curabitur tempus enim et vestibulum scelerisque. Nullam quis lacinia erat, eu tincidunt nisl. Curabitur mauris sapien, fermentum vel rhoncus ac, imperdiet ac mi. Quisque sed egestas mauris, et auctor justo. Donec dictum congue felis eu porta. Aenean accumsan dui sit amet lectus posuere vehicula. Aliquam vel fringilla tellus. Morbi facilisis elit lorem, eget imperdiet ex efficitur ac. Etiam lacus felis, pretium tristique tincidunt et, fermentum vel justo. Nam quis porttitor felis.
+<br/>
+Morbi sed vehicula felis. Nulla ac vestibulum odio. Nunc eleifend leo vel est tempor rhoncus. Donec quis tellus nec nisi vehicula blandit. Phasellus malesuada arcu ut eros feugiat cursus. Nunc elementum mauris non luctus ultrices. Fusce et suscipit felis. Nam aliquam interdum augue, ac fermentum nulla vestibulum quis. Duis porta sapien ac arcu ultricies luctus. Ut porttitor felis non urna tincidunt, sit amet consectetur nunc varius. Etiam mauris felis, mollis quis accumsan sed, gravida in tortor. Aliquam a facilisis eros. Etiam porta sit amet nulla ultrices dignissim.
+      </p>
+    </div>
+
+    <p style="font-weight: 400; padding: 15px 0;">
+
+      Please sign below to aknowledge and accept terms of service.
+
+    </p>
+    <%= simple_form_for(@user, url: wizard_path, method: :put) do |f| %>
+    <div class="clearfix" style="width: 100%;">
+      <input type="text"  class="input-box-shadow" placeholder="Full Name" style="width: 75%; float: left;">
+      <input type="text" class="input-box-shadow" placeholder="12/12/2018" style="width: 20%; float: right;">
+    </div>
+
+
+    <div class="row" style="    margin-top: 40px;
+    margin-bottom: 40px;">
+                      <div class="quarter left">
+                            <div style="float:left;width: 100%;">
+                               <%= f.submit 'Back', :class => 'btn btn-red'  %><br />
+                            </div>
+                        </div>
+
+                        <div class="quarter right">
+                            <div style="float:right;width: 100%;">
+                                <%= f.submit 'Submit', :class => 'btn btn-red' %><br />
+                            </div>
+                        </div>
+                    </div>
+                  <% end %>
+   </div>
+
+</div> -->
+<!-- erbend app/views/after_signup/step_four.html.erb -->

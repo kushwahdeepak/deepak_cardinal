@@ -1,0 +1,67 @@
+<!-- erbstart app/views/application/_small_conversations_template.html.erb -->
+
+
+<div class="tab-content">
+  <div class="submittal-stage">
+
+    <!-- Nav tabs -->
+    <ul class="nav nav-tabs" role="tablist" style="margin-bottom: 0; bottom: 0;">
+      <li role="presentation" class="active"><a href="#accepted-candidates" aria-controls="accepted-candidates" role="tab" data-toggle="tab">Interviews</a></li>
+    </ul>
+
+    <!-- Tab panes -->
+    <div role="tabpanel" class="tab-pane" id="accepted-candidates">
+      <div class="tab-pane" id="accepted-candidates">
+        <h3>
+        <small class="text-muted">
+          <% unless @candidate_interviews == nil %>
+          <% if @candidate_interviews.any? %>
+            <%= pluralize(@candidate_interviews.count, 'candidate') %>
+          <% else %>
+            <%= 'No upcoming interviews' %>
+          <% end %>
+          <% end %>
+        </small>
+        </h3>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="tab-content" style="margin-top: 0; top: 0;">
+  <div class="submittal-stage">
+
+    <!-- Nav tabs -->
+    <ul class="nav nav-tabs" role="tablist" style="margin-bottom: 0; bottom: 0;">
+      <li role="presentation" class="active"><a href="#conversations" aria-controls="conversations" role="tab" data-toggle="tab">Conversations</a></li>
+    </ul>
+
+    <!-- Tab panes -->
+    <div role="tabpanel" class="tab-pane" id="conversations">
+      <div class="tab-pane" id="conversations">
+        <h3>
+        <small class="text-muted">
+          <% unless @latest_conversations == nil %>
+          <% if @latest_conversations.any? %>
+            <%= render 'conversations/latest_conversations' %>
+          <% else %>
+            <%= 'No recent conversations.' %>
+
+            <div class="row">
+              <div class="col-12 col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                <ul class="nav nav-pills nav-stacked">
+                  <li><%= link_to 'Inbox', conversations_path(box: 'inbox') %></li>
+                  <li><%= link_to 'Sent', conversations_path(box: 'sent') %></li>
+                  <li><%= link_to 'Trash', conversations_path(box: 'trash') %></li>
+                </ul>
+              </div>
+            </div>
+          <% end %>
+          <% end %>
+        </small>
+        </h3>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- erbend app/views/application/_small_conversations_template.html.erb -->

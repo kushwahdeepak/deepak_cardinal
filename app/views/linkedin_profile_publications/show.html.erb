@@ -1,0 +1,31 @@
+<!-- erbstart app/views/linkedin_profile_publications/show.html.erb -->
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Linkedin profile:</strong>
+  <%= @linkedin_profile_publication.linkedin_profile_id %>
+</p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @linkedin_profile_publication.title %>
+</p>
+
+<p>
+  <strong>Date:</strong>
+  <%= @linkedin_profile_publication.date %>
+</p>
+
+<p>
+  <strong>Date year:</strong>
+  <%= @linkedin_profile_publication.date_year %>
+</p>
+
+<p>
+  <strong>Date month:</strong>
+  <%= @linkedin_profile_publication.date_month %>
+</p>
+
+<%= link_to 'Edit', edit_linkedin_profile_publication_path(@linkedin_profile_publication) %> |
+<%= link_to 'Back', linkedin_profile_publications_path %>
+<!-- erbend app/views/linkedin_profile_publications/show.html.erb -->

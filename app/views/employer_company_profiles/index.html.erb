@@ -1,0 +1,27 @@
+<!-- erbstart app/views/employer_company_profiles/index.html.erb -->
+<p id="notice"><%= notice %></p>
+
+<h1>Employer Company Profiles</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @employer_company_profiles.each do |employer_company_profile| %>
+      <tr>
+        <td><%= link_to 'Show', employer_company_profile %></td>
+        <td><%= link_to 'Edit', edit_employer_company_profile_path(employer_company_profile) %></td>
+        <td><%= link_to 'Destroy', employer_company_profile, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Employer Company Profile', new_employer_company_profile_path %>
+<!-- erbend app/views/employer_company_profiles/index.html.erb -->

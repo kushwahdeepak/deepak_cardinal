@@ -1,0 +1,44 @@
+<!-- erbstart app/views/interviews/build/add_name.html.erb -->
+
+  <div class="row">
+
+  <div class="col-2 col-sm-2 col-md-2">
+      <div class="clearfix">
+        <div class="container-fluid">
+        </div>
+      </div>
+  </div>
+
+  <div class="col-8 col-sm-8 col-md-8">
+        <div class="papel-right clearfix">
+          <div class="container-fluid">
+            <div class="container-fluid">
+              <div class="row align-items-center">
+              <div class="col col-xs-12 col-sm-12 col-md-12 col-lg-12 align-self-center">
+                
+                  <h2>Getting Started</h2>
+                  <h3>Thanks for signing up!</h3>
+                  <h4>While we get your account setup, we will ask you background questions about yourself and your goals.</h4>
+                  <br />
+                  <%= simple_form_for(current_user, :url => wizard_path, :method => :put) do |f| %>
+                    <%= f.input :signuprole, label: "Which type of account do you want to setup on CardinalTalent?", as: :radio_buttons, collection: [['talent', 'Job Seeker'], ['employer', 'Employer'], ['recruiter', 'Recruiter']], label_method: :second, value_method: :first, selected: current_user.signuprole %>
+                    <br />
+                    <%= f.submit 'Next', :class => 'btn btn-primary' %><br />
+                  <% end %>
+                
+              </div>
+            </div>
+          </div>
+        </div>
+    </div>
+  </div>
+
+  <div class="col-2 col-sm-2 col-md-2">
+      <div class="clearfix">
+        <div class="container-fluid">
+        </div>
+      </div>
+  </div>
+
+
+<!-- erbend app/views/interviews/build/add_name.html.erb -->

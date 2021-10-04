@@ -1,0 +1,10 @@
+<!-- erbstart app/views/users/_member_dashboard.html.erb -->
+<% if session[:alerted] == true %>
+  <%= render :partial => 'layouts/alert_box_dismissable' %>
+  <div style="padding-bottom: 10px;"></div>
+<% end %>
+
+<% if session[:modal] == true %>
+  <div id="my_modal_content"></div>
+<% end %>
+<!-- erbend app/views/users/_member_dashboard.html.erb -->

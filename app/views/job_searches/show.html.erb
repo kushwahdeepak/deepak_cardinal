@@ -1,0 +1,14 @@
+<!-- erbstart app/views/job_searches/show.html.erb -->
+
+<%# This is how to schow a score for a job %>
+<%#= @jobs[0][:score] %>
+
+<%= react_component("pages/JobIndexPage/JobIndexPage", {
+  jobs: @jobs,
+  jobSearch: @job_search,
+  currentUser: user_signed_in?,
+  jobsTotalCount: @total_entries
+}) %>
+
+  <!-- erbend app/views/job_searches/show.html.erb -->
+</div>

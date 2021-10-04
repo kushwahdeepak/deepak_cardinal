@@ -1,0 +1,18 @@
+<!-- erbstart app/views/daily_recruiter_mailer/reminder_email.html.erb -->
+<div class="navbar-header" style="align: center;">
+    <a class="navbar-brand" href="http://www.cardinalhire.com">
+        <img src="<%= image_path("Asset 1@0.5x.png") %>" alt="" class="logo-scroll">
+    </a>
+</div>
+
+<p>Hi <%= @user.first_name %>,</p>
+<p>Just a quick reminder: CardinalTalent has not received any updates from you in the past 24 hours. Please be sure to submit a log of your work, including candidate calls and submissions, using the following link:</p>
+<p><a href="<%= user_url(@user) %>">Your account</a></p>
+<% if @user.managed_accounts.count > 0 %>
+<p>Additionally, as you are the account manager for:</p>
+<% for m in @user.managed_accounts do %>
+<p>m.client_name</p>
+<% end %>
+<p>Please be sure to submit client updates for the client accounts that you manage in a timely manner.</p>
+<% end %>
+<!-- erbend app/views/daily_recruiter_mailer/reminder_email.html.erb -->

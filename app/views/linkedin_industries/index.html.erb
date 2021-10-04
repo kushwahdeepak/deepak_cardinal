@@ -1,0 +1,31 @@
+<!-- erbstart app/views/linkedin_industries/index.html.erb -->
+<p id="notice"><%= notice %></p>
+
+<h1>Linkedin Industries</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Group</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @linkedin_industries.each do |linkedin_industry| %>
+      <tr>
+        <td><%= linkedin_industry.name %></td>
+        <td><%= linkedin_industry.group %></td>
+        <td><%= link_to 'Show', linkedin_industry %></td>
+        <td><%= link_to 'Edit', edit_linkedin_industry_path(linkedin_industry) %></td>
+        <td><%= link_to 'Destroy', linkedin_industry, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Linkedin Industry', new_linkedin_industry_path %>
+<!-- erbend app/views/linkedin_industries/index.html.erb -->

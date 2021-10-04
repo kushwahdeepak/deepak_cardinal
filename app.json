@@ -1,0 +1,101 @@
+{
+  "name": "shielded-reaches",
+  "environments": {
+    "test": {
+      "scripts": {
+        "test-setup": "gem install rubocop",
+        "test": "rubocop ."
+      },
+      "addons":[
+        "heroku-redis:in-dyno",
+        "heroku-postgresql:in-dyno",
+        "websolr:in-dyno"
+      ]
+    },
+    "ADMINIUM_URL": {
+      "required": true
+    },
+    "AWS_ACCESS_KEY_ID": {
+      "required": true
+    },
+    "AWS_HOST_NAME": {
+      "required": true
+    },
+    "AWS_REGION": {
+      "required": true
+    },
+    "AWS_SECRET_ACCESS_KEY": {
+      "required": true
+    },
+    "DATABASE_URL": {
+      "required": true
+    },
+    "DB_PASS": {
+      "required": true
+    },
+    "DB_USERNAME": {
+      "required": true
+    },
+    "DEVISE_MAILER_SENDER": {
+      "required": true
+    },
+    "DEVISE_SECRET_KEY": {
+      "required": true
+    },
+    "GA_KEY_CLIENT_ID": {
+      "required": true
+    },
+    "PAPERCLIP_HASH_SECRET": {
+      "required": true
+    },
+    "RAILS_SERVE_STATIC_FILES": {
+      "required": true
+    },
+    "REDIS_URL": {
+      "required": true
+    },
+    "S3_BUCKET_NAME": {
+      "required": true
+    },
+    "S3_HOST_NAME": {
+      "required": true
+    },
+    "S3_PATH_NAME": {
+      "required": true
+    },
+    "S3_URL_PATH": {
+      "required": true
+    },
+    "SECRET_KEY_BASE": {
+      "required": true
+    },
+    "WEBSOLR_URL": {
+      "required": true
+    },
+    "LANG": {
+      "required": true
+    },
+    "RACK_ENV": {
+      "required": true
+    },
+    "RAILS_ENV": {
+      "required": true
+    },
+    "RAILS_LOG_TO_STDOUT": {
+      "required": true
+    },
+    "RAILS_SERVE_STATIC_FILES": {
+      "required": true
+    },
+    "SECRET_KEY_BASE": {
+      "required": true
+    }
+  },
+  "buildpacks": [{
+      "url": "heroku/ruby"
+    },
+    {
+      "url": "heroku/nodejs"
+    }
+  ]
+}

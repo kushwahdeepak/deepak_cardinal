@@ -1,0 +1,29 @@
+<!-- erbstart app/views/accounts/show.html.erb -->
+
+<nav>
+  <div id="side-bar">
+    <div class="space-40"></div>
+    
+  </div>
+</nav>
+
+
+  <div class="space-90"></div>
+  <div id="main-content">
+
+    <p>
+      <strong>Name:</strong>
+      <%= @account.name %>
+    </p>
+
+    <p>
+      <strong>Status:</strong>
+      <%= @account.statusid %>
+    </p>
+
+    <%= link_to 'Edit', edit_account_path(@account) %> |
+    <%= link_to 'Back', accounts_path %>
+
+</div>
+
+<!-- erbend app/views/accounts/show.html.erb -->

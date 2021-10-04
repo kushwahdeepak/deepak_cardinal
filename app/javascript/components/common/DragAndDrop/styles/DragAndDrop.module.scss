@@ -1,0 +1,96 @@
+@import '../../../../styles/var';
+
+.dropContainer {
+    display: inline-block;
+    position: relative;
+    width: 100%;
+}
+
+.dropArea {
+    border: dashed grey 4px;
+    background-color: rgba(255, 255, 255, 0.6);
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 9999;
+    pointer-events: none;
+}
+
+.dropText {
+    position: absolute;
+    top: 50%;
+    right: 0;
+    left: 0;
+    text-align: center;
+    color: grey;
+    font-size: 36px;
+    pointer-events: none;
+}
+
+.dropFiles {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 5px;
+}
+
+.uploadResumeContainer {
+    background: #ebedfa;
+    border: 1px solid #4c68ff;
+    box-sizing: border-box;
+    border-radius: 5px;
+    padding: 22px 40px;
+}
+
+.title {
+    font-family: $default-font-family;
+    font-style: normal;
+    font-weight: 900;
+    font-size: 30px;
+    line-height: 41px;
+    color: #4c68ff;
+}
+
+.subTitle {
+    font-family: $default-font-family;
+    font-style: normal;
+    font-weight: 800;
+    font-size: 30px;
+    line-height: 41px;
+    color: #4c68ff;
+    margin-bottom: 3px;
+}
+
+.orText {
+    font-family: $default-font-family;
+    font-style: normal;
+    font-weight: 800;
+    font-size: 15px;
+    line-height: 20px;
+    text-align: center;
+    color: #4c68ff;
+    margin-bottom: 5px;
+}
+
+.button {
+    background: #ffffff;
+    border: 2px solid #4c68ff;
+    box-sizing: border-box;
+    border-radius: 5px;
+    padding: 8px 35px;
+    font-family: $default-font-family;
+    font-style: normal;
+    font-weight: 800;
+    font-size: 14px;
+    line-height: 19px;
+    text-align: center;
+    color: #4c68ff;
+}
+
+.importJob{
+    padding: 0px 28rem;
+    height: 73px;
+    margin: -80px 2px 7px -2px;
+}
+

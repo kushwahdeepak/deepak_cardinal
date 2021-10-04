@@ -1,0 +1,7 @@
+<!-- erbstart app/views/layouts/application/_private_conversations_windows.html.erb -->
+<% private_conversations_windows.each do |conversation| %>
+  <%= render partial: "private/conversations/conversation",
+             locals: { conversation: conversation, 
+                       user: current_user } %>
+<% end %>
+<!-- erbend app/views/layouts/application/_private_conversations_windows.html.erb -->

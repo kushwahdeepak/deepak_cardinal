@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>CardinalTalent.ai</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+      body {
+        font-family: Arial, Helvetica, sans-serif;
+        margin: 0;
+      }
+      .header {
+        position: absolute;
+        width: 600px;
+        height: 100px;
+        top: 0px;
+        margin-left: 10%;
+        background: linear-gradient(90.72deg, #DCE6FF -1.05%, #E1DFFE 50.61%, #B5C9FF 104.46%);
+      }
+      h1 {
+        position: absolute;
+        width: 73.46px;
+        height: 54.02px;
+        top: 23px;
+        margin-left: 10%;
+        font-family: Avenir;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 19.4463px;
+        line-height: 27px;
+        color: #000000;
+      }
+      /* Footer */
+      .footer {
+        position: absolute;
+        width: 600px;
+        height: 100px;
+        margin-left: 10%;
+        top: 300px;
+        background: linear-gradient(90.72deg, #DCE6FF -1.05%, #E1DFFE 50.61%, #B5C9FF 104.46%);
+      }
+      /* Section */
+      .section {
+        position: absolute;
+        width: 600px;
+        height: 328px;
+        top: 100px;
+        margin-left: 10%;
+        background: #FFFFFF;
+      }
+      .mailbody{
+        position: absolute;
+        width: 500px;
+        height: 228px;
+        top: 50px;
+        margin-left: 10%;
+        font-family: Avenir;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 14px;
+        line-height: 19px;
+        color: #000000;}
+        .sub-footer{
+        position: absolute;
+        width: 600px;
+        height: 100px;
+        top: 400px;
+        margin-left: 10%;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="header">
+      <div style= 'margin: 23px;'>
+        <img src="https://marketplace-ch.s3.amazonaws.com/header-logo.png", style='margin: 20px;'>
+      </div>
+    </div>
+    <div class="section">
+      <div class="mailbody">
+        <p>
+          Hi <%= @referral.invitee_name %>!
+        </p>
+        <p>
+        <%= @user.name %> invited you to apply to the job <%= @job.name %>! <br>
+
+        For Apply,Please Visit <%= link_to "Apply", @url %>.<br>
+
+          Cheers,<br>
+          Olivia
+        </p>
+      </div>
+    </div>
+    <div class="footer" style="padding-top: 10px; padding-bottom: 10px;">
+      <p style="top: 455px;
+        font-family: Avenir;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 14px;
+        margin-left: 10%;
+        color: #000000;">Need assistance? Let us know how we can help.
+      </p>
+      <p style="top: 484px;
+        font-family: Avenir;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 12px;
+        line-height: 16px;
+        margin-left: 10%;
+        color: #000000;">Email us at <a href="#">contact@cardinaltalent.ai</a> for assistance regarding any questions or concerns.
+      <p>
+    </div>
+    <div class="sub-footer">
+      <h2 style="font-size: 20px;line-height: 27px;color: #595B70;">CardinalTalent.ai</h2>
+      <p style="font-size: 12px;line-height: 16px;color: #595B70;">If you would like to pause all future email notifications,   please <a href="#">unsubscribe here.</a><br>
+      To manage your email preferences, visit your account settings page to manage notifications.</p>
+    </div>
+  </body>
+</html>
+

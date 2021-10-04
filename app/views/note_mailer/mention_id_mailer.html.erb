@@ -1,0 +1,17 @@
+<!-- erbstart app/views/note_mailer/mention_id_mailer.html.erb -->
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <p>
+      This is an automated message.</p>
+    <p>
+      <h4>Notes: </h4>
+      <% note = @user_notes.gsub('@[','<b>@').gsub(']','</b>') %>
+      <%= note.html_safe %>
+    </p>
+  </body>
+</html>
+<!-- erbstart app/views/note_mailer/mention_id_mailer.html.erb -->

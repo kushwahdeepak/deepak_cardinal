@@ -1,0 +1,22 @@
+<!-- erbstart app/views/messages/_form.html.erb -->
+<%= simple_form_for(Message.new, html: {class: 'form-horizontal' }) do |f| %>
+<div class="bulk-maincontent" id="bulk-maincontent">
+  <div class="bulk-title clearfix">
+    <div style="float: left;">
+      New Message
+    </div>
+    <div id="email-close-btn" style="float: right;margin-right: 10px;"> X</div>
+  </div>
+  <div class="row clearfix" style="display: flex;">
+    <%= f.error_notification %>
+    <p style="float:left; padding: 10px; margin: 0;background-color: #fefefe">To:</p>
+    <input type="email" class="receivers fix-form-align" placeholder="bob@cardinalhire.com" style="float:left; border: none; border-left: 1px solid #eee;">
+  </div>
+  <input type="text" class="subject fix-form-align" placeholder="Subject" style="border-bottom: none;">
+  <input type="textarea" class="email-content fix-form-align" style="border: 1px solid #eee;">
+  <div class="clearfix">
+      <%= f.button :submit, type: 'submit', class: 'fix-form-align' %>
+  </div>
+</div>
+<% end %>
+<!-- erbend app/views/messages/_form.html.erb -->

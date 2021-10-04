@@ -1,0 +1,34 @@
+<!-- erbstart app/views/conversations/_conversation.html.erb -->
+
+<!-- individual conversations TODO put name here -->
+<li class="list-group-item clearfix">
+  <%= link_to conversation.subject, conversation_path(conversation) %>
+  <p> Chatting with
+    <% conversation.participants.each do |participant| %>
+      <% if participant.is_a? Person %>
+        <% person_id = participant.id %>
+        <%= link_to person_path(participant) do %>
+          <%= participant.first_name + ' ' + participant.last_name %>
+        <% end %>
+      <% end %>
+    <% end %>
+  </p>
+
+  <div class="btn-group-vertical pull-right">
+    <% if conversation.is_trashed?(current_user) %>
+      <%= link_to 'Restore', conversation_restore_path(conversation), class: 'btn btn-xs btn-info', method: :post %>
+    <% else %>
+      <%= link_to 'Move to trash', conversation_path(conversation), class: 'btn btn-xs btn-danger', method: :delete,
+                  data: {confirm: 'Are you sure?'} %>
+
+      <% if conversation.is_unread?(current_user) %>
+        <%= link_to 'Mark as read', conversation_mark_as_read_path(conversation),
+                    class: 'btn btn-xs btn-info', method: :post %>
+      <% end %>
+    <% end %>
+  </div>
+
+  <p><%= conversation.last_message.body %>
+    <small>(<span class="text-muted"><%= conversation.last_message.created_at.strftime("%-d %B %Y, %H:%M:%S") %></span>)</small></p>
+</li>
+<!-- erbend app/views/conversations/_conversation.html.erb -->

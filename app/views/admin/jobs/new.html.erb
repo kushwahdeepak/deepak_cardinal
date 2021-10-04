@@ -1,0 +1,13 @@
+<%= react_component("pages/Admin/Jobs/JobsCreate",
+  {
+    job: @job,
+    organization: @organization,
+    industry: @industry,
+    url: '/admin/jobs',
+    method: 'post',
+    messages: 'Job created successfully'
+  },
+  {
+    :style => "height: 100%; "
+  }
+) %>

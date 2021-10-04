@@ -1,0 +1,7 @@
+<!-- erbstart app/views/group/messages/message/_different_user_content.html.erb -->
+<span class="message-author"><%= user.name %></span>
+<span class="message-time"><%= message.created_at.to_s(:time) %></span>
+<p class="message-content">
+  <%= message.content %>
+</p>
+<!-- erbend app/views/group/messages/message/_different_user_content.html.erb -->

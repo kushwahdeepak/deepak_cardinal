@@ -1,0 +1,8 @@
+
+
+<%= form_with(url: "/incoming_mails", method: "post", multipart: true) do %>
+  attachemnt:<%= file_field_tag 'attachments[0]' %>
+  html:<%= text_field_tag(:html) %>
+  plain:<%= text_field_tag(:plain) %>
+  <%= submit_tag("sub") %>
+<% end %>

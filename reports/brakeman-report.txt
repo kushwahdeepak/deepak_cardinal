@@ -1,0 +1,91 @@
+
+== Brakeman Report ==
+
+Rails Version: 5.2.4.4
+Brakeman Version: 4.10.0
+Scan Date: 2020-12-28 20:16:50 -0500
+Duration: 11.865038 seconds
+Checks Run: BasicAuth, BasicAuthTimingAttack, CSRFTokenForgeryCVE, ContentTag, CookieSerialization, CreateWith, CrossSiteScripting, DefaultRoutes, Deserialize, DetailedExceptions, DigestDoS, DynamicFinders, EscapeFunction, Evaluation, Execute, FileAccess, FileDisclosure, FilterSkipping, ForgerySetting, HeaderDoS, I18nXSS, JRubyXML, JSONEncoding, JSONEntityEscape, JSONParsing, LinkTo, LinkToHref, MailTo, MassAssignment, MimeTypeDoS, ModelAttrAccessible, ModelAttributes, ModelSerialize, NestedAttributes, NestedAttributesBypass, NumberToCurrency, PageCachingCVE, PermitAttributes, QuoteTableName, Redirect, RegexDoS, Render, RenderDoS, RenderInline, ResponseSplitting, RouteDoS, SQL, SQLCVEs, SSLVerify, SafeBufferManipulation, SanitizeMethods, SelectTag, SelectVulnerability, Send, SendFile, SessionManipulation, SessionSettings, SimpleFormat, SingleQuotes, SkipBeforeFilter, SprocketsPathTraversal, StripTags, SymbolDoSCVE, TemplateInjection, TranslateBug, UnsafeReflection, ValidationRegex, WithoutProtection, XMLDoS, YAMLParsing
+
+== Overview ==
+
+Controllers: 30
+Models: 122
+Templates: 611
+Errors: 11
+Security Warnings: 8
+
+== Warning Types ==
+
+Cross-Site Scripting: 4
+Dangerous Send: 1
+Dynamic Render Path: 1
+Mass Assignment: 1
+SQL Injection: 1
+
+== Warnings ==
+
+Confidence: High
+Category: Cross-Site Scripting
+Check: CrossSiteScripting
+Message: Unescaped model attribute
+Code: IncomingMail.find(params[:id]).plain.gsub("\n", "<br>")
+File: app/views/incoming_mails/show.html.erb
+Line: 3
+
+Confidence: High
+Category: Cross-Site Scripting
+Check: CrossSiteScripting
+Message: Unescaped model attribute
+Code: IncomingMail.find(params[:id]).resume_text.gsub("\n", "<br>")
+File: app/views/incoming_mails/show.html.erb
+Line: 13
+
+Confidence: High
+Category: Dangerous Send
+Check: Send
+Message: User controlled method execution
+Code: send("#{params[:action]}_posts_path", :category => category.name)
+File: app/views/posts/branch/_categories.html.erb
+Line: 10
+
+Confidence: Medium
+Category: Mass Assignment
+Check: PermitAttributes
+Message: Potentially dangerous key allowed for mass assignment
+Code: params.require(:user).permit(:role)
+File: app/controllers/welcome_controller.rb
+Line: 27
+
+Confidence: Medium
+Category: SQL Injection
+Check: SQL
+Message: Possible SQL injection
+Code: Submission.find_by_sql("select * from submissions where person_id=#{person_id} and job_id=#{job_id} order by created_at")
+File: app/models/submission.rb
+Line: 43
+
+Confidence: Weak
+Category: Cross-Site Scripting
+Check: LinkToHref
+Message: Potentially unsafe model attribute in `link_to` href
+Code: link_to(Person.find(candidate.followable_id).linkedin_profile_url, :target => :_blank)
+File: app/views/people/_person_result_notes_tab.html.erb
+Line: 10
+
+Confidence: Weak
+Category: Cross-Site Scripting
+Check: LinkToHref
+Message: Potentially unsafe model attribute in `link_to` href
+Code: link_to(Person.find(candidate.followable_id).linkedin_profile_url, :target => :_blank)
+File: app/views/people/_prerson_result_single_result.html.erb
+Line: 95
+
+Confidence: Weak
+Category: Dynamic Render Path
+Check: Render
+Message: Render path contains parameter value
+Code: render(action => Search.where(:user_id => (current_user or User.new).id).paginate(:page => params[:page], :per_page => 5), {})
+File: app/views/users/searched_candidates.html.erb
+Line: 40
+

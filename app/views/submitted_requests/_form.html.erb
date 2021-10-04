@@ -1,0 +1,16 @@
+<!-- erbstart app/views/submitted_requests/_form.html.erb -->
+<%= simple_form_for(@submitted_request, html: {class: 'form-horizontal' }) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.input :belongs_to %>
+    <%= f.input :belongs_to %>
+    <%= f.input :belongs_to %>
+    <%= f.input :belongs_to %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>
+<!-- erbend app/views/submitted_requests/_form.html.erb -->

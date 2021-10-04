@@ -1,0 +1,19 @@
+<!-- erbstart app/views/phone_interviews/_form.html.erb -->
+<%= form_for(phone_interview) do |f| %>
+  <% if phone_interview.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(phone_interview.errors.count, "error") %> prohibited this phone_interview from being saved:</h2>
+
+      <ul>
+      <% phone_interview.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
+<!-- erbend app/views/phone_interviews/_form.html.erb -->

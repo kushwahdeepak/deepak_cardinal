@@ -1,0 +1,197 @@
+@import '../../../../styles/var';
+
+.resetStyles {
+    p {
+        margin-bottom: 0;
+    }
+}
+
+.backButton {
+    background: #314ce0;
+    border-radius: 20px;
+    font-family: $default-font-family;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 22px;
+    color: #ffffff;
+    margin-bottom: 29px;
+    margin-top: 86px;
+    padding: 9px 28px;
+}
+
+.card {
+    background: #ffffff;
+    box-shadow: 0px 4px 25px rgba(0, 0, 0, 0.25);
+    border-radius: 50px;
+    padding-left: 97px;
+    padding-right: 81px;
+    padding-top: 94px;
+    padding-bottom: 110px;
+    font-family: $default-font-family;
+    font-style: normal;
+    font-weight: 500;
+    color: #333030;
+    margin-bottom: 233px;
+}
+
+.applyButton {
+    border-radius: 30px;
+    font-size: 18px;
+    line-height: 25px;
+    color: #ffffff;
+    padding: 7px 25px;
+}
+
+.jobTitle {
+    margin-top: 63px;
+    font-family: $default-font-family;
+    font-style: normal;
+    font-weight: 800;
+    font-size: 26px;
+    line-height: 36px;
+    color: #314ce0;
+}
+
+.jobLocation {
+    font-family: $default-font-family;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 20px;
+    line-height: 27px;
+    color: #22359e;
+}
+
+.leftIndent {
+    margin-left: 54px;
+}
+
+.leftSubIndent {
+    margin-left: 45px;
+}
+
+.text {
+    font-size: 18px;
+    line-height: 25px;
+    color: #333030;
+}
+
+.jobInfo {
+    margin-top: 42px;
+
+    div {
+        margin-bottom: 19px;
+    }
+}
+
+.aboutCompanyTitle {
+    font-family: $default-font-family;
+    font-style: normal;
+    font-weight: 800;
+    font-size: 16px;
+    line-height: 22px;
+    color: #7074c9;
+    margin-bottom: 8px;
+}
+
+.aboutCompanyText {
+    font-family: $default-font-family;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 19px;
+    color: #303c7e;
+    margin-top: 5px;
+}
+
+.companyName {
+    font-size: 1.5rem;
+}
+
+.companyImage {
+    margin: 0px auto 10px auto;
+    max-width: 18rem !important;
+}
+
+@media (max-width: 767px) {
+    .backButton {
+        background: #ab2537;
+        border-radius: 2px;
+        font-family: $default-font-family;
+        font-style: normal;
+        font-weight: 500;
+        font-size: 15px;
+        line-height: 17px;
+        color: #ffffff;
+        margin-bottom: 29px;
+        margin-top: 86px;
+        padding: 10px 15px;
+    }
+
+    .card {
+        background: #ffffff;
+        box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.25);
+        border-radius: 3px;
+        padding-left: 48px;
+        padding-right: 40px;
+        padding-top: 47px;
+        padding-bottom: 55px;
+        font-family: $default-font-family;
+        font-style: normal;
+        font-weight: 500;
+        color: #333030;
+        margin-bottom: 116px;
+    }
+
+    .applyButton {
+        background: #213081;
+        border-radius: 3px;
+        font-size: 15px;
+        line-height: 17px;
+        color: #ffffff;
+        padding: 10px 15px;
+        width: 100%;
+    }
+
+    .jobTitle {
+        font-size: 25px;
+        line-height: 30px;
+        color: #333030;
+        margin-top: 63px;
+    }
+
+    .jobLocation {
+        font-size: 20px;
+        line-height: 25px;
+        color: #333030;
+    }
+
+    .leftIndent {
+        margin-left: 54px;
+    }
+
+    .text {
+        font-size: 14px;
+        line-height: 18px;
+        color: #333030;
+    }
+
+    .jobInfo {
+        margin-top: 42px;
+
+        div {
+            margin-bottom: 19px;
+        }
+    }
+
+    .aboutCompanyTitle {
+        font-size: 16px;
+        line-height: 20px;
+    }
+
+    .aboutCompanyText {
+        font-size: 14px;
+        line-height: 18px;
+        margin-top: 17px;
+    }
+}

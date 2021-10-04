@@ -1,0 +1,48 @@
+<!-- erbstart app/views/messages/new.html.erb -->
+<script>
+  $(document).ready( function(){
+    $('.bulk-maincontent textarea').on('paste input', function () {
+      if ($(this).outerHeight() > this.scrollHeight){
+          $(this).height(1)
+      }
+      while ($(this).outerHeight() < this.scrollHeight + parseFloat($(this).css("borderTopWidth")) + parseFloat($(this).css("borderBottomWidth"))){
+          $(this).height($(this).height() + 1)
+      }
+    });
+  });
+</script>
+  <div class="bulk-maincontent" id="bulk-maincontent">
+    <div class="bulk-title clearfix">
+      <div style="float: left;">
+        New Message
+      </div>
+      <div id="email-close-btn" style="float: right;margin-right: 10px;"> X</div>
+    </div>
+    <%= form_tag("/messages/send_email_message", method: "post", url: send_email_message_path) do %>
+    <div class="clearfix" style="width: 100%;">
+      <% hidden_field_tag :user_id, "#{current_user.id}" %>
+      <% hidden_field_tag 'authenticity_token', form_authenticity_token %>
+        <div style="display:flex;">
+          <div class="font-style" style="padding: 10px;">
+            <%= 'To:' %>
+          </div>
+          <%= select_tag 'recipients', recipients_options(@chosen_recipient), multiple: true, required: true, class: 'receivers fix-form-align form-control chosen-it font-style', style: "float:left; border: none; border-left: 1px solid #eee;" %>
+        </div>
+
+        <div style="width: 100%;">
+          <%= text_field_tag 'message[subject]', nil, placeholder: 'Add a Subject', class: 'subject fix-form-align form-control font-style', required: true, style: 'border-bottom: none;' %>
+        </div>
+
+        <div class="font-style" style="padding: 10px;">
+          <%= 'Hi {Person First Name},' %>
+          <%= text_area_tag 'message[body]', nil, class: 'email-content fix-form-align form-control', required: true, style:'min-height: 30vh; resize: none;'%>
+        </div>
+    <div class="clearfix">
+      <div class="bulk-maincontent" style="float:right;">
+        <%= button_to("Send", send_email_message_path, {class: "btn btn-red", data: { disable_with: "Please wait..." }}) %>
+      </div>
+    </div>
+    <% end %>
+  </div>
+  <div class="space-40"></div>
+<!-- erbend app/views/messages/new.html.erb -->

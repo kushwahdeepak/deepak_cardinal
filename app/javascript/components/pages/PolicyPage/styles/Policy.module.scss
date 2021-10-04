@@ -1,0 +1,26 @@
+.policyContainer {
+    padding: 5rem 10rem;
+}
+
+@media (max-width: 500px) {
+    .policyContainer {
+        padding: 1rem 2rem;
+    }
+}
+
+span{
+    line-height: 1.6;
+    text-align: justify;
+}
+@media only screen and (min-device-width : 320px) and (max-device-width : 767px){
+    p{
+        margin-left:10px !important;
+        text-align: justify !important;
+    }
+    ol li{
+        margin-left:0px !important;
+    }
+    .policyContainer {
+        padding: 1rem 2rem;
+    }
+}

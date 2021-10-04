@@ -1,0 +1,143 @@
+<!-- erbstart app/views/people/_user_2.html.erb -->
+<div class="user inaccessible">
+  <%= panel_row column_class: 'col-sm-12', id: 'panel-row', class: :en, data: {js: 1} do %>
+      <%= panel do %>
+          <div class='panel-body'>
+
+            <div class="col-12 col-md-12 col-sm-12">
+                <h3 style="display: flex; justify-content: center;">
+                  <%= link_to person_path(user), target: :_blank do %>
+                    <%= user.first_name unless user.first_name.nil? %>&nbsp;<%= user.last_name unless user.last_name.nil? %>
+                  <% end %>
+                  <br />
+                  <% if (current_user.role == 'admin' || current_user.role == 'recruiter' || current_user.role == 'member') %>
+                    <small class="text-muted">
+                      <% if person.active %>
+                        <%= 'Last activity' %>&nbsp;<%= time_ago_in_words(person.active_date_at) %>
+                      <% end %>
+                    </small>
+                  <% end %>
+                </h3>
+            </div>
+
+              <div class="col-12 col-md-12 col-sm-12">
+                <div class="row" style="display: flex; justify-content: center;">
+
+
+                </div>
+              </div>
+
+                <div class="col-12 col-md-12 col-md-12">
+                  <div class="row">
+
+                </div>
+
+                <div class="row">
+                </div>
+
+                <div class="row">
+                </div>
+
+                <div class="row">
+                </div>
+
+                <div class="" style="display: flex; flex-wrap: wrap; flex-direction: row; justify-content: space-evenly;">
+                </div>
+
+                <div class="space-10"></div>
+
+                <div class="post" style="display: flex; flex-direction: column;">
+
+                  <div class="postUser" style="width: auto; height: auto; position: static;">
+
+                      <div class="postUser">
+
+                      <div class="postBody__date">
+
+                          <% if current_user && (current_user.role == "member" || current_user.role == "admin") %>
+                              <div class='js-notes'>
+                                  <% user.notes.take(3).each do |note| %>
+                                      <%= content_tag :div, class: 'media', id: "note-#{note.id}" do %>
+                                          <div class="media-body">
+                                            <div class="row">
+                                              <div class="col-3 col-xs-3 col-sm-3 col-md-3 col-lg-3">
+                                                <%= link_to person_path(user), target: :_blank do %>
+                                                <span class="label label-primary" style="padding: 0.2em;">&nbsp;NOTE&nbsp;</span>
+                                                <% end %>
+                                              </div>
+                                              <div class="col-9 col-xs-9 col-sm-9 col-md-9 col-lg-9">
+                                                <%= note.body %>
+                                                <small>
+                                                <% if current_user.id == note.user_id %>
+                                                    <%= link_to "Delete", note_path(note), method: :delete, data: { confirm: 'Are you sure?' } %>
+                                                <% end %>
+                                                </small>
+                                              </div>
+                                            </div>
+                                            <div class="row">
+                                              <div class="col-xs-12 col-sm-12 col-md-12">
+                                                <small class="text-center">
+                                                  <% noted_user = User.where(id: note.user_id) %>
+                                                  <%= noted_user.first.email %> noted on <%= user.name %> <%= time_ago_in_words(note.created_at) %> ago.
+                                                </small>
+                                              </div>
+                                            </div>
+                                          </div>
+                                    <% end %>
+                                <% end %>
+                              </div>
+                          <% end %>
+
+                          <div class="media">
+
+                            <% if (current_user.role == 'member' || current_user.role == 'admin') %>
+
+                              <h6 class="text-center">Add a Note</h6>
+                              <%= form_for [user, Note.new], html: {class: "form-group"}, authenticity_token: true do |f| %>
+
+                              <% end %>
+
+                              <div class="col-8 col-xs-10 col-sm-10 col-md-8 col-lg-8 center-block align-self-center" style="align-content: center; align-self: center; justify-content: center; float: none;">
+                                    <%= simple_form_for [user, Note.new], html: {class: "form-group" }, authenticity_token: true, style: "background-color: #fff;" do |f| %>
+                                    <div class="row" style="background-color: #fff; border-radius: 12px;">
+                                      <div class="input-group">
+                                        <%= f.label :body, class: 'sr-only' %>
+                                        <%= f.text_field :body, class: 'form-control pull-right', placeholder: "Enter a new note" %>
+                                        <span class="input-group-btn">
+                                          <%= f.button :submit, "Add note", class: 'btn btn-default pull-right', style: "color: #fff; background-color: #CC0000; border-color: #CC0000; display: block; width: 100%; height: 100%;" %>
+                                        </span>
+                                      </div><!-- /input-group -->
+                                    </div>
+                                    <p class="text-center" style="padding-top: 1em; color: #fff;">
+                                      <i class="fa fa-fw fa-check-square-o" style="color: #fff;"></i>
+                                      Update me on the latest jobs and announcements from
+                                      <%= link_to root_path do %>
+                                        <b style="color: #fff;">CardinalTalent.</b>
+                                      <% end %>
+                                    </p>
+                                    <% end %>
+                              </div>
+
+                            <% end %>
+                          </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="space-10"></div>
+
+                  <div class="actions">
+                    <ul class="list-inline" style="text-align: center; align-items: center; justify-content: center;">
+
+                      <%= render :partial => 'people/action-items-2', locals: { user: user } %>
+
+                    </ul>
+                  </div>
+          </div>
+        </div>
+        <% end %>
+  <% end %>
+
+</div>
+<!-- erbend app/views/people/_user_2.html.erb -->

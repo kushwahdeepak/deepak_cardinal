@@ -1,0 +1,116 @@
+@import '../../../../styles/var';
+
+.recruiting-card {
+    font-size: 10px;
+    padding: 23px 30px 30px;
+    margin-bottom: 20px;
+    background: $faded-blue-bg;
+    color: #39489a;
+    border-radius: 10px;
+    .within-block {
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        .form-label {
+            font-style: normal;
+            font-weight: 500;
+            font-size: 10px;
+            line-height: 14px;
+            display: block;
+            margin-right: 8px;
+            margin-bottom: 0px;
+        }
+        .custom-select {
+            background: #ffffff;
+            font-family: $default-font-family;
+            font-style: normal;
+            font-weight: 500;
+            font-size: 10px;
+            line-height: 14px;
+        }
+    }
+    h4 {
+        font-family: $default-font-family;
+        font-style: normal;
+        font-weight: 500;
+        font-size: 14px;
+        line-height: 19px;
+    }
+    .card-body {
+        padding: 0px;
+    }
+    .recruiting-card__body {
+        .tab-content {
+            background: transparent;
+            box-shadow: none;
+            border-radius: 0px;
+        }
+    }
+}
+
+.recruiting-activity-tabs {
+    justify-content: flex-start;
+    display: flex;
+    margin-bottom: 16px;
+    .nav-item {
+        flex: 0 0 50%;
+        background: #ffffff;
+        border-color: transparent;
+        transition: 0.2s all linear;
+        font-weight: 500;
+        font-size: 9px;
+        text-align: center;
+        padding: 3px 6px;
+        white-space: nowrap;
+        border-top-left-radius: unset;
+        border-top-right-radius: unset;
+        background: #9ca6d9;
+        color: #112dc2;
+        &.active {
+            color: #112dc2;
+            transition: 0.2s all linear;
+            border: 1px solid $primary-blue;
+            background: white;
+        }
+        &:first-of-type {
+            border-right-width: 0.5px;
+        }
+        &:last-of-type {
+            border-left-width: 0.5px;
+        }
+    }
+}
+
+.checkboxes-wrap {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    font-family: $default-font-family;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 11px;
+    line-height: 16px;
+    margin-bottom: 9px;
+    padding: 1rem 0;
+    .message-received-checkbox {
+        display: flex;
+        align-items: center;
+        cursor: pointer;
+        &:first-of-type {
+            margin-bottom: 0px;
+        }
+    }
+    .received-filter-checkbox {
+        background: #ffffff;
+        border: 1px solid #333030;
+        box-sizing: border-box;
+        border-radius: 5px;
+        width: 12px;
+        height: 12px;
+    }
+    .received-filter-span {
+        display: block;
+        margin-left: 7px;
+    }
+}

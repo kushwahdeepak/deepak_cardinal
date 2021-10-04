@@ -1,0 +1,156 @@
+.mainForm{
+    display: flex;
+    height: 100%;
+}
+.signForm{
+    display: flex;
+    flex-direction: column;
+    padding: 15px;
+}
+.signUpForm{
+    display: flex;
+    height: 100%;
+}
+.signUporganizationForm{
+    display: flex;
+    height: 100%;
+}
+.form_flexDiv{
+    display: flex;
+}
+.selectDiv{
+    display: grid !important;
+}
+.uplodDivs{
+    width: 345px;
+    display: inline-block;
+}
+.phoneDiv{
+    display: flex;
+}
+.formDetailscheckbox{
+    margin-left: 15px;
+}
+.colourStyles[class*="-container"]{
+    width: 15em !important;
+    background-color:  #f5f7ff !important;
+    border-color: #f5f7ff !important;
+    border-radius: 2px !important;
+    margin-right: 11px !important;
+}
+.colourStylesCity[class*="-container"]{
+    width: 15.5em !important;
+    background-color:  #f5f7ff !important;
+    border-color: #f5f7ff !important;
+    border-radius: 2px !important;
+}
+.logoBox{
+    margin-left: 50px;
+    margin-top: 28px;
+}
+@media only screen and (min-device-width : 320px) and (max-device-width : 767px){
+    .mainForm{
+        display: block !important;
+        height: auto !important;
+    }
+    .fullwidthInput{
+        width: 100% !important;
+        margin-left: 0px !important;
+    }
+    .signForm{
+        width: 100%;    
+    }
+    .roleButtons{
+        width: 100% !important;
+    }
+    .signUpForm{
+        display: block !important;
+        height: auto !important;
+        width: 100% !important;
+    }
+    .signUporganizationForm{
+        display: block !important;
+        height: auto !important;
+        width: 100% !important;
+        padding: 15px !important;
+    }
+    .createorganizationForm{
+        max-width: 100% !important;
+        width: 100% !important;
+        padding: 15px !important;
+    }
+    .form_flexDiv{
+        display: block !important;
+    }
+    .contactDetailInpu{
+        width: 100% !important;
+        margin-left: 0px !important;
+    }
+    .mainoragiForm{
+        max-width: 100% !important;
+        width: 100% !important;
+        padding: 15px !important;
+    }
+    .selectDiv{
+        display: grid !important;
+    }
+    .selectDiv label, .css-xycbah-control{
+        margin-left: 0px !important;
+    }
+    .phoneDiv{
+        display: block !important;
+    }
+    .formDetailswidth{
+        width: 100% !important;
+        margin-left: 0px !important;
+    }
+    .uplodDivs{
+        width: 100% !important;
+        display: inline-block;
+        margin-bottom: 15px;
+    }
+    .colourStyles[class*="-container"]{
+        width: 100% !important;
+        background-color: #f5f7ff !important;
+        border-color:#f5f7ff !important;
+        border-radius:2px !important;
+        margin-right:11px !important;
+    }
+    .colourStylesCity[class*="-container"]{
+        width: 100% !important;
+        background-color: #f5f7ff !important;
+        border-color: #f5f7ff !important;
+        border-radius: 2px !important;
+    }
+    .logoBox{
+        margin-left: 0px;
+        margin-top: 28px;
+    }
+}
+@media only screen and (min-device-width : 768px) and (max-device-width : 1072px){
+    .roleButtons{
+        width: 100% !important;
+    }
+    .signUpForm{
+        display: block !important;
+        height: auto !important;
+    }
+    .createorganizationForm{
+        max-width: 100% !important;
+        width: 100% !important;
+        padding: 15px !important;
+    }
+    .createorganizationForm{
+        max-width: 100% !important;
+        width: 100% !important;
+        padding: 15px !important;
+    }
+    .mainoragiForm{
+        max-width: 100% !important;
+        width: 100% !important;
+        padding: 15px !important;
+    }
+    .phoneDiv{
+        display: block !important;
+    }
+}

@@ -1,0 +1,7 @@
+<!-- erbstart app/views/welcome/home.html.erb -->
+ 
+<div class="standard-page">
+  <%= react_component("pages/TalentDashboard/TalentDashboard", {currentUser: current_user, hasResume: @has_resume, webSocketsUrl: ENV['WEBSOCKETS_URL'], canApply: !@applied_all_jobs_last_30_days, lastAppliedDate: @last_applied_to_all_date, resume: @resume,applied_jobs_count:@applied_jobs_count }) %>
+</div>
+<!-- erbend app/views/welcome/home.html.erb -->
+

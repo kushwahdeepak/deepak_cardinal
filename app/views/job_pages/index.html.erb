@@ -1,0 +1,15 @@
+<!-- erbstart app/views/job_pages/index.html.erb -->
+<%= render 'job_posts/modal' %>
+
+<div class="container">
+  <div class="row">
+    <div id="side-menu"  class="col-sm-3">
+    </div><!-- side-menu -->
+
+    <div id="main-content" class="col-sm-9">
+      <%= render @job_posts %>
+    </div><!-- main-content -->
+
+  </div><!-- row -->
+</div><!-- container -->
+<!-- erbend app/views/job_pages/index.html.erb -->

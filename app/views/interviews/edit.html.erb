@@ -1,0 +1,32 @@
+<!-- erbstart app/views/interviews/edit.html.erb -->
+<div class="row">
+  <div class="col-4 col-sm-12 col-md-4 order-last">
+    
+        <div class="clearfix">
+          <div class="container-fluid">
+            <% if @account_manager %>
+              <%= render partial: 'users/small_card', object: @account_manager %>
+            <% else %>
+              <%= render partial: 'small_conversations_template' %>
+            <% end %>
+          </div>
+        </div>
+    
+  </div>
+  <div class="col-12 col-sm-12 col-md-8 order-first">
+    
+        <div class="papel clearfix">
+          <div class="container-fluid">
+            <h1>Your interview with</h1>
+            <%= render :partial => 'users/person_2', locals: { person: @user.people.first } %>
+
+            <%= render 'form', interview: @interview %>
+
+            <%= link_to 'Show', @interview %> |
+            <%= link_to 'Back', user_dashboard_path(@user) %>
+          </div>
+        </div>
+    
+  </div>
+</div>
+<!-- erbend app/views/interviews/edit.html.erb -->

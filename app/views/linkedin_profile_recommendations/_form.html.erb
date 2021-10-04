@@ -1,0 +1,39 @@
+<!-- erbstart app/views/linkedin_profile_recommendations/_form.html.erb -->
+<%= form_for(linkedin_profile_recommendation) do |f| %>
+  <% if linkedin_profile_recommendation.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(linkedin_profile_recommendation.errors.count, "error") %> prohibited this linkedin_profile_recommendation from being saved:</h2>
+
+      <ul>
+      <% linkedin_profile_recommendation.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :text %>
+    <%= f.text_field :text %>
+  </div>
+
+  <div class="field">
+    <%= f.label :type %>
+    <%= f.text_field :type %>
+  </div>
+
+  <div class="field">
+    <%= f.label :recommender_id %>
+    <%= f.number_field :recommender_id %>
+  </div>
+
+  <div class="field">
+    <%= f.label :linkedin_profile_id %>
+    <%= f.number_field :linkedin_profile_id %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
+<!-- erbend app/views/linkedin_profile_recommendations/_form.html.erb -->

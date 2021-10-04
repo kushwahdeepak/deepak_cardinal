@@ -1,0 +1,16 @@
+<!-- erbstart app/views/linkedin_industries/show.html.erb -->
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @linkedin_industry.name %>
+</p>
+
+<p>
+  <strong>Group:</strong>
+  <%= @linkedin_industry.group %>
+</p>
+
+<%= link_to 'Edit', edit_linkedin_industry_path(@linkedin_industry) %> |
+<%= link_to 'Back', linkedin_industries_path %>
+<!-- erbend app/views/linkedin_industries/show.html.erb -->

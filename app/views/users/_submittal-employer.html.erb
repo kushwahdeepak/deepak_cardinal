@@ -1,0 +1,111 @@
+<!-- erbstart app/views/users/_submittal-employer.html.erb -->
+<div class="rounded submittal-slide" style="margin: 1rem; padding: 1rem;">
+  <p><em>Example Interview Request</em></p>
+
+  <%= panel_row column_class: 'col-sm-12', id: 'panel-row', class: :en, data: {js: 1} do %>
+    <%= panel title: 'Internet Giant' do %>
+      <div class='panel-body'>
+        <div class="space-10"></div>
+        <div class="col-3 col-md-3 col-sm-3">
+          <div class="" style="display: flex; justify-content: center;">
+            <%= image_tag "placeholder.png", class: 'rounded', width: 100, height: 100 %>
+          </div>
+        </div>
+        <div class="col-9 col-md-9 col-sm-9">
+          <p><b>Technical Project Manager Position</b> at Internet Giant</p>
+          <p class="lead">Part agency, part consultancy, part innovation lab, and wholly fiction, Internet Giant is dedicated to helping global enterprises thrive in 'The Tubes'.</p>
+          <ul class="list-inline">
+            <li class="list-inline-item">Located in Anytown, USA</li>
+            <li class="list-inline-item">Offering $100,000/year</li>
+            <li class="list-inline_item">Founded 1994</li>
+            <li class="list-inline_item">Major Corporation</li>
+            <li class="list-inline_item">Raised $0.0M</li>
+            <li class="list-inline_item">5000+ Employees</li>
+            <li class="list-inline_item">5000+ Engineers</li>
+            <li class="list-inline_item">E-Commerce</li>
+          </ul>
+
+          <div class="space-10"></div>
+          <div class="" style="display: flex; flex-wrap: wrap; flex-direction: row; justify-content: space-evenly;">
+            <%= modal title: ' More detail', size: :large, id: 'modal', button: {class: :en} do %>
+            <div class="modal-body">
+
+              <table class="table table-hover submittal-table">
+                <thead>
+                  <tr>
+                    <th class="row-1"></th>
+                    <th class="row-2">Your CardinalTalent account manager will...</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>
+                      <i class="fa fa-building-o" aria-hidden="true"></i>
+                    </td>
+                    <td>
+                      <p style="text-align: left;">Identify employers that <%= (@user.remote_interest.present? && (@user.remote_interest == "Not interested")) ? 'are not' : 'are' %> interested in remote candidates.</p>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <i class="fa fa-map-o" aria-hidden="true"></i>
+                      </td>
+                      <td>
+                        <p style="text-align: left;"></i>Looking for <%= @user.employment_sought.present? ? @user.employment_sought : '' %> <b><%= @user.position_interest.present? ? @user.position_interest : '' %></b> candidates.</p>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <i class="fa fa-file-code-o" aria-hidden="true"></i>
+                        </td>
+                        <td>
+                          <p style="text-align: left;"></i>Looking for talent at the stage <%= @user.job_search_stage.present? ? @user.job_search_stage : 'that fits your schedule' %></p>
+                        </td>
+                      </tr>
+                    <tr>
+                      <td>
+                        <i class="fa fa-file-code-o" aria-hidden="true"></i>
+                        </td>
+                        <td>
+                          <p style="text-align: left;"></i>With skills that match <%= @user.skills.present? ? @user.skills : 'your strengths' %></p>
+                        </td>
+                      </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                    <div class="modal-footer">
+                      <div class="buttons">
+                        <%= link_to "View/Edit Talent Profile", welcome_talent_intro_path, class: "btn btn-xl btn-primary" %>
+                      </div>
+                    </div>
+                    <% end %>
+                  </div>
+        </div>
+      </div>
+    <% end %>
+    <%= panel title: 'Current Stage' do %>
+      <div class='panel-body'>
+        <table class="table table-hover submittal-table">
+          <thead>
+            <tr>
+              <th class="row-1"></th>
+              <th class="row-2"></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>
+                <i class="fa fa-paper-plane-o" aria-hidden="true">
+              </td>
+              <td>
+                <h5 class=""></i>Your CardinalTalent account manager looks for candidates that match your talent profile.&nbsp;<%= link_to 'View or update your talent profile.', welcome_talent_intro_path %></h5>
+                <h6 class="">Account created <%= time_ago_in_words(@user.created_at) %> ago.</h6>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    <% end %>
+  <% end %>
+</div>
+<!-- erbend app/views/users/_submittal-employer.html.erb -->

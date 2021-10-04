@@ -1,0 +1,21 @@
+<!-- erbstart app/views/workflow_items/new.html.erb -->
+<div class="space-180"></div>
+
+<nav>
+  <div id="side-bar">
+    <div class="space-40"></div>
+    
+  </div>
+</nav>
+
+
+  <div id="main-content">
+<h1>New Workflow Item</h1>
+
+<%= render 'form', workflow_item: @workflow_item %>
+
+<%= link_to 'Back', workflow_items_path %>
+
+</div>
+
+<!-- erbend app/views/workflow_items/new.html.erb -->

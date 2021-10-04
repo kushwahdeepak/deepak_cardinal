@@ -1,0 +1,19 @@
+<!-- erbstart app/views/onsite_interviews/_form.html.erb -->
+<%= form_for(onsite_interview) do |f| %>
+  <% if onsite_interview.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(onsite_interview.errors.count, "error") %> prohibited this onsite_interview from being saved:</h2>
+
+      <ul>
+      <% onsite_interview.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
+<!-- erbend app/views/onsite_interviews/_form.html.erb -->

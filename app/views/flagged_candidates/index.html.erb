@@ -1,0 +1,31 @@
+<!-- erbstart app/views/flagged_candidates/index.html.erb -->
+<p id="notice"><%= notice %></p>
+
+<h1>Flagged Candidates</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>User</th>
+      <th>Person</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @flagged_candidates.each do |flagged_candidate| %>
+      <tr>
+        <td><%= flagged_candidate.user %></td>
+        <td><%= flagged_candidate.person %></td>
+        <td><%= link_to 'Show', flagged_candidate %></td>
+        <td><%= link_to 'Edit', edit_flagged_candidate_path(flagged_candidate) %></td>
+        <td><%= link_to 'Destroy', flagged_candidate, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Flagged Candidate', new_flagged_candidate_path %>
+<!-- erbend app/views/flagged_candidates/index.html.erb -->

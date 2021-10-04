@@ -1,0 +1,176 @@
+<!-- erbstart app/views/users/_admin_dashboard.html.erb -->
+      <div class="media">
+        <div class="media-body">
+          <h2 class="media-heading"><%= @user.email %></h2>
+
+          <small>
+            <h6>Account type: <%= @user.role.to_s %> - <%= current_user.signuprole.to_s %></h6>
+            <% if (@user.role == "member" || @user.role == "admin") %>
+              <p><%= link_to('See all jobs', controller: 'jobs', action: 'index') %></p>
+              <p><%= link_to('See all client accounts', controller: 'accounts', action: 'index') %></p>
+            <% end %>
+          </small>
+
+          <% if @user.role == "guest" %>
+          <div class="outline rounded" style="width: 100%; color: gray; padding: 1rem; margin: 1rem;">
+            <div class="card" style="width: 100%;">
+              <div class="card-body">
+                <h5 class="card-title">Card title</h5>
+                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+              </div>
+              <ul class="list-group list-group-flush">
+                <li class="list-group-item">Cras justo odio</li>
+                <li class="list-group-item">Dapibus ac facilisis in</li>
+                <li class="list-group-item">Vestibulum at eros</li>
+              </ul>
+              <div class="card-body">
+                <a href="#" class="card-link">Card link</a>
+                <a href="#" class="card-link">Another link</a>
+              </div>
+            </div>
+          </div>
+          <% end %>
+
+          <% if @user.role == "guest" %>
+          <table class="table table-hover">
+            <h3>Your account is active. A CardinalTalent recruiter will be in touch with you as soon as an opportunity arises!</h3>
+            <p>In the meantime, make sure your profile is complete. Your profile provides us with the information we need to make the perfect matches for your needs.</p>
+            <thead>
+              <tr>
+                <th>Column Header</th>
+                <th>Column Header</th>
+                <th>Column Header</th>
+                <th>Column Header</th>
+                <th>Column Header</th>
+                <th>Column Header</th>
+                <th>Column Header</th>
+              </tr>
+            </thead>
+            <tbody>
+              <% @follows.each do |follow| %>
+              <% followable = Person.where(id: follow.followable_id).first %>
+                <tr>
+                  <td><h4>Row Item</h4></td>
+                  <td><h4>Row Item</h4></td>
+                  <td><h4>Row Item</h4></td>
+                  <td><h4>Row Item</h4></td>
+                  <td><h4>Row Item</h4></td>
+                  <td><h4>Row Item</h4></td>
+                  <td><h4>Row Item</h4></td>
+                </tr>
+              <% end %>
+            </tbody>
+          </table>
+          <% end %>
+
+          <% if (@user.role == "member" || @user.role == "admin") %>
+          <table class="table table-hover">
+            <h3>Candidate requests</h3>
+            <thead>
+              <tr>
+                <th>Request date</th>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Status</th>
+                <th>Salary expectations</th>
+                <th>Profile</th>
+                <th>Action</th>
+              </tr>
+            </thead>
+            <tbody>
+              <% @follows.each do |follow| %>
+              <% followable = Person.where(id: follow.followable_id).first %>
+                <tr>
+                  <td><h4><%= follow.created_at.to_date %></h4></td>
+                  <td><h4><%= followable.first_name %></h4></td>
+                  <td><h4><%= followable.last_name %></h4></td>
+                  <td><h4><%= click_to_edit followable, path: person_path(followable), attribute: :status, submit_on_blur: false, remote: false, value: (followable.status || "Unknown") %></h4></td>
+                  <td><h4><%= click_to_edit followable, path: person_path(followable), attribute: :salary, submit_on_blur: false, remote: false, value: (followable.salary || "Unknown") %></h4></td>
+                  <td><h4><%= link_to 'Profile', person_path(followable) %></h4></td>
+                  <td><h4><%= link_to 'Cancel request', follow, method: :delete, data: { confirm: 'Are you sure?' } %></h4></td>
+                </tr>
+              <% end %>
+            </tbody>
+          </table>
+          <% end %>
+        </div>
+      </div>
+      <br>
+
+      <% if (@user.role == "member" || @user.role == "admin") %>
+      <h3>My Conversations</h3>
+        <div style="padding: 1em;">
+
+
+          <div class="row">
+            <div class="col-sm-3">
+              <ul class="nav nav-pills nav-stacked">
+                <li><%= link_to 'Inbox', conversations_path(box: 'inbox') %></li>
+                <li><%= link_to 'Sent', conversations_path(box: 'sent') %></li>
+                <li><%= link_to 'Trash', conversations_path(box: 'trash') %></li>
+              </ul>
+            </div>
+
+            <div class="col-sm-9">
+              <% if @box == 'trash' %>
+                <p><%= link_to 'Empty trash', empty_trash_conversations_path, class: 'btn btn-danger', method: :delete,
+                               data: {confirm: 'Are you sure?'} %></p>
+              <% end %>
+              <ul class="list-group">
+                <%= render partial: 'conversations/conversation', collection: @conversations %>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+          <h3>My Saved Candidates</h3>
+            <div style="padding: 1em;">
+              <p>
+                <small>
+                  <%= page_entries_info @people %>
+                  <br />
+                  <%= paginate(@people) %>
+                </small>
+              </p>
+
+            <% if @people.blank? %>
+              <h5><%= "You have not saved any candidates yet." %></h5>
+            <% else %>
+              <%= render @people.order(updated_at: :desc) %>
+            <% end %>
+            </div>
+
+            <h3>My Previous Searches</h3>
+              <div style="padding: 1em;">
+                <p>
+                  <small>
+                    <%= page_entries_info @searches %>
+                    <br />
+                    <%= paginate(@searches) %>
+                  </small>
+                </p>
+
+              <% if @searches.blank? %>
+                <h5><%= "You have not performed any searches yet." %></h5>
+              <% else %>
+                <%= render @searches %>
+              <% end %>
+              </div>
+
+          <h3>My Notes</h3>
+            <div style="padding: 1em;">
+              <p>
+                <small>
+                  <%= page_entries_info @notes %>
+                  <br />
+                  <%= paginate(@notes) %>
+                </small>
+              </p>
+            <% if @notes.blank? %>
+              <h5><%= "You have not created any notes yet." %></h5>
+            <% else %>
+              <%= render @notes %>
+            <% end %>
+          </div>
+        <% end %>
+<!-- erbend app/views/users/_admin_dashboard.html.erb -->

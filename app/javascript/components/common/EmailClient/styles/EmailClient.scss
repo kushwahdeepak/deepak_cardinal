@@ -1,0 +1,271 @@
+@import '../../../../styles/var';
+
+.email-client {
+    position: fixed;
+    bottom: 0;
+    right: 5rem;
+    max-width: 579px;
+    width: 100%;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+    z-index: 1500;
+    color: $serious-blue;
+    .background-wrap {
+        background: $faded-blue-bg;
+        border-radius: 1px;
+    }
+    .modal-body {
+        padding: 1rem;
+        padding-top: 0;
+    }
+    .input-block {
+        margin-bottom: 0.2rem;
+        display: flex;
+        align-items: center;
+        &:last-of-type {
+            margin-bottom: 0px;
+        }
+    }
+    .regular-input {
+        background: #ffffff;
+        color: $serious-blue;
+        border: none;
+        display: block;
+        text-overflow: ellipsis;
+        padding: 6px 40px 5px 14px;
+        font-family: $default-font-family;
+        font-style: normal;
+        font-weight: 500;
+        font-size: 0.8rem;
+        min-height: 25px;
+        width: 100%;
+    }
+    .input-title {
+        font-family: $default-font-family;
+        font-style: normal;
+        font-weight: 800;
+        font-size: 0.8rem;
+        line-height: 19px;
+        display: block;
+        margin-right: 11px;
+        min-width: 45px;
+    }
+    .textarea-letter {
+        resize: none;
+        padding: 19px 50px 38px;
+        width: 100%;
+        display: block;
+        background: #ffffff;
+        border: 1px solid #c6c6c6;
+        font-family: $default-font-family;
+        font-style: normal;
+        font-weight: 500;
+        font-size: 0.8rem;
+        line-height: 14px;
+        min-height: 251px;
+
+        &:focus {
+            outline: none;
+        }
+    }
+    .close-modal-btn {
+        display: block;
+        padding: 5px 0;
+        background: transparent;
+        border: none;
+        span {
+            display: block;
+            height: 3px;
+            width: 14px;
+            background: #fafafa;
+            border-radius: 1px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+            cursor: pointer;
+        }
+    }
+
+    .modal-title {
+        font-family: $default-font-family;
+        font-style: normal;
+        font-weight: 500;
+        font-size: 0.8rem;
+        line-height: 19px;
+
+        color: #ffffff;
+    }
+    .modal-header {
+        background: $primary-blue;
+        border-radius: 1px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 8px 11px;
+    }
+    .attached-info {
+        font-family: $default-font-family;
+        font-style: normal;
+        font-weight: 500;
+        font-size: 0.8rem;
+        line-height: 14px;
+        margin: 0px;
+        display: flex;
+        align-items: center;
+        padding-left: 40px;
+    }
+    .attached-icon {
+        display: block;
+        width: 15px;
+        height: 15px;
+        margin-right: 9px;
+    }
+    .delete-attached-btn {
+        display: block;
+        margin-left: 9px;
+        font-size: 0.8rem;
+        background: transparent;
+        border: none;
+    }
+    .body-first-row {
+        padding: 10px 0;
+    }
+    .body-second-row {
+        display: flex;
+        align-items: center;
+        padding: 0.25rem;
+        font-size: 0.8rem;
+    }
+    .body-fourth-row {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        > * {
+            margin-top: 1rem;
+        }
+    }
+    .sub-button {
+        display: flex;
+        align-items: center;
+        background: transparent;
+        border: none;
+        margin-right: 1rem;
+        padding: 0.25rem;
+        color: $serious-blue;
+        cursor: pointer;
+
+        &.add-attachment {
+            margin: 0px;
+        }
+        &__img {
+            display: block;
+            margin-right: 5px;
+            width: 12px;
+            height: 12px;
+        }
+        &:last-of-type {
+            &:hover {
+                background-color: rgba(0, 0, 0, 0.1);
+            }
+        }
+        &:focus,
+        :active {
+            background: transparent;
+        }
+        span {
+            font-family: $default-font-family;
+            font-style: normal;
+            font-weight: 500;
+            font-size: 0.8rem;
+            line-height: 14px;
+            cursor: pointer;
+        }
+    }
+    .submit-modal-btn {
+        border: 1px solid transparent;
+        background: #2b3fab;
+        border-radius: 5px;
+        padding: 3px 28px 7px;
+        margin-left: auto;
+        &:hover {
+            border-color: #2b3fab;
+            transition: 0.2s all ease-in;
+            background: transparent;
+            span {
+                color: #2b3fab;
+                transition: 0.2s all ease-in;
+            }
+        }
+        span {
+            font-family: $default-font-family;
+            font-style: normal;
+            font-weight: 500;
+            font-size: 0.8rem;
+            line-height: 14px;
+            color: #ffffff;
+        }
+    }
+}
+.toggle-email-client-btn {
+    background: $primary-blue;
+    border: 1px solid transparent;
+    border-radius: 30px;
+    display: block;
+    position: fixed;
+    bottom: 0;
+    margin-bottom: 10px !important;
+    right: 5rem;
+    padding: 7.5px 40px;
+    z-index: 9999;
+    &:hover {
+        border-color: #2b3fab;
+        transition: 0.2s all ease-in;
+        background-color: #667eff;
+        span {
+            transition: 0.2s all ease-in;
+            &:hover{
+                color: #ffffff;
+            }
+        }
+    }
+    span {
+        font-family: $default-font-family;
+        font-style: normal;
+        font-weight: 500;
+        font-size: 0.8rem;
+        line-height: 24px;
+        color: #ffffff;
+        cursor: pointer;
+    }
+}
+
+.embedded-display {
+    position: unset;
+    width: 100%;
+    bottom: unset;
+    right: unset;
+    max-width: unset;
+    box-shadow: unset;
+}
+
+.file-uploader {
+    position: relative;
+    margin: 0px 34px 0px 0px;
+    cursor: pointer;
+    &__input {
+        width: 0.1px;
+        height: 0.1px;
+        opacity: 0;
+        overflow: hidden;
+        position: absolute;
+        z-index: -1;
+    }
+}
+
+.ql-editor {
+    min-height: 200px;
+    max-height: 300px;
+    background-color: white;
+    overflow: auto;
+}
+.ql-snow{
+    border-bottom: 1px solid #ccc !important;
+}

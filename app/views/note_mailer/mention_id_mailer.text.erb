@@ -1,0 +1,7 @@
+This is an automated message.
+<h4>Notes: </h4>
+<p>
+      <h4>Notes: </h4>
+      <% note = @user_notes.gsub('@[','<b>@').gsub(']','</b>') %>
+      <%= note.html_safe %>
+</p>

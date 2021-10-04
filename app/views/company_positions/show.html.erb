@@ -1,0 +1,66 @@
+<!-- erbstart app/views/company_positions/show.html.erb -->
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Person:</strong>
+  <%= @company_position.person_id %>
+</p>
+
+<p>
+  <strong>Email address:</strong>
+  <%= @company_position.email_address_id %>
+</p>
+
+<p>
+  <strong>Is current:</strong>
+  <%= @company_position.is_current %>
+</p>
+
+<p>
+  <strong>Start date:</strong>
+  <%= @company_position.start_date %>
+</p>
+
+<p>
+  <strong>Start date year:</strong>
+  <%= @company_position.start_date_year %>
+</p>
+
+<p>
+  <strong>Start date month:</strong>
+  <%= @company_position.start_date_month %>
+</p>
+
+<p>
+  <strong>End date:</strong>
+  <%= @company_position.end_date %>
+</p>
+
+<p>
+  <strong>End date year:</strong>
+  <%= @company_position.end_date_year %>
+</p>
+
+<p>
+  <strong>End date month:</strong>
+  <%= @company_position.end_date_month %>
+</p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @company_position.title %>
+</p>
+
+<p>
+  <strong>Linkedin profile position:</strong>
+  <%= @company_position.linkedin_profile_position_id %>
+</p>
+
+<p>
+  <strong>Score:</strong>
+  <%= @company_position.score %>
+</p>
+
+<%= link_to 'Edit', edit_company_position_path(@company_position) %> |
+<%= link_to 'Back', company_positions_path %>
+<!-- erbend app/views/company_positions/show.html.erb -->

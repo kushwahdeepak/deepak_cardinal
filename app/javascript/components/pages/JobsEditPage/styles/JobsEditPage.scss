@@ -1,0 +1,211 @@
+@import '../../../../styles/var';
+
+.jobs-edit-page {
+    padding-top: 84px;
+    padding-bottom: 135px;
+    background: #fff;
+    font-family: $default-font-family;
+    .p {
+        padding: 100px 50px;
+        display: block;
+        text-align: center;
+        width: 100%;
+        font-weight: 500;
+        font-size: 45px;
+        line-height: 61px;
+        color: #333030;
+    }
+    .top-page-row {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 27px;
+        .right-col {
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+        }
+    }
+
+    .edit-job-form {
+        background: #ffffff;
+        box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.25);
+        border-radius: 2px;
+        .edit-job-form__form-group {
+            margin-bottom: 15px;
+            &:last-of-type {
+                margin-bottom: 0px;
+            }
+        }
+        .edit-job-form__wrapper {
+            padding: 56px 90px 74px;
+        }
+        .edit-job-form__content {
+            margin-bottom: 40px;
+        }
+        .edit-job-form__title {
+            font-style: normal;
+            font-weight: 500;
+            font-size: 30px;
+            line-height: 41px;
+            color: #333030;
+            display: block;
+            width: 100%;
+            margin-bottom: 42px;
+            text-align: left;
+        }
+        .edit-job-form__field-title {
+            font-style: normal;
+            font-weight: normal;
+            font-size: 16px;
+            line-height: 22px;
+            color: #333030;
+            display: inline-block;
+            margin-bottom: 2px;
+            &.required-title {
+                &::after {
+                    content: '*';
+                    color: #d81815;
+                }
+            }
+        }
+        .edit-job-form__input {
+            background: #ffffff;
+            border: 1px solid #6c6c6c;
+            box-sizing: border-box;
+            border-radius: 2px;
+            display: block;
+            width: 100%;
+            min-height: 40px;
+            padding: 9px 60px 9px 15px;
+            font-size: 16px;
+            line-height: 22px;
+            color: #333030;
+            font-style: normal;
+            font-weight: normal;
+        }
+    }
+    .submit-edit-job-form {
+        display: block;
+        padding: 14px 47px;
+        background: #213081;
+        border-radius: 2px;
+        margin-left: auto;
+        border: 1px solid transparent;
+
+        &:disabled {
+            background-color: #cccccc;
+            color: #666666;
+            border: 1px solid #999999;
+        }
+        &:hover {
+            &:not([disabled]) {
+                border-color: #213081;
+                transition: 0.2s all ease-in;
+                background: transparent;
+                span {
+                    transition: 0.2s all ease-in;
+                    color: #213081;
+                }
+            }
+        }
+        span {
+            transition: 0.2s all ease-in;
+            font-weight: 500;
+            font-size: 16px;
+            line-height: 22px;
+            color: #ffffff;
+        }
+    }
+}
+.page-title {
+    font-style: normal;
+    display: block;
+    width: 100%;
+    font-weight: 500;
+    font-size: 45px;
+    line-height: 61px;
+    text-align: center;
+    color: #333030;
+    margin-bottom: 32px;
+}
+
+.many-jobs-span {
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 22px;
+    text-align: right;
+    display: block;
+    margin-right: 11px;
+}
+
+.open-import-jobs-modal-btn {
+    display: block;
+    padding: 14px 28px;
+    background: #ab2537;
+    border-radius: 2px;
+    span {
+        font-weight: 500;
+        font-size: 16px;
+        line-height: 22px;
+        color: #fff;
+    }
+}
+.back-to-jobs-link {
+    display: inline-block;
+    padding: 9px 38px;
+    background: #213081;
+    border-radius: 2px;
+    span {
+        font-weight: 500;
+        font-size: 16px;
+        line-height: 22px;
+        color: #e5e5e5;
+    }
+}
+
+.success-modal {
+    .modal-dialog {
+        max-width: 1200px;
+    }
+    .modal-content {
+        padding: 82px 215px;
+        background: #ffffff;
+        box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2);
+        border-radius: 10px;
+    }
+    .modal-body {
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+    }
+    .modal-title {
+        font-family: $default-font-family;
+        font-style: normal;
+        font-weight: 500;
+        font-size: 45px;
+        line-height: 61px;
+        color: #333030;
+        display: block;
+        text-align: center;
+        margin-bottom: 30px;
+    }
+    &__text {
+        font-family: $default-font-family;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 30px;
+        line-height: 41px;
+        text-align: center;
+        color: #000000;
+        display: block;
+        margin-bottom: 25px;
+    }
+}
+
+.job-posting-message-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}

@@ -1,0 +1,104 @@
+<!-- erbstart app/views/guest_person_mailer/sample_email.html.erb -->
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+      body {
+        font-family: Arial, Helvetica, sans-serif;
+        margin: 0;
+      }
+      .wrapper{
+        width: 40rem;
+        display: flex;
+        flex-direction: column;
+        margin-left: 10%;
+      }
+      .header {
+        background: linear-gradient(90.72deg, #DCE6FF -1.05%, #E1DFFE 50.61%, #B5C9FF 104.46%);
+      }
+      /* Footer */
+      .footer {
+        background: linear-gradient(90.72deg, #DCE6FF -1.05%, #E1DFFE 50.61%, #B5C9FF 104.46%);
+      }
+      /* Section */
+      .section {
+        background: #FFFFFF;
+        padding: 0px 73px;
+      }
+      .section-p{
+        font-family: Avenir,Lato,sans-serif;
+        font-style: normal;
+        font-weight: normal;
+      }
+      .mailbody{
+        font-family: Avenir,Lato,sans-serif;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 14px;
+        line-height: 19px;
+        color: #000000;}
+      .sub-footer{
+      }
+    </style>
+  </head>
+  <body>
+  <div class="wrapper">
+    <div class="header">
+        <div style= 'margin: 10px;'>
+          <img src="https://marketplace-ch.s3.amazonaws.com/header-logo.png", style='margin: 20px;'>
+        </div>
+    </div>
+    <div class="section">
+      <div class="mailbody">
+        <p class="section-p">
+          Hi <%= @creator_name %>!
+        </p>
+        <p class="section-p">
+          New Applicant <%=  @person&.first_name %> <%= @person&.last_name %> was applied to the job <%= @job_title %>.
+        </p>
+        <p class="section-p">
+          Here is the details of the candidate
+        </p class="section-p">
+          First Name: <%= @person&.first_name %><br />
+          Last Name: <%= @person&.last_name %><br />
+          Email Address: <%= @person&.email_address %><br />
+          Phone Number: <%= @person&.phone_number %><br />
+          LinkedIn: <a  target="_blank" href="<%= @person&.linkedin_profile_url%>"style= "color:#007bff"> <%= @person&.linkedin_profile_url %> </a><br />
+        <p class="section-p">
+          Thanks<br>
+          Cardinal Talent Team
+        </p>
+      </div>
+    </div>
+    <div class="footer" style="padding-top: 10px; padding-bottom: 10px;">
+      <p style="
+        font-family: Avenir,Lato,sans-serif;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 14px;
+        margin-left: 10%;
+        color: #000000;">Need assistance? Let us know how we can help.
+      </p>
+      <p style="
+        font-family: Avenir,Lato,sans-serif;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 12px;
+        line-height: 16px;
+        margin-left: 10%;
+        color: #000000;">Email us at <a href="#">contact@cardinaltalent.ai</a> for assistance regarding any questions or concerns.
+      <p>
+    </div>
+    <div class="sub-footer">
+      <h2 style="font-size: 20px;line-height: 27px;color: #595B70;">CardinalTalent.ai</h2>
+      <p style="font-size: 12px;line-height: 16px;color: #595B70;">If you would like to pause all future email notifications,   please <a href="#">unsubscribe here.</a><br>
+      To manage your email preferences, visit your account settings page to manage notifications.</p>
+    </div>
+   </div>
+  </body>
+</html>
+<!-- erbend app/views/guest_person_mailer/sample_email.html.erb -->

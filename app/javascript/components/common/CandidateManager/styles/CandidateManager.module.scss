@@ -1,0 +1,107 @@
+@import '../../../../styles/var';
+
+.mainContainer {
+    display: flex;
+    flex-direction: row;
+    margin-top: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.tableContainer {
+    background: #ffffff;
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.25);
+    border-radius: 20px;
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.searchTableHeader {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+.tabTitle {
+    font-family: $default-font-family;
+    font-style: normal;
+    font-weight: 800;
+    font-size: 30px;
+    line-height: 41px;
+    color: #333030;
+}
+
+.resultCount {
+    font-family: $default-font-family;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 12px;
+    color: #6873ac;
+    margin-top: 8px;
+}
+.candidatecount{
+    font-family: $default-font-family;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 16px;
+    color: #6873ac;
+    // margin-top: 13px;
+    // margin-left: 37%;
+    left: 50%;
+    position: absolute;
+    text-align: center;
+}
+
+.filtersColumn {
+    max-width: 17rem;
+    margin-right: 2rem;
+}
+
+.tableColumn {
+    flex-grow: 1;
+}
+
+.tableHeader {
+    display: flex;
+    justify-content: space-between;
+}
+
+.tableTitleBlock {
+    display: flex;
+    flex-direction: column;
+}
+
+.tableTitle {
+    font-family: $default-font-family;
+    font-style: normal;
+    font-weight: 800;
+    font-size: 18px;
+    line-height: 25px;
+    color: $secondary-blue;
+    margin-bottom: 0;
+    max-width: 28rem;
+}
+
+.jobButton {
+    padding: 6px 25px;
+    background: #4c68ff;
+    font-family: $default-font-family;
+    font-style: normal;
+    font-weight: 800;
+    font-size: 16px;
+    line-height: 22px;
+    border: none;
+    border-radius: 2px;
+}
+
+@media only screen and (min-device-width : 320px) and (max-device-width : 767px){
+    .mainContainer {
+        display:block;
+    }
+    .filtersColumn {
+        max-width: 100%;
+        margin-right: 0rem;
+    }
+}

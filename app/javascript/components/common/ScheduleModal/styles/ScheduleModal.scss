@@ -1,0 +1,27 @@
+@import '../../../../styles/var';
+
+.scheduleModal .btn {
+    color: white;
+    line-height: 1;
+    height: 2.05rem;
+    font-size: 0.8rem;
+    background-color: $primary-blue;
+    &:hover {
+        background-color: $primary-blue-highlight;
+    }
+}
+
+.scheduleModal .dropdown-toggle {
+    border: $component-border;
+    background-color: $faded-blue-bg;
+    color: $primary-blue;
+    width: 10rem;
+
+    &:hover {
+        background-color: $faded-blue-bg-highlight;
+    }
+}
+
+.scheduleModal .modal-content {
+    border-radius: 25px;
+}

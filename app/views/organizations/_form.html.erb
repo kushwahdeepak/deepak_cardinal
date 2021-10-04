@@ -1,0 +1,16 @@
+<!-- erbstart app/views/organizations/_form.html.erb -->
+  <%= render "partials/card_form", title:form_title do %>
+
+  <%= simple_form_for @organization do |f|
+  %>
+    <%= f.error_notification message: f.object.errors[:base].to_sentence %>
+    <%= f.input :name %>
+    <%= f.input :description %>
+    <hr />
+    <div class="form-actions mt-2">
+      <%= f.button :submit, 'Submit', class: "btn-primary" %>
+    </div>
+<% end %>
+<% end %>
+
+<!-- erbend app/views/organizations/_form.html.erb -->

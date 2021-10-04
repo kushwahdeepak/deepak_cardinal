@@ -1,0 +1,44 @@
+<!-- erbstart app/views/linkedin_profile_publications/_form.html.erb -->
+<%= form_for(linkedin_profile_publication) do |f| %>
+  <% if linkedin_profile_publication.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(linkedin_profile_publication.errors.count, "error") %> prohibited this linkedin_profile_publication from being saved:</h2>
+
+      <ul>
+      <% linkedin_profile_publication.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :linkedin_profile_id %>
+    <%= f.number_field :linkedin_profile_id %>
+  </div>
+
+  <div class="field">
+    <%= f.label :title %>
+    <%= f.text_field :title %>
+  </div>
+
+  <div class="field">
+    <%= f.label :date %>
+    <%= f.date_select :date %>
+  </div>
+
+  <div class="field">
+    <%= f.label :date_year %>
+    <%= f.number_field :date_year %>
+  </div>
+
+  <div class="field">
+    <%= f.label :date_month %>
+    <%= f.number_field :date_month %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
+<!-- erbend app/views/linkedin_profile_publications/_form.html.erb -->

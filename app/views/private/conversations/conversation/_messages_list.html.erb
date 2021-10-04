@@ -1,0 +1,11 @@
+<!-- erbstart app/views/private/conversations/conversation/_messages_list.html.erb -->
+<div class="messages-list">
+  <%= render load_private_messages(conversation), conversation: conversation %>
+  <div class="loading-more-messages">
+    <i class="fa fa-spinner" aria-hidden="true"></i>
+  </div>
+  <!-- messages -->
+  <ul>
+  </ul>
+</div>
+<!-- erbend app/views/private/conversations/conversation/_messages_list.html.erb -->

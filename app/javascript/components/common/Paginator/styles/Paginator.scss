@@ -1,0 +1,52 @@
+.page-item a span {
+    color: #5263be;
+}
+
+.page-item a {
+    background-color: transparent;
+    border: none !important;
+    color: #5263be !important;
+    font-weight: bold;
+    margin: 0 10px;
+}
+
+.page-item span {
+    border: none !important;
+    margin: 0 10px;
+}
+
+.pagination .active .page-link {
+    background: linear-gradient(94.67deg, #4C68FF -1.19%, #6077F4 53.94%, #8185FF 102.59%);
+    border-radius: 5px;
+    color: white;
+}
+
+.paginator-input {
+    width: 70px;
+    color: #5263be;
+    font-weight: bold;
+    border-radius: 10px;
+    border-color:  #5263be;
+    &::placeholder {
+        font-size: 10px;
+        font-weight: bold;
+        color: #5263be;
+    }
+    text-align: center;
+    padding-bottom: 5px;
+}
+
+@media (max-width: 500px) {
+    .page-item a {
+        margin: 0;
+    }
+}
+
+@media only screen and (min-device-width : 320px) and (max-device-width : 575px){
+    .paginator-input{
+        width: 50px;
+    }
+    .page-item a {
+        padding: 0.5rem 5px !important;
+    }
+}

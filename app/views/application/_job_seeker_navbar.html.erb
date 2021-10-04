@@ -1,0 +1,91 @@
+<!-- erbstart app/views/application/_job_seeker_navbar.html.erb -->
+<ul class="nav navbar-nav navbar-left flexbox-container">
+  <li>
+
+    <%= link_to jobs_path, style: 'text-shadow: 1px 1px 2px rgb(255, 255, 255, 0.1); align-self: flex-end;', alt: 'Just for you' do %>
+    <div class="nav-link" style="float:left;"><span>Apply to Jobs</span></div>
+    <% end %>
+  </li>
+
+  <li>
+    <%= link_to user_dashboard_path(current_user), style: 'text-shadow: 1px 1px 2px rgb(255, 255, 255, 0.1); align-self: flex-end;', alt: 'Just for you' do %>
+      <div class="nav-link" style="float:left;"><span>Dashboard</span></div>
+      <% unless current_user.follow_count == 0 %>
+        <span class="badge"><%= current_user.follow_count %></span>
+      <% end %>
+    <% end %>
+  </li>
+
+  <li>
+    <%= link_to welcome_talent_intro_path, style: 'text-shadow: 1px 1px 2px rgb(255, 255, 255, 0.1); align-self: flex-end;', alt: 'Profile' do %>
+      <% if current_user.first_name.present? && current_user.last_name.present? %>
+        <div class="nav-link" style="float:right;"><span><%= current_user.first_name + ' ' + current_user.last_name[0] + '.' %></span></div>
+      <% else %>
+        <div class="nav-link" style="float:right;"><span>Profile</span></div>
+      <% end %>
+    <% end %>
+  </li>
+  <li>
+    <%= link_to url_for(edit_user_registration_path), style: 'align-self: flex-end;', alt: 'Settings' do %>
+
+      <div class="nav-link" style="float:right;"><span>Settings</span></div>
+    <% end %>
+  </li>
+  <li>
+    <%= link_to destroy_user_session_path, method: :delete do %>
+      <div class="nav-link btn btn-primary" style="float:left;margin-left: 0.5em; padding: 4px; margin-right: 0.5em; color: #fff; background-color: #CC0000; border-color: #CC0000; align-self: center; align-content: center;"><span>Sign Out</span></div>
+    <% end %>
+  </li>
+</ul>
+
+<!-- <div class="navbar-talent-intro">
+  <div class="nav-container">
+    <div class="row-navbar row" style="float:left;" >
+      <img src="/assets/Cardinal_Hire_white.png" alt="logo" style="float:left;height: -webkit-fill-available; padding-right: 2.5%;">
+        <%= link_to user_dashboard_path(current_user), style: 'text-shadow: 1px 1px 2px rgb(255, 255, 255, 0.1); align-self: flex-end;', alt: 'Just for you' do %>
+          <div class="nav-link" style="float:left;"><span>Dashboard</span></div>
+          <% unless current_user.follow_count == 0 %>
+            <span class="badge"><%= current_user.follow_count %></span>
+          <% end %>
+        <% end %>
+        <%= link_to calendar_url, style: 'text-shadow: 1px 1px 2px rgb(255, 255, 255, 0.1); align-self: flex-end;', alt: 'Just for you' do %>
+          <div class="nav-link" style="float:left;"><span>Calendar</span></div>
+          <% unless current_user.follow_count == 0 %>
+            <span class="badge"><%= current_user.follow_count %></span>
+          <% end %>
+        <% end %>
+        <%= link_to messages_url, style: 'text-shadow: 1px 1px 2px rgb(255, 255, 255, 0.1); align-self: flex-end;', alt: 'Just for you' do %>
+          <div class="nav-link" style="float:left;"><span>Messages</span></div>
+        <% end %>
+      </div>
+      <div class="row-navbar" style="float:right;" >
+        <li>
+          <%= link_to welcome_talent_intro_path, style: 'text-shadow: 1px 1px 2px rgb(255, 255, 255, 0.1); align-self: flex-end;', alt: 'Profile' do %>
+            <% if current_user.first_name.present? && current_user.last_name.present? %>
+              <div class="nav-link" style="float:right;"><span><%= current_user.first_name + ' ' + current_user.last_name[0] + '.' %></span></div>
+            <% else %>
+              <div class="nav-link" style="float:right;"><span>Profile</span></div>
+            <% end %>
+          <% end %>
+        </li>
+      </div>
+       <li>
+          <%= link_to url_for(edit_user_registration_path), style: 'text-shadow: 1px 1px 2px rgb(255, 255, 255, 0.1); align-self: flex-end;', alt: 'Settings' do %>
+            <div class="nav-link" style="float:right;"><span>Settings</span></div>
+            <% unless current_user.follow_count == 0 %>
+              <span class="badge"><%= current_user.follow_count %></span>
+            <% end %>
+          <% end %>
+        </li>
+
+        <li>
+          <%= link_to destroy_user_session_path, method: :delete do %>
+            <div class="nav-link" style="float:right;"><span>Sign Out</span></div>
+            <% unless current_user.follow_count == 0 %>
+              <span class="badge"><%= current_user.follow_count %></span>
+            <% end %>
+          <% end %>
+        </li>
+  </div>
+</div> -->
+<!-- erbend app/views/application/_job_seeker_navbar.html.erb -->

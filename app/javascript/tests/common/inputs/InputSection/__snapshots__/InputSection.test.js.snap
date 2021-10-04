@@ -1,0 +1,12 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`InputSection component should match with a snapshot 1`] = `
+Array [
+  <div
+    className="med-light-label"
+  />,
+  <div
+    className="p-2"
+  />,
+]
+`;

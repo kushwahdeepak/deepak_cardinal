@@ -1,0 +1,12 @@
+<!-- erbstart app/views/job_types/_form.html.erb -->
+<%= simple_form_for(@job_type, html: {class: 'form-horizontal' }) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>
+<!-- erbend app/views/job_types/_form.html.erb -->

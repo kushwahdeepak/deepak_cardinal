@@ -1,0 +1,221 @@
+<!-- erbstart app/views/people/_prerson_result_single_result.html.erb -->
+<% positionTitle = '' %>
+<% unless person['title'].blank? %>
+  <% person['title'].present? ? positionTitle = person['title'].tr("[", "").tr("]", "").split(/","/).first : positionTitle = '' %>
+<% end %>
+
+<% if positionTitle == '' %>
+  <% unless person['titles'].blank? %>
+    <% person['titles'].present? ? positionTitle = person['titles'].tr("[", "").tr("]", "").split(/","/).first : positionTitle = '' %>
+  <% end %>
+<% end %>
+
+<% company = "" %>
+<% unless person['company_names'].blank? %>
+  <% company = (person['company_names'].present?) ? (person['company_names'].remove('"').remove('[').remove(']')) : 'company unknown'%>
+<% end %>
+
+<% previousPositionTitle = '' %>
+<% unless person['titles'].blank? %>
+  <% person['titles'].present? ? previousPositionTitle = person['titles'].tr("[", "").tr("]", "").split(/","/).drop(1).first : previousPositionTitle = '' %>
+<% end %>
+
+<% previousCompany = "" %>
+<%# unless person['company_names'].blank? %>
+  <%# previousCompany = (person['company_names'].present?) ? (person['company_names'].remove('"').remove('[').remove(']')) : 'company unknown'%>
+<%# end %>
+
+<% loc = '' %>
+<% unless person.location.blank? %>
+  <% person.location.present? ? loc = person.location : loc = '' %>
+<% end %>
+
+<% schoolName = "" %>
+<% unless person.school.blank? %>
+  <% person.school.present? ? schoolName = person.school : schoolName = '' %>
+<% end %>
+
+<% deg = '' %>
+<% unless person.degree.blank? %>
+  <% person.degree.present? ? deg = person.degree : deg = '' %>
+<% end %>
+
+<% disc = '' %>
+<% unless person.discipline.blank? %>
+  <% person.discipline.present? ? disc = person.discipline : disc = '' %>
+<% end %>
+
+<% phone_number = 'None Saved' %>
+<% unless person.phone_number.blank? %>
+  <% person.phone_number.present? ? phone_number = person.phone_number : phone_number = 'None saved.' %>
+<% end %>
+
+<% email = 'None Saved' %>
+<% unless person.email_address.blank? %>
+  <% person.email_address.present? ? email = person.email_address : email = 'None saved.' %>
+<% end %>
+
+<% id = 'None Saved' %>
+<% unless person.id.blank? %>
+  <% person.id.present? ? id = person.id.to_s : id = 'None saved.' %>
+<% end %>
+
+<% user_id = 'None Saved' %>
+<% unless person.user_id.blank? %>
+  <% person.user_id.present? ? user_id = person.user_id : user_id.to_s = 'None saved.' %>
+<% end %>
+
+<% note_count = 'None Saved' %>
+<% unless person.notes.length == 0 || person.notes.length == nil %>
+  <% person.notes.present? ? note_count = person.notes.length.to_s : note_count.to_s = 'None saved.' %>
+<% end %>
+
+
+<div id="<%= person.id.to_s %>result">
+  <div class="row person-result-box">
+    <div class="grid-candidate" style="padding-bottom: 20px;">
+      <div class="grid-profile-icon">
+        <% if person.avatar.attached? %>
+          <div class="profile-pic" style="background: url('<%= url_for(person.avatar) %>'); background-size: cover; height: 61.14px; background-repeat: no-repeat;"></div>
+        <% end %>
+      </div>
+
+      <div class="grid-name-intro" style="align-self:center; position: relative;">
+        <div class="row">
+          <div class="col-6 col-xs-6 col-sm-6 col-md-6 col-lg-6">
+
+
+            <h2 class="employer_candidate_title">
+
+
+              <%= person.first_name %>&nbsp;<%= person.last_name %>
+
+
+              <% if person.linkedin_profile_url.present? %>
+                <%= link_to person.linkedin_profile_url, target: :_blank do %>
+                <span class="label label-primary" style="padding: 0.2em; margin: 0.2em; float: right;">
+                  LINKEDIN
+                </span>
+                <% end %>
+              <% end %>
+            </h2>
+
+            <p class="grid-current-text">
+              <% unless person.location.blank? %>
+                <%= person['location'] %>&nbsp;
+              <% end %>
+              <% unless person.fields.blank? %>
+                <%= person.fields %>
+              <% end %>
+            </p>
+
+
+          </div>
+
+        </div>
+      </div>
+      <% unless positionTitle.blank? and company.blank? %>
+
+        <h1 class="grid-current"> Current </h1>
+
+        <p class="grid-current-text">
+          <%= positionTitle %>
+          <% unless company.nil? %>
+            &nbsp;-&nbsp;
+            <%= company %>
+          <% end %>
+        </p>
+      <% end %>
+
+      <% unless previousPositionTitle.blank? and previousCompany.blank? %>
+        <h1 class="grid-past">Past</h1>
+
+        <p class="grid-past-text">
+          <%= previousPositionTitle %>
+          <% unless previousCompany.nil? %>
+            &nbsp;-&nbsp;
+            <%= previousCompany %>
+          <% end %>
+        </p>
+      <% end %>
+      <% unless schoolName.blank? %>
+
+        <h1 class="grid-edu">Education</h1>
+
+        <p class="grid-edu-text"> <%= (schoolName||'idk') + ' (' + (deg||'idk') + ', ' + (disc||'idk') + ')' %> </p>
+      <% end %>
+      <% unless person['skills'].blank? %>
+        <div style="width:100%; height: 25px; display:table;">
+          <h1 class="grid-skillz">Skills</h1>
+        </div>
+
+        <div style="width: 100%;">
+          <% if person['skills'] != nil %>
+            <% person_skills = person['skills'].tr("[", "").tr("]", "").split(/[,"]+/) %>
+            <% person_skills.drop(0).each do |skill| %>
+              <div class="user-skills" style="float: left; width: fit-content; background-color: #e8eff0; border-radius: 10px; font-size: 10px; font-weight: 500; padding: 0px 11px; margin: 0px 8px;  text-align: center;">
+                <%= skill.tr('"', '') + " " %>
+              </div>
+            <% end %>
+          <% end %>
+        </div>
+      <% end %>
+
+      <style type="text/css">
+        div#line1 span#a {
+          display:inline;
+        }
+        div#line1:hover span#a {
+          display:none;
+        }
+        div#line1 span#b {
+          display:none;
+        }
+        div#line1:hover span#b {
+          display:inline;
+        }
+      </style>
+
+      <% if policy(person).view_candidate_contacts? %>
+        <h1 class="contacts"> Contacts </h1>
+        <div style="width: 100%">
+          <div id="line1" style="width: fit-content; float: left; margin-right: 20px;">
+            <span id="a">hover to see phone number </span><span id="b"><%= phone_number %></span>
+          </div>
+
+          <div style="width: fit-content; float: left;">
+            <p> <%= email %></p>
+          </div>
+        </div>
+      <% end %>
+
+
+
+      <h1 class="tags"> Tags </h1>
+      <div style="width: 100%">
+        <div style="width: fit-content; float: left; margin-right: 20px;">
+          <p> <%= person.tags %> </p>
+        </div>
+      </div>
+
+      <% if person.resume.attached? %>
+        <h1 class="tags"> Resume </h1>
+        <div style="width: 100%">
+          <div style="width: fit-content; float: left; margin-right: 20px;">
+            <p> <%= link_to 'download', rails_blob_path(person.resume, disposition: "attachment") %> </p>
+          </div>
+        </div>
+      <% end %>
+
+      <% if current_user.role == 'admin' || current_user.role == 'recruiter' %>
+        <%= link_to "Edit", edit_person_path(person) %>
+        <!-- person view will have a bunch of person's info including submissions.  That's why the following link takes
+        you there-->
+        <%= link_to 'Submit to a Job', person_path(person) %>
+      <% end %>
+    </div>
+  </div>
+</div>
+
+
+<!-- erbend app/views/people/_prerson_result_single_result.html.erb -->

@@ -1,0 +1,36 @@
+<!-- erbstart app/views/jobs/show.html.erb -->
+<% if current_user && (current_user.role == 'employer' || current_user.role == 'recruiter' || current_user.role == 'admin') %>
+  <div class="standard-page">
+    <%= react_component("pages/JobDetailPage/JobDetailPage", {
+      ATSBaseUrl: ENV['ATS_BASE_URL'],
+      jobModel: @job.to_hash,
+      currentUser: current_user,
+      currentOrganization: @current_organization,
+      isEmailConfigured: @is_email_credential,
+      stageTransition: params["stage"] || "lead",
+      showInviteFriends: @show_invite_friends,
+      isApplied: @is_applied,
+      publicUrl: @url,
+      jobStatus: @job_status,
+      appliedDate: @applied_date,  
+      organizationId: @organizationId, 
+      organization: @organization,
+      jobLocation: @job_location,
+      memberOrganization: @member_organization,
+      job_stage_count: @job_stage_count
+    }) %>
+  </div>
+<% else %>
+  <%= react_component("pages/JobDescriptionPage/JobDescriptionPage", {
+    jobModel: @job.to_hash,
+    currentUser: current_user,
+    isApplied: @is_applied,
+    showInviteFriends: @show_invite_friends,
+    appliedDate: @applied_date, 
+    organizationId: @organizationId,
+    jobLocation: @job_location,
+    publicUrl:  @url,
+    organization: @organization,
+  }) %>
+<% end %>
+<!-- erbend app/views/jobs/show.html.erb -->

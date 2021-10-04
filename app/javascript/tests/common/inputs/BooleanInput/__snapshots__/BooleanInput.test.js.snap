@@ -1,0 +1,27 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`BooleanInput component should match with a snapshot 1`] = `
+<div
+  className="d-flex align-items-center"
+>
+  <input
+    checked={false}
+    data-test="checkbox-item"
+    onChange={[Function]}
+    style={
+      Object {
+        "marginRight": "0.5rem",
+      }
+    }
+    type="checkbox"
+  />
+  <label
+    data-test="label-item"
+    style={
+      Object {
+        "marginBottom": "0",
+      }
+    }
+  />
+</div>
+`;

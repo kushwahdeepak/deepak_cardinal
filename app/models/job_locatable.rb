@@ -1,0 +1,2 @@
+class JobLocatable < ApplicationRecord
+end

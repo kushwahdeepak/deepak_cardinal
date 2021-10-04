@@ -1,0 +1,62 @@
+<!-- erbstart app/views/interviews/show.html.erb -->
+<div class="row">
+  <div class="col-4 col-sm-12 col-md-4 order-last">
+    
+        <div class="clearfix">
+          <div class="container-fluid">
+            <% if @account_manager %>
+              <%= render partial: 'users/small_card', object: @account_manager %>
+            <% else %>
+              <%= render partial: 'small_conversations_template' %>
+            <% end %>
+          </div>
+        </div>
+    
+  </div>
+  <div class="col-12 col-sm-12 col-md-8 order-first">
+    
+        <div class="papel clearfix">
+          <div class="container-fluid">
+            <h1>Your interview with</h1>
+            <%= render :partial => 'users/person_2', locals: { person: @user.people.first } %>
+
+            <p id="notice"><%= notice %></p>
+
+            <p>
+              <strong>Name:</strong>
+              <%= @interview.name %>
+            </p>
+
+            <p>
+              <strong>Title:</strong>
+              <%= @interview.title %>
+            </p>
+
+            <p>
+              <strong>Content:</strong>
+              <%= @interview.content %>
+            </p>
+
+            <p>
+              <strong>Name:</strong>
+              <%= @interview.name %>
+            </p>
+
+            <p>
+              <strong>Price:</strong>
+              <%= @interview.price %>
+            </p>
+
+            <p>
+              <strong>Category:</strong>
+              <%= @interview.category %>
+            </p>
+
+            <%= link_to 'Edit', edit_interview_path(@interview) %> |
+            <%= link_to 'Back', interviews_path %>
+          </div>
+        </div>
+    
+  </div>
+</div>
+<!-- erbend app/views/interviews/show.html.erb -->

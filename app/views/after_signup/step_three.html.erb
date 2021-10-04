@@ -1,0 +1,556 @@
+<!-- erbstart app/views/after_signup/step_three.html.erb -->
+<script>
+  function keepCount(event) {
+    // console.log("in keep count");
+    // console.log(event.name);
+    if (checked.indexOf(event.name) >= 0) {
+      checked.splice(checked.indexOf(event.name), 1);
+      newCount = newCount - 1;
+    }
+    else {
+      if (checked.length < 3) {
+        checked.push(event.name);
+        newCount = newCount + 1;
+      }
+      else {
+        alert("Please only select 3 skills.")
+        document.skillset;
+        document.getElementById(event.name).checked = false;
+      }
+    }
+    // console.log(newCount);
+  }
+  function radio_like(arr) {
+    function radio_helper(id) {
+      $("#" + id).prop('checked', false);
+      $("#" + id + " + label div.years-technology").css({"background-color": "white", "color":"#003366"});
+    }
+    $("#" + arr[0]).on('change', function() {
+      if ($("#" + arr[0]).is(":checked"))
+      {
+        arr[1].map(radio_helper);
+      }
+    });
+  }
+  var newCount = 0;
+  var checked = [];
+  var years = ["user\\[experience_years\\]\\[zero\\_plus\\]", "user\\[experience_years\\]\\[one\\_plus\\]","user\\[experience_years\\]\\[two\\_plus\\]","user\\[experience_years\\]\\[three\\_plus\\]","user\\[experience_years\\]\\[four\\_plus\\]"];
+  var years_permutation = [];
+  $(document).ready(function() {
+    for (i = 0; i < years.length; i++) {
+        var four = years.slice(0);
+        var one = four.splice(i,1);
+        years_permutation.push([one,four]);
+    }
+    years_permutation.map(radio_like);
+});
+</script>
+
+<div class="space-60"></div>
+
+  <div class="row">
+    <div class="col-2 col-sm-2 col-md-2">
+        <div class="clearfix">
+          <div class="container-fluid">
+          </div>
+        </div>
+      </div>
+
+      <div class="col-8 col-sm-8 col-md-8">
+        <div class="clearfix">
+          <div class="container-fluid papel">
+              <div class="space-10"></div>
+
+              <h3 class="text-center" style="margin-top: 25px">Experience</h3>
+              <div class="simple-progress-container progress-round-xlarge">
+                <div class="simple-progress-bar progress-round-xlarge" style="width:60%; background-color: #cc0000; transition-property: width; transition-duration: 4s; transition-delay: 0.5s;">
+                </div>
+              </div>
+            </div>
+               <%= simple_form_for @user, :url => wizard_path, :method => :put, html: { multipart: true } do |f| %>
+
+                <h4 style="margin-top: 42px;">
+                  <span style="font-weight: 300;">
+                    <%= @step_three_question_one %>
+                  </span></h4>
+
+                    <div class="row" style="border-bottom: 1px solid rgba(0, 0, 0, 0.4); padding-bottom: 30px;">
+                        <div class="fifth left blue-text">
+                          <input class="checkbox" style="display: none;" id="user[experience_years][zero_plus]" type="checkbox" name="user[experience_years][zero_plus]" checked="checked" />
+                          <label for="user[experience_years][zero_plus]">
+                            <div class="btn btn-blue years-technology">
+                              0+
+                            </div>
+                          </label>
+                        </div>
+
+                        <div class="fifth left blue-text">
+                          <input class="checkbox" style="display: none;" id="user[experience_years][one_plus]" type="checkbox" name="user[experience_years][one_plus]" />
+                          <label for="user[experience_years][one_plus]" >
+                            <div class="btn btn-blue years-technology ">
+                             1+
+                            </div>
+                          </label>
+                        </div>
+
+                        <div class="fifth left blue-text">
+                          <input class="checkbox" style="display: none;" id="user[experience_years][two_plus]" type="checkbox" name="user[experience_years][two_plus]" />
+                          <label for="user[experience_years][two_plus]" >
+                              <div class="btn btn-blue years-technology ">
+                              2+
+                              </div>
+                          </label>
+                        </div>
+
+                        <div  class="fifth left blue-text">
+                          <input class="checkbox" style="display: none;" id="user[experience_years][three_plus]" type="checkbox" name="user[experience_years][three_plus]" />
+                          <label for="user[experience_years][three_plus]" >
+                              <div class="btn btn-blue years-technology ">
+                              3+
+                              </div>
+                          </label>
+                        </div>
+                        <div class="fifth left blue-text">
+                          <input class="checkbox" style="display: none;" id="user[experience_years][four_plus]" type="checkbox" name="user[experience_years][four_plus]" />
+                          <label for="user[experience_years][four_plus]" >
+                              <div class="btn btn-blue years-technology">
+                              4+
+                              </div>
+                          </label>
+                        </div>
+
+                    </div>
+
+                    <div class="row" style="font-size: 16px;">
+                      <div style="width:100%">
+                        <span class="left" style="padding-top:29px; padding-bottom: 28px;">
+                          <%= @step_three_question_two %>
+                        </span>
+                      </div>
+                    </div>
+
+                    <div class="row" style="border-bottom: 1px solid rgba(0, 0, 0, 0.4); padding-bottom: 7px; font-size: 16px;">
+
+                      <div class="col-6 col-sm-4 col-md-3 left city">
+
+                          <input class="checkbox" style="display: none;" id="user[roles_held][Back_End]" type="checkbox" name="user[roles_held][Back_End]" />
+
+                          <label for="user[roles_held][Back_End]"> <span class="check">✓</span> Back End</label>
+                       </div>
+
+                      <div id="chicago" class="col-6 col-sm-4 col-md-3 left city">
+
+                        <input class="checkbox" style="display: none;" id="user[roles_held][Front_End]" type="checkbox" name="user[roles_held][Front_End]" />
+                        <label for="user[roles_held][Front_End]"><span class="check">✓</span> Front End</label>
+                      </div>
+
+                      <div id="oakland" class="col-6 col-sm-4 col-md-3 left city">
+
+                        <input class="checkbox" style="display: none;" id="user[roles_held][Data_Engineer]" type="checkbox" name="user[roles_held][Data_Engineer]" />
+                        <label for="user[roles_held][Data_Engineer]"><span class="check">✓</span> Data Engineer</label>
+                      </div>
+
+                      <div id="san_diego" class="col-6 col-sm-4 col-md-3 left city">
+
+                        <input class="checkbox" style="display: none;" id="user[roles_held][Data_Science]" type="checkbox" name="user[roles_held][Data_Science]" />
+                        <label for="user[roles_held][Data_Science]"> <span class="check">✓</span> Data Science</label>
+                      </div>
+
+                      <div id="san_francisco" class="col-6 col-sm-4 col-md-3 left city">
+
+                        <input class="checkbox" style="display: none;" id="user[roles_held][Mobile_Dev]" type="checkbox" name="user[roles_held][Mobile_Dev]" />
+                        <label for="user[roles_held][Mobile_Dev]"><span class="check">✓</span> Mobile Dev</label>
+                      </div>
+
+                      <div  class="col-6 col-sm-4 col-md-3 left city">
+
+                        <input class="checkbox" style="display: none;" id="user[roles_held][Design]" type="checkbox" name="user[roles_held][Design]" />
+                        <label for="user[roles_held][Design]"><span class="check">✓</span> Design</label>
+                      </div>
+
+                      <div  class="col-6 col-sm-4 col-md-3 left city">
+
+                        <input class="checkbox" style="display: none;" id="user[roles_held][Development_Ops]" type="checkbox" name="user[roles_held][Development_Ops]" />
+                        <label for="user[roles_held][Development_Ops]"><span class="check">✓</span> Dev Ops</label>
+                      </div>
+
+                      <div  class="col-6 col-sm-4 col-md-3 left city">
+
+                        <input class="checkbox" style="display: none;" id="user[roles_held][Full_Stack]" type="checkbox" name="user[roles_held][Full_Stack]" />
+                        <label for="user[roles_held][Full_Stack]"><span class="check">✓</span> Full Stack</label>
+                      </div>
+
+                      <div  class="col-6 col-sm-4 col-md-3 left city">
+
+                        <input class="checkbox" style="display: none;" id="user[roles_held][Product_Mgmt]" type="checkbox" name="user[roles_held][Product_Mgmt]" />
+                        <label for="user[roles_held][Product_Mgmt]"><span class="check">✓</span> Product Mgmt</label>
+                      </div>
+
+                      <div  class="col-6 col-sm-4 col-md-3 left city">
+
+                        <input class="checkbox" style="display: none;" id="user[roles_held][QA_Engineer]" type="checkbox" name="user[roles_held][QA_Engineer]" />
+                        <label for="user[roles_held][QA_Engineer]"><span class="check">✓</span> QA Engineer</label>
+                      </div>
+
+                      <div  class="col-6 col-sm-4 col-md-3 left city">
+
+                        <input class="checkbox" style="display: none;" id="user[roles_held][Tech_Mgmt]" type="checkbox" name="user[roles_held][Tech_Mgmt]" />
+                        <label for="user[roles_held][Tech_Mgmt]"><span class="check">✓</span> Tech Mgmt</label>
+                      </div>
+
+                      <div  class="col-6 col-sm-4 col-md-3 left city">
+
+                        <input class="checkbox" style="display: none;" id="user[roles_held][UI_UX_dev]" type="checkbox" name="user[roles_held][UI_UX_dev]" />
+                        <label for="user[roles_held][UI_UX_dev]"><span class="check">✓</span> UI/UX Developer</label>
+                      </div>
+
+
+                    </div>
+
+                    <!-- <div class="row" >
+                        <p style="font-size: 15px"> Select your strongest skills (limit 3): </p>
+                        <div class="column">
+                        <input class="checkbox" style="display: none;" id="user[skills]['Android']" type="checkbox" name="user[skills]['Android']" <style="font-size: 12px; padding: 2px" >
+                        <label for="user[skills]['Android']"> <span class="check">✓</span> Android </label>
+                        <input class="checkbox" style="display: none;" id="user[skills]['Angular_JS']" type="checkbox" name="user[skills]['Angular_JS']" <style="font-size: 12px; padding: 2px" >
+                        <label for="user[skills]['Angular_JS']"><span class="check">✓</span> Angular JS</label>
+                        <input class="checkbox" style="display: none;" id="user[skills]['Automation_Testing']" type="checkbox" name="user[skills]['Automation_Testing']" <style="font-size: 12px; padding: 2px" >
+                        <label for="user[skills]['Automation_Testing']"><span class="check">✓</span> Automation Testing</label>
+                      </div>
+                      <div class="column">
+                        <input class="checkbox" style="display: none;" id="user[skills]['AWS']" type="checkbox" name="user[skills]['AWS']" <style="font-size: 12px; padding: 2px" >
+                        <label for="user[skills]['AWS']"><span class="check">✓</span> AWS(Amazon Web Services)</label>
+                      </div>
+                    </div> -->
+
+
+                    <!-- <div class="row" style="border-bottom: 1px solid rgba(0, 0, 0, 0.4); padding-bottom: 7px; font-size: 16px;"> -->
+
+        <div class="row" style="font-size: 16px;">
+                       <div style="width:100%">
+                         <span class="left" style="padding-top:29px; padding-bottom: 10px;">
+                           <%= @step_three_question_three %>
+                         </span>
+                       </div>
+                    </div>
+
+                    <div name="skillset">
+                      <div class="row" style="padding-top: 10px; border-bottom: 1px solid rgba(0, 0, 0, 0.4); padding-bottom: 21px; font-size: 16px;">
+
+                      <div class="col-6 col-sm-4 col-md-3 left city">
+
+                          <input class="checkbox" style="display: none;" id="user[skills][Android]" type="checkbox" name="user[skills][Android]" onclick="keepCount(this)" />
+
+                          <label for="user[skills][Android]"> <span class="check">✓</span> Android </label>
+                       </div>
+
+                      <div class="col-6 col-sm-4 col-md-3 left city">
+
+                        <input class="checkbox" style="display: none;" id="user[skills][Angular_JS]" type="checkbox" name="user[skills][Angular_JS]" onclick="keepCount(this)" />
+                        <label for="user[skills][Angular_JS]"><span class="check">✓</span> Angular JS</label>
+                      </div>
+
+                      <div class="col-6 col-sm-4 col-md-3 left city">
+
+                        <input class="checkbox" style="display: none;" id="user[skills][Automation_Testing]" type="checkbox" name="user[skills][Automation_Testing]" onclick="keepCount(this)" />
+                        <label for="user[skills][Automation_Testing]"><span class="check">✓</span> Automation Testing</label>
+                      </div>
+
+                      <div class="col-6 col-sm-4 col-md-3 left city">
+
+                        <input class="checkbox" style="display: none;" id="user[skills][AWS]" type="checkbox" name="user[skills][AWS]" onclick="keepCount(this)"/>
+                        <label for="user[skills][AWS]"><span class="check">✓</span> AWS(Amazon Web Services)</label>
+                      </div>
+
+                      <div class="col-6 col-sm-4 col-md-3 left city">
+
+                        <input class="checkbox" style="display: none;" id="user[skills][C]" type="checkbox" name="user[skills][C]" onclick="keepCount(this)"/>
+                        <label for="user[skills][C]"><span class="check">✓</span> C</label>
+                      </div>
+
+                      <div class="col-6 col-sm-4 col-md-3 left city">
+
+                        <input class="checkbox" style="display: none;" id="user[skills][C++]" type="checkbox" name="user[skills][C++]" onclick="keepCount(this)"/>
+                        <label for="user[skills][C++]"><span class="check">✓</span> C++</label>
+                      </div>
+
+                      <div  class="col-6 col-sm-4 col-md-3 left city">
+
+                        <input class="checkbox" style="display: none;" id="user[skills][C#]" type="checkbox" name="user[skills][C#]" onclick="keepCount(this)"/>
+                        <label for="user[skills][C#]"><span class="check">✓</span> C#</label>
+                      </div>
+
+                      <div class="col-6 col-sm-4 col-md-3 left city">
+
+                        <input class="checkbox" style="display: none;" id="user[skills][Dev_Ops]" type="checkbox" name="user[skills][Dev_Ops]" onclick="keepCount(this)"/>
+                        <label for="user[skills][Dev_Ops]"><span class="check">✓</span> Dev Ops</label>
+                      </div>
+
+                      <div class="col-6 col-sm-4 col-md-3 left city">
+
+                        <input class="checkbox" style="display: none;" id="user[skills][Django]" type="checkbox" name="user[skills][Django]" onclick="keepCount(this)"/>
+                        <label for="user[skills][Django]"><span class="check">✓</span> Django</label>
+                      </div>
+
+                      <div  class="col-6 col-sm-4 col-md-3 left city">
+
+                        <input class="checkbox" style="display: none;" id="user[skills][Go]" type="checkbox" name="user[skills][Go]" onclick="keepCount(this)"/>
+                        <label for="user[skills][Go]"><span class="check">✓</span> Go</label>
+                      </div>
+
+                      <div class="col-6 col-sm-4 col-md-3 left city">
+
+                        <input class="checkbox" style="display: none;" id="user[skills][Hadoop]" type="checkbox" name="user[skills][Hadoop]" onclick="keepCount(this)"/>
+                        <label for="user[skills][Hadoop]"><span class="check">✓</span> Hadoop</label>
+                      </div>
+
+                      <div  class="col-6 col-sm-4 col-md-3 left city">
+
+                        <input class="checkbox" style="display: none;" id="user[skills][iOS]" type="checkbox" name="user[skills][iOS]" onclick="keepCount(this)"/>
+                        <label for="user[skills][iOS]"><span class="check">✓</span> iOS</label>
+                      </div>
+
+                      <div  class="col-6 col-sm-4 col-md-3 left city">
+
+                        <input class="checkbox" style="display: none;" id="user[skills][Java]" type="checkbox" name="user[skills][Java]" onclick="keepCount(this)"/>
+                        <label for="user[skills][Java]"><span class="check">✓</span> Java</label>
+                      </div>
+
+                            <div  class="col-6 col-sm-4 col-md-3 left city">
+
+                        <input class="checkbox" style="display: none;" id="user[skills][Javascript]" type="checkbox" name="user[skills][Javascript]" onclick="keepCount(this)"/>
+                        <label for="user[skills][Javascript]"><span class="check">✓</span> Javascript</label>
+                      </div>
+
+                      <div  class="col-6 col-sm-4 col-md-3 left city">
+
+                        <input class="checkbox" style="display: none;" id="user[skills][Machine_Learning]" type="checkbox" name="user[skills][Machine_Learning]" onclick="keepCount(this)"/>
+                        <label for="user[skills][Machine_Learning]"><span class="check">✓</span> Machine Learning</label>
+                      </div>
+
+                      <div  class="col-6 col-sm-4 col-md-3 left city">
+
+                        <input class="checkbox" style="display: none;" id="user[skills][Mongo_DB]" type="checkbox" name="user[skills][Mongo_DB]" onclick="keepCount(this)"/>
+                        <label for="user[skills][Mongo_DB]"><span class="check">✓</span> Mongo DB</label>
+                      </div>
+
+                      <div  class="col-6 col-sm-4 col-md-3 left city">
+
+                        <input class="checkbox" style="display: none;" id="user[skills][MySQL]" type="checkbox" name="user[skills][MySQL]" onclick="keepCount(this)"/>
+                        <label for="user[skills][MySQL]"><span class="check">✓</span> MySQL</label>
+                      </div>
+
+                      <div  class="col-6 col-sm-4 col-md-3 left city">
+
+                        <input class="checkbox" style="display: none;" id="user[skills][Node.js]" type="checkbox" name="user[skills][Node.js]" onclick="keepCount(this)"/>
+                        <label for="user[skills][Node.js]"><span class="check">✓</span> Node.js</label>
+                      </div>
+
+                      <div  class="col-6 col-sm-4 col-md-3 left city">
+
+                        <input class="checkbox" style="display: none;" id="user[skills][Objective-C]" type="checkbox" name="user[skills][Objective-C]" onclick="keepCount(this)"/>
+                        <label for="user[skills][Objective-C]"><span class="check">✓</span> Objective-C</label>
+                      </div>
+
+                     <div  class="col-6 col-sm-4 col-md-3 left city">
+
+                        <input class="checkbox" style="display: none;" id="user[skills][PHP]" type="checkbox" name="user[skills][PHP]" onclick="keepCount(this)"/>
+                        <label for="user[skills][PHP]"><span class="check">✓</span> PHP</label>
+                      </div>
+
+                      <div  class="col-6 col-sm-4 col-md-3 left city">
+
+                        <input class="checkbox" style="display: none;" id="user[skills][Product_Design]" type="checkbox" name="user[skills][Product_Design]" onclick="keepCount(this)"/>
+                        <label for="user[skills][Product_Design]"><span class="check">✓</span> Product Design</label>
+                      </div>
+
+                      <div  class="col-6 col-sm-4 col-md-3 left city">
+
+                        <input class="checkbox" style="display: none;" id="user[skills][Product_Management]" type="checkbox" name="user[skills][Product_Management]" onclick="keepCount(this)"/>
+                        <label for="user[skills][Product_Management]"><span class="check">✓</span> Product Management</label>
+                      </div>
+
+                     <div  class="col-6 col-sm-4 col-md-3 left city">
+
+                        <input class="checkbox" style="display: none;" id="user[skills][Python]" type="checkbox" name="user[skills][Python]" onclick="keepCount(this)"/>
+                        <label for="user[skills][Python]"><span class="check">✓</span> Python</label>
+                      </div>
+
+                      <div  class="col-6 col-sm-4 col-md-3 left city">
+
+                        <input class="checkbox" style="display: none;" id="user[skills][R]" type="checkbox" name="user[skills][R_lang]" onclick="keepCount(this)"/>
+                        <label for="user[skills][R]"><span class="check">✓</span> R</label>
+                      </div>
+
+                      <div  class="col-6 col-sm-4 col-md-3 left city">
+
+                        <input class="checkbox" style="display: none;" id="user[skills][React.js]" type="checkbox" name="user[skills][React.js]" onclick="keepCount(this)"/>
+                        <label for="user[skills][React.js]"><span class="check">✓</span> React.js</label>
+                      </div>
+
+                    <div  class="col-6 col-sm-4 col-md-3 left city">
+
+                        <input class="checkbox" style="display: none;" id="user[skills][Scala]" type="checkbox" name="user[skills][Scala]" onclick="keepCount(this)"/>
+                        <label for="user[skills][Scala]"><span class="check">✓</span> Scala</label>
+                      </div>
+
+                      <div  class="col-6 col-sm-4 col-md-3 left city">
+
+                        <input class="checkbox" style="display: none;" id="user[skills][Swift]" type="checkbox" name="user[skills][Swift]" onclick="keepCount(this)"/>
+                        <label for="user[skills][Swift]"><span class="check">✓</span> Swift</label>
+                      </div>
+
+                      <div  class="col-6 col-sm-4 col-md-3 left city">
+
+                        <input class="checkbox" style="display: none;" id="user[skills][Technology_Management]" type="checkbox" name="user[skills][Technology_Management]" onclick="keepCount(this)"/>
+                        <label for="user[skills][Technology_Management]"><span class="check">✓</span> Technology Management</label>
+                      </div>
+
+                  <div  class="col-6 col-sm-4 col-md-3 left city">
+
+                        <input class="checkbox" style="display: none;" id="user[skills][UI/UX]" type="checkbox" name="user[skills][UI/UX]" onclick="keepCount(this)"/>
+                        <label for="user[skills][UI/UX]"><span class="check">✓</span> UI/UX</label>
+                      </div>
+
+                      <div  class="col-6 col-sm-4 col-md-3 left city">
+
+                        <input class="checkbox" style="display: none;" id="user[skills][Security]" type="checkbox" name="user[skills][Security]" onclick="keepCount(this)"/>
+                        <label for="user[skills][Security]"><span class="check">✓</span> Security</label>
+                      </div>
+
+                      <div  class="col-6 col-sm-4 col-md-3 left city">
+
+                        <input class="checkbox" style="display: none;" id="user[skills][Ruby]" type="checkbox" name="user[skills][Ruby]" onclick="keepCount(this)"/>
+                        <label for="user[skills][Ruby]"><span class="check">✓</span> Ruby/Ruby on Rails</label>
+                      </div>
+
+
+                    </div>
+                  </div>
+
+                  <div class="row" style="padding-bottom: 7px; font-size: 16px;">
+
+
+                    <div class="row" style="font-size: 16px;">
+                      <div style="width:100%">
+                        <span class="left" style="padding-top:29px;">
+                          <%= @step_three_question_four %>
+                        </span>
+                      </div>
+                    </div>
+
+
+         <div class="row" style="padding-top: 32px; border-bottom: 1px solid rgba(0, 0, 0, 0.4); padding-bottom: 21px; font-size: 16px;">
+
+                      <div class="col-6 col-sm-4 col-md-3 left city">
+
+                          <input class="checkbox" style="display: none;" id="user[roles_interested]['Back_End_Engineer']" type="checkbox" name="user[roles_interested]['Back_End_Engineer']" />
+
+                          <label for="user[roles_interested]['Back_End_Engineer']"> <span class="check">✓</span> Back End Engineer</label>
+                       </div>
+
+                      <div class="col-6 col-sm-4 col-md-3 left city">
+
+                        <input class="checkbox" style="display: none;" id="user[roles_interested]['Data_Engineer']" type="checkbox" name="user[roles_interested]['Data_Engineer']" />
+                        <label for="user[roles_interested]['Data_Engineer']"><span class="check">✓</span> Data Engineer</label>
+                      </div>
+
+                      <div class="col-6 col-sm-4 col-md-3 left city">
+
+
+                        <input class="checkbox" style="display: none;" id="user[roles_interested]['Data_Science']" type="checkbox" name="user[roles_interested]['Data_Science']" />
+                        <label for="user[roles_interested]['Data_Science']"><span class="check">✓</span> Data Science</label>
+                      </div>
+
+
+                      <div class="col-6 col-sm-4 col-md-3 left city">
+
+                        <input class="checkbox" style="display: none;" id="user[roles_interested]['Design']" type="checkbox" name="user[roles_interested]['Design']" />
+                        <label for="user[roles_interested]['Design']"><span class="check">✓</span> Design</label>
+                      </div>
+
+                     <div class="col-6 col-sm-4 col-md-3 left city">
+
+                        <input class="checkbox" style="display: none;" id="user[roles_interested]['DevOps/Infra']" type="checkbox" name="user[roles_interested]['DevOps/Infra']" />
+                        <label for="user[roles_interested]['DevOps/Infra']"><span class="check">✓</span> DevOps / Infrastructure</label>
+                      </div>
+
+
+                     <div class="col-6 col-sm-4 col-md-3 left city">
+
+                        <input class="checkbox" style="display: none;" id="user[roles_interested]['Front_End_Engineer']" type="checkbox" name="user[roles_interested]['Front_End_Engineer']" />
+                        <label for="user[roles_interested]['Front_End_Engineer']"><span class="check">✓</span> Front End Engineer</label>
+                      </div>
+
+                    <div class="col-6 col-sm-4 col-md-3 left city">
+
+                        <input class="checkbox" style="display: none;" id="user[roles_interested]['Full_Stack_Engineer']" type="checkbox" name="user[roles_interested]['Full_Stack_Engineer']" />
+                        <label for="user[roles_interested]['Full_Stack_Engineer']"><span class="check">✓</span> Full Stack Engineer</label>
+                      </div>
+
+
+                      <div class="col-6 col-sm-4 col-md-3 left city">
+
+                        <input class="checkbox" style="display: none;" id="user[roles_interested]['Mobile_Engineer']" type="checkbox" name="user[roles_interested]['Mobile_Engineer']"/>
+                        <label for="user[roles_interested]['Mobile_Engineer']"><span class="check">✓</span> Mobile Engineer</label>
+                      </div>
+
+
+
+                      <div class="col-6 col-sm-4 col-md-3 left city">
+
+                        <input class="checkbox" style="display: none;" id="user[roles_interested]['Product_Management']" type="checkbox" name="user[roles_interested]['Product_Management']" />
+                        <label for="user[roles_interested]['Product_Management']"><span class="check">✓</span> Product Management</label>
+                      </div>
+
+
+
+                      <div class="col-6 col-sm-4 col-md-3 left city">
+
+
+                        <input class="checkbox" style="display: none;" id="user[roles_interested]['QA_Engineer']" type="checkbox" name="user[roles_interested]['QA_Engineer']" />
+                        <label for="user[roles_interested]['QA_Engineer']"><span class="check">✓</span> QA Engineer</label>
+                      </div>
+
+
+
+                     <div class="col-6 col-sm-4 col-md-3 left city">
+
+                        <input class="checkbox" style="display: none;" id="user[roles_interested]['Technology_Management']" type="checkbox" name="user[roles_interested]['Technology_Management']"  />
+                        <label for="user[roles_interested]['Technology_Management']" ><span class="check">✓</span> Technology Management</label>
+                      </div>
+                  </div>
+
+                </div>
+
+
+
+                  <div class="row" style="margin-top: 31px; margin-bottom: 30px;">
+                      <div class="quarter left">
+                            <div style="float:left; width: 100%;">
+                              <!-- <input onclick="window.history.back()" type="submit" name="commit" value="Back" class="btn btn-red" data-disable-with="Back"> -->
+                            </div>
+                        </div>
+
+                        <div class="quarter right">
+                            <div style="float:right; width: 100%;">
+                                <%= f.submit 'Next', :class => 'btn btn-red' %><br />
+                            </div>
+                        </div>
+                    </div>
+
+              <% end %>
+              <div class="space-10"></div>
+          </div>
+
+    </div>
+
+    <div class="col-2 col-sm-2 col-md-2">
+        <div class="clearfix">
+          <div class="container-fluid">
+          </div>
+        </div>
+    </div>
+
+  </div>
+<!-- erbend app/views/after_signup/step_three.html.erb -->

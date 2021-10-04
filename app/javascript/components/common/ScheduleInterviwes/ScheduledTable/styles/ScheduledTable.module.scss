@@ -1,0 +1,1233 @@
+@import '../../../../../styles/var.scss';
+
+.modalBackdrop {
+    background-color: rgba(0, 0, 0, 0);
+}
+.modalBody {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    font-family: $default-font-family;
+    align-items: stretch;
+    color: $primary-blue;
+    font-size: 0.8rem;
+    padding: 1.3rem;
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.25);
+    border-radius: 25px;
+    background-color: #ffffff;
+}
+
+.table {
+    margin-top: 2rem;
+
+    tbody tr:hover {
+        background-color: $faded-blue-bg;
+        cursor: pointer;
+    }
+}
+
+.th {
+    font-family: $default-font-family;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 16px;
+    color: #4c5480;
+    border-top: none !important;
+    border-bottom: 2px solid #ebedfa !important;
+}
+
+.td {
+    max-width: 15rem;
+    font-family: $default-font-family;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 10px;
+    line-height: 14px;
+    color: #586293;
+    border-top: 2px solid #ebedfa !important;
+}
+.tdLine {
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow-x: hidden;
+}
+
+.candidateName {
+    font-family: $default-font-family;
+    font-style: normal;
+    font-weight: 800;
+    font-size: 12px;
+    line-height: 16px;
+    color: #465189;
+    z-index: 9999;
+}
+.tdHdLine {
+    
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 19px;
+    color: #16246B;
+    position: relative;
+    top: 35px;
+    left: 40px;
+    z-index: 9999;
+}
+
+.iconDiv {
+    background: #ebedfa;
+    padding: 10px;
+    border-radius: 50%;
+    margin-right: 10px;
+    color: #4961e4;
+}
+.iconHeadContainer {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    flex-basis: 44%;
+}
+.tdTextContainer {
+    display: flex;
+    flex-direction: column;
+}
+.tdSubLine {
+    font-family: $default-font-family;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 10px;
+    line-height: 14px;
+
+    color: #4c68ff;
+}
+.tdAddinalLine {
+    font-family: $default-font-family;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 10px;
+    line-height: 14px;
+
+    color: #8b9eff;
+}
+.tableIconsButton {
+    background-color: inherit;
+    color: #4c68ff;
+    padding: 2px;
+    border-radius: 2px;
+}
+
+.iconContainer {
+    display: flex;
+    align-self: center;
+    margin: 10px;
+    justify-content: space-evenly;
+    color: #4c68ff;
+
+    button {
+        display: flex;
+        background: none;
+        color: #4c68ff;
+    }
+}
+.feedbackModalDialog{
+   background: #ffffff;
+    box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.20);
+    border-radius: 20px;
+    /* padding: 40px 44px; */
+    position: fixed;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    min-width: 800px !important ;
+    z-index: 9000;
+    overflow-y: hidden;
+    margin: 20px 0px ;
+    display: flex;
+    flex-direction: column;        
+    -webkit-transform: translate3d(0%, 0, 0);
+        -ms-transform: translate3d(0%, 0, 0);
+         -o-transform: translate3d(0%, 0, 0);
+            transform: translate3d(0%, 0, 0);
+    right: 0px;
+    transition: opacity 0.0s linear, right 0.0s ease-out;
+}
+.feedbackModalHeader{
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  padding: 2rem 2rem !important;
+}
+.feedbackAddButton{
+  position: relative;
+  width: 150px;
+  height: 35px;
+  left: 445px;
+  top: -3px;
+  background: linear-gradient(94.67deg, #4C68FF -1.19%, #6077F4 53.94%, #8185FF 102.59%);
+  border-radius: 20px;
+  cursor: pointer;
+}
+.feedbackAlert{
+  top: -24px;
+  left: 277px;
+  width: fit-content;
+  margin-bottom: -3rem;
+}
+.feedbackCloseButton{
+  padding: 2px;
+  background: #4c68ff !important;
+  color: #ffffff;
+  border-radius: 50% !important;
+  height: fit-content;
+  width: fit-content;
+  align-self: baseline;
+  margin-left: auto;
+}
+
+.popoverContainer {
+    background: #ffffff;
+    box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.25);
+    border-radius: 20px;
+    display: flex;
+    padding: 10px;
+    z-index: 2;
+    position: fixed;
+    width: 65%;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+.popoverEditContainer {
+    width: 65%;
+    height: max-content;
+    background: #ffffff;
+    box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.25);
+    border-radius: 20px;
+    display: flex;
+    padding: 10px;
+    z-index: 2;
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+.scheduleInterviewContainer {
+    margin: 10px;
+}
+.deleteRowHeader {
+    margin-bottom: 40px;
+    margin-left: 0px;
+    margin-bottom: 10px;
+    padding-bottom: 5px;
+    margin-right: 0px;
+}
+.deleteRowBody {
+    padding-left: 100px;
+    margin-left: 0px;
+    margin-bottom: 0px;
+    margin-top: 30px;
+}
+.deleteRowFooter {
+    margin-top: 10px;
+    justify-content: flex-end;
+
+}
+.rowFooterBtn {
+    display: flex;
+    align-items: center;
+}
+.deleteHeader {
+    font-family: $default-font-family;
+    font-style: normal;
+    font-weight: 800;
+    font-size: 24px;
+    line-height: 33px;
+    margin-left: 30px;
+    color: #4c68ff;
+    margin-right: 10px;
+}
+.spanHeaderText {
+    font-family: $default-font-family;
+    font-style: normal;
+    font-weight: 800;
+    font-size: 24px;
+    line-height: 33px;
+    color: #4c68ff;
+    margin-left: 13px;
+    margin-right: 60px;
+}
+
+.cancelDelete {
+    padding: 2px;
+    background: #4c68ff;
+    color: #ffffff;
+    border-radius: 50%;
+    height: fit-content;
+    width: fit-content;
+    align-self: baseline;
+}
+.scheduleCancelButton {
+  position: relative !important;
+  float: right !important;
+  left: 1064px !important;
+  top: -30px !important;
+  padding: 2px;
+  background: #4c68ff;
+  color: #ffffff;
+  border-radius: 50%;
+  height: fit-content;
+  width: fit-content;
+  align-self: baseline;
+}
+.head {
+    font-family: $default-font-family;
+    font-style: normal;
+    font-weight: 800;
+    font-size: 16px;
+    line-height: 22px;
+    /* identical to box height */
+
+    color: #8090ff;
+}
+.subHead {
+    font-family: $default-font-family;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 22px;
+
+    color: #4c68ff;
+}
+.infoContainer {
+    flex-basis: 43%;
+}
+.choicebtn {
+    font-family: $default-font-family;
+    background: #4c68ff;
+    border-radius: 10px;
+    padding: 9px 22px;
+    margin-right: 20px;
+    color: #ffffff;
+}
+.deleteIconDiv {
+    font-family: $default-font-family;
+    background: #ebedfa;
+    border-radius: 50%;
+    color: #4c68ff;
+    padding: 17px;
+}
+.cancelIcon {
+    transform: scale(0.8);
+}
+.editItemContainer {
+    display: flex;
+    padding-left: 60px;
+    margin-top: 30px;
+    flex-wrap: wrap;
+}
+.editHead {
+    margin-left: 24px;
+    margin-right: 0px;
+
+    align-items: center;
+}
+.cancelInterviewContainer {
+    margin: 10px 15px;
+}
+.cancelRow1 {
+    display: flex;
+    .cancelDelete {
+        margin-right: 0px;
+    }
+
+    span {
+        font-family: $default-font-family;
+        font-style: normal;
+        font-weight: 800;
+        font-size: 24px;
+        line-height: 33px;
+        color: #4c68ff;
+        padding: 2px;
+        margin-right: 45px;
+    }
+}
+.cancelRow2 {
+    font-family: $default-font-family;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 22px;
+    color: #8091ff;
+    padding: 2px;
+}
+.editScheduleHead {
+    margin-right: 0px;
+    align-items: center;
+    margin-bottom: 20px;
+}
+.editScheduleBody {
+    margin-left: 0px;
+    margin-right: 0px;
+}
+// -----------------------------------------------------------------------------------------------------------------
+.colWrapper {
+
+    padding-right: 0px;
+    padding-left: 0px;
+
+}
+.addFeedBackContainer {
+    background: #ffffff;
+    box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.25);
+    border-radius: 10px;
+
+    padding: 19px 30px;
+    z-index: 9999;
+}
+.feedbackRow {
+    margin-bottom: 6px;
+    margin-left: 0px;
+    margin-right: 0px;
+}
+.feedbackRowInput {
+    margin-bottom: 6px;
+    margin-left: 0px;
+    margin-right: 0px;
+    width: 500px;
+    height: 100px;
+    background: #ebedfa;
+    border: 1px solid #4c68ff;
+    box-sizing: border-box;
+    border-radius: 2px;
+    padding: 5px;
+}
+.feedbackHeader {
+    font-family: $default-font-family;
+    font-style: normal;
+    font-weight: 800;
+    font-size: 16px;
+    line-height: 22px;
+    margin-bottom: 5px;
+    /* identical to box height */
+
+    color: #4c68ff;
+}
+.feedbackSubHeader {
+    z-index: 22;
+    font-family: $default-font-family;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 16px;
+
+    color: #4d68ff;
+    margin-bottom: 5px;
+}
+
+.feedbackDate {
+    display: flex;
+    background: #ebedfa;
+    border: 1px solid #4c68ff;
+    box-sizing: border-box;
+    border-radius: 2px;
+    font-family: $default-font-family;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 10px;
+    line-height: 14px;
+    color: #4d68ff;
+    padding-left: 13px;
+    padding-right: 86px;
+    padding: 8px 2px 8px 13px;
+    margin-right: 40px;
+}
+.feedbackIcon {
+    margin-left: 50px;
+    margin-right: 10px;
+}
+
+.feedbackTextarea {
+    background: #ebedfa;
+    border: none;
+    box-sizing: border-box;
+    border-radius: 2px;
+    outline: none;
+    font-family: $default-font-family;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 16px;
+    text-align: start;
+    color: #9baafc;
+    resize: none;
+
+    &::placeholder {
+        font-family: $default-font-family;
+        font-style: normal;
+        font-weight: 500;
+        font-size: 12px;
+        line-height: 16px;
+        text-align: start;
+        color: #9baafc;
+    }
+}
+.feedbackTextarea:focus {
+    outline: none;
+    border: none;
+    color: #9baafc;
+}
+
+.fbSubmitBtn {
+    background: #4c68ff;
+    border: 1px solid #4c68ff;
+    box-sizing: border-box;
+    border-radius: 5px;
+    padding: 6px 13px;
+    font-family: $default-font-family;
+    font-style: normal;
+    font-weight: 800;
+    font-size: 10px;
+    line-height: 14px;
+    color: #ffffff;
+}
+.popoverMoreContainer {
+    height: fit-content;
+    background: #ffffff;
+    box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.25);
+    border-radius: 5px;
+    display: flex;
+    z-index: 2;
+}
+.addFeedbackPopOver {
+    font-family: $default-font-family;
+    font-style: normal;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 16px;
+    margin: 8px 15px;
+    color: #4c68ff;
+}
+.tableRowStyle{
+    position: relative;
+    width: 1000px;
+    height: 90px;
+    left: 35px;
+    top: 68px;
+    border-radius: 20px;
+    cursor: pointer;
+    background: #FFFFFF;
+}
+.profileImage{
+    width: 83.99px;
+    height: 56px;
+    left: 310px;
+    top: 282px;
+    z-index: 9999;
+}
+.imgStyles{
+    position: relative;
+    height: 56px;
+    border-radius: 40px;
+    bottom: 290px;
+    left: -90px;
+}
+.cardImgStyles{
+    position: relative;
+    height: 56px;
+    border-radius: 40px;
+    bottom: 337px;
+    left: -356px;
+}
+.imgModalStyles{
+    position: relative;
+    height: 56px;
+    border-radius: 40px;
+    bottom: -28px;
+    left: 39px;
+}
+.candidateName{
+    position: relative;
+    left: -15px;
+    top: -334px;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 22px;
+    color: #16246B;
+    white-space: nowrap;
+}
+.cardCandidateName{
+    position: relative;
+    width: 101px;
+    height: 22px;
+    left: -274px;
+    top: -382px;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 22px;
+    color: #16246B;
+    white-space: nowrap;
+}
+.candidateLocation{
+    position: relative;
+    left: -13px;
+    top: -335px;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 12px;
+    line-height: 16px;
+    color: #212E75;
+    z-index: 9999;
+}
+.cardCandidateLocation{
+    position: relative;
+    width: 94px;
+    height: 16px;
+    left: -273px;
+    top: -383px;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 12px;
+    line-height: 16px;
+    color: #212E75;
+}
+.jobHeader{
+    position: relative;
+    height: 25px;
+    left: 435px;
+    top: -49px;
+    font-style: normal;
+    font-weight: 800;
+    font-size: 12px;
+    line-height: 14px;
+    color: #ACB5E4;
+    z-index: 9999;
+}
+.cardJobHeader{
+    position: relative;
+    width: 26px;
+    height: 25px;
+    left: 36px;
+    top: 45px;
+    font-style: normal;
+    font-weight: 800;
+    font-size: 12px;
+    line-height: 14px;
+    color: #ACB5E4;
+}
+.stageHeader{
+    position: relative;
+    height: 25px;
+    left: 575px;
+    top: -89px;
+    font-style: normal;
+    font-weight: 800;
+    font-size: 12px;
+    line-height: 14px;
+    color: #ACB5E4;
+    z-index: 9999;
+}
+.feedbackHeader{
+    position: relative;
+    height: 25px;
+    left: 685px;
+    top: -129px;
+    font-family: Avenir;
+    font-style: normal;
+    font-weight: 800;
+    font-size: 12px;
+    line-height: 14px;
+    color: #ACB5E4;
+    z-index: 9999;
+}
+.cardStageHeader{
+    position: relative;
+    width: 26px;
+    height: 25px;
+    left: 35px;
+    top: 57px;
+    font-style: normal;
+    font-weight: 800;
+    font-size: 12px;
+    line-height: 14px;
+    color: #ACB5E4;
+}
+.feedbackHeader{
+    font-style: normal;
+    font-weight: 800;
+    font-size: 12px;
+    line-height: 14px;
+    color: #ACB5E4;
+    z-index: 9999;
+}
+.contactHeader{
+    position: relative;
+    width: 26px;
+    height: 25px;
+    left: 35px;
+    top: 86px;
+    font-style: normal;
+    font-weight: 800;
+    font-size: 12px;
+    line-height: 14px;
+    color: #ACB5E4;
+    margin-bottom: 15px;
+}
+.cardInterviewersHeader{
+    position: relative;
+    width: 26px;
+    height: 25px;
+    left: 35px;
+    top: 73px;
+    font-style: normal;
+    font-weight: 800;
+    font-size: 12px;
+    line-height: 14px;
+    color: #ACB5E4;
+}
+.jobtitle{
+    position: relative;
+    width: 98px;
+    height: 16px;
+    left: 435px;
+    top: -57px;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 16px;
+    color: #212E75;
+    z-index: 9999;
+}
+.cardJobtitle{
+    position: relative;
+    width: 290px;
+    height: 16px;
+    left: 37px;
+    top: 36px;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 16px;
+    color: #212E75;
+}
+.stageType{
+    position: relative;
+    left: 575px;
+    top: -95px;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 16px;
+    color: #212E75;
+    z-index: 9999;
+    text-transform: capitalize;
+}
+.cardProfileImage{
+    position: relative;
+    width: 83.99px;
+    height: 56px;
+    left: 378px;
+    top: 358px;
+}
+.phoneNumber{
+    position: relative;
+    width: 131px;
+    height: 16px;
+    left: 57px;
+    top: 75px;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 16px;
+    color: #212E75;
+    white-space: nowrap;
+}
+.emailAddress{
+    position: relative;
+    width: 131px;
+    height: 16px;
+    left: 57px;
+    top: 83px;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 16px;
+    color: #212E75;
+    white-space: nowrap;
+}
+.cardStageType{
+    position: relative;
+    width: 68px;
+    height: 16px;
+    left: 34px;
+    top: 54px;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 16px;
+    color: #212E75;
+    text-transform: capitalize;
+}
+.feedbackName{
+    position: relative;
+    width: 131px;
+    height: 16px;
+    left: 718px;
+    top: -136px;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 16px;
+    color: #212E75;
+    white-space: nowrap;
+    z-index: 9999;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+
+.cardInterviewersName{
+    position: relative;
+    width: 131px;
+    height: 16px;
+    left: 34px;
+    top: 67px;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 16px;
+    color: #212E75;
+    white-space: nowrap;
+}
+.messageIconStyles{
+    font-family: inherit;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 40px;
+    line-height: 16px;
+    color: #ffffff;
+    position: relative;
+    top: -2px;
+    left: 8px;
+}
+.candidateInformation{
+    position: fixed;
+    z-index: 9999;
+    width: 375px;
+    right: 212px;
+    top: 290px;
+    background: #FFFFFF;
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.15);
+    border-radius: 20px;
+}
+
+.succesAlertMeg {
+    width: 100%;
+    margin-top: 78px;
+    color: #155724;
+    background-color: #d4edda; 
+}
+.addFeedbackButton{
+    position: relative;
+    width: 150px;
+    height: 35px;
+    left: 31px;
+    top: 92px;
+    background: linear-gradient(94.67deg, #4C68FF -1.19%, #6077F4 53.94%, #8185FF 102.59%);
+    border-radius: 20px;
+    cursor: pointer;
+}
+.addModalFeedbackButton{
+    position: relative;
+    width: 150px;
+    height: 35px;
+    left: 437px;
+    top: 90px;
+    background: linear-gradient(94.67deg, #4C68FF -1.19%, #6077F4 53.94%, #8185FF 102.59%);
+    border-radius: 20px;
+    cursor: pointer;
+}
+
+.updateFeedbackButton{
+    position: relative;
+    width: 150px;
+    height: 35px;
+    left: 31px;
+    top: 92px;
+    background: linear-gradient(94.67deg, #4C68FF -1.19%, #6077F4 53.94%, #8185FF 102.59%);
+    border-radius: 20px;
+    cursor: pointer;
+}
+
+.deleteFeedbackButton{
+    position: relative;
+    width: 83px;
+    height: 25px;
+    left: 254px;
+    top: 66px;
+    background: linear-gradient(94.67deg, #4C68FF -1.19%, #6077F4 53.94%, #8185FF 102.59%);
+    border-radius: 20px;
+    cursor: pointer;
+}
+.addFeedbackText{
+    position: relative;
+    width: 94px;
+    height: 16px;
+    left: 27px;
+    top: 10px;
+    font-style: normal;
+    font-weight: 800;
+    font-size: 13px;
+    line-height: 16px;
+    text-align: center;
+    color: #FFFFFF;
+    white-space: nowrap;
+}
+
+.updateFeedbackText{
+    position: relative;
+    width: 94px;
+    height: 16px;
+    left: 27px;
+    top: 10px;
+    font-style: normal;
+    font-weight: 800;
+    font-size: 13px;
+    line-height: 16px;
+    text-align: center;
+    color: #FFFFFF;
+}
+
+.deleteFeedbackText{
+    position: relative;
+    width: 94px;
+    height: 16px;
+    left: -5px;
+    top: 5px;
+    font-family: Avenir;
+    font-style: normal;
+    font-weight: 800;
+    font-size: 13px;
+    line-height: 16px;
+    text-align: center;
+    color: #FFFFFF;
+}
+.messageIcon{
+    position: relative;
+    width: 40px;
+    height: 35px;
+    left: 196px;
+    top: 32px;
+    background: linear-gradient(94.67deg, #4C68FF -1.19%, #6077F4 53.94%, #8185FF 102.59%);
+    border-radius: 20px;
+    cursor: pointer;
+}
+.groupButtonBox{
+    position: relative;
+    width: 135px;
+    height: 80px;
+    left: 240px;
+    top: -6px;
+    background: #FFFFFF;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+}
+.buttonRescheduleCancel{
+    position: relative;
+    width: 135px;
+    height: 40px;
+    left: 0px;
+    top: 0px;
+    border-radius: 10px;
+}
+.buttonStylesReschedule{
+    position: relative;
+    width: 72px;
+    height: 19px;
+    left: 7px;
+    top: 0px;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 19px;
+    color: #000000;
+}
+.buttonStylesCancel{
+    position: relative;
+    width: 72px;
+    height: 19px;
+    left: -6px;
+    top: 0px;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 19px;
+    color: #000000;
+}
+.feedbackText{
+    position: relative;
+    width: 181px;
+    height: 14px;
+    left: 33px;
+    top: 255px;
+    font-style: normal;
+    font-weight: 800;
+    font-size: 10px;
+    line-height: 14px;
+    color: #ACB5E4;
+}
+.feedbackInputBox{
+    position: relative;
+    width: 881px;
+    height: 150px;
+    left: 103px !important;
+    top: 64px !important;
+    background: #F2F4FF !important;
+    border-radius: 5px;
+    border: white;
+    outline-color: #f2f4fe;
+}
+.noUpcomingInterviews{
+    position: relative;
+    float: left;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 20px;
+    line-height: 27px;
+    color: #3F3E3E;
+    margin-top: 15px;
+    text-align: center;
+}
+.feedbackNotAvaialble{
+  position: relative;
+  text-align: -webkit-center;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 20px;
+  line-height: 27px;
+  color: #3F3E3E;
+  white-space: nowrap;
+}
+.noUpcomingInterviewsBorder{
+    position: relative;
+    width: 100%;
+    height: 0px;
+    left: 0px;
+    top: 85px;
+    border: 1px solid #E4E9FF;
+}
+.cancelModal{
+    position: absolute;
+    width: 700px;
+    height: 175px;
+    left: 278px;
+    top: 287px;
+    background: #FFFFFF;
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.15);
+    border-radius: 20px;
+}
+.noScheduleBtn{
+    position: relative;
+    width: 220px;
+    height: 40px;
+    left: 502px;
+    top: -37px;
+    background: linear-gradient(94.67deg, #4C68FF -1.19%, #6077F4 53.94%, #8185FF 102.59%);
+    border-radius: 20px;
+    color: #fff;
+}
+.yesCancelBtn{
+    position: relative;
+    width: 200px;
+    height: 40px;
+    left: 285px;
+    top: 3px;
+    background: linear-gradient(94.67deg, #4C68FF -1.19%, #6077F4 53.94%, #8185FF 102.59%);
+    border-radius: 20px;
+    color: #fff;
+}
+.areYouSureText{
+    position: relative;
+    width: 494px;
+    height: 33px;
+    left: 306px;
+    top: 3px;
+    font-style: normal;
+    font-weight: 300;
+    font-size: 24px;
+    line-height: 33px;
+    color: #0F1445;
+}
+.phoneIconStyles{
+    height: 13px;
+    position: relative;
+    top: 38px;
+    left: 34px; 
+}
+.emailIconStyles{
+    height: 14px;
+    position: relative;
+    left: 34px;
+}
+.dateWiseData{
+    position: relative;
+    top: 65px;
+    left: 60px;
+}
+.dateBorderRight{
+    position: relative;
+    width: 1372px;
+    height: 0px;
+    left: 237px;
+    top: 52px;
+    border: 1px solid #E4E9FF;
+}
+.dateBorderLeft{
+    position: relative;
+    width: 42px;
+    height: 0px;
+    left: 0px;
+    top: 77px;
+    border: 1px solid #E4E9FF;
+}
+.viewFeedbackButton{
+    position: relative;
+    width: 150px;
+    height: 35px;
+    left: 31px;
+    top: 92px;
+    background: linear-gradient(94.67deg, #4C68FF -1.19%, #6077F4 53.94%, #8185FF 102.59%);
+    border-radius: 20px;
+    cursor: pointer;
+}
+.feedbackModal{
+    left: 673px !important;
+}
+.modalBackDrop {
+    opacity: 0.0 !important;
+}
+.modal-backdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1040;
+    width: 100vw;
+    height: 100vh;
+}
+.modal-backdrop.show {
+    opacity: 0.0;
+}
+.feedBackText{
+    top: 15px;
+    text-align: center;
+    word-break: break-word;
+    padding-bottom: 20px;
+}
+.serialNumber{
+    margin-left: 7px;
+    top: 15px;
+    padding-bottom: 20px;
+}
+.action{
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  right: 22px;
+}
+.actionButton{
+    border-radius: 16px;
+}
+.tableRow {
+    background: #fff;
+    font-size: 12px;
+    line-height: 16px;
+    cursor: pointer;
+    &:hover {
+        background: #ebedfa;
+    }
+    padding: 10px 18px;
+    border-bottom: 1px solid #d0d5f0 !important;
+}
+.feedbackModal{
+    background-color: white;
+    box-shadow: 0px 4px 20px gainsboro;
+    height: 450px;
+    border-radius: 30px;
+    z-index: 0
+}
+.modalFeedbackText{
+    white-space: nowrap;
+    position: relative;
+    width: 181px;
+    height: 14px;
+    left: 33px;
+    top: 50px;
+    font-family: Avenir;
+    font-style: normal;
+    font-weight: 800;
+    font-size: 14px;
+    line-height: 14px;
+    color: #ACB5E4;
+    left: 103px;
+}
+.cancelFeedbackButton{
+    margin-top: -40px;
+    margin-right: 35px;
+    float: right;
+    padding: 2px;
+    background: #4c68ff;
+    color: #ffffff;
+    border-radius: 50%;
+    height: fit-content;
+    width: fit-content;
+    align-self: baseline;
+}
+.feedbackUpdateError{
+    color: red;
+    margin-top: 36px;
+    margin-left: 105px;
+}
+.feedbackSuccessMessage{
+    width: 30%;
+    margin-top: 107px;
+    text-align: center;
+    left: 365px;
+}
+.feedbackAddError{
+    color: red;
+    margin-top: 70px;
+    margin-left: 36px;
+}
+.FeedbackErrorMsg{
+    top: 57px;
+    left: -100px;
+    width: max-content;
+}
+
+@media only screen and (min-device-width : 320px) and (max-device-width : 767px){
+    .noUpcomingInterviews{
+        margin-top: 60px;
+    }
+    .noUpcomingInterviewsBorder{
+        top: 60px;
+    }
+}
+@media only screen and (min-device-width : 768px) and (max-device-width : 1072px){
+    .noUpcomingInterviewsBorder{
+        top: 120px;
+    }
+    .noUpcomingInterviews{
+        margin-top: 60px;
+    }
+}
+@media only screen and (min-device-width : 1073px) and (max-device-width : 1340px){
+    .noUpcomingInterviewsBorder{
+        top: 120px;
+    }
+    .noUpcomingInterviews{
+        margin-top: 60px;
+    }
+}

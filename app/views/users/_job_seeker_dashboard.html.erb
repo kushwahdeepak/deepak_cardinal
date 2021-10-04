@@ -1,0 +1,29 @@
+<!-- erbstart app/views/users/_job_seeker_dashboard.html.erb -->
+<% if session[:alerted] == true %>
+  <%= render :partial => 'layouts/acceptance_modal' %>
+<% end %>
+
+<% if session[:modal] == true %>
+  <div id="my_modal_content"></div>
+<% end %>
+
+<div class="submittal-stage">
+  <% if @candidate_requests.any? %>
+
+    <% @candidate_requests.each do |candidate_request| %>
+
+      <%= render partial: "submittal-employer-2", locals: { user: User.find(candidate_request.user_id) } %>
+
+    <% end %>
+
+  <% else %>
+    <div class="space-10"></div>
+
+    <h3 class="text-center">No Interview Requests At This Time</h3>
+
+  <% end %>
+
+  <div class="space-10"></div>
+
+</div>
+<!-- erbend app/views/users/_job_seeker_dashboard.html.erb -->

@@ -1,0 +1,16 @@
+<!-- erbstart app/views/archive_states/_form.html.erb -->
+<%= simple_form_for(@archive_state, html: {class: 'form-horizontal' }) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.association :person %>
+    <%= f.input :lever_id %>
+    <%= f.input :archived_at %>
+    <%= f.input :reason %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>
+<!-- erbend app/views/archive_states/_form.html.erb -->

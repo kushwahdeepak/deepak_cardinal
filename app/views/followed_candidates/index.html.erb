@@ -1,0 +1,27 @@
+<!-- erbstart app/views/followed_candidates/index.html.erb -->
+<p id="notice"><%= notice %></p>
+
+<h1>Followed Candidates</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @followed_candidates.each do |followed_candidate| %>
+      <tr>
+        <td><%= link_to 'Show', followed_candidate %></td>
+        <td><%= link_to 'Edit', edit_followed_candidate_path(followed_candidate) %></td>
+        <td><%= link_to 'Destroy', followed_candidate, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Followed Candidate', new_followed_candidate_path %>
+<!-- erbend app/views/followed_candidates/index.html.erb -->

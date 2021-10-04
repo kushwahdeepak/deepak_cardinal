@@ -1,0 +1,66 @@
+<!-- erbstart app/views/linkedin_profile_positions/show.html.erb -->
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Linkedin profile:</strong>
+  <%= @linkedin_profile_position.linkedin_profile_id %>
+</p>
+
+<p>
+  <strong>Company name:</strong>
+  <%= @linkedin_profile_position.company_name %>
+</p>
+
+<p>
+  <strong>Is current:</strong>
+  <%= @linkedin_profile_position.is_current %>
+</p>
+
+<p>
+  <strong>Start date:</strong>
+  <%= @linkedin_profile_position.start_date %>
+</p>
+
+<p>
+  <strong>Start date year:</strong>
+  <%= @linkedin_profile_position.start_date_year %>
+</p>
+
+<p>
+  <strong>Start date month:</strong>
+  <%= @linkedin_profile_position.start_date_month %>
+</p>
+
+<p>
+  <strong>End date:</strong>
+  <%= @linkedin_profile_position.end_date %>
+</p>
+
+<p>
+  <strong>End date year:</strong>
+  <%= @linkedin_profile_position.end_date_year %>
+</p>
+
+<p>
+  <strong>End date month:</strong>
+  <%= @linkedin_profile_position.end_date_month %>
+</p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @linkedin_profile_position.title %>
+</p>
+
+<p>
+  <strong>Summary:</strong>
+  <%= @linkedin_profile_position.summary %>
+</p>
+
+<p>
+  <strong>Locality:</strong>
+  <%= @linkedin_profile_position.locality %>
+</p>
+
+<%= link_to 'Edit', edit_linkedin_profile_position_path(@linkedin_profile_position) %> |
+<%= link_to 'Back', linkedin_profile_positions_path %>
+<!-- erbend app/views/linkedin_profile_positions/show.html.erb -->

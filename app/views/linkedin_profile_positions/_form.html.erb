@@ -1,0 +1,70 @@
+<!-- erbstart app/views/linkedin_profile_positions/_form.html.erb -->
+<%= simple_form_for linkedin_profile_position do |f| %>
+
+  <!-- render errors if any -->
+  <% if linkedin_profile_position.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(linkedin_profile_position.errors.count, "error") %> prohibited this linkedin_profile_position from being saved:</h2>
+
+      <ul>
+      <% linkedin_profile_position.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <!-- render a form for the position -->
+    <div class="row" style="width: 100%;">
+        <div class="half left">
+              <%= lpp.input :company_name, label: false, input_html:, id: company_name, name: company_name { class: 'form-control-3 string required left form-margin-2', type: 'text', name: "company_name", id: "company_name", placeholder: 'Type or select company', onfocus: 'this.placeholder = ""', onblur: 'this.placeholder = "Type or select company"'} %>
+        </div>
+
+        <div class="half left">
+              <%= lpp.input :title, label: false, input_html: { class: 'form-control-3 string required right form-margin-2', type: 'text', placeholder: 'Title', onfocus: 'this.placeholder = ""', onblur: "this.placeholder = 'Title'" } %>
+        </div>
+    </div>
+
+    <div class="row" style="width:100%; padding: 31px 0;">
+
+        <div class="half left">
+            <div class="left" style="width: 40%;">
+                <%= lpp.input :start_date_month, label: false, input_html: { class: "form-control-3 string required form-margin-2", type: "text", placeholder: "Start Month", onfocus: "this.placeholder = ''", onblur: "this.placeholder = 'Start Month'" } %>
+            </div>
+
+            <div class="left" style="width: 60%;">
+                <%= lpp.input :start_date_year, label: false, input_html: { class: "form-control-3 string required form-margin-2", type: "text", placeholder: "Year", onfocus: "this.placeholder = ''", onblur: "this.placeholder = 'Year'" } %>
+            </div>
+        </div>
+
+        <div class="half left">
+                <div  class="left" style="width: 40%;">
+                  <%= lpp.input :end_date_month, label: false, input_html: { class: "form-control-3 string required left form-margin-2", type: "text", placeholder: "End Month", onfocus: "this.placeholder = ''", onblur: "this.placeholder = 'End Month'" } %>
+                </div>
+
+                <div class="right" style="width: 60%;">
+                  <%= lpp.input :end_date_year, label: false, input_html: { class: "form-control-3 string required right form-margin-2", type: "text", placeholder: "Year", onfocus: "this.placeholder = ''", onblur: "this.placeholder = 'Year'" } %>
+                </div>
+        </div>
+    </div>
+
+    <div class="row" style=" border-bottom: 3px solid #e9edf1; padding-bottom: 10px;">
+
+        <div class="half left">
+            <div class="left" style="color: #4597db; border-bottom: 1px solid #4597db; line-height: 1;">+
+                  Add another company
+            </div>
+        </div>
+
+        <div class="half left">
+            <div class="row" style="width: 100%;">
+                <div class="right">
+                    <label for="is_current" style="width: 198px;" >
+                      <%= lpp.input :is_current, label: 'I currently work here', label_html: { class: 'checkboxtext', style: 'color:#bcc4ce;'}, input_html: { style: "display:block; width: 5%; float: left; margin-top: 7px;", class: "checkbox", type: "checkbox", name: "is_current" } %>
+                    </label>
+                </div>
+            </div>
+        </div>
+    </div>
+<% end %>
+<!-- erbend app/views/linkedin_profile_positions/_form.html.erb -->

@@ -1,0 +1,51 @@
+@import '../../../../styles/var';
+
+.resumeUploadedModal {
+    background: #ffffff;
+    box-shadow: 0px 4px 25px rgba(0, 0, 0, 0.25);
+    border-radius: 50px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 500px;
+    padding: 36px 0px;
+}
+.modalText {
+    font-family: $default-font-family;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 25px;
+    text-align: center;
+    color: #2b41b8;
+    margin-top: 10px;
+    margin-bottom: 15px;
+}
+.modalSubText {
+    font-family: $default-font-family;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 22px;
+    color: #2539a4;
+    margin-left: 10px;
+}
+.modalButton {
+    background: #dde0f3;
+    border: 1px solid #5263be;
+    box-sizing: border-box;
+    border-radius: 5px;
+    padding: 8px 37px;
+    font-family: $default-font-family;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 19px;
+    color: #253bb0;
+}
+@media only screen and (min-device-width : 320px) and (max-device-width : 767px){
+    .resumeUploadedModal{
+        border-radius: 15px;
+    }
+}

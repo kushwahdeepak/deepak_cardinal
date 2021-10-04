@@ -1,0 +1,71 @@
+<!-- erbstart app/views/application/_admin_navbar.html.erb -->
+
+
+<li style="align-content: center; align-self: flex-start;">
+  <%= link_to new_people_search_path, style: 'text-shadow: 1px 1px 2px rgb(255, 255, 255, 0.1); align-self: flex-end;', alt: 'Just for you' do %>
+    <div class="nav-link" style="float:left;"><span>Search</span></div>
+    <% unless current_user.follow_count == 0 %>
+    <% end %>
+  <% end %>
+</li>
+
+<% if current_user.follow_count != 0 %>
+
+<li style="margin-bottom: -15px; align-content: center; align-self: flex-start;">
+  <%= link_to user_dashboard_path(current_user), style: 'align-self: flex-end;', alt: 'Just for you' do %>
+    <div class="nav-link" style="float:left;"><span>Dashboard</span></div>
+    <% unless current_user.follow_count == 0 %>
+      <span class="badge"><%= current_user.follow_count %></span>
+    <% end %>
+  <% end %>
+</li>
+
+<% else %>
+
+<li style=" align-content: center; align-self: flex-start;">
+  <%= link_to user_dashboard_path(current_user), style: 'align-self: flex-end;', alt: 'Just for you' do %>
+    <div class="nav-link" style="float:left;"><span>Dashboard</span></div>
+    <% unless current_user.follow_count == 0 %>
+      <span class="badge"><%= current_user.follow_count %></span>
+    <% end %>
+  <% end %>
+</li>
+
+<% end %>
+
+<li style="align-content: center; align-self: flex-start;">
+  <%= link_to url_for(edit_user_registration_path(current_user)), style: 'text-shadow: 1px 1px 2px rgb(255, 255, 255, 0.1); align-self: flex-end;', alt: 'Just for you' do %>
+    <div class="nav-link" style="float:left;"><span>Profile</span></div>
+    <% unless current_user.follow_count == 0 %>
+    <% end %>
+  <% end %>
+</li>
+
+<li style="align-content: center; align-self: flex-start;">
+  <%= link_to url_for(user_recruiter_updates_path(current_user)), style: 'text-shadow: 1px 1px 2px rgb(255, 255, 255, 0.1); align-self: flex-end;', alt: 'Just for you' do %>
+    <div class="nav-link" style="float:left;"><span>ATS</span></div>
+    <% unless current_user.follow_count == 0 %>
+    <% end %>
+  <% end %>
+</li>
+
+<li style="align-content: center; align-self: flex-start;">
+  <%= link_to edit_user_registration_path(current_user), style: 'text-shadow: 1px 1px 2px rgb(255, 255, 255, 0.1); align-self: flex-end;', alt: 'Just for you' do %>
+    <div class="nav-link" style="float:left;"><span>Settings</span></div>
+    <% unless current_user.follow_count == 0 %>
+    <% end %>
+  <% end %>
+</li>
+
+<li>
+  <%= link_to 'https://goo.gl/forms/WOj42O3ODUmGpTD63', target: '_blank', style: 'align-self: flex-end;', alt: 'Report a bug' do %>
+    <div class="nav-link" style="float:right; padding-bottom: 10px;"><span>Report a bug</span></div>
+  <% end %>
+</li>
+
+<li style="align-content: center; align-self: flex-start;">
+  <%= link_to destroy_user_session_path, method: :delete do %>
+    <div class="nav-link btn btn-primary" style="float:left;margin-left: 0.5em; padding: 4px; margin-right: 0.5em; color: #fff; background-color: #CC0000; border-color: #CC0000; align-self: center; align-content: center;"><span>Sign Out</span></div>
+  <% end %>
+</li>
+<!-- erbend app/views/application/_admin_navbar.html.erb -->

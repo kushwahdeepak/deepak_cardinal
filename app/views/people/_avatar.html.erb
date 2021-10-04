@@ -1,0 +1,9 @@
+<!-- erbstart app/views/people/_avatar.html.erb -->
+<% link_to avatar, target: :_blank do %>
+    <div class="avatar-circle">
+        <span class="initials">
+            <%= avatar.name[0..1].upcase %>
+        </span>
+    </div>
+<% end %>
+<!-- erbend app/views/people/_avatar.html.erb -->

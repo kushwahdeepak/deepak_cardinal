@@ -1,0 +1,74 @@
+.user-img {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    border-radius: 50%;
+    margin-bottom: 40px;
+}
+.user-img img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+}
+.in-icons i {
+    font-size: 38px;
+}
+.in-icons i,
+.user-name,
+.my-connection h3 {
+    font-family: Avenir, "Lato", sans-serif !important;
+    color: blue;
+}
+.btn-primary {
+    border-radius: 25px;
+    padding: 8px 25px;
+}
+.msg-btn {
+    min-height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.my-connection-details:hover {
+    background-color: #e3e7fe;
+}
+.myConnection{
+    font-size: 22px;
+    color: blue;
+}
+.card-body{
+    box-shadow: 0px 4px 15px rgb(0 0 0 / 10%);
+    border-radius: 20px;
+    .row{
+        border:none
+    }
+}
+.cord-container{
+    width: 100%;
+    margin-bottom: 10px;
+    .card{
+        border:none;
+    }
+}
+@media only screen and (min-device-width: 320px) and (max-device-width: 768px) {
+    .user-img {
+        justify-content: center;
+    }
+    .user-name{
+        text-align: center !important;
+        }
+    .invite-details{
+        margin-top: 10px;
+        text-align: center !important;
+    }    
+    .add-section{
+        text-align: left !important;
+        margin-bottom: 10px;
+    }
+    .msg-btn .btn-primary {
+        margin-right: 0px !important;
+        padding: 5px 15px;
+        font-size: 12px;
+    }
+}

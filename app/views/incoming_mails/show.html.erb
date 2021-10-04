@@ -1,0 +1,22 @@
+
+<h1>plain</h1>
+<p class="html"><%= @incoming_mail.plain&.gsub("\n", "<br>")&.html_safe %>
+
+<h1>parsed mail</h1>
+<pre>
+<%= JSON.pretty_generate(@incoming_mail.parsed_mail) %>
+</pre>
+<h1>resume</h1>
+<% if (@incoming_mail.attachment.attached?) %>
+  <%= link_to('resume', rails_blob_path(@incoming_mail.attachment, disposition: "attachment")) %>
+<% end %>
+<%= @incoming_mail.resume_text&.gsub("\n", "<br>")&.html_safe %>
+
+<h1>email</h1>
+<%= @incoming_mail.candidate_email %>
+
+<h1> person</h1>
+<%= link_to('candidate', "/people/#{@incoming_mail&.submission&.person.id}/edit") if @incoming_mail&.submission&.person.present? %>
+'
+<h1> job </h1>
+<%= link_to('job', @incoming_mail&.submission&.job) if @incoming_mail&.submission&.job.present? %>

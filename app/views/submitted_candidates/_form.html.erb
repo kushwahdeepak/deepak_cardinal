@@ -1,0 +1,17 @@
+<!-- erbstart app/views/submitted_candidates/_form.html.erb -->
+<%= simple_form_for(@submitted_candidate) do |f| %>
+<% person = Person.find(params[:format]) %>
+    <%= f.error_notification message: f.object.errors[:base].to_sentence %>
+
+  <div class="form-inputs">
+    <%= f.association :job %>
+    <%= f.association :user, include_blank: false, input_html: { user: current_user || '' } %>
+    <%= f.association :account %>
+    <%= f.association :person, include_blank: false, input_html: { person: person || '' } %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>
+<!-- erbend app/views/submitted_candidates/_form.html.erb -->

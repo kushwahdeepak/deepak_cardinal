@@ -1,0 +1,11 @@
+<!-- erbstart app/views/group/conversations/_messages.html.erb -->
+<% previous_message = nil %>
+<% @messages.reverse.each do |message| %>
+  <%= render  partial: 'group/messages/message', 
+              locals: { user: message.user, 
+                        conversation_id: @conversation.id,
+                        message: message, 
+                        previous_message: previous_message } %>
+  <% previous_message = message %>
+<% end %>
+<!-- erbend app/views/group/conversations/_messages.html.erb -->

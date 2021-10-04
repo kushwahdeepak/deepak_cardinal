@@ -1,0 +1,10 @@
+<!-- erbstart app/views/organizations/show.html.erb -->
+
+<%= react_component("pages/Admin/OrganizationManagementEditPage", {
+    organization: @organization,
+    contact: @organization.email,
+    members:@members,
+    avatar_url:@avatar_url,
+    jobs:@jobs
+}) %>
+ 

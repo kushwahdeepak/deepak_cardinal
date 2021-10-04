@@ -1,0 +1,35 @@
+<!-- erbstart app/views/archive_states/index.html.erb -->
+<p id="notice"><%= notice %></p>
+
+<h1>Archive States</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Person</th>
+      <th>Lever</th>
+      <th>Archived at</th>
+      <th>Reason</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @archive_states.each do |archive_state| %>
+      <tr>
+        <td><%= archive_state.person %></td>
+        <td><%= archive_state.lever_id %></td>
+        <td><%= archive_state.archived_at %></td>
+        <td><%= archive_state.reason %></td>
+        <td><%= link_to 'Show', archive_state %></td>
+        <td><%= link_to 'Edit', edit_archive_state_path(archive_state) %></td>
+        <td><%= link_to 'Destroy', archive_state, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Archive State', new_archive_state_path %>
+<!-- erbend app/views/archive_states/index.html.erb -->

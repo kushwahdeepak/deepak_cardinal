@@ -1,0 +1,14 @@
+@import '../../../../styles/var';
+
+.filtersPanel {
+    margin-bottom: 2rem;
+    padding: 1rem;
+    flex-shrink: 0;
+    background-color: $default-bg-color;
+    color: #474953;
+    font-family: $default-font-family;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 11px;
+    line-height: 15px;
+}

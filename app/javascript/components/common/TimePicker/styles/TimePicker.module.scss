@@ -1,0 +1,96 @@
+@import '../../../../styles/var.scss';
+
+.timePickerWrapper {
+    width: fit-content;
+}
+.timePickerContainer {
+    display: flex;
+    flex-direction: row;
+    width: fit-content;
+    align-items: center;
+    background: #ebedfa;
+    padding: 1.6px 2px;
+    border: 1px solid #4c68ff;
+    box-sizing: border-box;
+    border-radius: 2px;
+    flex-wrap: wrap;
+}
+.timeInput {
+    background: #ebedfa;
+    border: none;
+    outline: none;
+    padding-left: 2px;
+    font-family: $default-font-family;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 17px;
+    text-align: center;
+    color: #4c68ff;
+    &::placeholder {
+        font-family: $default-font-family;
+        font-style: normal;
+        font-weight: 500;
+        font-size: 17px;
+        line-height: 16px;
+        text-align: center;
+        color: #4c68ff;
+    }
+    &::-webkit-inner-spin-button,
+    &::-webkit-outer-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+    }
+}
+.ampmContainer{
+    font-family: $default-font-family;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    text-align: center;
+    color: #4c68ff;
+    display: flex;
+    align-items: center;
+    margin-right: 3px;
+}
+.ampmButtonContainer {
+    background: #d7dbf3;
+    border-radius: 2px;
+    padding: 1px 4px;
+    margin-left: 10px;
+    display: flex;
+    align-items: center;
+    padding: 2px 2px;
+}
+.apbutton {
+    background: #778cff;
+    border-radius: 2px;
+    width: 28px;
+    height: 18px;
+    font-family: $default-font-family;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 10px;
+    line-height: 14px;
+    text-align: center;
+    color: #ffffff;
+}
+.timeZoneContainer {
+    margin-left: 8px;
+    background: #778cff;
+    border-radius: 2px;
+    font-family: $default-font-family;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 10px;
+    line-height: 14px;
+    text-align: center;
+    color: #ffffff;
+    padding: 1px 10px;
+}
+
+.timeInputContainer {
+    font-family: $default-font-family;
+    display: flex;
+    align-items: center;
+    color: #4c68ff;
+}

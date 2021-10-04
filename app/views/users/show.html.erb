@@ -1,0 +1,20 @@
+<!-- erbstart app/views/users/show.html.erb -->
+
+  <div id="main-content">
+  <% if @user.signuprole == 'talent' %>
+    <%= render "job_seeker_dashboard" %>
+  <% end %>
+
+  <% if @user.signuprole == 'employer' %>
+    <%= render "employer_dashboard" %>
+  <% end %>
+
+  <% if @user.role == 'admin' %>
+    <%= render "admin_dashboard" %>
+  <% end %>
+
+  <% if @user.role == 'member' %>
+    <%= render "member_dashboard" %>
+  <% end %>
+  </div>
+<!-- erbend app/views/users/show.html.erb -->

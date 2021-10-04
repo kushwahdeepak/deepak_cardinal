@@ -1,0 +1,8 @@
+<!-- erbstart app/views/application/_search-results.html.erb -->
+<h1 class="">Search Results</h1>
+<% if @search.blank? %>
+  <%= render 'no-results' %>
+<% else %>
+  <%= render 'show-results' %>
+<% end %>
+<!-- erbend app/views/application/_search-results.html.erb -->
